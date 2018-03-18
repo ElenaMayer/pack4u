@@ -42,28 +42,18 @@ class Image extends \yii\db\ActiveRecord
         return $this->hasOne(Product::className(), ['id' => 'product_id']);
     }
 
-    /**
-     * @return string image hash
-     */
-    protected function getHash()
+    //'origin': $size = '1200x1600'
+    //'medium': $size = '540x960';
+    //'small': $size = '140x249';
+
+    public function getPath($size = 'origin')
     {
-        return md5($this->product_id . '-' . $this->id);
+        return Yii::getAlias('@frontend/web/uploads/product/' . $this->product_id . '_' . $this->id . '_' . $size . '.jpg');
     }
 
-    /**
-     * @return string path to image file
-     */
-    public function getPath()
+    public function getUrl($size = 'origin')
     {
-        return Yii::getAlias('@frontend/web/images/' . $this->getHash() . '.jpg');
-    }
-
-    /**
-     * @return string URL of the image
-     */
-    public function getUrl()
-    {
-        return Yii::getAlias('@frontendWebroot/images/' . $this->getHash() . '.jpg');
+        return Yii::getAlias('@frontendWebroot/uploads/product/' . $this->product_id . '_' . $this->id . '_' . $size . '.jpg');
     }
 
     public function afterDelete()

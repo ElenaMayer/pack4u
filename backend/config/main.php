@@ -33,6 +33,9 @@ return [
 //                'catalog/<id:\d+>' => 'catalog/list',
             ],
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+        ],
     ],
     'params' => $params,
 ];

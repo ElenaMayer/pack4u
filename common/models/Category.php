@@ -12,6 +12,8 @@ use yii\behaviors\SluggableBehavior;
  * @property integer $parent_id
  * @property string $title
  * @property string $slug
+ * @property integer $is_active
+ * @property string $time
  *
  * @property Category $parent
  * @property Category[] $categories
@@ -29,7 +31,6 @@ class Category extends \yii\db\ActiveRecord
             ],
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -44,9 +45,10 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parent_id'], 'default', 'value' => null],
-            [['parent_id'], 'integer'],
-            [['title'], 'string', 'max' => 255],
+            [['parent_id', 'is_active'], 'integer'],
+            [['time'], 'safe'],
+            [['title', 'slug'], 'string', 'max' => 255],
+            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['parent_id' => 'id']],
         ];
     }
 
@@ -57,9 +59,11 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'parent_id' => 'Parent',
-            'title' => 'Title',
+            'parent_id' => 'Родительский ID',
+            'title' => 'Название',
             'slug' => 'Slug',
+            'is_active' => 'Показать',
+            'time' => 'Дата создания',
         ];
     }
 

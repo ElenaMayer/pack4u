@@ -12,14 +12,18 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "omnilight/yii2-shopping-cart": "~1.0",
-        "dektrium/yii2-user": "^0.9.12"
+        "dektrium/yii2-user": "^0.9.12",
+        "yiisoft/yii2-imagine": "^2.1",
+        "kartik-v/yii2-widget-select2": "@dev",
+        "amilna/yii2-elevatezoom": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

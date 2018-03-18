@@ -8,7 +8,7 @@ use yii\helpers\Url;
 /* @var $searchModel backend\models\ProductSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Products';
+$this->title = 'Товары';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-index">
@@ -17,15 +17,19 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить товар', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
+            [
+                'format' => 'image',
+                'value'=>function($model) { return isset($model->images[0])?$model->images[0]->getUrl('small'):''; }
+            ],
+            'article',
             'title',
-            'description:ntext',
             [
                 'attribute' => 'category_id',
                 'value' => function ($model) {
@@ -33,10 +37,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             'price',
-
+            'new_price',
+            'size',
+            'is_active',
+            'is_in_stock',
+            'is_novelty',
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update} {images} {delete}',
+                'template' => '{view} {update} {delete}',
                 'buttons' => [
                     'images' => function ($url, $model, $key) {
                          return Html::a('<span class="glyphicon glyphicon glyphicon-picture" aria-label="Image"></span>', Url::to(['image/index', 'id' => $model->id]));

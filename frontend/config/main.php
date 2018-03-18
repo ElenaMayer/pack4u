@@ -32,8 +32,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'catalog/<id:\d+>' => 'catalog/list',
-                'catalog/<categoryId:\d+>/<productId:\d+>' => 'catalog/product',
+                'catalog' => 'catalog/list',
+                'catalog/<categorySlug:\w+>' => 'catalog/list',
+                'catalog/<categorySlug:\w+>/<productId:\d+>' => 'catalog/product',
 //                'tag/<tag:.+>' => 'site/tag/',
             ],
         ],

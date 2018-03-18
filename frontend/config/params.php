@@ -1,4 +1,9 @@
 <?php
+//Yii::$app->params['domain'];
 return [
-    'adminEmail' => 'admin@example.com',
+    'companyName' => 'Красивая упаковка',
+    'catalogPageSize' => 12,
+//    'indexPageProductCount' => 7,
+//    'indexPageNoveltyCount' => 10,
+//    'productPageRelatedCount' => 10,
 ];

@@ -6,6 +6,7 @@ use common\models\Category;
 use common\models\Product;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
+use Yii;
 
 class CatalogController extends \yii\web\Controller
 {
@@ -19,31 +20,69 @@ class CatalogController extends \yii\web\Controller
         }
     }
 
-    public function actionList($id = null)
+    public function actionList($categorySlug = null)
     {
         /** @var Category $category */
         $category = null;
 
-        $categories = Category::find()->indexBy('id')->orderBy('id')->all();
+        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
 
-        $productsQuery = Product::find();
-        if ($id !== null && isset($categories[$id])) {
-            $category = $categories[$id];
-            $productsQuery->where(['category_id' => $this->getCategoryIds($categories, $id)]);
+        $productsQuery = Product::find()->where(['is_active' => 1]);
+
+        $get = Yii::$app->request->get();
+        $this->prepareFilter($productsQuery);
+
+        if ($categorySlug !== null) {
+            $category = Category::find()->where(['slug' => $categorySlug])->one();
         }
-
+        if ($category) {
+            $productsQuery->andWhere(['category_id' => $this->getCategoryIds($categories, $category->id)]);
+        }
+//        elseif($categorySlug == 'novelty'){
+//            $productsQuery->andWhere(['is_novelty' => 1]);
+//        }
         $productsDataProvider = new ActiveDataProvider([
             'query' => $productsQuery,
             'pagination' => [
-                'pageSize' => 10,
+                'pageSize' => isset($get['limit'])? $get['limit']: Yii::$app->params['catalogPageSize'],
             ],
         ]);
-
         return $this->render('list', [
-            'category' => $category,
+            'category' => isset($category)? $category : null,
             'menuItems' => $this->getMenuItems($categories, isset($category->id) ? $category->id : null),
-            'productsDataProvider' => $productsDataProvider,
+//            'menuItems' => $this->getMenuItems($categories, isset($category->id) ? $category->id : 'novelty'),
+            'models' => $productsDataProvider->getModels(),
+            'pagination' => $productsDataProvider->getPagination(),
+            'pageCount' => $productsDataProvider->getCount(),
         ]);
+    }
+
+    private function prepareFilter(&$query){
+//        if($get = Yii::$app->request->get()){
+//            if(isset($get['color']) && $get['color'] != 'all'){
+//                $query->andFilterWhere(['like', 'color', $get['color']]);
+//            }
+//            if(isset($get['size']) && $get['size'] != 'all'){
+//                $query->andFilterWhere(['like', 'sizes', $get['size']]);
+//            }
+//            if(isset($get['price']) && $get['price'] != 'all'){
+//                $priceArr = explode(',', $get['price']);
+//                $query->andWhere(['between', 'price', $priceArr[0], $priceArr[1]]);
+//            }
+//            if(isset($get['order'])){
+//                if($get['order'] == 'popular') {
+//                    $query->orderBy('sort DESC, id DESC');
+//                } elseif ($get['order'] == 'novelty') {
+//                    $query->orderBy('is_novelty');
+//                } elseif ($get['order'] == 'price'){
+//                    $query->orderBy('price DESC');
+//                }
+//            } else {
+//                $query->orderBy('sort DESC');
+//            }
+//        } else {
+//            $query->orderBy('sort DESC');
+//        }
     }
 
     public function actionProduct($categoryId, $productId)
