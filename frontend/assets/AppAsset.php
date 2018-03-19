@@ -30,9 +30,10 @@ class AppAsset extends AssetBundle
         '//fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic',
         '//fonts.googleapis.com/css?family=Anonymous+Pro:',
         "//fonts.googleapis.com/css?family=Roboto:700",
-        'css/style.css?5',
-        'css/custom.css',
+        'css/style.css?7',
+        'css/custom.css?1',
         'css/magnific-popup.css',
+        'css/prettyPhoto.css',
     ];
     public $js = [
         'js/jquery.min.js',
@@ -41,7 +42,7 @@ class AppAsset extends AssetBundle
         'js/modernizr-2.7.1.min.js',
         'js/off-cavnass.js',
         'js/script.js',
-        'js/custom.js?1',
+        'js/custom.js?2',
         'js/imagesloaded.pkgd.min.js',
         'js/isotope.pkgd.min.js',
         'js/portfolio.js',
@@ -51,6 +52,8 @@ class AppAsset extends AssetBundle
         'js/owl.carousel.min.js',
         'js/jquery.magnific-popup.js',
         'js/modernizr.custom.js',
+        'js/jquery.prettyPhoto.js?1',
+        'js/jquery.prettyPhoto.init.min.js',
         'js/draggabilly.pkgd.min.js',
         'js/elastiStack.js',
         'js/core.min.js',
@@ -59,6 +62,8 @@ class AppAsset extends AssetBundle
         'js/slider.min.js',
         'js/jquery.ui.touch-punch.js',
         'js/price-slider.js',
+        'js/instafeed.min.js',
+        'js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

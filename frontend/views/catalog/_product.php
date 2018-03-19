@@ -14,7 +14,6 @@ use yii\helpers\Markdown;
                     echo Html::img($images[0]->getUrl(), ['width' => '600', 'height' => '760', 'alt' => $model->title]);
                 }
                 ?>
-                <img width="600" height="760" src="images/product/product_260x330.jpg" alt="" />
             </a>
         </div>
         <div class="noo-product-title">

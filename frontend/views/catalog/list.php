@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\widgets\Menu;
 use common\models\StaticFunction;
 use yii\widgets\LinkPager;
+use \common\models\Product;
 
 /* @var $this yii\web\View */
 $title = $category === null ? 'Каталог' : $category->title;
@@ -27,8 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <form class="commerce-ordering">
                         <select name="orderby" class="orderby" id="p_sort_by" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                             <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'popular') ?>" <?php if(!Yii::$app->request->get('order') || Yii::$app->request->get('order') == 'popular'):?>selected="selected"<?php endif;?>>По популярности</option>
+                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'price_lh') ?>" <?php if(Yii::$app->request->get('order') && Yii::$app->request->get('order') == 'price_lh'):?>selected="selected"<?php endif;?>>По возрастанию цены</option>
+                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'price_hl') ?>" <?php if(Yii::$app->request->get('order') && Yii::$app->request->get('order') == 'price_hl'):?>selected="selected"<?php endif;?>>По убыванию цены</option>
                             <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'novelty') ?>" <?php if(Yii::$app->request->get('order') && Yii::$app->request->get('order') == 'novelty'):?>selected="selected"<?php endif;?>>По новинкам</option>
-                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'price') ?>" <?php if(Yii::$app->request->get('order') && Yii::$app->request->get('order') == 'price'):?>selected="selected"<?php endif;?>>По возрастанию цены</option>
                         </select>
                     </form>
                 </div>
@@ -81,61 +83,28 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="widget commerce widget_product_tag_cloud">
                         <h3 class="widget-title">Тэги</h3>
                         <div class="tagcloud">
-                            <a href="#">apple</a>
-                            <a href="#">bread</a>
-                            <a href="#">broccoli</a>
-                            <a href="#">brown bread</a>
-                            <a href="#">carrot</a>
-                            <a href="#">celery</a>
-                            <a href="#">cookie</a>
-                            <a href="#">cucumbers</a>
-                            <a href="#">detox juicing</a>
-                            <a href="#">french bread</a>
-                            <a href="#">fruits</a>
-                            <a href="#">green apple</a>
-                            <a href="#">lemon</a>
-                            <a href="#">lime</a>
-                            <a href="#">mango</a>
+                            <?php foreach (Product::getTagsArray() as $key => $tag):?>
+                                <a href="/tag/<?= $tag ?>"><?= $tag ?></a>
+                            <?php endforeach;?>
                         </div>
                     </div>
                     <div class="widget commerce widget_products">
                         <h3 class="widget-title">Популярное</h3>
                         <ul class="product_list_widget">
-                            <li>
-                                <a href="shop-detail.html">
-                                    <img width="100" height="100" src="images/product/product_100x100.jpg" alt="" />
-                                    <span class="product-title">French Bread</span>
-                                </a>
-                                <span class="amount">&#36;10.00</span>
-                            </li>
-                            <li>
-                                <a href="shop-detail.html">
-                                    <img width="100" height="100" src="images/product/product_100x100.jpg" alt="" />
-                                    <span class="product-title">Cookie</span>
-                                </a>
-                                <span class="amount">&#36;15.00</span>
-                            </li>
-                            <li>
-                                <a href="shop-detail.html">
-                                    <img width="100" height="100" src="images/product/product_100x100.jpg" alt="" />
-                                    <span class="product-title">Brown Bread</span>
-                                </a>
-                                <span class="amount">&#36;12.00</span>
-                            </li>
-                            <li>
-                                <a href="shop-detail.html">
-                                    <img width="100" height="100" src="images/product/product_100x100.jpg" alt="" />
-                                    <span class="product-title">Apples</span>
-                                </a>
-                                <span class="amount">&#36;3.95</span>
-                            </li>
-                            <li>
-                                <a href="shop-detail.html">
-                                    <img width="100" height="100" src="images/product/product_100x100.jpg" alt="" />
-                                    <span class="product-title">Pomegranates</span>
-                                </a>
-                                <span class="amount">&#36;3.90</span>
-                            </li>
+                            <?php foreach (array_values($relatedProducts) as $model) :?>
+                                <li>
+                                    <a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>">
+                                        <?php
+                                        $images = $model->images;
+                                        if (isset($images[0])) {
+                                            echo Html::img($images[0]->getUrl(), ['width' => '100', 'height' => '100', 'alt' => $model->title]);
+                                        }
+                                        ?>
+                                        <span class="product-title"><?= $model->title ?></span>
+                                    </a>
+                                    <span class="amount"><?= (int)$model->price ?>₽</span>
+                                </li>
+                            <?php endforeach;?>
                         </ul>
                     </div>
                 </div>

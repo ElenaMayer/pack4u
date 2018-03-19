@@ -17,6 +17,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <?= Html::csrfMetaTags() ?>
+    <?php Yii::$app->view->registerMetaTag(['name' => 'description','content' => Yii::$app->params['companySlogan']]); ?>
     <title><?= Html::encode($this->title) ?></title>
 <!--    --><?php //$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/img/favicon-16x16.png', 'sizes' => '16x16']); ?>
 <!--    --><?php //$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/img/favicon-32x32.png', 'sizes' => '32x32']); ?>
@@ -106,7 +107,7 @@ AppAsset::register($this);
                                     </div>
                                 </div>
                                 <a href="/" class="navbar-brand">
-                                    <img class="noo-logo-img noo-logo-normal" src="images/logo.png" alt="<?= Yii::$app->params['title'] ?>">
+                                    <img class="noo-logo-img noo-logo-normal" src="/images/logo.png" alt="<?= Yii::$app->params['title'] ?>">
                                 </a>
                             </div>
 
@@ -169,11 +170,9 @@ AppAsset::register($this);
                         <div class="widget widget_about">
                             <div class="noo_about_widget">
                                 <a href="#">
-                                    <img src="images/logo.png" alt="" />
+                                    <img src="/images/logo.png" alt="<?= Yii::$app->params['title'] ?>" />
                                 </a>
-                                <p>
-                                    Ваши изделия достойны быть красиво упаковано!
-                                </p>
+                                <p><?= Yii::$app->params['companySlogan'] ?></p>
                             </div>
                         </div>
                         <div class="widget widget_noo_social">
@@ -217,7 +216,7 @@ AppAsset::register($this);
                     <div class="col-md-3 col-sm-6 item-footer-four">
                         <div class="widget widget_flickr">
                             <h4 class="widget-title">Мы в Instagram</h4>
-                            <div class='flickr-badge-wrapper'></div>
+                            <div id='instafeed'></div>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 item-footer-four">

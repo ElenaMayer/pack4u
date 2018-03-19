@@ -16238,6 +16238,16 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     border: 1px solid #f4eede;
 }
 
+.single-product div.product .images .product-simple-image {
+    display: inline-block;
+    width: 33%;
+}
+
+.single-product div.product .images .product-simple-image.active {
+    display: block;
+    width: 100%;
+}
+
 .single-product div.product .images .project-slider .sync1 {
     border: 1px solid #f4eede;
     margin-right: 5px;
@@ -16511,6 +16521,7 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 .single-product div.product .product_meta .posted_in a,
 .single-product div.product .product_meta .tagged_as a {
     text-transform: none;
+    margin-right: 10px;
 }
 
 .single-product div.product .product_meta .posted_in a:first-child,

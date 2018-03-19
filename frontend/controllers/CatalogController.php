@@ -47,53 +47,73 @@ class CatalogController extends \yii\web\Controller
                 'pageSize' => isset($get['limit'])? $get['limit']: Yii::$app->params['catalogPageSize'],
             ],
         ]);
+        $relatedProducts = Product::find()
+            ->where(['is_active' => 1, 'is_in_stock' => 1])
+            ->limit(Yii::$app->params['productPageRelatedCount'])
+            ->all();
         return $this->render('list', [
             'category' => isset($category)? $category : null,
             'menuItems' => $this->getMenuItems($categories, isset($category->id) ? $category->id : null),
-//            'menuItems' => $this->getMenuItems($categories, isset($category->id) ? $category->id : 'novelty'),
             'models' => $productsDataProvider->getModels(),
             'pagination' => $productsDataProvider->getPagination(),
             'pageCount' => $productsDataProvider->getCount(),
+            'relatedProducts' => $relatedProducts,
         ]);
     }
 
     private function prepareFilter(&$query){
-//        if($get = Yii::$app->request->get()){
-//            if(isset($get['color']) && $get['color'] != 'all'){
-//                $query->andFilterWhere(['like', 'color', $get['color']]);
-//            }
-//            if(isset($get['size']) && $get['size'] != 'all'){
-//                $query->andFilterWhere(['like', 'sizes', $get['size']]);
-//            }
-//            if(isset($get['price']) && $get['price'] != 'all'){
-//                $priceArr = explode(',', $get['price']);
-//                $query->andWhere(['between', 'price', $priceArr[0], $priceArr[1]]);
-//            }
-//            if(isset($get['order'])){
-//                if($get['order'] == 'popular') {
-//                    $query->orderBy('sort DESC, id DESC');
-//                } elseif ($get['order'] == 'novelty') {
-//                    $query->orderBy('is_novelty');
-//                } elseif ($get['order'] == 'price'){
-//                    $query->orderBy('price DESC');
-//                }
-//            } else {
-//                $query->orderBy('sort DESC');
-//            }
-//        } else {
-//            $query->orderBy('sort DESC');
-//        }
+        if($get = Yii::$app->request->get()){
+            if(isset($get['color']) && $get['color'] != 'all'){
+                $query->andFilterWhere(['like', 'color', $get['color']]);
+            }
+            if(isset($get['tags']) && $get['tags'] != 'all'){
+                $query->andFilterWhere(['like', 'tags', $get['tag']]);
+            }
+            if(isset($get['price']) && $get['price'] != 'all'){
+                $priceArr = explode(',', $get['price']);
+                $query->andWhere(['between', 'price', $priceArr[0], $priceArr[1]]);
+            }
+            if(isset($get['order'])){
+                if($get['order'] == 'popular') {
+                    $query->orderBy('sort DESC, id DESC');
+                } elseif ($get['order'] == 'novelty') {
+                    $query->orderBy('is_novelty');
+                } elseif ($get['order'] == 'price'){
+                    $query->orderBy('price_lh DESC');
+                } elseif ($get['order'] == 'price'){
+                    $query->orderBy('price_hl ASC');
+                }
+            } else {
+                $query->orderBy('time DESC');
+            }
+        } else {
+            $query->orderBy('time DESC');
+        }
     }
 
-    public function actionProduct($categoryId, $productId)
+    public function actionProduct($categorySlug, $productId)
     {
-        $category = Category::find()->where(['id' => $categoryId])->one();
         $product = Product::find()->where(['id' => $productId])->one();
 
-        return $this->render('product', [
-            'category' => $category,
-            'product' => $product,
-        ]);
+        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
+
+        if($product->is_active){
+            $category = Category::find()->where(['slug' => $categorySlug])->one();
+            $relatedProducts = Product::find()
+                ->where('id != :id', ['id'=>$productId])
+                ->andWhere(['is_active' => 1, 'is_in_stock' => 1])
+                ->limit(Yii::$app->params['productPageRelatedCount'])
+                ->all();
+            return $this->render('product', [
+                'category' => $category,
+                'product' => $product,
+                'relatedProducts' => $relatedProducts,
+                'menuItems' => $this->getMenuItems($categories, isset($category->id) ? $category->id : null),
+//                'images' => $imagesForZoom,
+            ]);
+        } else {
+            return $this->redirect('/catalog/list');
+        }
     }
 
     public function actionView()

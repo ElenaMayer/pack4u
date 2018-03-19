@@ -180,19 +180,33 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         return $colors;
     }
 
-    public function getTagsArray()
+    public static function getTagsArray()
     {
-        $models = $this->find()->all();
+        $models = Product::find()->all();
         $tags = [];
         foreach ($models as $m)
         {
             $ts = explode(",",$m->tags);
             foreach ($ts as $t)
             {
-                if (!in_array($t,$tags))
+                if ($t && !in_array($t,$tags))
                 {
                     $tags[$t] = $t;
                 }
+            }
+        }
+        return $tags;
+    }
+
+    public function getCurrentTagsArray()
+    {
+        $tags = [];
+        $ts = explode(",", $this->tags);
+        foreach ($ts as $t)
+        {
+            if (!in_array($t,$tags))
+            {
+                $tags[$t] = $t;
             }
         }
         return $tags;

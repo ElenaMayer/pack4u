@@ -4,6 +4,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
+use \common\models\Product;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Product */
@@ -53,7 +54,7 @@ use kartik\select2\Select2;
             'multiple' => true,
             'placeholder' => Yii::t('app','Выберите тэги ...'),
         ],
-        'data'=>$model->getTagsArray(),
+        'data'=>Product::getTagsArray(),
         'pluginOptions' => [
             'tags' => true,
             'tokenSeparators'=>[',',' '],
