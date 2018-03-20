@@ -132,18 +132,8 @@ AppAsset::register($this);
                     </div>
                 </div>
             </div>
-            <div class="search-header5">
-                <div class="remove-form"></div>
-                <div class="container">
-                    <form class="form-horizontal">
-                        <label class="note-search">Type and Press Enter to Search</label>
-                        <input type="search" name="s" class="form-control" value="" placeholder="Search...">
-                        <input type="submit" value="Search">
-                    </form>
-                </div>
-            </div>
         </header>
-        <?php if(!($this->context->action->id == 'index')):?>
+        <?php if($this->context->action->id != 'index'):?>
         <section class="noo-page-heading eff heading-2">
             <div class="container">
                 <div class="noo-heading-content">

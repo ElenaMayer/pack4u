@@ -30,7 +30,7 @@ class AppAsset extends AssetBundle
         '//fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic',
         '//fonts.googleapis.com/css?family=Anonymous+Pro:',
         "//fonts.googleapis.com/css?family=Roboto:700",
-        'css/style.css?7',
+        'css/style.css?8',
         'css/custom.css?1',
         'css/magnific-popup.css',
 
