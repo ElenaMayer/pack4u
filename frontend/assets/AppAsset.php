@@ -33,7 +33,12 @@ class AppAsset extends AssetBundle
         'css/style.css?7',
         'css/custom.css?1',
         'css/magnific-popup.css',
+
+        // product
         'css/prettyPhoto.css',
+
+        //index
+        'css/settings.css'
     ];
     public $js = [
         'js/jquery.min.js',
@@ -42,7 +47,7 @@ class AppAsset extends AssetBundle
         'js/modernizr-2.7.1.min.js',
         'js/off-cavnass.js',
         'js/script.js',
-        'js/custom.js?2',
+        'js/custom.js?3',
         'js/imagesloaded.pkgd.min.js',
         'js/isotope.pkgd.min.js',
         'js/portfolio.js',
@@ -63,7 +68,21 @@ class AppAsset extends AssetBundle
         'js/jquery.ui.touch-punch.js',
         'js/price-slider.js',
         'js/instafeed.min.js',
-        'js'
+
+
+        //index
+        'js/jquery.plugin.min.js',
+        'js/jquery.countdown.min.js',
+        'js/jquery.themepunch.tools.min.js',
+        'js/jquery.themepunch.revolution.min.js',
+        'js/extensions/revolution.extension.video.min.js',
+        'js/extensions/revolution.extension.slideanims.min.js',
+        'js/extensions/revolution.extension.actions.min.js',
+        'js/extensions/revolution.extension.layeranimation.min.js',
+        'js/extensions/revolution.extension.kenburn.min.js',
+        'js/extensions/revolution.extension.navigation.min.js',
+        'js/extensions/revolution.extension.migration.min.js',
+        'js/extensions/revolution.extension.parallax.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

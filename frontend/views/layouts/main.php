@@ -143,7 +143,7 @@ AppAsset::register($this);
                 </div>
             </div>
         </header>
-
+        <?php if(!($this->context->action->id == 'index')):?>
         <section class="noo-page-heading eff heading-2">
             <div class="container">
                 <div class="noo-heading-content">
@@ -158,7 +158,7 @@ AppAsset::register($this);
                 </div>
             </div>
         </section>
-
+        <?php endif;?>
         <div class="main">
             <?= Alert::widget() ?>
             <?= $content ?>

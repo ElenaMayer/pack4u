@@ -6,6 +6,8 @@ use frontend\models\ContactForm;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use common\models\Product;
+use common\models\Category;
 
 /**
  * Site controller
@@ -61,7 +63,16 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
+        $relatedProducts = Product::find()
+            ->andWhere(['is_active' => 1, 'is_in_stock' => 1])
+            ->limit(Yii::$app->params['productPageRelatedCount'])
+            ->all();
+        return $this->render('index', [
+            'relatedProducts' => $relatedProducts,
+            'categories' => $categories
+        ]);
     }
 
     public function actionContact()

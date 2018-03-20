@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?php if($product->size):?>
                                     <span class="tagged_as">Тэги:
                                         <?php foreach ($product->getCurrentTagsArray() as $key => $tag):?>
-                                            <a href="/tag/<?= $tag ?>"><?= $tag ?></a>
+                                            <a href="catalog?tag=<?= $tag ?>"><?= $tag ?></a>
                                         <?php endforeach;?>
                                     </span>
                                 <?php endif;?>
@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h2>Популярное</h2>
                         <div class="products row product-grid">
                             <?php foreach (array_values($relatedProducts) as $index => $model) :?>
-                                <?= $this->render('_product', ['model'=>$model, 'category' => $category]); ?>
+                                <?= $this->render('_product', ['model'=>$model]); ?>
                             <?php endforeach;?>
                         </div>
                     </div>

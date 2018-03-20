@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="products row product-grid">
                     <?php foreach (array_values($models) as $index => $model) :?>
-                        <?= $this->render('_product', ['model'=>$model, 'category' => $category]); ?>
+                        <?= $this->render('_product', ['model'=>$model]); ?>
                     <?php endforeach;?>
                 </div>
                 <?php echo LinkPager::widget([

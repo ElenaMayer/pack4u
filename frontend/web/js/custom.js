@@ -482,7 +482,7 @@ function revSlider_3(){
 			onHoverStop:"off",
 			arrows: {
 				style:"zeus",
-				enable:true,
+				enable:false,
 				hide_onmobile:false,
 				hide_onleave:false,
 				tmp:'<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div> </div>',

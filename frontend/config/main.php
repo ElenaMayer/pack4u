@@ -11,7 +11,6 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
-    'defaultRoute' => 'catalog/list',
     'components' => [
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
