@@ -122,7 +122,7 @@ AppAsset::register($this);
                                             <?php endforeach;?>
                                         </ul>
                                     </li>
-                                    <li><a href="/site/contact">Контакты</a></li>
+                                    <li><a href="/contact">Контакты</a></li>
                                     <li><a href="#">Доставка</a></li>
                                     <li><a href="#">Оплата</a></li>
                                     <li><a href="/site/about">О нас</a></li>

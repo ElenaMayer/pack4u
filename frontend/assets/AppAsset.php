@@ -30,7 +30,7 @@ class AppAsset extends AssetBundle
         '//fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic',
         '//fonts.googleapis.com/css?family=Anonymous+Pro:',
         "//fonts.googleapis.com/css?family=Roboto:700",
-        'css/style.css?8',
+        'css/style.css?12',
         'css/custom.css?1',
         'css/magnific-popup.css',
 
@@ -82,7 +82,12 @@ class AppAsset extends AssetBundle
         'js/extensions/revolution.extension.kenburn.min.js',
         'js/extensions/revolution.extension.navigation.min.js',
         'js/extensions/revolution.extension.migration.min.js',
-        'js/extensions/revolution.extension.parallax.min.js'
+        'js/extensions/revolution.extension.parallax.min.js',
+
+        //contact
+
+        'http://maps.googleapis.com/maps/api/js?key=AIzaSyAEJgte17bKvMyyWXo1JcWbzsl9Qy-3-uo',
+		'js/google-map-custom.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

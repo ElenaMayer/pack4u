@@ -53,11 +53,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </span>
                                 <?php endif;?>
                             </div>
-                            <form class="cart">
+                            <form class="cart" action="/cart/add" method="get">
                                 <div class="quantity">
                                     <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
+                                    <input type="hidden" name="id" value="<?= $product->id ?>"/>
                                 </div>
-                                <?= Html::a('Add to cart', ['cart/add', 'id' => $product->id], ['class' => 'single_add_to_cart_button button'])?>
+                                <?= Html::button('В карзину', ['type' => 'submit', 'class' => 'single_add_to_cart_button button'])?>
+                            </form>
                             <div class="yith-wcwl-add-to-wishlist">
                                 <div class="yith-wcwl-add-button">
                                     <a href="#" class="add_to_wishlist"></a>

@@ -11562,11 +11562,13 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     padding: 6px 15px;
 }
 
-.form h3 {
+.form h3,
+.contact-form h3 {
     margin: 0 0 24px;
 }
 
-.form p {
+.form p,
+.contact-form .hint {
     margin-bottom: 40px;
 }
 
@@ -11588,7 +11590,8 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     padding-top: 8px;
 }
 
-.form [type="submit"] {
+.form [type="submit"],
+.contact-form [type="submit"] {
     display: inline-block;
     border: none;
     padding: 0 40px;
@@ -14999,7 +15002,8 @@ p.demo_store a {
 
 .commerce form .form-row input.input-text,
 .commerce form .form-row textarea,
-.form-group input {
+.form-group input,
+.form-group textarea {
     box-sizing: border-box;
     width: 100%;
     margin: 0;
@@ -15012,7 +15016,8 @@ p.demo_store a {
     border-radius: 0;
 }
 
-.form-group input.form-control:focus {
+.form-group input.form-control:focus,
+.form-group textarea.form-control:focus {
     border-color: #f4eede;
     box-shadow: none;
 }
@@ -16907,11 +16912,16 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     border: 1px solid #f4eede;
 }
 
+.commerce-cart table.cart td .quantity .qty:focus {
+    outline: none;
+}
+
 .commerce-cart table.cart .actions .coupon {
     display: none;
 }
 
-.commerce-cart table.cart .actions .continue {
+.commerce-cart table .continue,
+.commerce-cart .cart-collaterals .continue {
     text-transform: uppercase;
     display: inline-block;
     background-color: #f4eede;
@@ -16920,6 +16930,10 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     -webkit-transition: all 0.4s ease 0s;
     -o-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
+}
+
+.commerce-cart .cart-collaterals .continue {
+    margin-top: 70px;
 }
 
 .commerce-cart table.cart .actions .continue:hover {

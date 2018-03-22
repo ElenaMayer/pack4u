@@ -5,15 +5,15 @@ namespace frontend\controllers;
 use common\models\Order;
 use common\models\OrderItem;
 use common\models\Product;
-use yz\shoppingcart\ShoppingCart;
+use frontend\models\MyShoppingCart;
 
 class CartController extends \yii\web\Controller
 {
-    public function actionAdd($id)
+    public function actionAdd($id, $quantity)
     {
         $product = Product::findOne($id);
         if ($product) {
-            \Yii::$app->cart->put($product);
+            \Yii::$app->cart->put($product, $quantity?$quantity:1);
             return $this->goBack();
         }
     }

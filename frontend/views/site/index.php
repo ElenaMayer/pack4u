@@ -136,7 +136,7 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-splitout="none"
                      data-responsive_offset="on"
                      data-responsive="off"
-                     data-actions='[{"event":"click","action":"simplelink","target":"_self","url":"#"}]'>Каталог
+                     data-actions='[{"event":"click","action":"simplelink","target":"_self","url":"/catalog"}]'>Каталог
                 </div>
             </li>
         </ul>
