@@ -57,23 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="cart-collaterals">
                     <a class="continue" href="/catalog">Продолжить покупки</a>
                     <div class="cart_totals">
-                        <h2>Итого</h2>
-                        <table>
-                            <tr class="cart-subtotal">
-                                <th>Подитог</th>
-                                <td><span class="amount"><?= $total ?>₽</span></td>
-                            </tr>
-                            <tr class="shipping">
-                                <th>Доставка</th>
-                                <td>
-                                    <p>Shipping costs will be calculated once you have provided your address.</p>
-                                </td>
-                            </tr>
-                            <tr class="order-total">
-                                <th>Итого</th>
-                                <td><strong><span class="amount"><?= $total ?>₽</span></strong> </td>
-                            </tr>
-                        </table>
+                        <?= $this->render('_total', ['total'=>$total]); ?>
                         <div class="wc-proceed-to-checkout">
                             <?= Html::a('Оформить заказ', ['cart/order'], ['class' => 'checkout-button button alt wc-forward'])?>
                         </div>

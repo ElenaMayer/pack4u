@@ -1,71 +1,78 @@
 <?php
 use \yii\helpers\Html;
 use \yii\bootstrap\ActiveForm;
+use \common\models\Order;
 
 /* @var $this yii\web\View */
 /* @var $products common\models\Product[] */
+
+$this->title = 'Оформление заказа';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<h1>Your order</h1>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-4">
+<div class="checkout-wrapper">
+    <div class="container">
+        <?php if (Yii::$app->user->isGuest): ?>
+            <?php Yii::$app->user->setReturnUrl($_SERVER['REQUEST_URI']); ?>
+            <div class="text-alert">
+                <p>Уже зарегистрированы? <a href="/user/login">Войти</a></p>
+            </div><!-- /.text-alert -->
+        <?php endif;?>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Оформление заказа</h2>
+                <?php
+                /* @var $form ActiveForm */
+                $form = ActiveForm::begin([
+                    'id' => 'order-form',
+                ]);
+                $labels = $order->attributeLabels(); ?>
+                <?= $form->field($order, 'fio')->textInput(['placeholder' => 'Иванов Иван Иванович', 'class' => 'form-control dark']); ?>
+                <?= $form->field($order, 'address')->textInput(['placeholder' => '630000, Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark']); ?>
+                <div class="row">
+                    <div class="col-md-6">
+                        <?= $form->field($order, 'email')->textInput(['placeholder' => 'name@mail.ru', 'class' => 'form-control dark']); ?>
+                    </div>
+                    <div class="col-md-6">
+                        <?= $form->field($order, 'phone')->textInput(['placeholder' => '+7900-000-00-00', 'class' => 'form-control dark']); ?>
+                    </div>
+                </div>
+                <?= $form->field($order, 'notes')->textarea(['class' => 'form-control dark', 'rows' => "3"]); ?>
 
-        </div>
-        <div class="col-xs-2">
-            Price
-        </div>
-        <div class="col-xs-2">
-            Quantity
-        </div>
-        <div class="col-xs-2">
-            Cost
-        </div>
-    </div>
-    <?php foreach ($products as $product):?>
-    <div class="row">
-        <div class="col-xs-4">
-            <?= Html::encode($product->title) ?>
-        </div>
-        <div class="col-xs-2">
-            $<?= $product->price ?>
-        </div>
-        <div class="col-xs-2">
-            <?= $quantity = $product->getQuantity()?>
-        </div>
-        <div class="col-xs-2">
-            $<?= $product->getCost() ?>
-        </div>
-    </div>
-    <?php endforeach ?>
-    <div class="row">
-        <div class="col-xs-8">
+                <div class="cart-checkboxes">
+                    <h3>Способ доставки</h3>
+                    <?php echo $form->field($order, 'shipping_method')->dropDownList(['Order::getShippingMethod()'], ['id'=>'shipping_method-id']); ?>
+                </div><!-- /.cart-checkboxes -->
+                <?php if (Yii::$app->user->isGuest): ?>
+                    <!--            <div class="checkbox">-->
+                    <!--                <label>-->
+                    <!--                    <input type="checkbox" value="">-->
+                    <!--                    <span>Создать аккаунт?</span>-->
+                    <!--                </label>-->
+                    <!--            </div><!-- /.checkbox -->
+                <?php endif;?>
+            </div>
+            <div class="col-md-6">
+                <div class="payment-right">
+                    <h2>Ваш заказ</h2>
+                    <div class="payment-detail-wrapper">
+                        <ul class="cart-list">
+                            <?php foreach ($products as $product):?>
+                                <?= $this->render('_products', ['product'=>$product]); ?>
+                            <?php endforeach ?>
+                        </ul> <!-- /.cart-list -->
+                    </div><!-- /.payment-detail-wrapper -->
+                    <div class="cart_totals">
+                        <?= $this->render('_total', ['total'=>$total]); ?>
 
-        </div>
-        <div class="col-xs-2">
-            Total: $<?= $total ?>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12">
-            <?php
-            /* @var $form ActiveForm */
-            $form = ActiveForm::begin([
-                'id' => 'order-form',
-            ]) ?>
-
-            <?= $form->field($order, 'phone') ?>
-            <?= $form->field($order, 'email') ?>
-            <?= $form->field($order, 'notes')->textarea() ?>
-
-            <div class="form-group row">
-                <div class="col-xs-12">
-                    <?= Html::submitButton('Order', ['class' => 'btn btn-primary']) ?>
+                        <div class="cart-offer">Нажимая на кнопку "Отправить заказ",</br> вы принимаете условия <?= Html::a('Публичной оферты', ['site/offer'])?></div>
+                        <div class="wc-proceed-to-checkout">
+                            <?= Html::submitButton('Отправить заказ', ['class' => 'checkout-button button alt wc-forward']) ?>
+                        </div>
+                    </div>
+                    <?php ActiveForm::end() ?>
                 </div>
             </div>
-
-            <?php ActiveForm::end() ?>
         </div>
-    </div>
-</div>
+    </div><!-- /.container -->
+</div><!-- /.checkout-wrapper -->

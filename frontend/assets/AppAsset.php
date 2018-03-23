@@ -36,14 +36,12 @@ class AppAsset extends AssetBundle
         // product
         'css/prettyPhoto.css',
         "css/swiper.css",
-        "css/easyzoom.css",
+        //"css/easyzoom.css",
 
         //index
         'css/settings.css',
 
-
-
-        'css/style.css?16',
+        'css/style.css?17',
     ];
     public $js = [
         'js/jquery.min.js',
@@ -96,7 +94,7 @@ class AppAsset extends AssetBundle
 
         //product
         "js/swiper.min.js",
-        "js/easyzoom.js",
+        //"js/easyzoom.js",
     ];
     public $depends = [
         'yii\web\YiiAsset',

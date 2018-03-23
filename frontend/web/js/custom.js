@@ -540,9 +540,9 @@ $(window).load(function() {
 });
 
 function aweProductRender(thumbHorizontal) {
-    if (Modernizr && ! Modernizr.touch) {
-        $('.easyzoom').easyZoom();
-    }
+    // if (Modernizr && ! Modernizr.touch) {
+    //     $('.easyzoom').easyZoom();
+    // }
 
     var sMain = new Swiper('.product-slider-main', {
         loop: false,

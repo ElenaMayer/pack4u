@@ -16,14 +16,20 @@ use yii\behaviors\TimestampBehavior;
  * @property string $email
  * @property string $notes
  * @property string $status
+ * @property string $fio
+ * @property integer $shipping_cost
+ * @property string $city
+ * @property string $shipping_method
+ * @property string $payment_method
+ * @property integer $zip
  *
  * @property OrderItem[] $orderItems
  */
 class Order extends \yii\db\ActiveRecord
 {
-    const STATUS_NEW = 'New';
-    const STATUS_IN_PROGRESS = 'In progress';
-    const STATUS_DONE = 'Done';
+    const STATUS_NEW = 'Новый';
+    const STATUS_IN_PROGRESS = 'В обработке';
+    const STATUS_DONE = 'Выполнен';
 
     public function behaviors()
     {
@@ -47,9 +53,10 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['created_at', 'updated_at', 'shipping_cost', 'zip'], 'integer'],
+            [['address', 'notes'], 'string'],
+            [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method'], 'string', 'max' => 255],
             [['phone', 'email'], 'required'],
-            [['notes'], 'string'],
-            [['phone', 'email'], 'string', 'max' => 255],
             [['email'], 'email'],
         ];
     }
@@ -61,13 +68,19 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'phone' => 'Phone',
-            'address' => 'Address',
+            'created_at' => 'Создан',
+            'updated_at' => 'Обновлен',
+            'phone' => 'Телефон',
+            'address' => 'Адрес',
             'email' => 'Email',
-            'notes' => 'Notes',
-            'status' => 'Status',
+            'notes' => 'Комментарий',
+            'status' => 'Статус',
+            'fio' => 'ФИО',
+            'shipping_cost' => 'Доставка',
+            'city' => 'Город',
+            'shipping_method' => 'Способ доставки',
+            'payment_method' => 'Способ оплаты',
+            'zip' => 'Индекс',
         ];
     }
 
@@ -94,9 +107,9 @@ class Order extends \yii\db\ActiveRecord
     public static function getStatuses()
     {
         return [
-            self::STATUS_DONE => 'Done',
-            self::STATUS_IN_PROGRESS => 'In progress',
-            self::STATUS_NEW => 'New',
+            self::STATUS_DONE => 'Выполнен',
+            self::STATUS_IN_PROGRESS => 'В обработке',
+            self::STATUS_NEW => 'Новый',
         ];
     }
 
@@ -105,7 +118,7 @@ class Order extends \yii\db\ActiveRecord
         return Yii::$app->mailer->compose('order', ['order' => $this])
             ->setTo(Yii::$app->params['adminEmail'])
             ->setFrom(Yii::$app->params['adminEmail'])
-            ->setSubject('New order #' . $this->id)
+            ->setSubject('Новый заказ #' . $this->id)
             ->send();
     }
 }

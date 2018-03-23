@@ -151,7 +151,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="noo-simple-slider-item" data-bg="images/slider/<?= $category->slug ?>.jpg">
                         <div class="n-simple-content">
                             <h3><?= $category->title ?></h3>
-                            <span class="price"><span class="amount">Бумага, ленты, фольга и др.</span></span>
+                            <span class="price"><span class="amount"><?= $category->description ?></span></span>
                         </div>
                     </div>
                 </a>
