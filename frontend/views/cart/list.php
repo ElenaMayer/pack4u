@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <tr class="cart_item">
                         <td class="product-thumbnail">
                             <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>">
-                                <?= Html::img($product->images[0]->getUrl(), ['width' => '100', 'height' => '100', 'alt'=>$product->title]);?>
+                                <?= Html::img($product->images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$product->title]);?>
                             </a>
                             <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>"><?= Html::encode($product->title) ?></a>
                         </td>

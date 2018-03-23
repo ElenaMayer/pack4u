@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="swiper-wrapper">
                                         <?php foreach ($images as $key => $image):?>
                                             <div class="swiper-slide">
-                                                <?= Html::img($image->getUrl(), ['width' => '100%', 'alt'=>$product->title]);?>
+                                                <?= Html::img($image->getUrl('small'), ['width' => '100%', 'alt'=>$product->title]);?>
                                             </div>
                                         <?php endforeach;?>
                                     </div>
@@ -125,7 +125,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?php
                                         $images = $model->images;
                                         if (isset($images[0])) {
-                                            echo Html::img($images[0]->getUrl(), ['width' => '100', 'height' => '100', 'alt' => $model->title]);
+                                            echo Html::img($images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt' => $model->title]);
                                         }
                                         ?>
                                         <span class="product-title"><?= $model->title ?></span>

@@ -4,10 +4,10 @@ return [
     'supportEmail' => 'support@example.com',
     'user.passwordResetTokenExpire' => 3600,
 
-    'productOriginalImageWidth'=> 1200,
-    'productOriginalImageHeight'=> 1600,
-    'productMediumImageWidth'=> 540,
-    'productMediumImageHeight'=> 960,
-    'productSmallImageWidth'=> 140,
-    'productSmallImageHeight'=> 249,
+    'productOriginalImageWidth'=> 405,
+    'productOriginalImageHeight'=> 405,
+    'productMediumImageWidth'=> 260,
+    'productMediumImageHeight'=> 260,
+    'productSmallImageWidth'=> 100,
+    'productSmallImageHeight'=> 100,
 ];

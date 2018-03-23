@@ -11,7 +11,7 @@ use yii\helpers\Markdown;
                 <?php
                 $images = $model->images;
                 if (isset($images[0])) {
-                    echo Html::img($images[0]->getUrl(), ['width' => '600', 'height' => '760', 'alt' => $model->title]);
+                    echo Html::img($images[0]->getUrl('medium'), ['width' => '600', 'height' => '760', 'alt' => $model->title]);
                 }
                 ?>
             </a>
