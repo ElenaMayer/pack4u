@@ -30,24 +30,29 @@ class AppAsset extends AssetBundle
         '//fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic',
         '//fonts.googleapis.com/css?family=Anonymous+Pro:',
         "//fonts.googleapis.com/css?family=Roboto:700",
-        'css/style.css?12',
-        'css/custom.css?1',
+        'css/custom.css?3',
         'css/magnific-popup.css',
 
         // product
         'css/prettyPhoto.css',
+        "css/swiper.css",
+        "css/easyzoom.css",
 
         //index
-        'css/settings.css'
+        'css/settings.css',
+
+
+
+        'css/style.css?16',
     ];
     public $js = [
         'js/jquery.min.js',
         'js/bootstrap.min.js',
         'js/jquery-migrate.min.js',
-        'js/modernizr-2.7.1.min.js',
+        'js/modernizr-2.8.3.min.js',
         'js/off-cavnass.js',
         'js/script.js',
-        'js/custom.js?3',
+        'js/custom.js?4',
         'js/imagesloaded.pkgd.min.js',
         'js/isotope.pkgd.min.js',
         'js/portfolio.js',
@@ -66,9 +71,10 @@ class AppAsset extends AssetBundle
         'js/mouse.min.js',
         'js/slider.min.js',
         'js/jquery.ui.touch-punch.js',
-        'js/price-slider.js',
         'js/instafeed.min.js',
 
+        //catalog
+        'js/price-slider.js?1',
 
         //index
         'js/jquery.plugin.min.js',
@@ -85,9 +91,12 @@ class AppAsset extends AssetBundle
         'js/extensions/revolution.extension.parallax.min.js',
 
         //contact
-
         'http://maps.googleapis.com/maps/api/js?key=AIzaSyAEJgte17bKvMyyWXo1JcWbzsl9Qy-3-uo',
 		'js/google-map-custom.js',
+
+        //product
+        "js/swiper.min.js",
+        "js/easyzoom.js",
     ];
     public $depends = [
         'yii\web\YiiAsset',

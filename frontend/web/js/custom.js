@@ -10,6 +10,9 @@ $(document).ready(function() {
         limit: 9,
         links: false
     });
+
+    aweProductRender(true);
+
     userFeed.run();
     $(".noo-search").on("click", function() {
         $(".search-header5").fadeIn(1).addClass("search-header-eff");
@@ -535,3 +538,28 @@ $(window).load(function() {
     $(".noo-page-breadcrumb").addClass("eff");
     $(".noo-spinner").remove();
 });
+
+function aweProductRender(thumbHorizontal) {
+    if (Modernizr && ! Modernizr.touch) {
+        $('.easyzoom').easyZoom();
+    }
+
+    var sMain = new Swiper('.product-slider-main', {
+        loop: false,
+
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
+    });
+
+    var sThumb = new Swiper('.product-slider-thumbs', {
+        loop: false,
+        centeredSlides: true,
+        spaceBetween: thumbHorizontal ? 15 : 0,
+        slidesPerView: thumbHorizontal ? 4 : 3,
+        direction: thumbHorizontal ? 'horizontal' : 'vertical',
+        slideToClickedSlide: true
+    });
+
+    sMain.params.control = sThumb;
+    sThumb.params.control = sMain;
+}

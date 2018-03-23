@@ -9,7 +9,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <ul>
             <li data-transition="fade" data-slotamount="default" data-easein="Power3.easeOut" data-easeout="Power3.easeOut" data-masterspeed="700" data-rotate="0" data-saveperformance="off" data-title="Slide">
 
-                <img src="images/banner/banner_1920x1080.jpg" alt="" width="1920" height="1080" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" />
+                <img src="images/banner/banner_1920x1080.jpg?1" alt="" width="1920" height="1080" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" />
 
                 <div class="tp-caption caption-15 tp-resizeme"
                      data-x="center"
@@ -148,10 +148,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php foreach ($categories as $category) :?>
             <li>
                 <a href="/catalog/<?= $category->slug ?>">
-                    <div class="noo-simple-slider-item" data-bg="images/slider/slide_363x265.jpg">
+                    <div class="noo-simple-slider-item" data-bg="images/slider/<?= $category->slug ?>.jpg">
                         <div class="n-simple-content">
                             <h3><?= $category->title ?></h3>
-                            <span class="price"><span class="amount">&#36;25.00</span></span>
+                            <span class="price"><span class="amount">Бумага, ленты, фольга и др.</span></span>
                         </div>
                     </div>
                 </a>

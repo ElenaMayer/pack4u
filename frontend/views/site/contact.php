@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <input type="submit" value="Submit" class="form-control submit btn-primary"/>
+                            <input type="submit" value="Отправить" class="form-control submit btn-primary"/>
                         </div>
                     </div>
                 <?php ActiveForm::end(); ?>

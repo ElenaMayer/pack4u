@@ -1428,13 +1428,13 @@ header .navbar,
   background-image: url(../images/banner/banner_480x600.jpg);
 }
 .img-background-sign.style-2 {
-  background-image: url(../images/banner/banner_480x600.jpg);
+  background-image: url(../images/banner/banner_480x600.jpg?1);
 }
 .noo-page-heading {
-  background-image: url('../images/banner/banner_1920x470.jpg');
+  background-image: url('../images/banner/banner_1920x470.jpg?1');
 }
 .noo-page-heading.heading-2 {
-  background-image: url('../images/banner/banner_1920x470.jpg');
+  background-image: url('../images/banner/banner_1920x470.jpg?1');
 }
 .noo-page-heading.heading-3 {
   background-image: url('../images/banner/banner_1920x470.jpg');

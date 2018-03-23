@@ -65,12 +65,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                     <div class="widget commerce widget_price_filter">
                         <h3 class="widget-title">Фильтр по цене</h3>
-                        <form>
+                        <form method="get">
                             <div class="price_slider_wrapper">
                                 <div class="price_slider" style="display:none;"></div>
                                 <div class="price_slider_amount">
-                                    <input type="text" id="min_price" name="min_price" value="" data-min="0" placeholder="Min price"/>
-                                    <input type="text" id="max_price" name="max_price" value="" data-max="15" placeholder="Max price"/>
+                                    <?php $urlParams = StaticFunction::getParamArrayFromCurrentUrl() ?>
+                                    <?php foreach ($urlParams as $urlName => $urlValue):?>
+                                        <?php if($urlName != 'min_price' && $urlName != 'max_price'):?>
+                                            <input type="hidden" name="<?= $urlName ?>" value="<?= $urlValue ?>">
+                                        <?php endif;?>
+                                    <?php endforeach;?>
+                                    <input type="text" id="min_price" name="min_price" value="<?= Yii::$app->request->get('order')?Yii::$app->request->get('min_price'):''?>" data-min="0" placeholder="Минимальная"/>
+                                    <input type="text" id="max_price" name="max_price" value="<?= Yii::$app->request->get('order')?Yii::$app->request->get('max_price'):''?>" data-max="<?= Product::find()->max('price'); ?>" placeholder="Максимальная"/>
                                     <button type="submit" class="button">Найти</button>
                                     <div class="price_label" style="display:none;">
                                         Цена: <span class="from"></span> &mdash; <span class="to"></span>
@@ -81,10 +87,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         </form>
                     </div>
                     <div class="widget commerce widget_product_tag_cloud">
-                        <h3 class="widget-title">Тэги</h3>
+                        <h3 class="widget-title">Тэги <a href="<?= StaticFunction::addGetParamToCurrentUrl('tag', 'all') ?>">Все</a></h3>
+
                         <div class="tagcloud">
                             <?php foreach (Product::getTagsArray() as $key => $tag):?>
-                                <a href="/tag/<?= $tag ?>"><?= $tag ?></a>
+                                <a <?php if(Yii::$app->request->get('tag') == $key):?>class="active"<?php endif;?> href="<?= StaticFunction::addGetParamToCurrentUrl('tag', $tag) ?>">
+                                    <?= $tag ?>
+                                </a>
                             <?php endforeach;?>
                         </div>
                     </div>

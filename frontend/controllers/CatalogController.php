@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\Category;
 use common\models\Product;
+use common\models\StaticFunction;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 use Yii;
@@ -22,6 +23,11 @@ class CatalogController extends \yii\web\Controller
 
     public function actionList($categorySlug = null)
     {
+        $get = Yii::$app->request->get();
+        if (!empty($get) && isset($get['urlParams'])){
+            $this->redirect($get['urlParams']);
+        }
+
         /** @var Category $category */
         $category = null;
 
@@ -29,7 +35,6 @@ class CatalogController extends \yii\web\Controller
 
         $productsQuery = Product::find()->where(['is_active' => 1]);
 
-        $get = Yii::$app->request->get();
         $this->prepareFilter($productsQuery);
 
         if ($categorySlug !== null) {
@@ -38,9 +43,6 @@ class CatalogController extends \yii\web\Controller
         if ($category) {
             $productsQuery->andWhere(['category_id' => $this->getCategoryIds($categories, $category->id)]);
         }
-//        elseif($categorySlug == 'novelty'){
-//            $productsQuery->andWhere(['is_novelty' => 1]);
-//        }
         $productsDataProvider = new ActiveDataProvider([
             'query' => $productsQuery,
             'pagination' => [
@@ -53,7 +55,7 @@ class CatalogController extends \yii\web\Controller
             ->all();
         return $this->render('list', [
             'category' => isset($category)? $category : null,
-            'menuItems' => $this->getMenuItems($categories, isset($category->id) ? $category->id : null),
+            'menuItems' => $this->getMenuItems($categories, isset($category->id) ? $category->id : 'all'),
             'models' => $productsDataProvider->getModels(),
             'pagination' => $productsDataProvider->getPagination(),
             'pageCount' => $productsDataProvider->getCount(),
@@ -66,22 +68,21 @@ class CatalogController extends \yii\web\Controller
             if(isset($get['color']) && $get['color'] != 'all'){
                 $query->andFilterWhere(['like', 'color', $get['color']]);
             }
-            if(isset($get['tags']) && $get['tags'] != 'all'){
+            if(isset($get['tag']) && $get['tag'] != 'all'){
                 $query->andFilterWhere(['like', 'tags', $get['tag']]);
             }
-            if(isset($get['price']) && $get['price'] != 'all'){
-                $priceArr = explode(',', $get['price']);
-                $query->andWhere(['between', 'price', $priceArr[0], $priceArr[1]]);
+            if(isset($get['min_price']) && isset($get['max_price'])){
+                $query->andWhere(['between', 'price', $get['min_price'], $get['max_price']]);
             }
             if(isset($get['order'])){
                 if($get['order'] == 'popular') {
-                    $query->orderBy('sort DESC, id DESC');
+                    $query->orderBy('id DESC');
                 } elseif ($get['order'] == 'novelty') {
                     $query->orderBy('is_novelty');
-                } elseif ($get['order'] == 'price'){
-                    $query->orderBy('price_lh DESC');
-                } elseif ($get['order'] == 'price'){
-                    $query->orderBy('price_hl ASC');
+                } elseif ($get['order'] == 'price_lh'){
+                    $query->orderBy('price ASC');
+                } elseif ($get['order'] == 'price_hl'){
+                    $query->orderBy('price DESC');
                 }
             } else {
                 $query->orderBy('time DESC');
@@ -108,8 +109,7 @@ class CatalogController extends \yii\web\Controller
                 'category' => $category,
                 'product' => $product,
                 'relatedProducts' => $relatedProducts,
-                'menuItems' => $this->getMenuItems($categories, isset($category->id) ? $category->id : null),
-//                'images' => $imagesForZoom,
+                'menuItems' => $this->getMenuItems($categories, null)
             ]);
         } else {
             return $this->redirect('/catalog/list');
@@ -129,14 +129,19 @@ class CatalogController extends \yii\web\Controller
      */
     private function getMenuItems($categories, $activeId = null, $parent = null)
     {
-        $menuItems = [];
+        $params = StaticFunction::getParamFromCurrentUrl();
+        $menuItems = ['0' => [
+            'active' => ($activeId == 'all')?1:0,
+            'label' => 'Все',
+            'url' => ['/catalog'.$params]
+            ]
+        ];
         foreach ($categories as $category) {
             if ($category->parent_id === $parent) {
                 $menuItems[$category->id] = [
                     'active' => $activeId === $category->id,
                     'label' => $category->title,
-                    'url' => ['catalog/list', 'id' => $category->id],
-                    'items' => $this->getMenuItems($categories, $activeId, $category->id),
+                    'url' => ['/catalog/'.$category->slug.$params],
                 ];
             }
         }

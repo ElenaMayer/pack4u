@@ -21,7 +21,7 @@ use yii\helpers\Markdown;
             <span class="price"><span class="amount"><?= (int)$model->price ?>₽</span></span>
             <div class="noo-product-action">
                 <div class="noo-action">
-                    <?= Html::a('<span>В корзину</span>', ['cart/add', 'id' => $model->id], ['class' => 'button product_type_simple add_to_cart_button'])?>
+                    <?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $model->id], ['class' => 'button product_type_simple add_to_cart_button'])?>
                 </div>
             </div>
         </div>

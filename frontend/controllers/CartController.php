@@ -9,11 +9,11 @@ use frontend\models\MyShoppingCart;
 
 class CartController extends \yii\web\Controller
 {
-    public function actionAdd($id, $quantity)
+    public function actionAdd($id, $quantity = 1)
     {
         $product = Product::findOne($id);
         if ($product) {
-            \Yii::$app->cart->put($product, $quantity?$quantity:1);
+            \Yii::$app->cart->put($product, $quantity);
             return $this->goBack();
         }
     }

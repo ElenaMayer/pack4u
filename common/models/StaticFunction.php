@@ -3,13 +3,12 @@
 namespace common\models;
 
 use Yii;
-use yii\helpers\Url;
 
 
 class StaticFunction
 {
     public static function addGetParamToCurrentUrl($paramKey, $paramValue, $currentUrl = null){
-        if(!$currentUrl) $currentUrl = Yii::$app->request->getPathInfo();
+        if(!$currentUrl) $currentUrl = Yii::$app->request->url;
         if (strripos($currentUrl, '?') === false) {
             return $currentUrl . '?' . $paramKey . '=' . $paramValue;
         } else {
@@ -29,12 +28,29 @@ class StaticFunction
     }
 
     public static function getParamFromCurrentUrl(){
-        $currentUrl = Yii::$app->request->getPathInfo();
+        $currentUrl = Yii::$app->request->url;
         if (strripos($currentUrl, '?') === false) {
             return false;
         } else {
             $urlArr = explode('?', $currentUrl);
             return '?' . $urlArr[1];
+        }
+    }
+
+    public static function getParamArrayFromCurrentUrl(){
+        $currentUrl = Yii::$app->request->url;
+        if (strripos($currentUrl, '?') === false) {
+            return [];
+        } else {
+            $res = [];
+            $urlArr = explode('?', $currentUrl);
+            $urlParams = $urlArr[1];
+            $urlParamsArr = explode('&', $urlParams);
+            foreach ($urlParamsArr as $urlParamSt) {
+                $urlParamArr = explode('=', $urlParamSt);
+                $res[$urlParamArr[0]] = $urlParamArr[1];
+            }
+            return $res;
         }
     }
 }

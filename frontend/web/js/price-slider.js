@@ -3,14 +3,16 @@ jQuery( function( $ ) {
 	// Get markup ready for slider
 	$( 'input#min_price, input#max_price' ).hide();
 	$( '.price_slider, .price_label' ).show();
-
 	// Price slider uses jquery ui
 	var min_price = $( '.price_slider_amount #min_price' ).data( 'min' ),
 		max_price = $( '.price_slider_amount #max_price' ).data( 'max' ),
-		current_min_price = parseInt( min_price, 10 ),
-		current_max_price = parseInt( max_price, 10 ),
-		currency_pos = "left",
-		currency_symbol = "$";
+        current_min_price = parseInt($( 'input#min_price' ).val(), 10 ),
+        current_max_price = parseInt($( 'input#max_price' ).val(), 10 ),
+		currency_pos = "right",
+		currency_symbol = "₽";
+
+	if(!current_min_price) current_min_price = parseInt(min_price, 10 );
+    if(!current_max_price) current_max_price = parseInt(max_price, 10 );
 
 	$( document.body ).on( 'price_slider_create price_slider_slide', function( event, min, max ) {
 		if ( currency_pos === 'left' ) {
