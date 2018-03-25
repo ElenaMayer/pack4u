@@ -13,6 +13,14 @@ $(document).ready(function() {
 
     aweProductRender(true);
 
+    //Change cart qty
+    $(document.body).on('change', 'input.qty' ,function(){
+        updateCartQty($(this).parents('form'));
+    });
+    $(document.body).on('keyup', 'input.qty' ,function(){
+        updateCartQty($('#update-qty'));
+    });
+
     userFeed.run();
     $(".noo-search").on("click", function() {
         $(".search-header5").fadeIn(1).addClass("search-header-eff");
@@ -562,4 +570,16 @@ function aweProductRender(thumbHorizontal) {
 
     sMain.params.control = sThumb;
     sThumb.params.control = sMain;
+}
+
+function updateCartQty(form) {
+    $.ajax({
+        method: 'get',
+        url: '/cart/list',
+        dataType: 'html',
+        data: $(form).serialize(),
+    }).done(function( data ) {
+		$('div.main').html(data);
+	});
+
 }

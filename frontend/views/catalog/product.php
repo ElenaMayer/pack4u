@@ -60,11 +60,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?php if($product->size):?>
                                     <span class="posted_in">Размер: <span class="value"><?= Html::encode($product->size) ?> см</span></span>
                                 <?php endif;?>
-                                <?php if($product->size):?>
+                                <?php if($product->color):?>
                                     <span class="posted_in">Цвета: <span class="value"><?= Html::encode($product->color) ?></span></span>
                                 <?php endif;?>
                                 <span class="posted_in">Категория: <a href="/catalog/<?= $category->slug?>" title="<?= $category->title?>"><?= $category->title?></a></span>
-                                <?php if($product->size):?>
+                                <?php if($product->tags):?>
                                     <span class="tagged_as">Тэги:
                                         <?php foreach ($product->getCurrentTagsArray() as $key => $tag):?>
                                             <a href="/catalog?tag=<?= $tag ?>"><?= $tag ?></a>
@@ -72,18 +72,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </span>
                                 <?php endif;?>
                             </div>
-                            <form class="cart" action="/cart/add" method="get">
-                                <div class="quantity">
-                                    <input type="number" step="1" min="1" name="quantity" value="1" title="Количество" class="input-text qty text" size="4"/>
-                                    <input type="hidden" name="id" value="<?= $product->id ?>"/>
+                            <?php if($product->is_in_stock):?>
+                                <form class="cart" action="/cart/add" method="get">
+                                    <div class="quantity">
+                                        <input type="number" step="1" min="1" name="quantity" value="1" title="Количество" class="input-text qty text" size="4"/>
+                                        <input type="hidden" name="id" value="<?= $product->id ?>"/>
+                                    </div>
+                                    <?= Html::button('В корзину', ['type' => 'submit', 'class' => 'single_add_to_cart_button button'])?>
+                                </form>
+                                <div class="yith-wcwl-add-to-wishlist">
+                                    <div class="yith-wcwl-add-button">
+                                        <a href="#" class="add_to_wishlist"></a>
+                                    </div>
                                 </div>
-                                <?= Html::button('В карзину', ['type' => 'submit', 'class' => 'single_add_to_cart_button button'])?>
-                            </form>
-                            <div class="yith-wcwl-add-to-wishlist">
-                                <div class="yith-wcwl-add-button">
-                                    <a href="#" class="add_to_wishlist"></a>
-                                </div>
-                            </div>
+                            <?php endif;?>
                             <div class="clear"></div>
                         </div>
                     </div>
@@ -143,8 +145,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="noo-footer-shop-now">
     <div class="container">
         <div class="col-md-7">
-            <h4>- Every day fresh -</h4>
-            <h3>organic food</h3>
+            <h4>- Все лучшее для оформления -</h4>
+            <h3>Ищите здесь</h3>
         </div>
         <img src="images/organici-love-me.png" class="noo-image-footer" alt="" />
     </div>

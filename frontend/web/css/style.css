@@ -1000,6 +1000,11 @@ fieldset[disabled] .form-control {
     cursor: not-allowed;
 }
 
+.site .main select {
+    border: 1px solid #f4eede;
+    box-shadow: none;
+}
+
 textarea.form-control {
     height: auto;
 }
@@ -4320,6 +4325,7 @@ ul.post_list_widget li a .post-date {
 .navbar-brand {
     line-height: 80px;
     display: block;
+    padding: 5px;
 }
 
 @media (max-width: 991px) {
@@ -12518,7 +12524,7 @@ fieldset[disabled] .mailchimp-widget .mc-subscribe-form button.active {
     font-weight: 400;
     position: relative;
     text-align: center;
-	background-image: url(../images/banner/banner_1920x1080.jpg);
+	background-image: url(../images/banner/banner_1920x1080.jpg?1);
 }
 
 .noo-footer-shop-now:before {
@@ -13303,7 +13309,8 @@ a.go-to-top:hover a.go-to-top:focus.on:hover {
         width: 28.3%;
     }
     .commerce .cart-collaterals .cart_totals,
-    .commerce-page .cart-collaterals .cart_totals {
+    .commerce-page .cart-collaterals .cart_totals,
+    .checkout-wrapper .cart_totals {
         float: none;
         width: 100%;
     }
@@ -14293,7 +14300,8 @@ p.demo_store a {
 .commerce a.button,
 .commerce button.button,
 .commerce input.button,
-.panel-body button{
+.panel-body button,
+.checkout-wrapper .cart_totals button {
     font-size: 100%;
     margin: 0;
     line-height: 1;
@@ -14320,7 +14328,8 @@ p.demo_store a {
 .commerce #respond input#submit.loading,
 .commerce a.button.loading,
 .commerce button.button.loading,
-.commerce input.button.loading {
+.commerce input.button.loading,
+.checkout-wrapper .cart_totals .loading {
     opacity: .25;
     padding-right: 2.618em
 }
@@ -14328,7 +14337,8 @@ p.demo_store a {
 .commerce #respond input#submit.loading:after,
 .commerce a.button.loading:after,
 .commerce button.button.loading:after,
-.commerce input.button.loading:after {
+.commerce input.button.loading:after,
+.checkout-wrapper .cart_totals button.loading:after {
     font-family: WooCommerce;
     content: "\e01c";
     vertical-align: top;
@@ -14345,7 +14355,8 @@ p.demo_store a {
 .commerce #respond input#submit.added:after,
 .commerce a.button.added:after,
 .commerce button.button.added:after,
-.commerce input.button.added:after {
+.commerce input.button.added:after,
+.checkout-wrapper .cart_totals button.added:after {
     font-family: WooCommerce;
     content: "\e017";
     margin-left: .53em;
@@ -14356,7 +14367,8 @@ p.demo_store a {
 .commerce a.button:hover,
 .commerce button.button:hover,
 .commerce input.button:hover,
-.site .panel-body button:hover {
+.site .panel-body button:hover,
+.checkout-wrapper .cart_totals button:hover {
     background-color: #dad8da;
     text-decoration: none;
     background-image: none;
@@ -14366,7 +14378,8 @@ p.demo_store a {
 .commerce #respond input#submit.alt,
 .commerce a.button.alt,
 .commerce button.button.alt,
-.commerce input.button.alt {
+.commerce input.button.alt,
+.checkout-wrapper .cart_totals button.alt {
     background-color: #a46497;
     color: #fff;
     -webkit-font-smoothing: antialiased
@@ -14375,7 +14388,8 @@ p.demo_store a {
 .commerce #respond input#submit.alt:hover,
 .commerce a.button.alt:hover,
 .commerce button.button.alt:hover,
-.commerce input.button.alt:hover {
+.commerce input.button.alt:hover,
+.checkout-wrapper .cart_totals button.alt:hover {
     background-color: #935386;
     color: #fff
 }
@@ -14403,7 +14417,13 @@ p.demo_store a {
 .commerce input.button.alt:disabled,
 .commerce input.button.alt:disabled:hover,
 .commerce input.button.alt:disabled[disabled],
-.commerce input.button.alt:disabled[disabled]:hover {
+.commerce input.button.alt:disabled[disabled]:hover,
+.checkout-wrapper .cart_totals button.alt.disabled,
+.checkout-wrapper .cart_totals button.alt.disabled:hover,
+.checkout-wrapper .cart_totals button.alt:disabled,
+.checkout-wrapper .cart_totals button.alt:disabled:hover,
+.checkout-wrapper .cart_totals button.alt:disabled[disabled],
+.checkout-wrapper .cart_totals button.alt:disabled[disabled]:hover  {
     background-color: #a46497;
     color: #fff
 }
@@ -14419,7 +14439,10 @@ p.demo_store a {
 .commerce button.button:disabled[disabled],
 .commerce input.button.disabled,
 .commerce input.button:disabled,
-.commerce input.button:disabled[disabled] {
+.commerce input.button:disabled[disabled],
+.checkout-wrapper .cart_totals button.disabled,
+.checkout-wrapper .cart_totals button:disabled,
+.checkout-wrapper .cart_totals button:disabled[disabled] {
     color: inherit;
     cursor: not-allowed;
     opacity: .5
@@ -14436,7 +14459,10 @@ p.demo_store a {
 .commerce button.button:disabled[disabled]:hover,
 .commerce input.button.disabled:hover,
 .commerce input.button:disabled:hover,
-.commerce input.button:disabled[disabled]:hover {
+.commerce input.button:disabled[disabled]:hover,
+.checkout-wrapper .cart_totals. button disabled:hover,
+.checkout-wrapper .cart_totals. button :disabled:hover,
+.checkout-wrapper .cart_totals. button :disabled[disabled]:hover {
     color: inherit;
     background-color: #ebe9eb
 }
@@ -15377,7 +15403,8 @@ p.demo_store a {
     display: table
 }
 
-.commerce-cart .wc-proceed-to-checkout a.checkout-button {
+.commerce-cart .wc-proceed-to-checkout a.checkout-button,
+.checkout-wrapper .cart_totals button.checkout-button {
     display: block;
     text-align: center;
     margin-bottom: 1em;
@@ -15416,48 +15443,60 @@ p.demo_store a {
     display: table
 }
 
-.commerce-cart .cart-collaterals .cart_totals p small {
+.commerce-cart .cart-collaterals .cart_totals p small,
+.checkout-wrapper .cart_totals p small {
     color: #777;
     font-size: .83em
 }
 
-.commerce-cart .cart-collaterals .cart_totals table {
+.commerce-cart .cart-collaterals .cart_totals table,
+.checkout-wrapper .cart_totals table {
     border-collapse: separate;
     margin: 0 0 6px;
     padding: 0
 }
 
 .commerce-cart .cart-collaterals .cart_totals table tr:first-child td,
-.commerce-cart .cart-collaterals .cart_totals table tr:first-child th {
+.commerce-cart .cart-collaterals .cart_totals table tr:first-child th,
+.checkout-wrapper .cart_totals table tr:first-child td,
+.checkout-wrapper .cart_totals table tr:first-child th {
     border-top: 0
 }
 
-.commerce-cart .cart-collaterals .cart_totals table th {
+.commerce-cart .cart-collaterals .cart_totals table th,
+.checkout-wrapper .cart_totals table th {
     width: 40%
 }
 
 .commerce-cart .cart-collaterals .cart_totals table td,
-.commerce-cart .cart-collaterals .cart_totals table th {
+.commerce-cart .cart-collaterals .cart_totals table th,
+.checkout-wrapper .cart_totals table td,
+.checkout-wrapper .cart_totals table th {
     vertical-align: top;
     border-left: 0;
     border-right: 0;
     line-height: 1.5em
 }
 
-.commerce-cart .cart-collaterals .cart_totals table small {
+.commerce-cart .cart-collaterals .cart_totals table small,
+.checkout-wrapper .cart_totals table small {
     color: #777
 }
 
-.commerce-cart .cart-collaterals .cart_totals table select {
+.commerce-cart .cart-collaterals .cart_totals table select,
+.checkout-wrapper .cart_totals table select {
     width: 100%
 }
 
-.commerce-cart .cart-collaterals .cart_totals .discount td {
+.commerce-cart .cart-collaterals .cart_totals .discount td,
+.checkout-wrapper .cart_totals .discount td {
     color: #77a464
 }
 
 .commerce-cart .cart-collaterals .cart_totals tr td,
-.commerce-cart .cart-collaterals .cart_totals tr th {
+.commerce-cart .cart-collaterals .cart_totals tr th,
+.checkout-wrapper .cart_totals tr td,
+.checkout-wrapper .cart_totals tr th {
     border-top: 1px solid #ebe9eb
 }
 
@@ -15496,8 +15535,12 @@ p.demo_store a {
 .commerce table.cart td.actions .coupon, .commerce-page table.cart td.actions .coupon {
     float: left;
 }
-.commerce .cart-collaterals .cart_totals, .commerce-page .cart-collaterals .cart_totals,
-.commerce #content div.product div.summary, .commerce div.product div.summary, .commerce-page #content div.product div.summary, .commerce-page div.product div.summary{
+.commerce .cart-collaterals .cart_totals,
+.commerce-page .cart-collaterals .cart_totals,
+.commerce #content div.product div.summary,
+.commerce div.product div.summary,
+.commerce-page #content div.product div.summary,
+.commerce-page div.product div.summary{
     float: right;
     width: 48%;
 }
@@ -15617,7 +15660,8 @@ input[type='checkbox'] {
 .commerce #respond input#submit.loading:after,
 .commerce a.button.loading:after,
 .commerce button.button.loading:after,
-.commerce input.button.loading:after {
+.commerce input.button.loading:after,
+.checkout-wrapper .cart_totals button.loading:after {
     top: 0;
 }
 
@@ -15646,6 +15690,10 @@ input[type='checkbox'] {
 
 .commerce .product-grid .noo-product-inner:hover .noo-product-title .noo-product-action {
     background: #45b284;
+}
+
+.commerce .product-grid .noo-product-inner:hover .noo-product-title .noo-product-action.out-of-stock {
+    background: #cccccc;
 }
 
 .commerce .product-grid .noo-product-thumbnail {
@@ -15721,6 +15769,10 @@ input[type='checkbox'] {
     transition: background 0.6s ease 0s;
 }
 
+.commerce .product-grid .noo-product-title .noo-product-action.out-of-stock {
+    background: #cccccc;
+}
+
 .commerce .product-grid .noo-product-title .noo-product-action h4 {
     font-family: 'Lato', sans-serif;
     font-weight: 500;
@@ -15778,12 +15830,19 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     display: none;
 }
 
-.commerce .product-grid .noo-product-title .noo-product-action .noo-action .add_to_cart_button {
+.commerce .product-grid .noo-product-title .noo-product-action .noo-action .add_to_cart_button,
+.commerce .product-grid .noo-product-title .noo-product-action.out-of-stock .noo-action {
     font-size: 14px;
     height: 48px;
     line-height: 48px;
     background: none;
     display: block;
+}
+
+.commerce .product-grid .noo-product-title .noo-product-action.out-of-stock .noo-action {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .commerce .product-grid .noo-product-title .noo-product-action .noo-action .add_to_cart_button.loading {
@@ -15998,7 +16057,9 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 .commerce a.button.alt,
 .commerce button.button,
 .commerce input.button,
-.site .panel-default button {
+.site .panel-default button,
+.checkout-wrapper .cart_totals button,
+.checkout-wrapper .cart_totals button.alt {
     font-size: 12px;
     background: #79cba8;
     -webkit-border-radius: 0;
@@ -16020,7 +16081,8 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 .commerce a.button.alt:hover,
 .commerce button.button:hover,
 .commerce input.button:hover,
-.site .panel-body button:hover {
+.site .panel-body button:hover,
+.checkout-wrapper .cart_totals button {
     background: #45b284;
     color: #ffffff;
 }
@@ -16970,30 +17032,36 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     color: #ffffff;
 }
 
-.commerce-page .cart-collaterals .cart_totals {
+.commerce-page .cart-collaterals .cart_totals,
+.checkout-wrapper .cart_totals {
     border: 1px dashed #f4eede;
     padding: 30px;
     margin-top: 70px;
 }
 
-.commerce-page .cart-collaterals .cart_totals > h2 {
+.commerce-page .cart-collaterals .cart_totals > h2,
+.checkout-wrapper .cart_totals > h2 {
     font-size: 24px;
     margin-bottom: 30px;
     margin-top: 0;
 }
 
-.commerce-page .cart-collaterals .cart_totals table {
+.commerce-page .cart-collaterals .cart_totals table,
+.checkout-wrapper .cart_totals table {
     border: 0;
 }
 
-.commerce-page .cart-collaterals .cart_totals table th {
+.commerce-page .cart-collaterals .cart_totals table th,
+.checkout-wrapper .cart_totals table th {
     text-transform: uppercase;
     font-weight: 400;
     text-align: left;
 }
 
 .commerce-page .cart-collaterals .cart_totals table td,
-.commerce-page .cart-collaterals .cart_totals table th {
+.commerce-page .cart-collaterals .cart_totals table th,
+.checkout-wrapper .cart_totals table td,
+.checkout-wrapper .cart_totals table th {
     border-width: 1px 0 0 0;
     border-style: solid;
     border-color: #f4eede;
@@ -17001,22 +17069,27 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 }
 
 .commerce-page .cart-collaterals .cart_totals table tr:first-child td,
-.commerce-page .cart-collaterals .cart_totals table tr:first-child th {
+.commerce-page .cart-collaterals .cart_totals table tr:first-child th,
+.checkout-wrapper .cart_totals table tr:first-child td,
+.checkout-wrapper .cart_totals table tr:first-child th {
     border-width: 1px 0 0 0;
     border-style: solid;
     border-color: #f4eede;
 }
 
-.commerce-page .cart-collaterals .cart_totals table .order-total .amount {
+.commerce-page .cart-collaterals .cart_totals table .order-total .amount,
+.checkout-wrapper .cart_totals table .order-total .amount {
     color: #79cba8;
 }
 
-.commerce-page .cart-collaterals .cart_totals table .calc_shipping_country {
+.commerce-page .cart-collaterals .cart_totals table .calc_shipping_country,
+.checkout-wrapper .cart_totals table .calc_shipping_country {
     height: 40px;
     border: 1px solid #f4eede;
 }
 
-.commerce-page .cart-collaterals .cart_totals table #calc_shipping_postcode_field input {
+.commerce-page .cart-collaterals .cart_totals table #calc_shipping_postcode_field input,
+.checkout-wrapper .cart_totals table #calc_shipping_postcode_field input {
     height: 40px;
     padding: 10px;
     border: 1px solid #f4eede;
@@ -17025,18 +17098,21 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     margin-bottom: 10px;
 }
 
-.commerce-page .cart-collaterals .cart_totals .wc-proceed-to-checkout {
+.commerce-page .cart-collaterals .cart_totals .wc-proceed-to-checkout,
+.checkout-wrapper .cart_totals .wc-proceed-to-checkout {
     padding: 0;
 }
 
-.commerce-page .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button {
+.commerce-page .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button,
+.checkout-wrapper .cart_totals button.checkout-button {
     background: #79cba8;
     font-weight: 500;
     font-size: 14px;
     margin-bottom: 0;
 }
 
-.commerce-page .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button:hover {
+.commerce-page .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button:hover,
+.checkout-wrapper .cart_totals button.checkout-button:hover {
     background: #000000;
 }
 

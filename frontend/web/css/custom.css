@@ -1358,7 +1358,7 @@ header .navbar,
   background-image: url(../images/vector_green.png);
 }
 .newsletter {
-  background-image:url(../images/banner/banner_1920x220.jpg);
+  background-image:url(../images/banner/banner_1920x220.jpg?1);
 }
 .about-us-1 {
   padding-top:100px;
@@ -1425,10 +1425,10 @@ header .navbar,
   background-color: #f4eede;
 }
 .img-background-sign {
-  background-image: url(../images/banner/banner_480x600.jpg);
+  background-image: url(../images/banner/banner_480x600.jpg?1);
 }
 .img-background-sign.style-2 {
-  background-image: url(../images/banner/banner_480x600.jpg?1);
+  background-image: url(../images/banner/banner_480x600.jpg?2);
 }
 .noo-page-heading {
   background-image: url('../images/banner/banner_1920x470.jpg?1');

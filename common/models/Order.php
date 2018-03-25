@@ -113,6 +113,23 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function getShippingMethods()
+    {
+        return [
+            'self' => 'Самовывоз',
+            'rp' => 'Почта России',
+            'tk' => 'Транспортная компания',
+        ];
+    }
+
+    public static function getPaymentMethods()
+    {
+        return [
+            'cash' => 'Наличными при получении',
+            'card' => 'На карту',
+        ];
+    }
+
     public function sendEmail()
     {
         return Yii::$app->mailer->compose('order', ['order' => $this])

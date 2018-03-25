@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\models\Order;
 use common\models\OrderItem;
 use common\models\Product;
+use Yii;
 use frontend\models\MyShoppingCart;
 
 class CartController extends \yii\web\Controller
@@ -20,16 +21,30 @@ class CartController extends \yii\web\Controller
 
     public function actionList()
     {
+        $get = Yii::$app->request->get();
+        $ajax = false;
+        if($get && isset($get['id']) && isset($get['quantity'])) {
+            $ajax = true;
+            $this->updateQty($get['id'], $get['quantity']);
+        }
+
         /* @var $cart ShoppingCart */
         $cart = \Yii::$app->cart;
 
         $products = $cart->getPositions();
         $total = $cart->getCost();
 
-        return $this->render('list', [
-           'products' => $products,
-           'total' => $total,
-        ]);
+        if($ajax){
+            return $this->renderPartial('list', [
+                'products' => $products,
+                'total' => $total,
+            ]);
+        } else {
+            return $this->render('list', [
+                'products' => $products,
+                'total' => $total,
+            ]);
+        }
     }
 
     public function actionRemove($id)
@@ -43,10 +58,15 @@ class CartController extends \yii\web\Controller
 
     public function actionUpdate($id, $quantity)
     {
+        $this->updateQty($id, $quantity);
+        $this->redirect(['cart/list']);
+    }
+
+    public function updateQty($id, $quantity)
+    {
         $product = Product::findOne($id);
         if ($product) {
             \Yii::$app->cart->update($product, $quantity);
-            $this->redirect(['cart/list']);
         }
     }
 
@@ -101,3 +121,4 @@ class CartController extends \yii\web\Controller
         }
     }
 }
+

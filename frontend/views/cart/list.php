@@ -38,11 +38,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             <span class="amount"><?= (int)$product->price ?>₽</span>
                         </td>
                         <td class="product-quantity">
-                            <div class="quantity">
-                                <?= Html::a('-', ['cart/update', 'id' => $product->getId(), 'quantity' => $quantity - 1], ['class' => 'btn btn-danger', 'disabled' => ($quantity - 1) < 1])?>
-                                <input type="number" step="1" min="0" name="qty" value="<?= $quantity ?>" class="input-text qty text" size="4"/>
-                                <?= Html::a('+', ['cart/update', 'id' => $product->getId(), 'quantity' => $quantity + 1], ['class' => 'btn btn-success'])?>
-                            </div>
+                            <form id="update-qty-<?=$product->getId()?>" method="get">
+                                <div class="quantity">
+                                    <input type="number" step="1" min="0" name="quantity" value="<?= $quantity ?>" class="input-text qty text" size="4"/>
+                                    <input type="hidden" name="id" value="<?=$product->getId()?>">
+                                </div>
+                            </form>
                         </td>
                         <td class="product-subtotal">
                             <span class="amount"><?= $product->getCost() ?>₽</span>

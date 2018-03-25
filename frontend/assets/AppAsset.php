@@ -30,7 +30,7 @@ class AppAsset extends AssetBundle
         '//fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic',
         '//fonts.googleapis.com/css?family=Anonymous+Pro:',
         "//fonts.googleapis.com/css?family=Roboto:700",
-        'css/custom.css?3',
+        'css/custom.css?5',
         'css/magnific-popup.css',
 
         // product
@@ -41,7 +41,7 @@ class AppAsset extends AssetBundle
         //index
         'css/settings.css',
 
-        'css/style.css?17',
+        'css/style.css?21',
     ];
     public $js = [
         'js/jquery.min.js',
@@ -50,7 +50,7 @@ class AppAsset extends AssetBundle
         'js/modernizr-2.8.3.min.js',
         'js/off-cavnass.js',
         'js/script.js',
-        'js/custom.js?4',
+        'js/custom.js?7',
         'js/imagesloaded.pkgd.min.js',
         'js/isotope.pkgd.min.js',
         'js/portfolio.js',

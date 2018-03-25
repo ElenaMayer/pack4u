@@ -55,7 +55,7 @@ class CatalogController extends \yii\web\Controller
             ->all();
         return $this->render('list', [
             'category' => isset($category)? $category : null,
-            'menuItems' => $this->getMenuItems($categories, isset($category->id) ? $category->id : 'all'),
+            'menuItems' => $this->getMenuItems(isset($category->id) ? $category->id : 'all'),
             'models' => $productsDataProvider->getModels(),
             'pagination' => $productsDataProvider->getPagination(),
             'pageCount' => $productsDataProvider->getCount(),
@@ -96,8 +96,6 @@ class CatalogController extends \yii\web\Controller
     {
         $product = Product::find()->where(['id' => $productId])->one();
 
-        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
-
         if($product->is_active){
             $category = Category::find()->where(['slug' => $categorySlug])->one();
             $relatedProducts = Product::find()
@@ -109,7 +107,7 @@ class CatalogController extends \yii\web\Controller
                 'category' => $category,
                 'product' => $product,
                 'relatedProducts' => $relatedProducts,
-                'menuItems' => $this->getMenuItems($categories, null)
+                'menuItems' => $this->getMenuItems(null)
             ]);
         } else {
             return $this->redirect('/catalog/list');
@@ -127,8 +125,10 @@ class CatalogController extends \yii\web\Controller
      * @param int $parent
      * @return array
      */
-    private function getMenuItems($categories, $activeId = null, $parent = null)
+    private function getMenuItems($activeId = null, $parent = null)
     {
+
+        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
         $params = StaticFunction::getParamFromCurrentUrl();
         $menuItems = ['0' => [
             'active' => ($activeId == 'all')?1:0,

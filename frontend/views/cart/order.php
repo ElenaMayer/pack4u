@@ -39,10 +39,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <?= $form->field($order, 'notes')->textarea(['class' => 'form-control dark', 'rows' => "3"]); ?>
 
-                <div class="cart-checkboxes">
-                    <h3>Способ доставки</h3>
-                    <?php echo $form->field($order, 'shipping_method')->dropDownList(['Order::getShippingMethod()'], ['id'=>'shipping_method-id']); ?>
-                </div><!-- /.cart-checkboxes -->
+                <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethods()); ?>
+                <?php echo $form->field($order, 'payment_method')->dropDownList(Order::getPaymentMethods()); ?>
+
                 <?php if (Yii::$app->user->isGuest): ?>
                     <!--            <div class="checkbox">-->
                     <!--                <label>-->
@@ -65,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="cart_totals">
                         <?= $this->render('_total', ['total'=>$total]); ?>
 
-                        <div class="cart-offer">Нажимая на кнопку "Отправить заказ",</br> вы принимаете условия <?= Html::a('Публичной оферты', ['site/offer'])?></div>
+<!--                        <div class="cart-offer">Нажимая на кнопку "Отправить заказ",</br> вы принимаете условия --><?//= Html::a('Публичной оферты', ['site/offer'])?><!--</div>-->
                         <div class="wc-proceed-to-checkout">
                             <?= Html::submitButton('Отправить заказ', ['class' => 'checkout-button button alt wc-forward']) ?>
                         </div>

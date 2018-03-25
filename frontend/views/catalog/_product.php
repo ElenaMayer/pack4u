@@ -19,11 +19,19 @@ use yii\helpers\Markdown;
         <div class="noo-product-title">
             <h3><a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>" title="<?= $model->title?>"><?= Html::encode($model->title) ?></a></h3>
             <span class="price"><span class="amount"><?= (int)$model->price ?>₽</span></span>
-            <div class="noo-product-action">
-                <div class="noo-action">
-                    <?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $model->id], ['class' => 'button product_type_simple add_to_cart_button'])?>
+            <?php if($model->is_in_stock):?>
+                <div class="noo-product-action">
+                    <div class="noo-action">
+                        <?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $model->id], ['class' => 'button product_type_simple add_to_cart_button'])?>
+                    </div>
                 </div>
-            </div>
+            <?php else:?>
+                <div class="noo-product-action out-of-stock">
+                    <div class="noo-action">
+                        Нет в наличии
+                    </div>
+                </div>
+            <?php endif;?>
         </div>
     </div>
 </div>

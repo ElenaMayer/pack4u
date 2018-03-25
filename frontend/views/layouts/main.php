@@ -19,9 +19,9 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <?php Yii::$app->view->registerMetaTag(['name' => 'description','content' => Yii::$app->params['companySlogan']]); ?>
     <title><?= Html::encode($this->title) ?></title>
-<!--    --><?php //$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/img/favicon-16x16.png', 'sizes' => '16x16']); ?>
-<!--    --><?php //$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/img/favicon-32x32.png', 'sizes' => '32x32']); ?>
-<!--    --><?php //$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/img/favicon-96x96.png', 'sizes' => '96x96']); ?>
+    <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/images/favicon-16x16.png?1', 'sizes' => '16x16']); ?>
+    <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/images/favicon-32x32.png', 'sizes' => '32x32']); ?>
+    <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/images/favicon-96x96.png', 'sizes' => '96x96']); ?>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,7 +46,7 @@ AppAsset::register($this);
                     <ul>
                         <li>
                             <span><i class="fa fa-phone"></i></span>
-                            <a href="#"><?= Yii::$app->params['phone1'] ?></a>
+                            <?= Yii::$app->params['phone1'] ?>
                         </li>
                         <li>
                             <div class="noo_social">
@@ -107,7 +107,7 @@ AppAsset::register($this);
                                     </div>
                                 </div>
                                 <a href="/" class="navbar-brand">
-                                    <img class="noo-logo-img noo-logo-normal" src="/images/logo.png" alt="<?= Yii::$app->params['title'] ?>">
+                                    <img class="noo-logo-img noo-logo-normal" src="/images/logo.png?2" alt="<?= Yii::$app->params['title'] ?>">
                                 </a>
                             </div>
 
@@ -116,7 +116,7 @@ AppAsset::register($this);
                                     <li class="menu-item-has-children current-menu-item">
                                         <a href="/catalog">Каталог</a>
                                         <ul class="sub-menu">
-                                            <?php $categories = Category::find()->all(); ?>
+                                            <?php $categories = Category::find()->where(['is_active' => 1])->all(); ?>
                                             <?php foreach ($categories as $category):?>
                                                 <li><a href="/catalog/<?= $category->slug ?>"><?= $category->title ?></a></li>
                                             <?php endforeach;?>
@@ -160,7 +160,7 @@ AppAsset::register($this);
                         <div class="widget widget_about">
                             <div class="noo_about_widget">
                                 <a href="#">
-                                    <img src="/images/logo.png" alt="<?= Yii::$app->params['title'] ?>" />
+                                    <img src="/images/logo.png?2" alt="<?= Yii::$app->params['title'] ?>" />
                                 </a>
                                 <p><?= Yii::$app->params['companySlogan'] ?></p>
                             </div>
@@ -191,8 +191,8 @@ AppAsset::register($this);
                                 <p><?= Yii::$app->params['address'] ?></p>
                                 <h5>Телефон</h5>
                                 <p>
-                                    <a href="#"><?= Yii::$app->params['phone1'] ?></a><br/>
-                                    <a href="#"><?= Yii::$app->params['phone2'] ?></a>
+                                    <?= Yii::$app->params['phone1'] ?><br/>
+                                    <?= Yii::$app->params['phone2'] ?>
                                 </p>
                                 <h5>Email</h5>
                                 <p>
@@ -239,6 +239,7 @@ AppAsset::register($this);
     </div>
 
     <a href="#" class="go-to-top hidden-print"><i class="fa fa-angle-up"></i></a>
+    <?= $this->render('_metrika'); ?>
     <?php $this->endBody() ?>
 </body>
 </html>

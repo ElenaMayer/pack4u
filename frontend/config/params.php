@@ -6,5 +6,5 @@ return [
     'catalogPageSize' => 12,
 //    'indexPageProductCount' => 7,
 //    'indexPageNoveltyCount' => 10,
-    'productPageRelatedCount' => 9,
+    'productPageRelatedCount' => 3,
 ];
