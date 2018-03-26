@@ -151,7 +151,23 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
      */
     public function getPrice()
     {
-        return $this->price;
+        if ($this->getIsActive() && $this->getIsInStock()){
+            return $this->price;
+        } else {
+            return 0;
+        }
+    }
+
+    public function getIsActive()
+    {
+        $product = Product::findOne($this->id);
+        return $product->is_active;
+    }
+
+    public function getIsInStock()
+    {
+        $product = Product::findOne($this->id);
+        return $product->is_in_stock;
     }
 
     /**

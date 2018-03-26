@@ -57,7 +57,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="payment-detail-wrapper">
                         <ul class="cart-list">
                             <?php foreach ($products as $product):?>
-                                <?= $this->render('_products', ['product'=>$product]); ?>
+                                <?php if($product->getIsActive() && $product->getIsInStock()):?>
+                                    <?= $this->render('_products', ['product'=>$product]); ?>
+                                <?php endif;?>
                             <?php endforeach ?>
                         </ul> <!-- /.cart-list -->
                     </div><!-- /.payment-detail-wrapper -->

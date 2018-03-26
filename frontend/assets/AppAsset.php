@@ -41,7 +41,7 @@ class AppAsset extends AssetBundle
         //index
         'css/settings.css',
 
-        'css/style.css?21',
+        'css/style.css?25',
     ];
     public $js = [
         'js/jquery.min.js',

@@ -16,7 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <table class="shop_table cart">
                     <thead>
                     <tr>
-                        <th class="product-thumbnail">Товар</th>
+                        <th class="product-img">Товар</th>
+                        <th class="product-thumbnail">Название</th>
                         <th class="product-price">Цена</th>
                         <th class="product-quantity">Количество</th>
                         <th class="product-subtotal">Всего</th>
@@ -25,33 +26,42 @@ $this->params['breadcrumbs'][] = $this->title;
                     </thead>
                     <tbody>
                     <?php foreach ($products as $product):?>
-                        <?php
-                        $quantity = $product->getQuantity(); ?>
-                        <tr class="cart_item">
-                        <td class="product-thumbnail">
-                            <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>">
-                                <?= Html::img($product->images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$product->title]);?>
-                            </a>
-                            <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>"><?= Html::encode($product->title) ?></a>
-                        </td>
-                        <td class="product-price">
-                            <span class="amount"><?= (int)$product->price ?>₽</span>
-                        </td>
-                        <td class="product-quantity">
-                            <form id="update-qty-<?=$product->getId()?>" method="get">
-                                <div class="quantity">
-                                    <input type="number" step="1" min="0" name="quantity" value="<?= $quantity ?>" class="input-text qty text" size="4"/>
-                                    <input type="hidden" name="id" value="<?=$product->getId()?>">
-                                </div>
-                            </form>
-                        </td>
-                        <td class="product-subtotal">
-                            <span class="amount"><?= $product->getCost() ?>₽</span>
-                        </td>
-                        <td class="product-remove">
-                            <?= Html::a('×', ['cart/remove', 'id' => $product->getId()], ['class' => 'remove'])?>
-                        </td>
-                    </tr>
+                        <?php if($product->getIsActive()):?>
+                            <?php $quantity = $product->getQuantity(); ?>
+                            <tr class="cart_item <?php if(!$product->getIsInStock()):?>out_of_stock<?php endif;?>">
+                                <td class="product-img">
+                                    <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>">
+                                        <?= Html::img($product->images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$product->title]);?>
+                                    </a>
+                                </td>
+                                <td class="product-thumbnail">
+                                    <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>"><?= Html::encode($product->title) ?>
+                                    <?php if(!$product->getIsInStock()):?><span class="out_of_stock_title">Нет в наличии</span><?php endif;?>
+                                    </a>
+                                </td>
+                                <td class="product-price">
+                                    <span class="amount"><?= (int)$product->price ?>₽</span>
+                                </td>
+                                <td class="product-quantity">
+                                    <?php if($product->getIsInStock()):?>
+                                        <form id="update-qty-<?=$product->getId()?>" method="get">
+                                            <div class="quantity">
+                                                <input type="number" step="1" min="0" name="quantity" value="<?= $quantity ?>" class="input-text qty text" size="4"/>
+                                                <input type="hidden" name="id" value="<?=$product->getId()?>">
+                                            </div>
+                                        </form>
+                                    <?php else:?>
+                                        0
+                                    <?php endif;?>
+                                </td>
+                                <td class="product-subtotal">
+                                    <span class="amount"><?= $product->getCost() ?>₽</span>
+                                </td>
+                                <td class="product-remove">
+                                    <?= Html::a('×', ['cart/remove', 'id' => $product->getId()], ['class' => 'remove'])?>
+                                </td>
+                            </tr>
+                        <?php endif;?>
                     <?php endforeach; ?>
                     </tbody>
                 </table>
