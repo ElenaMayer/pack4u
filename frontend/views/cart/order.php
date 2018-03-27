@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="checkout-wrapper">
     <div class="container">
         <?php if (Yii::$app->user->isGuest): ?>
-            <?php Yii::$app->user->setReturnUrl($_SERVER['REQUEST_URI']); ?>
+            <?php Yii::$app->user->setReturnUrl(Yii::$app->request->url); ?>
             <div class="text-alert">
                 <p>Уже зарегистрированы? <a href="/user/login">Войти</a></p>
             </div><!-- /.text-alert -->

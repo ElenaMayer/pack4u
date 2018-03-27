@@ -22,8 +22,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     ?>
                     <p class="commerce-result-count">Товар с <?= $begin ?> по <?= $end ?> из <?= $pagination->totalCount ?></p>
                     <div class="product-style-control pull-right">
-                        <span class="noo-list"><a href="shop-list.html"><i class="fa fa-th-list"></i></a></span>
-                        <span class="noo-grid active"><i class="fa fa-th-large"></i></span>
+                        <span class="noo-list"><a><i class="fa fa-th-list"></i></a></span>
+                        <span class="noo-grid active"><a><i class="fa fa-th-large"></i></a></span>
                     </div>
                     <form class="commerce-ordering">
                         <select name="orderby" class="orderby" id="p_sort_by" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
@@ -111,7 +111,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         ?>
                                         <span class="product-title"><?= $model->title ?></span>
                                     </a>
-                                    <span class="amount"><?= (int)$model->price ?>₽</span>
+                                    <span class="amount"><?= (int)$model->price ?>&#8381</span>
                                 </li>
                             <?php endforeach;?>
                         </ul>
@@ -119,14 +119,5 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="noo-footer-shop-now">
-    <div class="container">
-        <div class="col-md-7">
-            <h4>- Every day fresh -</h4>
-            <h3>organic food</h3>
-        </div>
-        <img src="images/organici-love-me.png" class="noo-image-footer" alt="" />
     </div>
 </div>

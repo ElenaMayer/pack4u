@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-start="500"
                      data-splitin="none"
                      data-splitout="none"
-                     data-responsive_offset="on">Красивая упаковка
+                     data-responsive_offset="on"><?= Yii::$app->params['companyName']; ?>
                 </div>
 
                 <div class="tp-caption tp-resizeme"
@@ -148,56 +148,41 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php foreach ($categories as $category) :?>
             <li>
                 <a href="/catalog/<?= $category->slug ?>">
-                    <div class="noo-simple-slider-item" data-bg="images/slider/<?= $category->slug ?>.jpg">
-                        <div class="n-simple-content">
-                            <h3><?= $category->title ?></h3>
-                            <span class="price"><span class="amount"><?= $category->description ?></span></span>
-                        </div>
+                    <div class="noo-simple-slider-item" data-bg="images/slider/<?= $category->slug ?>.jpg?1">
+                        <h3><?= $category->title ?></h3>
                     </div>
                 </a>
             </li>
         <?php endforeach;?>
     </ul>
 </div>
-<div class="pt-12 pb-10 clear">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="noo-product-slider-wrap commerce">
-                    <div class="noo-sh-title">
-                        <h2>Популярное</h2>
-                    </div>
-                    <div class="row noo-product-slider products product-grid">
-                        <div class="noo-product-sliders">
-                            <?php foreach (array_values($relatedProducts) as $index => $model) :?>
-                                <?= $this->render('/catalog/_product', ['model'=>$model]); ?>
-                            <?php endforeach;?>
+<?php if($noveltyProducts):?>
+    <div class="pt-12 pb-10 clear">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="noo-product-slider-wrap commerce">
+                        <div class="noo-sh-title">
+                            <h2>Новинки</h2>
+                        </div>
+                        <div class="row noo-product-slider products product-grid">
+                            <div class="noo-product-sliders">
+                                <?php foreach (array_values($noveltyProducts) as $index => $model) :?>
+                                    <?= $this->render('/catalog/_product', ['model'=>$model]); ?>
+                                <?php endforeach;?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="newsletter">
-    <div class="noo-sh-mailchimp">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-xs-12">
-                    <h3 class="noo-mail-title">Подписка на новости!</h3>
-                    <p class="noo-mail-desc">
-                        Будьте в курсе лучших предложений, акций и новинок.
-                    </p>
-                </div>
-                <div class="col-md-7 col-xs-12">
-                    <form>
-                        <div class="newsletter-form-fields">
-                            <input type="email" name="EMAIL" placeholder="Email адрес" required />
-                            <input type="submit" value="Готово"/>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<?php endif;?>
+<div class="noo-footer-shop-now">
+    <div class="container">
+        <div class="col-md-7">
+            <h4>- Стильная упаковка -</h4>
+            <h3>Каждый день</h3>
         </div>
     </div>
 </div>

@@ -18,11 +18,22 @@ use yii\helpers\Markdown;
         </div>
         <div class="noo-product-title">
             <h3><a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>" title="<?= $model->title?>"><?= Html::encode($model->title) ?></a></h3>
-            <span class="price"><span class="amount"><?= (int)$model->price ?>₽</span></span>
+            <span class="price"><span class="amount"><?= (int)$model->price ?>&#8381</span></span>
+            <div class="noo-product-size">
+                <p><?= $model->size?></p>
+            </div>
+            <div class="noo-product-excerpt">
+                <p><?= $model->description?></p>
+            </div>
             <?php if($model->is_in_stock):?>
                 <div class="noo-product-action">
                     <div class="noo-action">
                         <?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $model->id], ['class' => 'button product_type_simple add_to_cart_button'])?>
+                        <div class="yith-wcwl-add-to-wishlist">
+                            <div class="yith-wcwl-add-button">
+                                <a href="#" class="add_to_wishlist"></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             <?php else:?>

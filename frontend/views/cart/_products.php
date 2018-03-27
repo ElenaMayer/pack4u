@@ -19,9 +19,9 @@ use \yii\helpers\Html; ?>
                 <span><?= $quantity?>шт.</span>
             </div>
             <div class="product-price">
-                <span><?= (int)$product->getCost()?>₽</span>
+                <span><?= (int)$product->getCost()?>&#8381</span>
             </div>
         </div>
     </div><!-- /.cart-item -->
-    <?= Html::a('×', ['cart/remove', 'id' => $product->getId()], ['class' => 'remove'])?>
+    <?= Html::a('×', ['cart/remove', 'id' => $product->getId(), 'returnUrl' => '/cart/order'], ['class' => 'remove'])?>
 </li>

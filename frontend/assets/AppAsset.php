@@ -41,7 +41,8 @@ class AppAsset extends AssetBundle
         //index
         'css/settings.css',
 
-        'css/style.css?25',
+        'css/style.css?28',
+        'css/colors/apple-green.css?2',
     ];
     public $js = [
         'js/jquery.min.js',
@@ -50,7 +51,7 @@ class AppAsset extends AssetBundle
         'js/modernizr-2.8.3.min.js',
         'js/off-cavnass.js',
         'js/script.js',
-        'js/custom.js?7',
+        'js/custom.js?8',
         'js/imagesloaded.pkgd.min.js',
         'js/isotope.pkgd.min.js',
         'js/portfolio.js',

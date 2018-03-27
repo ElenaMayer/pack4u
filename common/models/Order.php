@@ -117,6 +117,7 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'self' => 'Самовывоз',
+            'rcr' => 'РЦР',
             'rp' => 'Почта России',
             'tk' => 'Транспортная компания',
         ];

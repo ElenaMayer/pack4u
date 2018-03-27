@@ -65,12 +65,12 @@ class SiteController extends Controller
     {
 
         $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
-        $relatedProducts = Product::find()
-            ->andWhere(['is_active' => 1, 'is_in_stock' => 1])
-            ->limit(Yii::$app->params['productPageRelatedCount'])
+        $noveltyProducts = Product::find()
+            ->andWhere(['is_active' => 1, 'is_in_stock' => 1, 'is_novelty' => 1])
+            ->limit(Yii::$app->params['productNewCount'])
             ->all();
         return $this->render('index', [
-            'relatedProducts' => $relatedProducts,
+            'noveltyProducts' => $noveltyProducts,
             'categories' => $categories
         ]);
     }

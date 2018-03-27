@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </a>
                                 </td>
                                 <td class="product-price">
-                                    <span class="amount"><?= (int)$product->price ?>₽</span>
+                                    <span class="amount"><?= (int)$product->price ?>&#8381</span>
                                 </td>
                                 <td class="product-quantity">
                                     <?php if($product->getIsInStock()):?>
@@ -55,10 +55,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <?php endif;?>
                                 </td>
                                 <td class="product-subtotal">
-                                    <span class="amount"><?= $product->getCost() ?>₽</span>
+                                    <span class="amount"><?= $product->getCost() ?>&#8381</span>
                                 </td>
                                 <td class="product-remove">
-                                    <?= Html::a('×', ['cart/remove', 'id' => $product->getId()], ['class' => 'remove'])?>
+                                    <?= Html::a('×', ['cart/remove', 'id' => $product->getId(), 'returnUrl' => '/cart/list'], ['class' => 'remove'])?>
                                 </td>
                             </tr>
                         <?php endif;?>
@@ -99,9 +99,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="noo-footer-shop-now">
     <div class="container">
         <div class="col-md-7">
-            <h4>- Every day fresh -</h4>
-            <h3>organic food</h3>
+            <h4>- Стильная упаковка -</h4>
+            <h3>ДЛЯ ВАС</h3>
         </div>
-        <img src="images/organici-love-me.png" class="noo-image-footer" alt="" />
     </div>
 </div>

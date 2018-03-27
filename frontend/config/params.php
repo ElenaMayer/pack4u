@@ -1,10 +1,11 @@
 <?php
-//Yii::$app->params['domain'];
+//Yii::$app->params['companyName'];
 return [
-    'companyName' => 'Красивая упаковка',
-    'companySlogan' => 'Ваши изделия достойны быть красиво упакованы!',
+    'companyName' => 'Стильная упаковка',
+    'companySlogan' => 'Ваши изделия достойны быть<br/> красиво упакованы!',
     'catalogPageSize' => 12,
 //    'indexPageProductCount' => 7,
 //    'indexPageNoveltyCount' => 10,
     'productPageRelatedCount' => 3,
+    'productNewCount' => 6,
 ];

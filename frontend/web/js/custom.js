@@ -21,6 +21,21 @@ $(document).ready(function() {
         updateCartQty($('#update-qty'));
     });
 
+    $(".noo-list").on("click", function() {
+    	if(!$(this).hasClass('active')){
+            $(this).addClass('active');
+            $('.noo-grid').removeClass('active');
+    		$('.products.row').addClass('product-list').removeClass('product-grid');
+		}
+    });
+    $(".noo-grid").on("click", function() {
+        if(!$(this).hasClass('active')){
+            $(this).addClass('active');
+            $('.noo-list').removeClass('active');
+            $('.products.row').addClass('product-grid').removeClass('product-list');
+        }
+    });
+
     userFeed.run();
     $(".noo-search").on("click", function() {
         $(".search-header5").fadeIn(1).addClass("search-header-eff");
@@ -581,5 +596,15 @@ function updateCartQty(form) {
     }).done(function( data ) {
 		$('div.main').html(data);
 	});
+}
 
+function removeItemFromCart(id) {
+    $.ajax({
+        method: 'get',
+        url: '/cart/order',
+        dataType: 'html',
+        data: { id : id },
+    }).done(function( data ) {
+        $('div.main').html(data);
+    });
 }

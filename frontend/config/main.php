@@ -41,6 +41,13 @@ return [
                 'contact' => 'site/contact',
             ],
         ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@app/views/user'
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 ];

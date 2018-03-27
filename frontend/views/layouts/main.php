@@ -123,9 +123,8 @@ AppAsset::register($this);
                                         </ul>
                                     </li>
                                     <li><a href="/contact">Контакты</a></li>
-                                    <li><a href="#">Доставка</a></li>
-                                    <li><a href="#">Оплата</a></li>
-                                    <li><a href="/site/about">О нас</a></li>
+                                    <li><a href="/shipping">Доставка</a></li>
+                                    <li><a href="/payment">Оплата</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -156,10 +155,10 @@ AppAsset::register($this);
         <footer class="wrap-footer footer-2 colophon wigetized">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 item-footer-four">
+                    <div class="col-md-4 col-sm-6 item-footer-four">
                         <div class="widget widget_about">
                             <div class="noo_about_widget">
-                                <a href="#">
+                                <a href="/">
                                     <img src="/images/logo.png?2" alt="<?= Yii::$app->params['title'] ?>" />
                                 </a>
                                 <p><?= Yii::$app->params['companySlogan'] ?></p>
@@ -183,23 +182,15 @@ AppAsset::register($this);
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 item-footer-four">
+                    <div class="col-md-2 col-sm-6 item-footer-four">
                         <div class="widget widget_text">
-                            <h4 class="widget-title">Контакты</h4>
+                            <h4 class="widget-title">Помощь</h4>
                             <div class="textwidget">
-                                <h5>Адрес</h5>
-                                <p><?= Yii::$app->params['address'] ?></p>
-                                <h5>Телефон</h5>
-                                <p>
-                                    <?= Yii::$app->params['phone1'] ?><br/>
-                                    <?= Yii::$app->params['phone2'] ?>
-                                </p>
-                                <h5>Email</h5>
-                                <p>
-                                    <a href="mailto:<?= Yii::$app->params['email'] ?>">
-                                        <?= Yii::$app->params['email'] ?>
-                                    </a>
-                                </p>
+                                <p><a href="/shipping">Доставка</a></p>
+                                <p><a href="/payment">Оплата</a></p>
+                                <p><a href="/refund">Возврат</a></p>
+                                <p><a href="/offer">Оферта</a></p>
+
                             </div>
                         </div>
                     </div>
@@ -210,21 +201,16 @@ AppAsset::register($this);
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 item-footer-four">
-                        <div class="widget widget_noo_openhours">
-                            <h4 class="widget-title">Время работы</h4>
-                            <ul class="noo-openhours">
-                                <li>
-                                    <span>С 9:00 до 18:00 </span>
-                                    <span>Без выходных </span>
-                                </li>
-                            </ul>
-                        </div>
                         <div class="widget widget_noo_happyhours">
-                            <h4 class="widget-title">Время работы</h4>
+                            <h4 class="widget-title">Контакты</h4>
                             <ul class="noo-happyhours">
                                 <li>
-                                    <div>С 9:00 до 18:00 </div>
-                                    <div>Без выходных </div>
+                                    <div><?= Yii::$app->params['phone1'] ?></div>
+                                    <div>
+                                        <a href="mailto:<?= Yii::$app->params['email'] ?>">
+                                            <?= Yii::$app->params['email'] ?>
+                                        </a>
+                                    </div>
                                 </li>
                             </ul>
                             <span></span>

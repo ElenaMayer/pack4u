@@ -98,15 +98,20 @@ class CatalogController extends \yii\web\Controller
 
         if($product->is_active){
             $category = Category::find()->where(['slug' => $categorySlug])->one();
-            $relatedProducts = Product::find()
-                ->where('id != :id', ['id'=>$productId])
-                ->andWhere(['is_active' => 1, 'is_in_stock' => 1])
-                ->limit(Yii::$app->params['productPageRelatedCount'])
+//            $relatedProducts = Product::find()
+//                ->where('id != :id', ['id'=>$productId])
+//                ->andWhere(['is_active' => 1, 'is_in_stock' => 1])
+//                ->limit(Yii::$app->params['productPageRelatedCount'])
+//                ->all();
+            $noveltyProducts = Product::find()
+                ->andWhere(['is_active' => 1, 'is_in_stock' => 1, 'is_novelty' => 1])
+                ->limit(Yii::$app->params['productNewCount'])
                 ->all();
             return $this->render('product', [
                 'category' => $category,
                 'product' => $product,
-                'relatedProducts' => $relatedProducts,
+                'noveltyProducts' => $noveltyProducts,
+//                'relatedProducts' => $relatedProducts,
                 'menuItems' => $this->getMenuItems(null)
             ]);
         } else {

@@ -9,7 +9,7 @@ jQuery( function( $ ) {
         current_min_price = parseInt($( 'input#min_price' ).val(), 10 ),
         current_max_price = parseInt($( 'input#max_price' ).val(), 10 ),
 		currency_pos = "right",
-		currency_symbol = "₽";
+		currency_symbol = "&#8381";
 
 	if(!current_min_price) current_min_price = parseInt(min_price, 10 );
     if(!current_max_price) current_max_price = parseInt(max_price, 10 );

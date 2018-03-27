@@ -49,10 +49,15 @@ class CartController extends \yii\web\Controller
 
     public function actionRemove($id)
     {
+        $this->removeItemFromCart($id);
+        $this->redirect(['cart/list']);
+    }
+
+    public function removeItemFromCart($id)
+    {
         $product = Product::findOne($id);
         if ($product) {
             \Yii::$app->cart->remove($product);
-            $this->redirect(['cart/list']);
         }
     }
 
@@ -72,6 +77,13 @@ class CartController extends \yii\web\Controller
 
     public function actionOrder()
     {
+        $get = Yii::$app->request->get();
+        $ajax = false;
+        if($get && isset($get['id'])) {
+            $ajax = true;
+            $this->removeItemFromCart($get['id']);
+        }
+
         $order = new Order();
         /* @var $cart ShoppingCart */
         $cart = \Yii::$app->cart;
@@ -79,38 +91,53 @@ class CartController extends \yii\web\Controller
         $products = $cart->getPositions();
         $total = $cart->getCost();
 
-        if ($order->load(\Yii::$app->request->post()) && $order->validate()) {
-            $transaction = $order->getDb()->beginTransaction();
-            $order->save(false);
+        if($products) {
+            if ($order->load(\Yii::$app->request->post()) && $order->validate()) {
+                $transaction = $order->getDb()->beginTransaction();
+                $order->save(false);
 
-            foreach($products as $product) {
-                if($product->getIsActive() && $product->getIsInStock()) {
-                    $orderItem = new OrderItem();
-                    $orderItem->order_id = $order->id;
-                    $orderItem->title = $product->title;
-                    $orderItem->price = $product->getPrice();
-                    $orderItem->product_id = $product->id;
-                    $orderItem->quantity = $product->getQuantity();
-                    if (!$orderItem->save(false)) {
-                        $transaction->rollBack();
-                        \Yii::$app->session->addFlash('error', 'Невозможно создать заказ. Пожалуйста свяжитесь с нами.');
-                        return $this->redirect('/catalog');
+                foreach ($products as $product) {
+                    if ($product->getIsActive() && $product->getIsInStock()) {
+                        $orderItem = new OrderItem();
+                        $orderItem->order_id = $order->id;
+                        $orderItem->title = $product->title;
+                        $orderItem->price = $product->getPrice();
+                        $orderItem->product_id = $product->id;
+                        $orderItem->quantity = $product->getQuantity();
+                        if (!$orderItem->save(false)) {
+                            $transaction->rollBack();
+                            \Yii::$app->session->addFlash('error', 'Невозможно создать заказ. Пожалуйста свяжитесь с нами.');
+                            return $this->redirect('/catalog');
+                        }
                     }
                 }
+                $transaction->commit();
+                \Yii::$app->cart->removeAll();
+
+                \Yii::$app->session->addFlash('success', 'Спасибо за заказ. Мы свяжемся с Вами в ближайшее время.');
+                $order->sendEmail();
+
+                return $this->redirect('/catalog');
             }
-            $transaction->commit();
-            \Yii::$app->cart->removeAll();
-
-            \Yii::$app->session->addFlash('success', 'Спасибо за заказ. Мы свяжемся с Вами в ближайшее время.');
-            $order->sendEmail();
-
-            return $this->redirect('/catalog');
+            if($ajax){
+                return $this->renderPartial('order', [
+                    'order' => $order,
+                    'products' => $products,
+                    'total' => $total,
+                ]);
+            } else {
+                return $this->render('order', [
+                    'order' => $order,
+                    'products' => $products,
+                    'total' => $total,
+                ]);
+            }
+        } else {
+            if($ajax){
+                return false;
+            } else
+            $this->redirect('/cart/list');
         }
-        return $this->render('order', [
-            'order' => $order,
-            'products' => $products,
-            'total' => $total,
-        ]);
     }
 }
 

@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Order */
 
-$this->title = $model->id;
+$this->title = 'Заказ #' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Заказы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -49,10 +49,10 @@ $this->params['breadcrumbs'][] = $this->title;
     $sum = 0;
     foreach ($model->orderItems as $item): ?>
         <?php $sum += $item->quantity * $item->price ?>
-        <li><?= Html::encode($item->title . ' (' . $item->size . ' размер) x ' . $item->quantity . ' x ' . (int)$item->price . '₽') ?></li>
+        <li><?= Html::encode($item->title . $item->quantity . ' x ' . (int)$item->price . '&#8381') ?></li>
     <?php endforeach ?>
     </ul>
 
-    <p><string>Итого: </string> <?php echo $sum?>₽</p>
+    <p><string>Итого: </string> <?php echo $sum?>&#8381</p>
 
 </div>

@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php $form = ActiveForm::begin(['id' => 'contact-form', 'options' => ['class' => 'contact-form']]); ?>
                     <h3>Напишите нам</h3>
                     <p class="hint">
-                        Если у Вас возикли вопросы, Вы может позвонить нам, написать в социальных сетях или связаться с нами через эту форму.
+                        Если у Вас возикли вопросы, Вы может написать в социальных сетях или связаться с нами через эту форму.
                     </p>
                     <div class="row">
                         <div class="col-md-8 col-sm-12">
@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="address-info">
                 <h3>Контакты</h3>
                 <p>
-                    Maecenas tristique gravida, odio et sagi ttis justo. Suspendisse ultri cies nisi vel quam suscipit, et rutrum odio porttitor. Claritas etiam proce ssusa dynamicus, tudium lectorum.
+                    Так же Вы можете связаться с нами по телефону, электронной почте или заглянуть к нам в гости.
                 </p>
                 <ul>
                     <li>

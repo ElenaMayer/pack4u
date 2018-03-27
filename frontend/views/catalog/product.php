@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span>&nbsp;-&nbsp;</span>
                                 <span>Арт: <?= $product->article?></span>
                             </div>
-                            <p class="price"><span class="amount"><?= (int)$product->price ?>₽</span></p>
+                            <p class="price"><span class="amount"><?= (int)$product->price ?>&#8381</span></p>
                             <p class="description"><?= $product->description ?></p>
                             <div class="product_meta">
                                 <?php if($product->size):?>
@@ -89,14 +89,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="clear"></div>
                         </div>
                     </div>
-                    <div class="related products">
-                        <h2>Популярное</h2>
-                        <div class="products row product-grid">
-                            <?php foreach (array_values($relatedProducts) as $index => $model) :?>
-                                <?= $this->render('_product', ['model'=>$model]); ?>
-                            <?php endforeach;?>
-                        </div>
-                    </div>
+<!--                    <div class="related products">-->
+<!--                        <h2>Сопутствующие товары</h2>-->
+<!--                        <div class="products row product-grid">-->
+<!--                            --><?php //foreach (array_values($relatedProducts) as $index => $model) :?>
+<!--                                --><?//= $this-render('_product', ['model'=$model]); ?>
+<!--                            --><?php //endforeach;?>
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
             <div class="noo-sidebar col-md-3">
@@ -118,25 +118,27 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?php endforeach;?>
                         </div>
                     </div>
-                    <div class="widget commerce widget_products">
-                        <h3 class="widget-title">Популярное</h3>
-                        <ul class="product_list_widget">
-                            <?php foreach (array_values($relatedProducts) as $model) :?>
-                                <li>
-                                    <a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>">
-                                        <?php
-                                        $images = $model->images;
-                                        if (isset($images[0])) {
-                                            echo Html::img($images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt' => $model->title]);
-                                        }
-                                        ?>
-                                        <span class="product-title"><?= $model->title ?></span>
-                                    </a>
-                                    <span class="amount"><?= (int)$model->price ?>₽</span>
-                                </li>
-                            <?php endforeach;?>
-                        </ul>
-                    </div>
+                    <?php if($noveltyProducts):?>
+                        <div class="widget commerce widget_products">
+                            <h3 class="widget-title">Новинки</h3>
+                            <ul class="product_list_widget">
+                                <?php foreach (array_values($noveltyProducts) as $model) :?>
+                                    <li>
+                                        <a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>">
+                                            <?php
+                                            $images = $model->images;
+                                            if (isset($images[0])) {
+                                                echo Html::img($images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt' => $model->title]);
+                                            }
+                                            ?>
+                                            <span class="product-title"><?= $model->title ?></span>
+                                        </a>
+                                        <span class="amount"><?= (int)$model->price ?>&#8381</span>
+                                    </li>
+                                <?php endforeach;?>
+                            </ul>
+                        </div>
+                    <?php endif;?>
                 </div>
             </div>
         </div>
