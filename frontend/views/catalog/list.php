@@ -111,7 +111,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         ?>
                                         <span class="product-title"><?= $model->title ?></span>
                                     </a>
-                                    <span class="amount"><?= (int)$model->price ?>&#8381</span>
+                                    <span class="amount"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span>
                                 </li>
                             <?php endforeach;?>
                         </ul>

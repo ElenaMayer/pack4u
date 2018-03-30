@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span>&nbsp;-&nbsp;</span>
                                 <span>Арт: <?= $product->article?></span>
                             </div>
-                            <p class="price"><span class="amount"><?= (int)$product->price ?>&#8381</span></p>
+                            <p class="price"><span class="amount"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span></p>
                             <p class="description"><?= $product->description ?></p>
                             <div class="product_meta">
                                 <?php if($product->size):?>
@@ -133,7 +133,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             ?>
                                             <span class="product-title"><?= $model->title ?></span>
                                         </a>
-                                        <span class="amount"><?= (int)$model->price ?>&#8381</span>
+                                        <span class="amount"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span>
                                     </li>
                                 <?php endforeach;?>
                             </ul>

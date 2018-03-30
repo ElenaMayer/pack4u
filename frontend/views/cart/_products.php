@@ -19,7 +19,7 @@ use \yii\helpers\Html; ?>
                 <span><?= $quantity?>шт.</span>
             </div>
             <div class="product-price">
-                <span><?= (int)$product->getCost()?>&#8381</span>
+                <span><?= (int)$product->getCost()?><i class="fa fa-ruble"></i></span>
             </div>
         </div>
     </div><!-- /.cart-item -->

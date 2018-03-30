@@ -39,6 +39,10 @@ return [
                 'catalog/<categorySlug:\w+>/<productId:\d+>' => 'catalog/product',
                 'cart' => 'cart/list',
                 'contact' => 'site/contact',
+                'shipping' => 'site/shipping',
+                'payment' => 'site/payment',
+                'refund' => 'site/refund',
+                'offer' => 'site/offer',
             ],
         ],
         'view' => [

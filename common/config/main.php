@@ -10,6 +10,9 @@ return [
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',
+            'modelMap' => [
+                'User' => 'common\models\User',
+            ],
             'admins' => ['admin'],
             'mailer' => [
                 'sender'                => 'no-reply@myhost.com', // or ['no-reply@myhost.com' => 'Sender name']

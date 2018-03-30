@@ -95,7 +95,7 @@ AppAsset::register($this);
                     <div class="container">
                         <div class="menu-position">
                             <div class="navbar-header pull-left">
-                                <h1 class="sr-only"><?= Yii::$app->params['title'] ?></h1>
+                                <h1 class="sr-only"><?= Yii::$app->name ?></h1>
                                 <div class="noo_menu_canvas">
                                     <div class="btn-search noo-search topbar-has-search">
                                         <i class="fa fa-search"></i>
@@ -107,7 +107,7 @@ AppAsset::register($this);
                                     </div>
                                 </div>
                                 <a href="/" class="navbar-brand">
-                                    <img class="noo-logo-img noo-logo-normal" src="/images/logo.png?2" alt="<?= Yii::$app->params['title'] ?>">
+                                    <img class="noo-logo-img noo-logo-normal" src="/images/logo.png?2" alt="<?= Yii::$app->name ?>">
                                 </a>
                             </div>
 
@@ -155,11 +155,11 @@ AppAsset::register($this);
         <footer class="wrap-footer footer-2 colophon wigetized">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6 item-footer-four">
+                    <div class="col-md-3 col-sm-6 item-footer-four">
                         <div class="widget widget_about">
                             <div class="noo_about_widget">
                                 <a href="/">
-                                    <img src="/images/logo.png?2" alt="<?= Yii::$app->params['title'] ?>" />
+                                    <img src="/images/logo.png?2" alt="<?= Yii::$app->name ?>" />
                                 </a>
                                 <p><?= Yii::$app->params['companySlogan'] ?></p>
                             </div>
@@ -182,14 +182,15 @@ AppAsset::register($this);
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6 item-footer-four">
+                    <div class="col-md-3 col-sm-6 item-footer-four">
                         <div class="widget widget_text">
                             <h4 class="widget-title">Помощь</h4>
                             <div class="textwidget">
-                                <p><a href="/shipping">Доставка</a></p>
-                                <p><a href="/payment">Оплата</a></p>
-                                <p><a href="/refund">Возврат</a></p>
-                                <p><a href="/offer">Оферта</a></p>
+                                <p><a href="/contact">Контакты</a></p>
+                                <p><a href="/shipping">Информация о доставке</a></p>
+                                <p><a href="/payment">Способы оплаты</a></p>
+                                <p><a href="/refund">Возврат товара</a></p>
+                                <p><a href="/offer">Публичная оферта</a></p>
 
                             </div>
                         </div>

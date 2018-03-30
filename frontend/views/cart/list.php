@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </a>
                                 </td>
                                 <td class="product-price">
-                                    <span class="amount"><?= (int)$product->price ?>&#8381</span>
+                                    <span class="amount"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
                                 </td>
                                 <td class="product-quantity">
                                     <?php if($product->getIsInStock()):?>
@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <?php endif;?>
                                 </td>
                                 <td class="product-subtotal">
-                                    <span class="amount"><?= $product->getCost() ?>&#8381</span>
+                                    <span class="amount"><?= $product->getCost() ?><i class="fa fa-ruble"></i></span>
                                 </td>
                                 <td class="product-remove">
                                     <?= Html::a('×', ['cart/remove', 'id' => $product->getId(), 'returnUrl' => '/cart/list'], ['class' => 'remove'])?>

@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\models\Order;
 use common\models\OrderItem;
 use common\models\Product;
+use common\models\User;
 use Yii;
 use frontend\models\MyShoppingCart;
 
@@ -94,12 +95,14 @@ class CartController extends \yii\web\Controller
         if($products) {
             if ($order->load(\Yii::$app->request->post()) && $order->validate()) {
                 $transaction = $order->getDb()->beginTransaction();
+                if (!Yii::$app->user->isGuest) {
+                    $order->user_id = Yii::$app->user->id;
+                }
                 $order->save(false);
 
                 foreach ($products as $product) {
                     if ($product->getIsActive() && $product->getIsInStock()) {
                         $orderItem = new OrderItem();
-                        $orderItem->order_id = $order->id;
                         $orderItem->title = $product->title;
                         $orderItem->price = $product->getPrice();
                         $orderItem->product_id = $product->id;
@@ -114,10 +117,26 @@ class CartController extends \yii\web\Controller
                 $transaction->commit();
                 \Yii::$app->cart->removeAll();
 
+                if (!Yii::$app->user->isGuest) {
+                    $user = User::findOne(Yii::$app->user->id);
+                    $user->fio = $order->fio;
+                    $user->address = $order->address;
+                    $user->phone = $order->phone;
+                    print_r($user);
+                    $user->save(false);
+                    print_r($user);die();
+                }
+
                 \Yii::$app->session->addFlash('success', 'Спасибо за заказ. Мы свяжемся с Вами в ближайшее время.');
                 $order->sendEmail();
 
                 return $this->redirect('/catalog');
+            }
+            if(!Yii::$app->user->isGuest) {
+                $order->fio = Yii::$app->user->getIdentity()->fio;
+                $order->address = Yii::$app->user->getIdentity()->address;
+                $order->phone = Yii::$app->user->getIdentity()->phone;
+                $order->email = Yii::$app->user->getIdentity()->email;
             }
             if($ajax){
                 return $this->renderPartial('order', [

@@ -42,6 +42,7 @@
   7.5.  MY ACCOUNT
 8. PRODUCT SWIPER
 9. ORDER
+10. ABOUT PAGES
 
 *
 * -----------------------------------------------------------------------------
@@ -17533,4 +17534,37 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     .payment-right {
         padding-left: 70px;
     }
+}
+
+/* === 10. ABOUT PAGES === */
+
+.main .row.about {
+    font-size: 15px;
+    line-height: 2;
+}
+
+.main .row.about h3 {
+    font-family: 'Lato', sans-serif;
+}
+
+.main .row.about p i {
+    padding: 0 15px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.main .row.about p.sub i {
+    padding-left: 100px;
+}
+
+.main .row.about table {
+    width: 70%;
+}
+
+.main .row.about table tr td:last-child {
+    width: 20%;
+}
+
+.main .row.about p.contact {
+    padding-top: 30px;
 }
