@@ -38,6 +38,9 @@ use dektrium\user\models\User as BaseUser;
 class User extends BaseUser
 {
 
+    /** @var string Default username regexp */
+    public static $usernameRegexp = '/^[-a-zA-Zа-яА-Я0-9_\.@]+$/';
+
     /**
      * @inheritdoc
      */

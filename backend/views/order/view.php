@@ -41,7 +41,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'city',
             'shipping_method',
             'payment_method',
-            'zip',
+            'tk',
+            'rcr',
         ],
     ]) ?>
     <h2>Заказ:</h2>

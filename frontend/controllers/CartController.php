@@ -119,12 +119,10 @@ class CartController extends \yii\web\Controller
 
                 if (!Yii::$app->user->isGuest) {
                     $user = User::findOne(Yii::$app->user->id);
-                    $user->fio = $order->fio;
-                    $user->address = $order->address;
-                    $user->phone = $order->phone;
-                    print_r($user);
+                    if($order->fio) $user->fio = $order->fio;
+                    if($order->address) $user->address = $order->address;
+                    if($order->phone) $user->phone = $order->phone;
                     $user->save(false);
-                    print_r($user);die();
                 }
 
                 \Yii::$app->session->addFlash('success', 'Спасибо за заказ. Мы свяжемся с Вами в ближайшее время.');

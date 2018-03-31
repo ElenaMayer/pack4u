@@ -190,7 +190,6 @@ AppAsset::register($this);
                                 <p><a href="/shipping">Информация о доставке</a></p>
                                 <p><a href="/payment">Способы оплаты</a></p>
                                 <p><a href="/refund">Возврат товара</a></p>
-                                <p><a href="/offer">Публичная оферта</a></p>
 
                             </div>
                         </div>

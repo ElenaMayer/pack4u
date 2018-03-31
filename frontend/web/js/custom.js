@@ -13,6 +13,20 @@ $(document).ready(function() {
 
     aweProductRender(true);
 
+    $(document.body).on('change', '#order-shipping_method' ,function(){
+        $('.shipping_methods').children().each(function(){
+        	$(this).hide();
+		});
+        console.log($(this).children("option:selected").val());
+        if($(this).children("option:selected").val() == 'rcr'){
+        	$('.shipping_methods .rcr').show();
+		} else if($(this).children("option:selected").val() == 'rp'){
+            $('.shipping_methods .rp').show();
+		} else if($(this).children("option:selected").val() == 'tk'){
+            $('.shipping_methods .tk').show();
+        }
+    });
+
     //Change cart qty
     $(document.body).on('change', 'input.qty' ,function(){
         updateCartQty($(this).parents('form'));

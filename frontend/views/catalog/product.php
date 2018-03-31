@@ -25,11 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="swiper-wrapper">
                                         <?php foreach ($images as $key => $image):?>
                                             <div class="swiper-slide">
-<!--                                                <div class="easyzoom easyzoom--overlay">-->
-                                                    <a href="<?= $image->getUrl()?>" title="<?= $product->title?>">
-                                                        <?= Html::img($image->getUrl(), ['width' => '100%', 'alt'=>$product->title]);?>
-                                                    </a>
-<!--                                                </div>-->
+                                                <?= Html::img($image->getUrl(), ['width' => '100%', 'alt'=>$product->title]);?>
                                             </div>
                                         <?php endforeach;?>
                                     </div>

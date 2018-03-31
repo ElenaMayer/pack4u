@@ -28,7 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]);
                 $labels = $order->attributeLabels(); ?>
                 <?= $form->field($order, 'fio')->textInput(['placeholder' => 'Иванов Иван Иванович', 'class' => 'form-control dark']); ?>
-                <?= $form->field($order, 'address')->textInput(['placeholder' => '630000, Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark']); ?>
                 <div class="row">
                     <div class="col-md-6">
                         <?= $form->field($order, 'email')->textInput(['placeholder' => 'name@mail.ru', 'class' => 'form-control dark']); ?>
@@ -39,8 +38,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <?= $form->field($order, 'notes')->textarea(['class' => 'form-control dark', 'rows' => "3"]); ?>
 
-                <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethods()); ?>
                 <?php echo $form->field($order, 'payment_method')->dropDownList(Order::getPaymentMethods()); ?>
+                <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethods()); ?>
+
+                <div class="shipping_methods">
+                    <div class="rp" style="display: none">
+                        <?= $form->field($order, 'address')->textInput(['placeholder' => '630000, Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark']); ?>
+                    </div>
+                    <div class="tk" style="display: none">
+                        <?php echo $form->field($order, 'tk')->dropDownList(Order::getTkList()); ?>
+                    </div>
+                    <div class="rcr" style="display: none">
+                        <?= $form->field($order, 'rcr')->textInput(['placeholder' => 'РЦР Маркса', 'class' => 'form-control dark']); ?>
+                    </div>
+                </div>
 
                 <?php if (Yii::$app->user->isGuest): ?>
                     <!--            <div class="checkbox">-->

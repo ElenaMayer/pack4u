@@ -22,6 +22,8 @@ use yii\behaviors\TimestampBehavior;
  * @property string $shipping_method
  * @property string $payment_method
  * @property integer $zip
+ * @property string $tk
+ * @property string $rcr
  *
  * @property OrderItem[] $orderItems
  */
@@ -55,7 +57,7 @@ class Order extends \yii\db\ActiveRecord
         return [
             [['created_at', 'updated_at', 'shipping_cost', 'zip'], 'integer'],
             [['address', 'notes'], 'string'],
-            [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method'], 'string', 'max' => 255],
+            [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method', 'tk', 'rcr'], 'string', 'max' => 255],
             [['phone', 'email'], 'required'],
             [['email'], 'email'],
         ];
@@ -81,6 +83,8 @@ class Order extends \yii\db\ActiveRecord
             'shipping_method' => 'Способ доставки',
             'payment_method' => 'Способ оплаты',
             'zip' => 'Индекс',
+            'tk' => 'Транспортная компания',
+            'rcr' => 'Пункт выдачи РЦР',
         ];
     }
 
@@ -128,6 +132,16 @@ class Order extends \yii\db\ActiveRecord
         return [
             'cash' => 'Наличными при получении',
             'card' => 'На карту',
+        ];
+    }
+
+    public static function getTkList()
+    {
+        return [
+            'dellin' => 'Деловые линии',
+            'cdek' => 'СДЭК',
+            'pec' => 'ПЭК',
+            'nrg' => 'Энергия',
         ];
     }
 

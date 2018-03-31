@@ -7916,7 +7916,10 @@ div.products-sh-title h4 {
 
 .noo-simple-product-slider li .noo-simple-slider-item h3 {
     padding-left: 20px;
-    text-shadow: 1px 1px 2px #ffffff;
+    text-shadow: 1px 1px 2px #000000;
+    font-family: 'Lato', sans-serif;
+    font-size: 35px;
+    color: #ffffff;
 }
 
 div.creative-product-title {
@@ -15753,7 +15756,7 @@ input[type='checkbox'] {
     text-transform: uppercase;
     margin: 0;
     padding: 0;
-    min-height: 2.3em;
+    min-height: 2.4em;
 }
 
 .commerce .product-grid .noo-product-title .price {
