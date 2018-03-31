@@ -19,9 +19,11 @@ use yii\helpers\Markdown;
         <div class="noo-product-title">
             <h3><a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>" title="<?= $model->title?>"><?= Html::encode($model->title) ?></a></h3>
             <span class="price"><span class="amount"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span></span>
-            <div class="noo-product-size">
-                <p><?= $model->size?></p>
-            </div>
+            <?php if($model->size): ?>
+                <div class="noo-product-size">
+                    <p><?= $model->size?> см</p>
+                </div>
+            <?php endif;?>
             <div class="noo-product-excerpt">
                 <p><?= $model->description?></p>
             </div>

@@ -52,7 +52,7 @@ AppAsset::register($this);
                             <div class="noo_social">
                                 <div class="social-all">
                                     <a href="<?= Yii::$app->params['linkInstagram'] ?>" class="fa fa-instagram"></a>
-                                    <a href="<?= Yii::$app->params['linkVk'] ?>" class="fa fa-twitter"></a>
+                                    <a href="<?= Yii::$app->params['linkVk'] ?>" class="fa fa-vk"></a>
                                     <a href="<?= Yii::$app->params['linkFacebook'] ?>" class="fa fa-facebook"></a>
                                 </div>
                             </div>
@@ -69,12 +69,11 @@ AppAsset::register($this);
                                 <span><i class="fa fa-user"></i></span>
                                 <a href="/user/security/logout" data-method='post'>Выйти</a>
                             </li>
+                            <li>
+                                <span><i class="fa fa-heart-o"></i></span>
+                                <a href="">Избранное</a>
+                            </li>
                         <?php endif;?>
-
-                        <li>
-                            <span><i class="fa fa-heart-o"></i></span>
-                            <a href="wishlist.html">Избранное</a>
-                        </li>
                         <li>
                             <a href="/cart">
                                 <span class="has-cart">
@@ -97,9 +96,6 @@ AppAsset::register($this);
                             <div class="navbar-header pull-left">
                                 <h1 class="sr-only"><?= Yii::$app->name ?></h1>
                                 <div class="noo_menu_canvas">
-                                    <div class="btn-search noo-search topbar-has-search">
-                                        <i class="fa fa-search"></i>
-                                    </div>
                                     <div data-target=".nav-collapse" class="btn-navbar">
                                         <span></span>
                                         <span></span>
@@ -168,7 +164,7 @@ AppAsset::register($this);
                             <div class="noo_social">
                                 <div class="social-all">
                                     <a href="<?= Yii::$app->params['linkInstagram'] ?>" class="fa fa-instagram"></a>
-                                    <a href="<?= Yii::$app->params['linkVk'] ?>" class="fa fa-twitter"></a>
+                                    <a href="<?= Yii::$app->params['linkVk'] ?>" class="fa fa-vk"></a>
                                     <a href="<?= Yii::$app->params['linkFacebook'] ?>" class="fa fa-facebook"></a>
                                 </div>
                             </div>

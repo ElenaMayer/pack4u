@@ -49,9 +49,9 @@ class CatalogController extends \yii\web\Controller
                 'pageSize' => isset($get['limit'])? $get['limit']: Yii::$app->params['catalogPageSize'],
             ],
         ]);
-        $relatedProducts = Product::find()
-            ->where(['is_active' => 1, 'is_in_stock' => 1])
-            ->limit(Yii::$app->params['productPageRelatedCount'])
+        $noveltyProducts = Product::find()
+            ->andWhere(['is_active' => 1, 'is_in_stock' => 1, 'is_novelty' => 1])
+            ->limit(Yii::$app->params['productNewCount'])
             ->all();
         return $this->render('list', [
             'category' => isset($category)? $category : null,
@@ -59,7 +59,7 @@ class CatalogController extends \yii\web\Controller
             'models' => $productsDataProvider->getModels(),
             'pagination' => $productsDataProvider->getPagination(),
             'pageCount' => $productsDataProvider->getCount(),
-            'relatedProducts' => $relatedProducts,
+            'noveltyProducts' => $noveltyProducts,
         ]);
     }
 

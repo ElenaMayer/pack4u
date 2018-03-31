@@ -98,9 +98,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
                     <div class="widget commerce widget_products">
-                        <h3 class="widget-title">Популярное</h3>
+                        <h3 class="widget-title">Новинки</h3>
                         <ul class="product_list_widget">
-                            <?php foreach (array_values($relatedProducts) as $model) :?>
+                            <?php foreach (array_values($noveltyProducts) as $model) :?>
                                 <li>
                                     <a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>">
                                         <?php
