@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
     $sum = 0;
     foreach ($model->orderItems as $item): ?>
         <?php $sum += $item->quantity * $item->price ?>
-        <li><?= Html::encode($item->title . $item->quantity . ' x ' . (int)$item->price . ' руб.') ?></li>
+        <li><?= Html::encode($item->title .' (Арт. '. $item->product->article .')' . $item->quantity . ' x ' . (int)$item->price . ' руб.') ?></li>
     <?php endforeach ?>
     </ul>
 

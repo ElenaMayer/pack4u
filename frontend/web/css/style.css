@@ -13317,8 +13317,11 @@ a.go-to-top:hover a.go-to-top:focus.on:hover {
     .commerce-cart table.cart td.product-thumbnail img {
         display: none;
     }
-    .commerce-cart table.cart .product-quantity {
+    .commerce-cart table.cart .product-thumbnail {
         display: none;
+    }
+    .commerce-cart table.cart .product-price {
+        padding-left: 10px;
     }
     .commerce-cart table.cart th.product-price,
     .commerce-cart table.cart th.product-quantity,

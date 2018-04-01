@@ -23,9 +23,9 @@ use yii\helpers\Html;
 $sum = 0;
 foreach ($order->orderItems as $item): ?>
     <?php $sum += $item->quantity * $item->price ?>
-    <li><?= Html::encode($item->title . ' x ' . $item->quantity . ' x ' . $item->price . ' руб.') ?></li>
+    <li><?= Html::encode($item->title .' (Арт. '. $item->product->article .')' . ' x ' . $item->quantity . ' x ' . $item->price . ' руб.') ?></li>
 <?php endforeach ?>
 </ul>
 
-<p><string>Итого: </string> <?php echo $sum?>$</p>
+<p><string>Итого: </string> <?php echo $sum?> руб.</p>
 
