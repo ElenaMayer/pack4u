@@ -103,6 +103,7 @@ class CartController extends \yii\web\Controller
                 foreach ($products as $product) {
                     if ($product->getIsActive() && $product->getIsInStock()) {
                         $orderItem = new OrderItem();
+                        $orderItem->order_id = $order->id;
                         $orderItem->title = $product->title;
                         $orderItem->price = $product->getPrice();
                         $orderItem->product_id = $product->id;
