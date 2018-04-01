@@ -12737,7 +12737,8 @@ a.go-to-top:hover a.go-to-top:focus.on:hover {
 * -----------------------------------------------------------------------------
 */
 
-.noo_menu_canvas .btn-search {
+.noo_menu_canvas .btn-search,
+.noo_menu_canvas .btn-cart {
     display: none;
     color: #212121;
     font-size: 18px;
@@ -12792,7 +12793,8 @@ a.go-to-top:hover a.go-to-top:focus.on:hover {
     .noo_menu_canvas .btn-search {
         display: block;
     }
-    .noo_menu_canvas .btn-search.topbar-has-search {
+    .noo_menu_canvas .btn-search.topbar-has-search,
+    .noo_menu_canvas .topbar-has-cart {
         display: none;
     }
     .noo_menu_canvas .btn-navbar {
@@ -13260,7 +13262,8 @@ a.go-to-top:hover a.go-to-top:focus.on:hover {
     .noo_menu_canvas .btn-search {
         display: block;
     }
-    .noo_menu_canvas .btn-search.topbar-has-search {
+    .noo_menu_canvas .btn-search.topbar-has-search,
+    .noo_menu_canvas .topbar-has-cart {
         display: block;
     }
     .header-4 .noo_menu_canvas .btn-search,

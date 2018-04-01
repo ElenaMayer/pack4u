@@ -91,7 +91,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         <div class="tagcloud">
                             <?php foreach (Product::getTagsArray() as $key => $tag):?>
-                                <a <?php if(Yii::$app->request->get('tag') == $key):?>class="active"<?php endif;?> href="<?= StaticFunction::addGetParamToCurrentUrl('tag', $tag) ?>">
+                                <a <?php if(Yii::$app->request->get('tag') == $key):?>class="active"<?php endif;?> href="/catalog?tag=<?=$tag?>">
                                     <?= $tag ?>
                                 </a>
                             <?php endforeach;?>

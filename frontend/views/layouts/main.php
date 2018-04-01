@@ -96,6 +96,17 @@ AppAsset::register($this);
                             <div class="navbar-header pull-left">
                                 <h1 class="sr-only"><?= Yii::$app->name ?></h1>
                                 <div class="noo_menu_canvas">
+                                    <div class="topbar-has-cart btn-cart">
+                                        <a href="/cart">
+                                            <span class="has-cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                <?php $itemsInCart = Yii::$app->cart->getCount(); ?>
+                                                <?php if($itemsInCart):?>
+                                                    <em><?= $itemsInCart ?></em>
+                                                <?php endif; ?>
+                                            </span>
+                                        </a>
+                                    </div>
                                     <div data-target=".nav-collapse" class="btn-navbar">
                                         <span></span>
                                         <span></span>

@@ -8,7 +8,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="pt-10 pb-10">
     <div class="container">
         <div class="row about">
-            <h1>Доставка по Новосибирску</h1>
+            <div class="col-sm-12">
+                <h1>Доставка по Новосибирску</h1>
 
                 <h3>Самовывоз</h3>
                 <p>Самовывоз осуществляется <b>бесплатно</b>, по предварительной договоренности.</p>
@@ -56,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <p class="sub"><i class="fa fa-angle-right"></i><a href="https://www.pochta.ru/">Почта России</a></p>
 
                 <p class="contact">По всем вопросам покупки Вы можете обратиться к нам: Анна <?= Yii::$app->params['phone1'] ?> и Елена <?= Yii::$app->params['phone2'] ?></p>
-
+            </div>
         </div>
     </div>
 </div>

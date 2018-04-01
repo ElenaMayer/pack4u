@@ -134,11 +134,10 @@ class CatalogController extends \yii\web\Controller
     {
 
         $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
-        $params = StaticFunction::getParamFromCurrentUrl();
         $menuItems = ['0' => [
             'active' => ($activeId == 'all')?1:0,
             'label' => 'Все',
-            'url' => ['/catalog'.$params]
+            'url' => ['/catalog']
             ]
         ];
         foreach ($categories as $category) {
@@ -146,7 +145,7 @@ class CatalogController extends \yii\web\Controller
                 $menuItems[$category->id] = [
                     'active' => $activeId === $category->id,
                     'label' => $category->title,
-                    'url' => ['/catalog/'.$category->slug.$params],
+                    'url' => ['/catalog/'.$category->slug],
                 ];
             }
         }
