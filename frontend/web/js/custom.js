@@ -11,6 +11,20 @@ $(document).ready(function() {
         links: false
     });
 
+	/*-------------------------------------------
+	 Sticky Header
+	 --------------------------------------------- */
+    var win = $(window);
+    var sticky_id = $("#sticky-header-with-topbar");
+    win.on('scroll',function() {
+        var scroll = win.scrollTop();
+        if (scroll < 245) {
+            sticky_id.removeClass("scroll-header");
+        }else{
+            sticky_id.addClass("scroll-header");
+        }
+    });
+
     aweProductRender(true);
 
     $(document.body).on('change', '#order-shipping_method' ,function(){

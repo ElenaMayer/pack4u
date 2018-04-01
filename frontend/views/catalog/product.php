@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?php endif;?>
                                 <span class="posted_in">Категория: <a href="/catalog/<?= $category->slug?>" title="<?= $category->title?>"><?= $category->title?></a></span>
                                 <?php if($product->tags):?>
-                                    <span class="tagged_as">Тэги:
+                                    <span class="tagged_as">Теги:
                                         <?php foreach ($product->getCurrentTagsArray() as $key => $tag):?>
                                             <a href="/catalog?tag=<?= $tag ?>"><?= $tag ?></a>
                                         <?php endforeach;?>
@@ -107,7 +107,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         ]) ?>
                     </div>
                     <div class="widget commerce widget_product_tag_cloud">
-                        <h3 class="widget-title">Тэги</h3>
+                        <h3 class="widget-title">Теги</h3>
                         <div class="tagcloud">
                             <?php foreach (Product::getTagsArray() as $key => $tag):?>
                                 <a href="/catalog?tag=<?= $tag ?>"><?= $tag ?></a>

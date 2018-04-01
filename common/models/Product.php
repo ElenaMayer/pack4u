@@ -92,7 +92,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'is_novelty' => 'Новинка',
             'size' => 'Размер',
             'color' => 'Цвет',
-            'tags' => 'Тэги',
+            'tags' => 'Теги',
             'new_price' => 'Новая цена',
             'time' => 'Дата создания',
         ];

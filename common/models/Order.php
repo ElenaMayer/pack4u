@@ -58,7 +58,7 @@ class Order extends \yii\db\ActiveRecord
             [['created_at', 'updated_at', 'shipping_cost', 'zip'], 'integer'],
             [['address', 'notes'], 'string'],
             [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method', 'tk', 'rcr'], 'string', 'max' => 255],
-            [['phone', 'email'], 'required'],
+            [['phone', 'fio'], 'required'],
             [['email'], 'email'],
         ];
     }

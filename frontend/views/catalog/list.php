@@ -87,7 +87,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </form>
                     </div>
                     <div class="widget commerce widget_product_tag_cloud">
-                        <h3 class="widget-title">Тэги <a href="<?= StaticFunction::addGetParamToCurrentUrl('tag', 'all') ?>">Все</a></h3>
+                        <h3 class="widget-title">Теги <a href="<?= StaticFunction::addGetParamToCurrentUrl('tag', 'all') ?>">Все</a></h3>
 
                         <div class="tagcloud">
                             <?php foreach (Product::getTagsArray() as $key => $tag):?>

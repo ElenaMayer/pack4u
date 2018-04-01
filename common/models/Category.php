@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\behaviors\SluggableBehavior;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "category".
@@ -91,5 +92,11 @@ class Category extends \yii\db\ActiveRecord
     public function getProducts()
     {
         return $this->hasMany(Product::className(), ['category_id' => 'id']);
+    }
+
+    public static function getCategoryList()
+    {
+        $parents = Category::find()->select(['id', 'title'])->all();
+        return ArrayHelper::map($parents, 'id', 'title');
     }
 }

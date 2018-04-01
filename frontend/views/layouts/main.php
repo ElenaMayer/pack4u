@@ -89,7 +89,7 @@ AppAsset::register($this);
                 </div>
             </div>
 
-            <div class="navbar-wrapper">
+            <div id="sticky-header-with-topbar" class="navbar-wrapper sticky__header">
                 <div class="navbar navbar-default">
                     <div class="container">
                         <div class="menu-position">

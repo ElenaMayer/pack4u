@@ -41,7 +41,7 @@ class AppAsset extends AssetBundle
         //index
         'css/settings.css',
 
-        'css/style.css?35',
+        'css/style.css?37',
         'css/colors/apple-green.css?2',
     ];
     public $js = [

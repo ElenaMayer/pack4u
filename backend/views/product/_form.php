@@ -52,7 +52,7 @@ use \common\models\Product;
     <?= $form->field($model, 'tags')->widget(Select2::classname(), [
         'options' => [
             'multiple' => true,
-            'placeholder' => Yii::t('app','Выберите тэги ...'),
+            'placeholder' => Yii::t('app','Выберите теги ...'),
         ],
         'data'=>Product::getTagsArray(),
         'pluginOptions' => [

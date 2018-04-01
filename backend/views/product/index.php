@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
+use common\models\Category;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ProductSearch */
@@ -24,12 +25,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
+            'id',
             [
                 'format' => 'image',
                 'value'=>function($model) { return isset($model->images[0])?$model->images[0]->getUrl('small'):''; }
             ],
             'article',
             'title',
+            [
+                'attribute'=>'category_id',
+//                'format'=>'text', // Возможные варианты: raw, html
+                'value' => function ($model) {
+                    return empty($model->category_id) ? '-' : $model->category->title;
+                },
+                'filter' => Category::getCategoryList()
+            ],
             [
                 'attribute' => 'category_id',
                 'value' => function ($model) {
