@@ -32,7 +32,7 @@ $(document).ready(function() {
         updateCartQty($(this).parents('form'));
     });
     $(document.body).on('keyup', 'input.cart-qty' ,function(){
-        updateCartQty($('#update-qty'));
+        updateCartQty($(this).parents('form'));
     });
 
     $(".noo-list").on("click", function() {
@@ -602,14 +602,21 @@ function aweProductRender(thumbHorizontal) {
 }
 
 function updateCartQty(form) {
-    $.ajax({
-        method: 'get',
-        url: '/cart/list',
-        dataType: 'html',
-        data: $(form).serialize(),
-    }).done(function( data ) {
-		$('div.main').html(data);
-	});
+	var e = $('input.cart-qty');
+	if(!e.hasClass('disable') && e.val() && e.val() > 0){
+        e.addClass('disable').prop('readonly', true);
+        $.ajax({
+           method: 'get',
+           url: '/cart/update_cart_qty',
+           dataType: 'json',
+           data: $(form).serialize(),
+        }).done(function( data ) {
+			$('#amount_val_'+data.id).text(data.productTotal);
+            $('#amount_total').text(data.total);
+            e.removeClass('disable').prop('readonly', false);
+        });
+	}
+
 }
 
 function removeItemFromCart(id) {

@@ -7,7 +7,6 @@ use common\models\OrderItem;
 use common\models\Product;
 use common\models\User;
 use Yii;
-use frontend\models\MyShoppingCart;
 
 class CartController extends \yii\web\Controller
 {
@@ -20,32 +19,38 @@ class CartController extends \yii\web\Controller
         }
     }
 
-    public function actionList()
+    public function actionUpdate_cart_qty()
     {
         $get = Yii::$app->request->get();
-        $ajax = false;
         if($get && isset($get['id']) && isset($get['quantity'])) {
-            $ajax = true;
             $this->updateQty($get['id'], $get['quantity']);
+            $cart = \Yii::$app->cart;
+
+            $product = $cart->getPositionById($get['id']);
+            $total = $cart->getCost();
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return [
+                'id' => $get['id'],
+                'productTotal' => $product->getCost(),
+                'total' => $total,
+            ];
+        } else {
+            return false;
         }
 
-        /* @var $cart ShoppingCart */
+    }
+
+    public function actionList()
+    {
         $cart = \Yii::$app->cart;
 
         $products = $cart->getPositions();
         $total = $cart->getCost();
 
-        if($ajax){
-            return $this->renderPartial('list', [
-                'products' => $products,
-                'total' => $total,
-            ]);
-        } else {
-            return $this->render('list', [
-                'products' => $products,
-                'total' => $total,
-            ]);
-        }
+        return $this->render('list', [
+            'products' => $products,
+            'total' => $total,
+        ]);
     }
 
     public function actionRemove($id)

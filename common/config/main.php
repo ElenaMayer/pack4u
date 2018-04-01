@@ -13,13 +13,16 @@ return [
             'modelMap' => [
                 'User' => 'common\models\User',
             ],
+            'controllerMap' => [
+                'registration' => 'frontend\controllers\user\RegistrationController'
+            ],
             'admins' => ['admin'],
             'mailer' => [
-                'sender'                => 'no-reply@myhost.com', // or ['no-reply@myhost.com' => 'Sender name']
-                'welcomeSubject'        => 'Welcome subject',
-                'confirmationSubject'   => 'Confirmation subject',
-                'reconfirmationSubject' => 'Email change subject',
-                'recoverySubject'       => 'Recovery subject',
+                'sender'                => ['support@pack4u.ru' => 'pack4u.ru'], // or ['no-reply@myhost.com' => 'Sender name']
+                'welcomeSubject'        => 'Спасибо за регистрацию!',
+                'confirmationSubject'   => 'Подтверждение учетной записи',
+                'reconfirmationSubject' => 'Изменение Email',
+                'recoverySubject'       => 'Восстановление пароля',
             ],
         ],
     ],

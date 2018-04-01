@@ -50,16 +50,17 @@ class ContactForm extends Model
      * @param  string  $email the target email address
      * @return boolean whether the email was sent
      */
-    public function sendEmail($email)
+    public function sendEmail()
     {
         $body = 'Имя: ' . $this->name;
         $body .= $this->phone?' Телефон: ' . $this->phone:'';
+        $body .= $this->email?' Email: ' . $this->email:'';
         $body .= ' Сообщение : ' . $this->body;
         return Yii::$app->mailer->compose()
-            ->setTo($email)
-            ->setFrom([$this->email => $this->name])
-            ->setSubject(Yii::$app->params['domain'] . ' - Контакты')
-            ->setTextBody()
+            ->setTo(Yii::$app->params['adminEmail'])
+            ->setFrom(Yii::$app->params['adminEmail'])
+            ->setSubject(Yii::$app->params['domain'] . ' - Сообщение из контактов')
+            ->setTextBody($body)
             ->send();
     }
 }

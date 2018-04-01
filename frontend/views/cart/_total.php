@@ -8,6 +8,6 @@
     </tr>
     <tr class="order-total">
         <th>Итого</th>
-        <td><strong><span class="amount"><?= $total ?><i class="fa fa-ruble"></i></span></strong> </td>
+        <td><strong><span class="amount"><span id="amount_total"><?= $total ?></span><i class="fa fa-ruble"></i></span></strong> </td>
     </tr>
 </table>
