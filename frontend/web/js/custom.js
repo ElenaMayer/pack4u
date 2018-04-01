@@ -28,10 +28,10 @@ $(document).ready(function() {
     });
 
     //Change cart qty
-    $(document.body).on('change', 'input.qty' ,function(){
+    $(document.body).on('change', 'input.cart-qty' ,function(){
         updateCartQty($(this).parents('form'));
     });
-    $(document.body).on('keyup', 'input.qty' ,function(){
+    $(document.body).on('keyup', 'input.cart-qty' ,function(){
         updateCartQty($('#update-qty'));
     });
 
