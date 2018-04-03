@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\models\Order;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Order */
@@ -29,31 +30,81 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'created_at',
-            'updated_at',
+            'created_at:date',
+            'updated_at:date',
             'fio',
-            'address',
             'phone',
             'email:email',
             'notes:ntext',
             'status',
-            'shipping_cost',
-            'city',
-            'shipping_method',
-            'payment_method',
-            'tk',
-            'rcr',
+            [
+                'attribute' => 'shipping_method',
+                'value' => function ($model) {
+                    return Order::getShippingMethods()[$model->shipping_method];
+                },
+            ],
+            [
+                'attribute' => 'payment_method',
+                'value' => function ($model) {
+                    return Order::getPaymentMethods()[$model->payment_method];
+                },
+            ],
+            [
+                'attribute' => 'tk',
+                'value' => function ($model) {
+                    return $model->shipping_method == 'tk' ? Order::getTkList()[$model->tk] : '';
+                },
+            ],
+            [
+                'attribute' => 'rcr',
+                'value' => function ($model) {
+                    return $model->shipping_method == 'rcr' ? $model->rcr : '';
+                },
+            ],
+            [
+                'attribute' => 'address',
+                'value' => function ($model) {
+                    return $model->shipping_method == 'rp' ? $model->address : '';
+                },
+            ],
         ],
     ]) ?>
     <h2>Заказ:</h2>
-    <?php
-    $sum = 0;
-    foreach ($model->orderItems as $item): ?>
-        <?php $sum += $item->quantity * $item->price ?>
-        <li><?= Html::encode($item->title .' (Арт. '. $item->product->article .')' . $item->quantity . ' x ' . (int)$item->price . ' руб.') ?></li>
-    <?php endforeach ?>
-    </ul>
-
-    <p><string>Итого: </string> <?php echo $sum?> руб.</p>
+    <table class="table table-striped table-bordered detail-view">
+        <tr>
+            <th>Фото</th><th>Товар</th><th>Цена</th><th>Количество</th><th>Всего</th>
+        </tr>
+        <?php
+        $sum = 0;
+        foreach ($model->orderItems as $item): ?>
+            <tr>
+                <?php $sum += $item->quantity * $item->price ?>
+                <td>
+                    <div class="product-image">
+                        <a href="/catalog/<?= $item->product->category->slug?>/<?= $item->product->id?>">
+                            <?= Html::img($item->product->images[0]->getUrl('small'));?>
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <?= $item->title .' (Арт. '. $item->product->article .')'?>
+                </td>
+                <td>
+                    <?= (int)$item->price . ' руб.'?>
+                </td>
+                <td>
+                    <?= $item->quantity?>
+                </td>
+                <td>
+                    <?= (int)($item->price * $item->quantity) . ' руб.'?>
+                </td>
+            </tr>
+        <?php endforeach ?>
+        <tr>
+            <td>
+                <p><string>Итого: </string> <?php echo $sum?> руб.</p>
+            </td>
+        </tr>
+    </table>
 
 </div>

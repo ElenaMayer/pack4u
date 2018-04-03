@@ -27,10 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'fio',
             'phone',
             'email:email',
-            'notes:ntext',
             'status',
             'created_at:date',
-
             [
                 'class' => 'yii\grid\ActionColumn'
             ],

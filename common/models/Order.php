@@ -78,7 +78,7 @@ class Order extends \yii\db\ActiveRecord
             'notes' => 'Комментарий',
             'status' => 'Статус',
             'fio' => 'ФИО',
-            'shipping_cost' => 'Доставка',
+            'shipping_cost' => 'Стоимость доставки',
             'city' => 'Город',
             'shipping_method' => 'Способ доставки',
             'payment_method' => 'Способ оплаты',

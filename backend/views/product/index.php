@@ -25,33 +25,44 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            'id',
             [
                 'format' => 'image',
                 'value'=>function($model) { return isset($model->images[0])?$model->images[0]->getUrl('small'):''; }
             ],
+            'id',
             'article',
             'title',
             [
                 'attribute'=>'category_id',
-//                'format'=>'text', // Возможные варианты: raw, html
                 'value' => function ($model) {
                     return empty($model->category_id) ? '-' : $model->category->title;
                 },
                 'filter' => Category::getCategoryList()
             ],
-            [
-                'attribute' => 'category_id',
-                'value' => function ($model) {
-                    return empty($model->category_id) ? '-' : $model->category->title;
-                },
-            ],
             'price',
             'new_price',
             'size',
-            'is_active',
-            'is_in_stock',
-            'is_novelty',
+            [
+                'attribute'=>'is_active',
+                'value' => function ($model) {
+                    return $model->is_active ? 'Да' : 'Нет';
+                },
+                'filter' => [1 => 'Да', 0 => 'Нет']
+            ],
+            [
+                'attribute'=>'is_in_stock',
+                'value' => function ($model) {
+                    return $model->is_in_stock ? 'Да' : 'Нет';
+                },
+                'filter' => [1 => 'Да', 0 => 'Нет']
+            ],
+            [
+                'attribute'=>'is_novelty',
+                'value' => function ($model) {
+                    return $model->is_novelty ? 'Да' : 'Нет';
+                },
+                'filter' => [1 => 'Да', 0 => 'Нет']
+            ],
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{view} {update} {delete}',
