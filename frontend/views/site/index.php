@@ -1,4 +1,9 @@
 <?php
+
+use frontend\assets\IndexAsset;
+
+IndexAsset::register($this);
+
 /* @var $this yii\web\View */
 $this->title = Yii::$app->name;
 $this->params['breadcrumbs'][] = $this->title;

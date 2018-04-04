@@ -582,7 +582,7 @@ function revSlider_3(){
   });
 }
 
-$(window).load(function() {
+$(window).on('load', function(){
     $(".noo-page-heading").addClass("eff");
     $(".page-title").addClass("eff");
     $(".noo-page-breadcrumb").addClass("eff");
@@ -590,9 +590,6 @@ $(window).load(function() {
 });
 
 function aweProductRender(thumbHorizontal) {
-    // if (Modernizr && ! Modernizr.touch) {
-    //     $('.easyzoom').easyZoom();
-    // }
 
     var sMain = new Swiper('.product-slider-main', {
         loop: false,

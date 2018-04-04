@@ -1,8 +1,10 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\Markdown;
 use yii\widgets\Menu;
 use \common\models\Product;
+use frontend\assets\ProductAsset;
+
+ProductAsset::register($this);
 
 /* @var $this yii\web\View */
 $title = $product->title;
@@ -21,6 +23,30 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php $images = $product->images; ?>
                         <div class="col-md-6">
                             <div class="product-slider-wrapper thumbs-bottom">
+
+                                <div class="swiper-container product-slider-main">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper">
+                                        <!-- Slides -->
+                                        <?php foreach ($images as $key => $image):?>
+                                            <div class="swiper-slide">
+                                                <?= Html::img($image->getUrl(), ['width' => '100%', 'alt'=>$product->title]);?>
+                                            </div>
+                                        <?php endforeach;?>
+                                    </div>
+                                    <!-- If we need pagination -->
+                                    <div class="swiper-pagination"></div>
+
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
+                                    <div class="swiper-button-next"><i class="fa fa-chevron-right"></i></div>
+
+                                    <!-- If we need scrollbar -->
+                                    <div class="swiper-scrollbar"></div>
+                                </div>
+
+
+
                                 <div class="swiper-container product-slider-main">
                                     <div class="swiper-wrapper">
                                         <?php foreach ($images as $key => $image):?>
@@ -146,6 +172,5 @@ $this->params['breadcrumbs'][] = $this->title;
             <h4>- Все лучшее для оформления -</h4>
             <h3>Ищите здесь</h3>
         </div>
-        <img src="images/organici-love-me.png" class="noo-image-footer" alt="" />
     </div>
 </div>

@@ -641,3 +641,14 @@ fieldset[disabled] .mailchimp-widget .mc-subscribe-form button.active {
 .single-product div.product .entry-summary .product-status .green {
     color: #96cb62;
 }
+.cart-item .product-price {
+    color: #96cb62;
+}
+.commerce-page .cart-collaterals .cart_totals table .order-total .amount,
+.checkout-wrapper .cart_totals table .order-total .amount {
+    color: #96cb62;
+}
+.commerce-page .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button,
+.checkout-wrapper .cart_totals button.checkout-button {
+    background: #96cb62;
+}

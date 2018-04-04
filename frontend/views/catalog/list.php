@@ -4,6 +4,9 @@ use yii\widgets\Menu;
 use common\models\StaticFunction;
 use yii\widgets\LinkPager;
 use \common\models\Product;
+use frontend\assets\CatalogAsset;
+
+CatalogAsset::register($this);
 
 /* @var $this yii\web\View */
 $title = $category === null ? 'Каталог' : $category->title;

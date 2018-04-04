@@ -5957,6 +5957,8 @@ body.fixed_top .noo-header.header-5.eff .navbar-wrapper {
 
 .noo-header.header-2 .navbar-wrapper.sticky__header.scroll-header .noo_menu_canvas .btn-cart {
     display: block;
+    top: 26px;
+    right: -5px;
 }
 
 
@@ -16703,7 +16705,6 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     }
     .noo-main-canvas .sub-menu {
         list-style: none;
-        display: none;
         padding-left: 30px;
         padding-top: 8px;
         padding-bottom: 8px;
