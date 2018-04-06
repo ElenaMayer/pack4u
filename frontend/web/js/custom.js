@@ -156,12 +156,6 @@ $(document).ready(function() {
             }
         });
     }
-	
-	//Elastic Drags
-	if($('#elasticstack').length > 0) {
-		new ElastiStack( document.getElementById( 'elasticstack' ) );
-	}
-	
 	//Countdown Timer
 	if($('.defaultCountdown').length > 0) {
 		var austDay = new Date(2016, 03 - 1,  31);

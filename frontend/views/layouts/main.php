@@ -35,7 +35,6 @@ IeAsset::register($this);
         </div>
     </div>
     <div class="site">
-
         <header class="noo-header header-2 header-static">
             <div class="noo-topbar">
                 <div class="container">
@@ -84,7 +83,6 @@ IeAsset::register($this);
                     </ul>
                 </div>
             </div>
-
             <div id="sticky-header-with-topbar" class="navbar-wrapper sticky__header">
                 <div class="navbar navbar-default">
                     <div class="container">
@@ -113,7 +111,6 @@ IeAsset::register($this);
                                     <img class="noo-logo-img noo-logo-normal" src="/images/logo.png?2" alt="<?= Yii::$app->name ?>">
                                 </a>
                             </div>
-
                             <nav class="pull-right noo-main-menu">
                                 <ul class="nav-collapse navbar-nav">
                                     <li class="menu-item-has-children current-menu-item">
@@ -226,7 +223,6 @@ IeAsset::register($this);
             </div>
         </footer>
     </div>
-
     <a href="#" class="go-to-top hidden-print"><i class="fa fa-angle-up"></i></a>
     <?= $this->render('_metrika'); ?>
     <?php $this->endBody() ?>

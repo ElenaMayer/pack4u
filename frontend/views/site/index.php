@@ -13,9 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div id="rev_slider_3" class="rev_slider fullscreenbanner">
         <ul>
             <li data-transition="fade" data-slotamount="default" data-easein="Power3.easeOut" data-easeout="Power3.easeOut" data-masterspeed="700" data-rotate="0" data-saveperformance="off" data-title="Slide">
-
                 <img src="images/banner/banner_1920x1080.jpg?1" alt="" width="1920" height="1080" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" />
-
                 <div class="tp-caption caption-15 tp-resizeme"
                      data-x="center"
                      data-hoffset=""
@@ -31,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-splitout="none"
                      data-responsive_offset="on"><?= Yii::$app->params['companyName']; ?>
                 </div>
-
                 <div class="tp-caption tp-resizeme"
                      data-x="center"
                      data-hoffset="-200"
@@ -46,7 +43,6 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-responsive_offset="on">
                     <img src="images/banner/shap_icon.png" alt="" width="120" height="112" />
                 </div>
-
                 <div class="tp-caption tp-resizeme"
                      data-x="center"
                      data-hoffset="200"
@@ -61,7 +57,6 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-responsive_offset="on">
                     <img src="images/banner/shap_icon2.png" alt="" width="120" height="112" />
                 </div>
-
                 <div class="tp-caption caption-16 tp-resizeme"
                      data-x="center"
                      data-hoffset=""
@@ -78,7 +73,6 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-responsive_offset="on"
                      data-elementdelay="0.1">Для Ваших изделий
                 </div>
-
                 <div class="tp-caption tp-resizeme"
                      data-x="center"
                      data-hoffset=""
@@ -93,7 +87,6 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-responsive_offset="on">
                     <img src="images/banner/star.png" alt="" width="25" height="20" />
                 </div>
-
                 <div class="tp-caption tp-resizeme"
                      data-x="center"
                      data-hoffset="50"
@@ -108,7 +101,6 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-responsive_offset="on">
                     <img src="images/banner/star2.png" alt="" width="15" height="18" />
                 </div>
-
                 <div class="tp-caption tp-resizeme"
                      data-x="center"
                      data-hoffset="-55"
@@ -123,7 +115,6 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-responsive_offset="on">
                     <img src="images/banner/star2.png" alt="" width="15" height="18" />
                 </div>
-
                 <div class="tp-caption rev-btn btn-2"
                      data-x="center"
                      data-hoffset=""
