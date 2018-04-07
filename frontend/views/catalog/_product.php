@@ -31,11 +31,13 @@ use yii\helpers\Markdown;
                 <div class="noo-product-action">
                     <div class="noo-action">
                         <?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $model->id], ['class' => 'button product_type_simple add_to_cart_button'])?>
-                        <div class="yith-wcwl-add-to-wishlist">
-                            <div class="yith-wcwl-add-button">
-                                <a href="#" class="add_to_wishlist"></a>
+                        <?php if(!Yii::$app->user->isGuest):?>
+                            <div class="yith-wcwl-add-to-wishlist <?php if($model->isInWishlist()):?>active<?php endif;?>">
+                                <div class="yith-wcwl-add-button">
+                                    <a class='catalog_wishlist' id="<?=$model->id?>"></a>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif;?>
                     </div>
                 </div>
             <?php else:?>

@@ -78,11 +78,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </div>
                                     <?= Html::button('В корзину', ['type' => 'submit', 'class' => 'single_add_to_cart_button button'])?>
                                 </form>
-                                <div class="yith-wcwl-add-to-wishlist">
+                                <div class="yith-wcwl-add-to-wishlist <?php if($product->isInWishlist()):?>active<?php endif;?>">
                                     <div class="yith-wcwl-add-button">
-                                        <a href="#" class="add_to_wishlist"></a>
+                                        <a class='product_wishlist' id="<?=$product->id?>"></a>
                                     </div>
                                 </div>
+                                <?php if(Yii::$app->user->isGuest):?>
+                                    <div class="wishlist-login hide">Для использования "Избранного" необходимо <a href="/user/login">Войти</a></div>
+                                <?php endif;?>
                             <?php endif;?>
                             <div class="clear"></div>
                         </div>

@@ -24,6 +24,22 @@ $(document).ready(function() {
         }
     });
 
+    $(document.body).on('click', '.product_wishlist', function () {
+        var w = $('.wishlist-login');
+        var e = $(this);
+        if(w.length > 0){
+            w.removeClass('hide');
+            return false;
+        } else {
+            updateWishlist(e);
+        }
+    });
+
+    $(document.body).on('click', '.catalog_wishlist', function () {
+    	var e = $(this);
+        updateWishlist(e);
+    });
+
     aweProductRender(true);
 
     $(document.body).on('change', '#order-shipping_method' ,function(){
@@ -631,5 +647,22 @@ function removeItemFromCart(id) {
         data: { id : id },
     }).done(function( data ) {
         $('div.main').html(data);
+    });
+}
+
+function updateWishlist(e) {
+    $.ajax({
+        method: 'get',
+        url: '/wishlist/update',
+        dataType: 'json',
+        data: {
+            id: e.attr('id'),
+        },
+    }).done(function( data ) {
+        p = e.parents('.yith-wcwl-add-to-wishlist');
+        if(p.hasClass('active'))
+            p.removeClass('active')
+        else
+            p.addClass('active');
     });
 }

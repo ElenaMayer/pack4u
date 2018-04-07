@@ -25,14 +25,14 @@ class AppAsset extends AssetBundle
         '//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic,700italic,900italic',
         '//fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic',
         'css/custom.min.css',
-        'css/style.css?39',
-        'css/colors/apple-green.css?3',
+        'css/style.css?45',
+        'css/colors/apple-green.css?4',
     ];
     public $js = [
         'js/off-cavnass.min.js',
         "js/swiper.min.js",
         'js/owl.carousel.min.js',
-        'js/custom.js?12',
+        'js/custom.js?13',
         'js/instafeed.min.js',
 
     ];

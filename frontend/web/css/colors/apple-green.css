@@ -652,3 +652,6 @@ fieldset[disabled] .mailchimp-widget .mc-subscribe-form button.active {
 .checkout-wrapper .cart_totals button.checkout-button {
     background: #96cb62;
 }
+.commerce .product-grid .noo-product-title .noo-product-action .noo-action .yith-wcwl-add-to-wishlist a:before {
+    color: #96cb62;
+}

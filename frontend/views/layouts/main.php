@@ -66,7 +66,7 @@ IeAsset::register($this);
                             </li>
                             <li>
                                 <span><i class="fa fa-heart-o"></i></span>
-                                <a href="">Избранное</a>
+                                <a href="/wishlist">Избранное</a>
                             </li>
                         <?php endif;?>
                         <li>

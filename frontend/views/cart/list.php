@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </td>
                                 <td class="product-thumbnail">
                                     <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>"><?= Html::encode($product->title) ?>
-                                    <?php if(!$product->getIsInStock()):?><span class="out_of_stock_title">Нет в наличии</span><?php endif;?>
+                                        <?php if(!$product->getIsInStock()):?><span class="out_of_stock_title">Нет в наличии</span><?php endif;?>
                                     </a>
                                 </td>
                                 <td class="product-price">

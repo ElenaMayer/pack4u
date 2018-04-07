@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use frontend\models\Wishlist;
 use Yii;
 use yii\behaviors\SluggableBehavior;
 use yz\shoppingcart\CartPositionInterface;
@@ -144,6 +145,20 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public function getCategory()
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
+    }
+
+    public function isInWishlist()
+    {
+        if (!Yii::$app->user->isGuest) {
+            $wishlist = Wishlist::find()
+                ->where(['user_id' => Yii::$app->user->id, 'product_id' => $this->id])
+                ->one();
+            if ($wishlist)
+                return true;
+            else
+                return false;
+        } else
+            return false;
     }
 
     /**
