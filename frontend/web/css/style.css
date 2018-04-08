@@ -17164,6 +17164,16 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 */
 
 @media (max-width: 767px) {
+    .payment-right {
+        padding-left: 0;
+    }
+    .checkout-wrapper .cart-list > li .remove,
+    .checkout-wrapper .cart-list > li .remove-cart {
+        top: 0;
+    }
+    .payment-detail-wrapper {
+        padding: 10px;
+    }
     .noo-footer-shop-now h4 {
         font-size: 24px;
     }
@@ -17306,6 +17316,7 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     .checkout-wrapper .cart_totals {
         float: none;
         width: 100%;
+        margin-top: 20px;
     }
     .noo-page-heading {
         height: 250px;
