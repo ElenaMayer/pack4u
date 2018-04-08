@@ -46,7 +46,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= $form->field($order, 'address')->textInput(['placeholder' => '630000, Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark']); ?>
                     </div>
                     <div class="tk" style="display: none">
-                        <?php echo $form->field($order, 'tk')->dropDownList(Order::getTkList()); ?>
+                        <?= $form->field($order, 'city')->textInput(['class' => 'form-control dark']); ?>
+                        <?= $form->field($order, 'tk')->dropDownList(Order::getTkList()); ?>
                     </div>
                     <div class="rcr" style="display: none">
                         <?= $form->field($order, 'rcr')->textInput(['placeholder' => 'РЦР Маркса', 'class' => 'form-control dark']); ?>

@@ -49,6 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Order::getPaymentMethods()[$model->payment_method];
                 },
             ],
+            'city',
             [
                 'attribute' => 'tk',
                 'value' => function ($model) {

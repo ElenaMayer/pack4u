@@ -1,6 +1,7 @@
 <?php
 /* @var $order common\models\Order */
 use yii\helpers\Html;
+use common\models\Order;
 ?>
 
 <h1>Новый заказ #<?= $order->id ?></h1>
@@ -19,14 +20,17 @@ use yii\helpers\Html;
     <?php if($order->shipping_method):?>
         <li>Доставка: <?= Order::getShippingMethods()[$order->shipping_method]; ?></li>
     <?php endif;?>
-    <?php if($model->shipping_method == 'tk' && $model->tk):?>
-        <li>ТК: <?= $model->tk ?></li>
+    <?php if($order->shipping_method == 'tk' && $order->tk):?>
+        <?php if($order->city):?>
+            <li>Город: <?= $order->city ?></li>
+        <?php endif;?>
+        <li>ТК: <?= $order->tk ?></li>
     <?php endif;?>
-    <?php if($model->shipping_method == 'rcr' && $model->rcr):?>
-        <li>РЦР: <?= $model->rcr?></li>
+    <?php if($order->shipping_method == 'rcr' && $order->rcr):?>
+        <li>РЦР: <?= $order->rcr?></li>
     <?php endif;?>
-    <?php if($model->shipping_method == 'rp' && $model->address):?>
-        <li>ТК: <?= $model->address ?></li>
+    <?php if($order->shipping_method == 'rp' && $order->address):?>
+        <li>ТК: <?= $order->address ?></li>
     <?php endif;?>
 </ul>
 
@@ -40,7 +44,7 @@ use yii\helpers\Html;
     </tr>
     <?php
     $sum = 0;
-    foreach ($model->orderItems as $item): ?>
+    foreach ($order->orderItems as $item): ?>
         <tr>
             <?php $sum += $item->quantity * $item->price ?>
             <td>
