@@ -2,17 +2,15 @@ $(document).ready(function() {
 
     $(document.body).on('click', '.image_remove', function () {
         removeImage($(this));
+        return false;
     });
 });
 
 function removeImage(e) {
     $.ajax({
         method: 'get',
-        url: '/image/delete',
+        url: e.attr('href'),
         dataType: 'json',
-        data: {
-            id: e.attr('id'),
-        },
     }).done(function( data ) {
         if(data) {
             e.parent('.product-image').remove();

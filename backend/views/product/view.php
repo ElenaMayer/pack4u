@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="product-images">
         <?php foreach ($model->images as $image):?>
             <div class="product-image">
-                <a class="image_remove" id="<?= $image->id?>">x</a>
+                <?= Html::a('x', ['/image/delete', 'id' => $image->id], ['class' => 'image_remove']) ?>
                 <?= Html::img($image->getUrl('small'));?>
             </div>
         <?php endforeach;?>
