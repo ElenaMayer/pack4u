@@ -58,7 +58,9 @@ class Image extends \yii\db\ActiveRecord
 
     public function afterDelete()
     {
-        unlink($this->getPath());
+        unlink($this->getPath('small'));
+        unlink($this->getPath('medium'));
+        unlink($this->getPath('origin'));
         parent::afterDelete();
     }
 }
