@@ -24,7 +24,6 @@ class ImageController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['post'],
                 ],
             ],
             'access' => [
@@ -90,10 +89,9 @@ class ImageController extends Controller
     public function actionDelete($id)
     {
         $image = $this->findModel($id);
-        $productId = $image->product_id;
-        $image->delete();
 
-        return $this->redirect(['index', 'id' => $productId]);
+        return $image->delete();
+
     }
 
     /**

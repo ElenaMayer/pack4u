@@ -638,7 +638,8 @@ fieldset[disabled] .mailchimp-widget .mc-subscribe-form button.active {
 .panel-default .panel-heading a {
     color: #96cb62;
 }
-.single-product div.product .entry-summary .product-status .green {
+.single-product div.product .entry-summary .product-status .green,
+.wishlist_table .wishlist-in-stock.green {
     color: #96cb62;
 }
 .cart-item .product-price {

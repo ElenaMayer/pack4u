@@ -89,3 +89,31 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+a.image_remove {
+    display: block;
+    font-size: 1.5em;
+    height: 1em;
+    width: 1em;
+    text-align: center;
+    border-radius: 100%;
+    text-decoration: none;
+    border: 0;
+    color: #fc9090;
+    line-height: 18px;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    cursor: pointer;
+    position: absolute;
+    background: #ffffff;
+}
+
+a.image_remove:hover {
+    background: #fc9090;
+    color: #ffffff !important;
+}
+
+.product-image {
+    display: inline-block;
+}

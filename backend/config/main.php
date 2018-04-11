@@ -30,7 +30,6 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-//                'catalog/<id:\d+>' => 'catalog/list',
             ],
         ],
         'authManager' => [

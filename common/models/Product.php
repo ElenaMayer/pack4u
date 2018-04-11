@@ -242,4 +242,8 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         }
         return $tags;
     }
+
+    public function getColorStr(){
+        return str_replace(',', ', ', $this->color);
+    }
 }

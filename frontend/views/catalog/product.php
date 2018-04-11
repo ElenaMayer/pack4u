@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <span class="posted_in">Размер: <span class="value"><?= Html::encode($product->size) ?> см</span></span>
                                 <?php endif;?>
                                 <?php if($product->color):?>
-                                    <span class="posted_in">Цвета: <span class="value"><?= Html::encode($product->color) ?></span></span>
+                                    <span class="posted_in">Цвета: <span class="value"><?= Html::encode($product->getColorStr()) ?></span></span>
                                 <?php endif;?>
                                 <span class="posted_in">Категория: <a href="/catalog/<?= $category->slug?>" title="<?= $category->title?>"><?= $category->title?></a></span>
                                 <?php if($product->tags):?>

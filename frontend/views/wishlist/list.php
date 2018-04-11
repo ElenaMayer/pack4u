@@ -7,7 +7,7 @@ $this->title = 'Избранное';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-
+<?php if(count($wishlist) > 0):?>
 <div class="commerce commerce-wishlist noo-shop-main">
     <div class="container">
         <div class="row">
@@ -49,13 +49,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <p><?= $product->size ? Html::encode($product->size). ' см': '' ?></p>
                                     </td>
                                     <td class="product-stock-status">
-                                        <span class="wishlist-in-stock"><?= $product->is_in_stock ? 'В наличии' : 'Отсутствует' ?></span>
+                                        <span class="wishlist-in-stock <?= $product->is_in_stock ? 'green' : 'red' ?>"><?= $product->is_in_stock ? 'В наличии' : 'Отсутствует' ?></span>
                                     </td>
                                     <td class="product-price">
                                         <span class="amount"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
                                     </td>
                                     <td class="product-add-to-cart">
-                                        <?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $product->id], ['class' => 'button add_to_cart button'])?>
+                                        <?php if($product->is_in_stock):?>
+                                            <?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $product->id], ['class' => 'button add_to_cart button'])?>
+                                        <?php endif;?>
                                     </td>
                                 </tr>
                             <?php endif;?>
@@ -66,6 +68,24 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+<?php else: ?>
+    <div class="commerce commerce-cart noo-shop-main">
+        <div class="container">
+            <div class="row">
+                <div class="noo-main col-md-12">
+                    <p class="cart-empty">
+                        В избранном в данный момент нет товаров.
+                    </p>
+                    <p class="return-to-shop">
+                        <a class="button wc-backward" href="/catalog">
+                            Вернуться к покупкам
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif;?>
 <div class="noo-footer-shop-now">
     <div class="container">
         <div class="col-md-7">
