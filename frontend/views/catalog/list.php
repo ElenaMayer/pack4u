@@ -48,11 +48,16 @@ $this->params['breadcrumbs'][] = $this->title;
                         'class' => 'pagination list-center',
                     ],
                     'pageCssClass' => 'page-numbers',
+                    'firstPageLabel' => '<<',
+                    'firstPageCssClass' => 'page-numbers',
+                    'lastPageLabel' => '>>',
+                    'lastPageCssClass' => 'page-numbers',
                     'activePageCssClass' => 'current',
                     'prevPageCssClass' => 'page-numbers',
                     'nextPageCssClass' => 'page-numbers next',
-                    'prevPageLabel' => '<i class="fa fa-long-arrow-left"></i>',
-                    'nextPageLabel' => '<i class="fa fa-long-arrow-right"></i>',
+                    'prevPageLabel' => '<',
+                    'nextPageLabel' => '>',
+                    'maxButtonCount' => 6
                 ]); ?>
             </div>
             <div class="noo-sidebar col-md-3">
@@ -66,6 +71,49 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                         ]) ?>
                     </div>
+                    <div class="widget commerce ht__pro__color">
+                        <h3 class="widget-title">Фильтр по цвету</h3>
+                        <ul class="ht__color__list">
+                            <li class="all <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'все') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','все')?>" title="все">все</a>
+                            </li>
+                            <li class="black <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'черный') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','черный')?>" title="черный">черный</a>
+                            </li>
+                            <li class="white <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'белый') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','белый')?>" title="белый">белый</a>
+                            </li>
+                            <li class="gold <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'золото') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','золото')?>" title="золото">золото</a>
+                            </li>
+                            <li class="lamon <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'крафт') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','крафт')?>" title="крафт">крафт</a>
+                            </li>
+                            <li class="broun <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'коричневый') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','коричневый')?>" title="коричневый">коричневый</a>
+                            </li>
+                        </ul>
+                        <ul class="ht__color__list">
+                            <li class="red <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'красный') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','красный')?>" title="красный">красный</a>
+                            </li>
+                            <li class="pink <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'розовый') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','розовый')?>" title="розовый">розовый</a>
+                            </li>
+                            <li class="lblue <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'голубой') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','голубой')?>" title="голубой">голубой</a>
+                            </li>
+                            <li class="green <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'зеленый') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','зеленый')?>" title="зеленый">зеленый</a>
+                            </li>
+                            <li class="violet <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'фиолетовый') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','фиолетовый')?>" title="фиолетовый">фиолетовый</a>
+                            </li>
+                            <li class="blue <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'синий') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','синий')?>" title="синий">синий</a>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="widget commerce widget_price_filter">
                         <h3 class="widget-title">Фильтр по цене</h3>
                         <form method="get">
@@ -78,8 +126,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <input type="hidden" name="<?= $urlName ?>" value="<?= $urlValue ?>">
                                         <?php endif;?>
                                     <?php endforeach;?>
-                                    <input type="text" id="min_price" name="min_price" value="<?= Yii::$app->request->get('order')?Yii::$app->request->get('min_price'):''?>" data-min="0" placeholder="Минимальная"/>
-                                    <input type="text" id="max_price" name="max_price" value="<?= Yii::$app->request->get('order')?Yii::$app->request->get('max_price'):''?>" data-max="<?= Product::find()->max('price'); ?>" placeholder="Максимальная"/>
+                                    <input type="text" id="min_price" name="min_price" value="<?= Yii::$app->request->get('min_price')?Yii::$app->request->get('min_price'):''?>" data-min="0" placeholder="Минимальная"/>
+                                    <input type="text" id="max_price" name="max_price" value="<?= Yii::$app->request->get('max_price')?Yii::$app->request->get('max_price'):''?>" data-max="<?= Product::find()->max('price'); ?>" placeholder="Максимальная"/>
                                     <button type="submit" class="button">Найти</button>
                                     <div class="price_label" style="display:none;">
                                         Цена: <span class="from"></span> &mdash; <span class="to"></span>

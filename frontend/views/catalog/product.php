@@ -59,13 +59,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <span class="posted_in">Размер: <span class="value"><?= Html::encode($product->size) ?> см</span></span>
                                 <?php endif;?>
                                 <?php if($product->color):?>
-                                    <span class="posted_in">Цвета: <span class="value"><?= Html::encode($product->getColorStr()) ?></span></span>
+                                    <span class="posted_in">Цвета:
+                                        <?php foreach ($product->getColorsArray() as $key => $color):?>
+                                            <?= Html::a($color, ['/catalog', 'color' => $color])?>
+                                        <?php endforeach;?>
+                                    </span>
                                 <?php endif;?>
                                 <span class="posted_in">Категория: <a href="/catalog/<?= $category->slug?>" title="<?= $category->title?>"><?= $category->title?></a></span>
                                 <?php if($product->tags):?>
                                     <span class="tagged_as">Теги:
                                         <?php foreach ($product->getCurrentTagsArray() as $key => $tag):?>
-                                            <a href="/catalog?tag=<?= $tag ?>"><?= $tag ?></a>
+                                            <?= Html::a($tag, ['/catalog', 'tag' => $tag])?>
                                         <?php endforeach;?>
                                     </span>
                                 <?php endif;?>

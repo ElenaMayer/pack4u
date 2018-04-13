@@ -96,6 +96,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'tags' => 'Теги',
             'new_price' => 'Новая цена',
             'time' => 'Дата создания',
+            'imageFiles' => 'Фото',
         ];
     }
 

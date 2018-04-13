@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use \common\models\Order;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\OrderSearch */
@@ -27,7 +28,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'fio',
             'phone',
             'email:email',
-            'status',
+            [
+                'attribute'=>'status',
+                'value' => function ($model) {
+                    return $model->getStatuses()[$model->status];
+                },
+                'filter' => Order::getStatuses()
+            ],
+            [
+                'attribute'=>'payment',
+                'value' => function ($model) {
+                    return $model->payment ? 'Есть' : 'Нет';
+                },
+                'filter' => [1 => 'Есть', 0 => 'Нет']
+            ],
             'created_at:date',
             [
                 'class' => 'yii\grid\ActionColumn'

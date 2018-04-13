@@ -18,6 +18,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $status
  * @property string $fio
  * @property integer $shipping_cost
+ * @property integer $payment
  * @property string $city
  * @property string $shipping_method
  * @property string $payment_method
@@ -29,9 +30,12 @@ use yii\behaviors\TimestampBehavior;
  */
 class Order extends \yii\db\ActiveRecord
 {
-    const STATUS_NEW = 'Новый';
-    const STATUS_IN_PROGRESS = 'В обработке';
-    const STATUS_DONE = 'Выполнен';
+    const STATUS_NEW = 'new';
+    const STATUS_IN_PROGRESS = 'in_progress';
+    const STATUS_SHIPPED = 'shipped';
+    const STATUS_DONE = 'done';
+    const STATUS_CANCELED = 'canceled';
+    const STATUS_PAYMENT = 'payment';
 
     public function behaviors()
     {
@@ -39,7 +43,6 @@ class Order extends \yii\db\ActiveRecord
             TimestampBehavior::className(),
         ];
     }
-
 
     /**
      * @inheritdoc
@@ -55,7 +58,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at', 'shipping_cost', 'zip'], 'integer'],
+            [['created_at', 'updated_at', 'shipping_cost', 'zip', 'payment'], 'integer'],
             [['address', 'notes'], 'string'],
             [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method', 'tk', 'rcr'], 'string', 'max' => 255],
             [['phone', 'fio'], 'required'],
@@ -79,6 +82,7 @@ class Order extends \yii\db\ActiveRecord
             'status' => 'Статус',
             'fio' => 'ФИО',
             'shipping_cost' => 'Стоимость доставки',
+            'payment' => 'Оплата',
             'city' => 'Город',
             'shipping_method' => 'Способ доставки',
             'payment_method' => 'Способ оплаты',
@@ -111,9 +115,12 @@ class Order extends \yii\db\ActiveRecord
     public static function getStatuses()
     {
         return [
-            self::STATUS_DONE => 'Выполнен',
-            self::STATUS_IN_PROGRESS => 'В обработке',
             self::STATUS_NEW => 'Новый',
+            self::STATUS_IN_PROGRESS => 'В обработке',
+            self::STATUS_PAYMENT => 'Ожидает оплаты',
+            self::STATUS_SHIPPED => 'Передан в доставку',
+            self::STATUS_DONE => 'Выполнен',
+            self::STATUS_CANCELED => 'Отменен',
         ];
     }
 

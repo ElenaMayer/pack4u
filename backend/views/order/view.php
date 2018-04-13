@@ -30,23 +30,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'created_at:date',
-            'updated_at:date',
+            [
+                'attribute' => 'status',
+                'value' => function ($model) {
+                    return Order::getStatuses()[$model->status];
+                },
+            ],
             'fio',
             'phone',
             'email:email',
-            'notes:ntext',
-            'status',
             [
                 'attribute' => 'shipping_method',
                 'value' => function ($model) {
                     return Order::getShippingMethods()[$model->shipping_method];
-                },
-            ],
-            [
-                'attribute' => 'payment_method',
-                'value' => function ($model) {
-                    return Order::getPaymentMethods()[$model->payment_method];
                 },
             ],
             'city',
@@ -68,6 +64,21 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->shipping_method == 'rp' ? $model->address : '';
                 },
             ],
+            [
+                'attribute' => 'payment_method',
+                'value' => function ($model) {
+                    return Order::getPaymentMethods()[$model->payment_method];
+                },
+            ],
+            [
+                'attribute'=>'payment',
+                'value' => function ($model) {
+                    return $model->payment ? 'Есть' : 'Нет';
+                },
+            ],
+            'notes:ntext',
+            'created_at:date',
+            'updated_at:date',
         ],
     ]) ?>
     <h2>Заказ:</h2>
@@ -103,9 +114,21 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endforeach ?>
         <tr>
             <td>
-                <p><string>Итого: </string> <?php echo $sum?> руб.</p>
+                <p><string>Итого: </string> <?= $sum?> руб.</p>
             </td>
         </tr>
+        <?php if($model->shipping_cost):?>
+            <tr>
+                <td>
+                    <p><string>Доставка: </string> <?= $model->shipping_cost?> руб.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><string>К оплате: </string> <?= $sum + $model->shipping_cost?> руб.</p>
+                </td>
+            </tr>
+        <?php endif;?>
     </table>
 
 </div>

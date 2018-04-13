@@ -2626,7 +2626,7 @@ input[type="button"].btn-block {
     font-size: 14px;
     font-family: 'Lato', sans-serif;
     display: inline-block;
-    margin: 0px 3px;
+    margin: 3px;
     background: transparent;
     text-align: center;
     width: 40px;
@@ -11030,6 +11030,82 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     transition: top 0.6s ease 0.3s, background 0.6s ease 0s;
 }
 
+.widget .ht__color__list {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.ht__color__list li + li {
+    margin-left: 10px;
+}
+
+.ht__color__list li a {
+    background: #000 none repeat scroll 0 0;
+    border-radius: 2px;
+    color: #fff;
+    display: inline-block;
+    height: 36px;
+    text-indent: -9999px;
+    width: 36px;
+}
+
+.ht__color__list li.all a {
+    background-image: url(../images/color-all.png);
+    background-color: initial;
+}
+
+.ht__color__list li.active a,
+.ht__size__list li.active a {
+    border: 3px solid #8b8b8b;
+}
+
+.ht__color__list li.black a {
+    background: #362f2d none repeat scroll 0 0;
+}
+
+.ht__color__list li.white a {
+    background: #f4f4f4 none repeat scroll 0 0;
+}
+
+.ht__color__list li.red a {
+    background: #f0565c none repeat scroll 0 0;
+}
+
+.ht__color__list li.pink a {
+    background: #ffabca none repeat scroll 0 0;
+}
+
+.ht__color__list li.lblue a {
+    background: #abcdff none repeat scroll 0 0;
+}
+
+.ht__color__list li.blue a {
+    background: #3b7fe5 none repeat scroll 0 0;
+}
+
+.ht__color__list li.violet a {
+    background: #ab6fe5 none repeat scroll 0 0;
+}
+
+.ht__color__list li.green a {
+    background: #8eef9f none repeat scroll 0 0;
+}
+
+.ht__color__list li.lamon a {
+    background: #d8b989 none repeat scroll 0 0;
+}
+
+.ht__color__list li.gold a {
+    background-image: url(../images/color-gold.png?1);
+}
+
+.ht__color__list li.broun a {
+    background: #a95a3b none repeat scroll 0 0;
+}
+
+.ht__color__list li.orange a {
+    background: #ee9600 none repeat scroll 0 0;
+}
 
 /* === 4.22. PRODUCT MASONRY === */
 
@@ -17151,6 +17227,14 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     .noo-header.header-2 .navbar-wrapper.sticky__header.scroll-header .noo_menu_canvas .btn-cart {
         top: -7px;
         right: 40px;
+    }
+    .widget .ht__color__list {
+        float: left;
+        padding-right: 10px;
+    }
+    .widget.widget_price_filter {
+        clear: both;
+        padding-top: 54px;
     }
 }
 
