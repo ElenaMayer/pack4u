@@ -194,7 +194,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         return $this->id;
     }
 
-    public function getColorsArray()
+    public function getAllColorsArray()
     {
         $models = $this->find()->all();
         $colors = [];
@@ -207,6 +207,20 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
                 {
                     $colors[$c] = $c;
                 }
+            }
+        }
+        return $colors;
+    }
+
+    public function getColorsArray()
+    {
+        $colors = [];
+        $cs = explode(",",$this->color);
+        foreach ($cs as $c)
+        {
+            if (!in_array($c,$colors))
+            {
+                $colors[$c] = $c;
             }
         }
         return $colors;

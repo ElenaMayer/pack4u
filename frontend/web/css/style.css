@@ -11092,15 +11092,19 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 }
 
 .ht__color__list li.lamon a {
-    background: #d8b989 none repeat scroll 0 0;
+    background: #c39052 none repeat scroll 0 0;
 }
 
 .ht__color__list li.gold a {
-    background-image: url(../images/color-gold.png?1);
+    background-image: url(../images/color-gold.png?2);
 }
 
 .ht__color__list li.broun a {
     background: #a95a3b none repeat scroll 0 0;
+}
+
+.ht__color__list li.milk a {
+    background: #f7eedf none repeat scroll 0 0;
 }
 
 .ht__color__list li.orange a {

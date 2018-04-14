@@ -9,7 +9,7 @@ use common\models\Order;
 <h2>Контакты</h2>
 
 <ul>
-    <li>ФИО: <?= Html::encode($order->phone) ?></li>
+    <li>ФИО: <?= Html::encode($order->fio) ?></li>
     <li>Телефон: <?= Html::encode($order->phone) ?></li>
     <?php if($order->email):?>
         <li>Email: <?= Html::encode($order->email) ?></li>

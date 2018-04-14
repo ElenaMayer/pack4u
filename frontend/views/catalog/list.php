@@ -83,14 +83,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             <li class="white <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'белый') echo 'active'?>">
                                 <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','белый')?>" title="белый">белый</a>
                             </li>
-                            <li class="gold <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'золото') echo 'active'?>">
-                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','золото')?>" title="золото">золото</a>
+                            <li class="milk <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'молочный') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','молочный')?>" title="молочный">молочный</a>
                             </li>
                             <li class="lamon <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'крафт') echo 'active'?>">
                                 <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','крафт')?>" title="крафт">крафт</a>
                             </li>
-                            <li class="broun <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'коричневый') echo 'active'?>">
-                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','коричневый')?>" title="коричневый">коричневый</a>
+                            <li class="gold <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'золото') echo 'active'?>">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','золото')?>" title="золото">золото</a>
                             </li>
                         </ul>
                         <ul class="ht__color__list">

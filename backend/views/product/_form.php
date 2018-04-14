@@ -42,7 +42,7 @@ use \common\models\Product;
             'multiple' => true,
             'placeholder' => Yii::t('app','Выберите цвет ...'),
         ],
-        'data'=>$model->getColorsArray(),
+        'data'=>$model->getAllColorsArray(),
         'pluginOptions' => [
             'tags' => true,
             'tokenSeparators'=>[',',' '],
