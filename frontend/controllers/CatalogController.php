@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\Category;
 use common\models\Product;
+use common\models\ProductRelation;
 use common\models\StaticFunction;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
@@ -98,11 +99,10 @@ class CatalogController extends \yii\web\Controller
 
         if($product->is_active){
             $category = Category::find()->where(['slug' => $categorySlug])->one();
-//            $relatedProducts = Product::find()
-//                ->where('id != :id', ['id'=>$productId])
-//                ->andWhere(['is_active' => 1, 'is_in_stock' => 1])
-//                ->limit(Yii::$app->params['productPageRelatedCount'])
-//                ->all();
+            $relatedProducts = ProductRelation::find()
+                ->Where(['parent_id' => $product->id])
+                ->limit(4)
+                ->all();
             $noveltyProducts = Product::find()
                 ->andWhere(['is_active' => 1, 'is_in_stock' => 1, 'is_novelty' => 1])
                 ->limit(Yii::$app->params['productNewCount'])
@@ -111,7 +111,7 @@ class CatalogController extends \yii\web\Controller
                 'category' => $category,
                 'product' => $product,
                 'noveltyProducts' => $noveltyProducts,
-//                'relatedProducts' => $relatedProducts,
+                'relatedProducts' => $relatedProducts,
                 'menuItems' => $this->getMenuItems(null)
             ]);
         } else {

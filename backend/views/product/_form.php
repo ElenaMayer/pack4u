@@ -60,6 +60,17 @@ use \common\models\Product;
             'tokenSeparators'=>[',',' '],
         ],
     ]) ?>
+    <?= $form->field($model, 'relationsArr')->widget(Select2::classname(), [
+        'options' => [
+            'multiple' => true,
+            'placeholder' => Yii::t('app','Выберите связаные товары ...'),
+        ],
+        'data'=>ArrayHelper::map(Product::find()->all(), 'id', 'article'),
+        'pluginOptions' => [
+            'tags' => true,
+            'tokenSeparators'=>[',',' '],
+        ],
+    ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Редактировать', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

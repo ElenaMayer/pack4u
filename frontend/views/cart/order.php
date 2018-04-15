@@ -38,7 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <?= $form->field($order, 'notes')->textarea(['class' => 'form-control dark', 'rows' => "3"]); ?>
 
-                <?php echo $form->field($order, 'payment_method')->dropDownList(Order::getPaymentMethods()); ?>
                 <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethods()); ?>
 
                 <div class="shipping_methods">
@@ -53,6 +52,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= $form->field($order, 'rcr')->textInput(['placeholder' => 'РЦР Маркса', 'class' => 'form-control dark']); ?>
                     </div>
                 </div>
+
+                <?php echo $form->field($order, 'payment_method')->dropDownList(Order::getPaymentMethods()); ?>
 
                 <?php if (Yii::$app->user->isGuest): ?>
                     <!--            <div class="checkbox">-->

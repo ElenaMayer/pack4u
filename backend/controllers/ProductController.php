@@ -123,6 +123,10 @@ class ProductController extends Controller
                 $model->tags = implode(",",$post['Product']['tags']);
             }
             if ($model->load($post) && $model->save()) {
+                if (is_array($post['Product']['relationsArr']))
+                {
+                    $model->saveRelations($post['Product']['relationsArr']);
+                }
                 $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
                 if ($model->upload()) {
                     return $this->redirect(['view', 'id' => $model->id]);

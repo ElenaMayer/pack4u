@@ -94,14 +94,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="clear"></div>
                         </div>
                     </div>
-<!--                    <div class="related products">-->
-<!--                        <h2>Сопутствующие товары</h2>-->
-<!--                        <div class="products row product-grid">-->
-<!--                            --><?php //foreach (array_values($relatedProducts) as $index => $model) :?>
-<!--                                --><?//= $this-render('_product', ['model'=$model]); ?>
-<!--                            --><?php //endforeach;?>
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="related products">
+                        <h2>С этим товаром также покупают:</h2>
+                        <div class="products row product-grid">
+                            <?php foreach (array_values($relatedProducts) as $index => $model) :?>
+                                <?= $this->render('_product', ['model' => $model->child, 'type' => 'small']); ?>
+                            <?php endforeach;?>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="noo-sidebar col-md-3">

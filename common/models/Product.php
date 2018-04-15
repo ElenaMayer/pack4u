@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\models\ProductRelation;
 use frontend\models\Wishlist;
 use Yii;
 use yii\behaviors\SluggableBehavior;
@@ -9,6 +10,7 @@ use yz\shoppingcart\CartPositionInterface;
 use yz\shoppingcart\CartPositionTrait;
 use yii\web\UploadedFile;
 use Imagine\Image\Box;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "product".
@@ -32,6 +34,7 @@ use Imagine\Image\Box;
  * @property Image[] $images
  * @property OrderItem[] $orderItems
  * @property Category $category
+ * @property ProductRelation[] $relations
  */
 class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 {
@@ -41,6 +44,8 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
      * @var UploadedFile[]
      */
     public $imageFiles;
+
+    public $relationsArr;
 
     /**
      * @inheritdoc
@@ -97,6 +102,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'new_price' => 'Новая цена',
             'time' => 'Дата создания',
             'imageFiles' => 'Фото',
+            'relationsArr' => 'Связанные товары'
         ];
     }
 
@@ -130,6 +136,14 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public function getImages()
     {
         return $this->hasMany(Image::className(), ['product_id' => 'id']);
+    }
+
+    /**
+     * @return ProductRelation[]
+     */
+    public function getRelations()
+    {
+        return $this->hasMany(ProductRelation::className(), ['parent_id' => 'id']);
     }
 
     /**
@@ -260,5 +274,26 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 
     public function getColorStr(){
         return str_replace(',', ', ', $this->color);
+    }
+
+    public function saveRelations($relations){
+        if($this->relations){
+            foreach ($this->relations as $relation){
+                $relation->delete();
+            }
+        }
+        foreach ($relations as $relationId){
+            $relation = new ProductRelation();
+            $relation->parent_id = $this->id;
+            $relation->child_id = $relationId;
+            $relation->save();
+        }
+    }
+
+    public function afterFind()
+    {
+        parent::afterFind();
+
+        $this->relationsArr = ArrayHelper::map($this->relations, 'id', 'child_id');
     }
 }

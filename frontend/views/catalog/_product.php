@@ -4,7 +4,7 @@ use yii\helpers\Markdown;
 ?>
 <?php /** @var $model \common\models\Product */ ?>
 
-<div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
+<div class="masonry-item noo-product-column <?php if(isset($type) && $type == 'small'):?>col-md-3 col-sm-5<?php else:?>col-md-4 col-sm-6<?php endif;?> product">
     <div class="noo-product-inner">
         <div class="noo-product-thumbnail">
             <a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>" title="<?= $model->title?>">

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Product */
@@ -59,4 +60,17 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <?php if($model->relations):?>
+        <h2><?= $model->getAttributeLabel('relationsArr'); ?></h2>
+
+        <div class="product-images">
+            <?php foreach ($model->relations as $relation):?>
+                <div class="product-image">
+                    <a href="<?= Url::toRoute(['product/view', 'id' => $relation->child_id])?>">
+                        <?= Html::img($relation->child->images[0]->getUrl('small'));?>
+                    </a>
+                </div>
+            <?php endforeach;?>
+        </div>
+    <?php endif;?>
 </div>

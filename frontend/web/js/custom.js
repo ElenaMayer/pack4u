@@ -46,14 +46,22 @@ $(document).ready(function() {
         $('.shipping_methods').children().each(function(){
         	$(this).hide();
 		});
-        console.log($(this).children("option:selected").val());
-        if($(this).children("option:selected").val() == 'rcr'){
-        	$('.shipping_methods .rcr').show();
-		} else if($(this).children("option:selected").val() == 'rp'){
-            $('.shipping_methods .rp').show();
-		} else if($(this).children("option:selected").val() == 'tk'){
-            $('.shipping_methods .tk').show();
-        }
+        if($(this).children("option:selected").val() == 'self'){
+            $('#order-payment_method').append($('<option>', {
+                value: 'cash',
+                text: 'Наличными при получении'
+            }));
+        } else {
+            $('#order-payment_method').children("option[value='cash']").remove();
+
+            if($(this).children("option:selected").val() == 'rcr'){
+                $('.shipping_methods .rcr').show();
+            } else if($(this).children("option:selected").val() == 'rp'){
+                $('.shipping_methods .rp').show();
+            } else if($(this).children("option:selected").val() == 'tk'){
+                $('.shipping_methods .tk').show();
+            }
+		}
     });
 
     //Change cart qty
