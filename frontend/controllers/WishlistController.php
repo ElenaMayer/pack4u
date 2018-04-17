@@ -5,9 +5,22 @@ namespace frontend\controllers;
 use frontend\models\Wishlist;
 use common\models\Product;
 use Yii;
+use yii\filters\AccessControl;
 
 class WishlistController extends \yii\web\Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    ['allow' => true, 'roles' => ['@']],
+                ],
+            ],
+        ];
+    }
 
     public function actionList(){
 

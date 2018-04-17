@@ -659,3 +659,6 @@ fieldset[disabled] .mailchimp-widget .mc-subscribe-form button.active {
 ul.user_menu li.active > a {
     color: #96cb62;
 }
+.commerce-cart table.cart .order-id a {
+    color: #96cb62;
+}

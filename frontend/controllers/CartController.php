@@ -7,9 +7,23 @@ use common\models\OrderItem;
 use common\models\Product;
 use common\models\User;
 use Yii;
+use yii\filters\AccessControl;
 
 class CartController extends \yii\web\Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['history', 'historyItem'],
+                'rules' => [
+                    ['allow' => true, 'actions' => ['history', 'historyItem'], 'roles' => ['@']],
+                ],
+            ],
+        ];
+    }
+
     public function actionAdd($id, $quantity = 1)
     {
         $product = Product::findOne($id);
@@ -102,6 +116,7 @@ class CartController extends \yii\web\Controller
                 $transaction = $order->getDb()->beginTransaction();
                 if (!Yii::$app->user->isGuest) {
                     $order->user_id = Yii::$app->user->id;
+                    $order->id = date('ymdB');
                 }
                 $order->save(false);
 
@@ -161,6 +176,20 @@ class CartController extends \yii\web\Controller
             } else
             $this->redirect('/cart/list');
         }
+    }
+
+    public function actionHistory(){
+        $history = Order::find()->where(['user_id' => Yii::$app->user->id])->orderBy('id DESC')->all();
+        return $this->render('history', [
+            'history' => $history,
+        ]);
+    }
+
+    public function actionHistory_item($orderId){
+        $order = Order::findOne($orderId);
+        return $this->render('history_item', [
+            'order' => $order,
+        ]);
     }
 }
 

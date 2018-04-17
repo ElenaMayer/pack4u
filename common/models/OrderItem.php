@@ -67,4 +67,10 @@ class OrderItem extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Order::className(), ['id' => 'order_id']);
     }
+
+    public function getCost()
+    {
+        $cost = $this->quantity * $this->price;
+        return $cost;
+    }
 }

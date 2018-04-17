@@ -68,10 +68,10 @@ IeAsset::register($this);
                                 <span><i class="fa fa-user"></i></span>
                                 <a href="/user/settings/profile" data-method='post'>Мои данные</a>
                             </li>
-<!--                            <li>-->
-<!--                                <span><i class="fa fa-history"></i></span>-->
-<!--                                <a href="/user/security/logout" data-method='post'>История заказов</a>-->
-<!--                            </li>-->
+                            <li>
+                                <span><i class="fa fa-history"></i></span>
+                                <a href="/history" data-method='post'>История заказов</a>
+                            </li>
                             <li>
                                 <span><i class="fa fa-sign-out"></i></span>
                                 <a href="/user/security/logout" data-method='post'>Выйти</a>
@@ -139,7 +139,7 @@ IeAsset::register($this);
                                     <?php else:?>
                                         <li class="small-menu"><a href="/wishlist">Избранное</a></li>
                                         <li class="small-menu"><a href="/user/settings/profile" data-method='post'>Мои данные</a></li>
-<!--                                        <li class="small-menu"><a href="/user/security/logout" data-method='post'>История заказов</a></li>-->
+                                        <li class="small-menu"><a href="/history" data-method='post'>История заказов</a></li>
                                         <li class="small-menu"><a href="/user/security/logout" data-method='post'>Выйти</a></li>
                                     <?php endif;?>
                                 </ul>

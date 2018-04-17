@@ -160,4 +160,13 @@ class Order extends \yii\db\ActiveRecord
             ->setSubject('Новый заказ #' . $this->id)
             ->send();
     }
+
+    public function getCost()
+    {
+        $cost = 0;
+        foreach ($this->orderItems as $item) {
+            $cost += $item->getCost();
+        }
+        return $cost + $this->shipping_cost;
+    }
 }

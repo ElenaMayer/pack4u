@@ -16148,6 +16148,14 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     padding-left: 30px;
 }
 
+.commerce-cart table.cart th.order-id {
+    padding-left: 30px;
+}
+
+.commerce-cart table.cart .order-id a {
+    color: #79cba8;
+}
+
 .commerce-cart table.cart th.product-price,
 .commerce-cart table.cart th.product-quantity,
 .commerce-cart table.cart th.product-subtotal {
@@ -16163,6 +16171,10 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     border-style: solid;
     border-color: #f4eede;
     padding: 50px 0;
+}
+
+.commerce-cart.history table.cart td {
+    padding: 15px 30px;
 }
 
 .commerce-cart table.cart td.product-img img {

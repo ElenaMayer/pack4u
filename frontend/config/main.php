@@ -44,6 +44,8 @@ return [
                 'payment' => 'site/payment',
                 'refund' => 'site/refund',
                 'offer' => 'site/offer',
+                'history' => 'cart/history',
+                'history/<orderId:\d+>' => 'cart/history_item',
             ],
         ],
         'view' => [
