@@ -656,3 +656,6 @@ fieldset[disabled] .mailchimp-widget .mc-subscribe-form button.active {
 .commerce .product-grid .noo-product-title .noo-product-action .noo-action .yith-wcwl-add-to-wishlist a:before {
     color: #96cb62;
 }
+ul.user_menu li.active > a {
+    color: #96cb62;
+}

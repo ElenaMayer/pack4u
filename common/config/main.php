@@ -14,7 +14,8 @@ return [
                 'User' => 'common\models\User',
             ],
             'controllerMap' => [
-                'registration' => 'frontend\controllers\user\RegistrationController'
+                'registration' => 'frontend\controllers\user\RegistrationController',
+                'settings' => 'frontend\controllers\user\SettingsController'
             ],
             'admins' => ['admin'],
             'mailer' => [

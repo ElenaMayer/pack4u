@@ -6070,6 +6070,10 @@ body.fixed_top .noo-header.header-5.eff .navbar-wrapper {
     overflow: hidden;
 }
 
+.nav-collapse .small-menu {
+    display: none;
+}
+
 
 /* === 4.2. BOX LAYOUT === */
 
@@ -16407,6 +16411,14 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     position: relative;
 }
 
+.panel-default .panel-heading h2 {
+    padding: 0 0 0 37px;
+    margin: 0 0 10px 0;
+    color: #212121;
+    font-size: 24px;
+    position: relative;
+}
+
 .panel-default .panel-heading a {
     color: #79cba8;
 }
@@ -16533,6 +16545,20 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     background-color: #79cba8;
     border-color: #79cba8;
     color: #ffffff;
+}
+
+ul.user_menu {
+    padding-left: 40px;
+}
+ul.user_menu li > a {
+    text-transform: uppercase;
+    line-height: 50px;
+    font-size: 16px;
+    padding: 0;
+    font-weight: 400;
+}
+ul.user_menu li.active > a {
+    color: #79cba8;
 }
 
 /* === 8. PRODUCT SWIPER === */
@@ -17578,6 +17604,9 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     .commerce-page div.product div.images {
         width: 100%;
         float: none;
+    }
+    .off-canvas #off-canvas-nav .noo-main-canvas .nav-collapse .small-menu {
+        display: block;
     }
 }
 

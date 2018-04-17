@@ -61,12 +61,20 @@ IeAsset::register($this);
                             </li>
                         <?php else:?>
                             <li>
-                                <span><i class="fa fa-user"></i></span>
-                                <a href="/user/security/logout" data-method='post'>Выйти</a>
-                            </li>
-                            <li>
                                 <span><i class="fa fa-heart-o"></i></span>
                                 <a href="/wishlist">Избранное</a>
+                            </li>
+                            <li>
+                                <span><i class="fa fa-user"></i></span>
+                                <a href="/user/settings/profile" data-method='post'>Мои данные</a>
+                            </li>
+<!--                            <li>-->
+<!--                                <span><i class="fa fa-history"></i></span>-->
+<!--                                <a href="/user/security/logout" data-method='post'>История заказов</a>-->
+<!--                            </li>-->
+                            <li>
+                                <span><i class="fa fa-sign-out"></i></span>
+                                <a href="/user/security/logout" data-method='post'>Выйти</a>
                             </li>
                         <?php endif;?>
                         <li>
@@ -125,6 +133,15 @@ IeAsset::register($this);
                                     <li><a href="/contact">Контакты</a></li>
                                     <li><a href="/shipping">Доставка</a></li>
                                     <li><a href="/payment">Оплата</a></li>
+
+                                    <?php if (Yii::$app->user->isGuest):?>
+                                        <li class="small-menu"><a href="/user/login" title="Вход">Вход</a></li>
+                                    <?php else:?>
+                                        <li class="small-menu"><a href="/wishlist">Избранное</a></li>
+                                        <li class="small-menu"><a href="/user/settings/profile" data-method='post'>Мои данные</a></li>
+<!--                                        <li class="small-menu"><a href="/user/security/logout" data-method='post'>История заказов</a></li>-->
+                                        <li class="small-menu"><a href="/user/security/logout" data-method='post'>Выйти</a></li>
+                                    <?php endif;?>
                                 </ul>
                             </nav>
                         </div>
@@ -190,7 +207,6 @@ IeAsset::register($this);
                                 <p><a href="/shipping">Информация о доставке</a></p>
                                 <p><a href="/payment">Способы оплаты</a></p>
                                 <p><a href="/refund">Возврат товара</a></p>
-
                             </div>
                         </div>
                     </div>

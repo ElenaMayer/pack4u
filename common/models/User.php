@@ -71,9 +71,9 @@ class User extends BaseUser
             'updated_at' => 'Updated At',
             'flags' => 'Flags',
             'last_login_at' => 'Last Login At',
-            'fio' => 'Fio',
-            'address' => 'Address',
-            'phone' => 'Phone',
+            'fio' => 'ФИО',
+            'address' => 'Адрес',
+            'phone' => 'Телефон',
         ];
     }
 }
