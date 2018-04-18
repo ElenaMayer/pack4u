@@ -4,49 +4,46 @@ use yii\helpers\Html;
 use common\models\Order;
 ?>
 
-<h1>Новый заказ #<?= $order->id ?></h1>
+<h1>Заказ #<?= $order->id ?> успешно создан.</h1>
 
-<h2>Контакты</h2>
-
-<ul>
-    <li>ФИО: <?= Html::encode($order->fio) ?></li>
-    <li>Телефон: <?= Html::encode($order->phone) ?></li>
+<ul style="list-style: none;">
+    <li><b>ФИО:</b> <?= Html::encode($order->fio) ?></li>
+    <li><b>Телефон:</b> <?= Html::encode($order->phone) ?></li>
     <?php if($order->email):?>
-        <li>Email: <?= Html::encode($order->email) ?></li>
-    <?php endif;?>
-    <?php if($order->payment_method):?>
-        <li>Доставка: <?= Order::getPaymentMethods()[$order->payment_method]; ?></li>
+        <li><b>Email:</b> <?= Html::encode($order->email) ?></li>
     <?php endif;?>
     <?php if($order->shipping_method):?>
-        <li>Доставка: <?= Order::getShippingMethods()[$order->shipping_method]; ?></li>
+        <li><b>Доставка:</b> <?= Order::getShippingMethods()[$order->shipping_method]; ?></li>
     <?php endif;?>
     <?php if($order->shipping_method == 'tk' && $order->tk):?>
         <?php if($order->city):?>
-            <li>Город: <?= $order->city ?></li>
+            <li><b>Город:</b> <?= $order->city ?></li>
         <?php endif;?>
-        <li>ТК: <?= $order->tk ?></li>
+        <li><b>ТК:</b> <?= $order->tk ?></li>
     <?php endif;?>
     <?php if($order->shipping_method == 'rcr' && $order->rcr):?>
-        <li>РЦР: <?= $order->rcr?></li>
+        <li><b>РЦР:</b> <?= $order->rcr?></li>
     <?php endif;?>
     <?php if($order->shipping_method == 'rp' && $order->address):?>
-        <li>ТК: <?= $order->address ?></li>
+        <li><b>ТК:</b> <?= $order->address ?></li>
+    <?php endif;?>
+    <?php if($order->payment_method):?>
+        <li><b>Оплата:</b> <?= Order::getPaymentMethods()[$order->payment_method]; ?></li>
     <?php endif;?>
 </ul>
 
-<h2>Комментарий</h2>
-<?= Html::encode($order->notes) ?>
+<?php if($order->notes):?>
+    <h2>Комментарий</h2>
+    <?= Html::encode($order->notes) ?>
+<?php endif;?>
 
 <h2>Заказ:</h2>
 <table class="table table-striped table-bordered detail-view">
     <tr>
-        <th>Фото</th><th>Товар</th><th>Цена</th><th>Количество</th><th>Всего</th>
+        <th></th><th>Название</th><th>Цена</th><th>Кол-во</th><th>Всего</th>
     </tr>
-    <?php
-    $sum = 0;
-    foreach ($order->orderItems as $item): ?>
+    <?php foreach ($order->orderItems as $item): ?>
         <tr>
-            <?php $sum += $item->quantity * $item->price ?>
             <td>
                 <div class="product-image">
                     <a href="/catalog/<?= $item->product->category->slug?>/<?= $item->product->id?>">
@@ -58,19 +55,26 @@ use common\models\Order;
                 <?= $item->title .' (Арт. '. $item->product->article .')'?>
             </td>
             <td>
-                <?= (int)$item->price . ' руб.'?>
+                <?= (int)$item->price?> р.
             </td>
             <td>
                 <?= $item->quantity?>
             </td>
             <td>
-                <?= (int)($item->price * $item->quantity) . ' руб.'?>
+                <?= $item->getCost()?> р.
             </td>
         </tr>
     <?php endforeach ?>
+    <?php if($order->shipping_cost):?>
     <tr>
         <td>
-            <p><string>Итого: </string> <?php echo $sum?> руб.</p>
+            <p><b>Доставка: </b> <?= $order->shipping_cost?> р.</p>
+        </td>
+    </tr>
+    <?php endif;?>
+    <tr>
+        <td>
+            <p><b>Итого: </b> <?= $order->getCost(); ?> р.</p>
         </td>
     </tr>
 </table>

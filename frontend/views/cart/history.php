@@ -1,9 +1,6 @@
 <?php
 use common\models\Order;
 
-/* @var $this yii\web\View */
-/* @var $products common\models\Product[] */
-
 $this->title = 'История заказов';
 $this->params['breadcrumbs'][] = $this->title;
 

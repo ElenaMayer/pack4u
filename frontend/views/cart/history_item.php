@@ -1,9 +1,6 @@
 <?php
 use \yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $products common\models\Product[] */
-
 $this->title = 'Заказ #' . $order->id;
 
 $this->params['breadcrumbs'][] = ['label' => 'История заказов', 'url' => ['/history']];

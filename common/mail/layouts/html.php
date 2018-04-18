@@ -14,6 +14,11 @@ use yii\helpers\Html;
     <?php $this->head() ?>
 </head>
 <body>
+<header class="noo-header header-2 header-static">
+    <a href="/" class="navbar-brand">
+        <img class="noo-logo-img noo-logo-normal" src="/images/logo.png" alt="<?= Yii::$app->name ?>">
+    </a>
+</header>
     <?php $this->beginBody() ?>
     <?= $content ?>
     <?php $this->endBody() ?>

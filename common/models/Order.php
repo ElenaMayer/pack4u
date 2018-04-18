@@ -155,9 +155,9 @@ class Order extends \yii\db\ActiveRecord
     public function sendEmail()
     {
         return Yii::$app->mailer->compose('order', ['order' => $this])
-            ->setTo(Yii::$app->params['adminEmail'])
+            ->setTo([$this->email, Yii::$app->params['adminEmail']])
             ->setFrom(Yii::$app->params['adminEmail'])
-            ->setSubject('Новый заказ #' . $this->id)
+            ->setSubject('Заказ #' . $this->id . ' создан.')
             ->send();
     }
 
