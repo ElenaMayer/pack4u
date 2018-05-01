@@ -29,6 +29,7 @@ use yii\helpers\ArrayHelper;
  * @property string $color
  * @property string $tags
  * @property integer $new_price
+ * @property integer $count
  * @property string $time
  *
  * @property Image[] $images
@@ -72,7 +73,8 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     {
         return [
             [['description'], 'string'],
-            [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price'], 'integer'],
+            [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count'], 'integer'],
+            [['title', 'article', 'category_id', 'count', 'price'], 'required'],
             [['price'], 'number'],
             [['time, color, tags'], 'safe'],
             [['title', 'slug', 'article', 'size'], 'string', 'max' => 255],
@@ -100,6 +102,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'color' => 'Цвет',
             'tags' => 'Теги',
             'new_price' => 'Новая цена',
+            'count' => 'Кол-во',
             'time' => 'Дата создания',
             'imageFiles' => 'Фото',
             'relationsArr' => 'Связанные товары'
@@ -197,7 +200,16 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public function getIsInStock()
     {
         $product = Product::findOne($this->id);
-        return $product->is_in_stock;
+        if($product->is_in_stock && $product->count > 0)
+            return true;
+        else
+            return false;
+    }
+
+    public function getCount()
+    {
+        $product = Product::findOne($this->id);
+        return $product->count;
     }
 
     /**
@@ -295,5 +307,15 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         parent::afterFind();
 
         $this->relationsArr = ArrayHelper::map($this->relations, 'id', 'child_id');
+    }
+
+    public function minusCount($count){
+        $this->count -= $count;
+        $this->save();
+    }
+
+    public function plusCount($count){
+        $this->count += $count;
+        $this->save();
     }
 }

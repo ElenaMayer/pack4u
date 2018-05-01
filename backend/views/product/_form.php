@@ -35,6 +35,8 @@ use \common\models\Product;
 
     <?= $form->field($model, 'new_price')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'count')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'color')->widget(Select2::classname(), [

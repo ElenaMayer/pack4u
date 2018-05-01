@@ -46,8 +46,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <?php if($product->getIsInStock()):?>
                                         <form id="update-qty-<?=$product->getId()?>" method="get">
                                             <div class="quantity">
-                                                <input type="number" step="1" min="0" name="quantity" value="<?= $quantity ?>" class="input-text cart-qty qty text" size="4"/>
+                                                <input type="number" step="1" min="0" max="<?= $product->count ?>" name="quantity" value="<?= $quantity ?>" class="input-text cart-qty qty text" size="4"/>
+                                                <?php if($quantity > $product->count):?>
+                                                    <div>В наличии осталось <?=$product->count ?> шт.</div>
+                                                <?php endif;?>
                                                 <input type="hidden" name="id" value="<?=$product->getId()?>">
+                                                <input type="hidden" name="count" value="<?= $product->count ?>"/>
                                             </div>
                                         </form>
                                     <?php else:?>

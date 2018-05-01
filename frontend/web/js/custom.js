@@ -72,6 +72,15 @@ $(document).ready(function() {
         updateCartQty($(this).parents('form'));
     });
 
+    $(document.body).on('change', 'input.product-qty' ,function(){
+        form = $(this).parents('form');
+        var count = form.find("input[name='count']").val();
+		if(parseInt($('input.product-qty').val()) > count){
+			form.find("input[name='quantity']").val(count);
+        }
+
+    });
+
     $(".noo-list").on("click", function() {
     	if(!$(this).hasClass('active')){
             $(this).addClass('active');
@@ -631,7 +640,11 @@ function aweProductRender(thumbHorizontal) {
 
 function updateCartQty(form) {
 	var e = $('input.cart-qty');
+	var count = form.find("input[name='count']").val();
 	if(!e.hasClass('disable') && e.val() && e.val() > 0){
+		if(parseInt(e.val()) > count){
+            form.find("input[name='quantity']").val(count);
+		}
         e.addClass('disable').prop('readonly', true);
         $.ajax({
            method: 'get',

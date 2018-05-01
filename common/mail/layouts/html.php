@@ -16,7 +16,7 @@ use yii\helpers\Html;
 <body>
 <header class="noo-header header-2 header-static">
     <a href="/" class="navbar-brand">
-        <img class="noo-logo-img noo-logo-normal" src="/images/logo.png" alt="<?= Yii::$app->name ?>">
+        <img class="noo-logo-img noo-logo-normal" src="<?=Yii::getAlias('@frontendWebroot/images/logo.png')?>" alt="<?= Yii::$app->name ?>">
     </a>
 </header>
     <?php $this->beginBody() ?>

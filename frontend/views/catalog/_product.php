@@ -27,7 +27,7 @@ use yii\helpers\Markdown;
             <div class="noo-product-excerpt">
                 <p><?= $model->description?></p>
             </div>
-            <?php if($model->is_in_stock):?>
+            <?php if($model->getIsInStock()):?>
                 <div class="noo-product-action">
                     <div class="noo-action">
                         <?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $model->id], ['class' => 'button product_type_simple add_to_cart_button'])?>

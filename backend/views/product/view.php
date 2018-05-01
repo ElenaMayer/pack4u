@@ -50,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'price',
             'new_price',
+            'count',
             'size',
             'color',
             'tags',

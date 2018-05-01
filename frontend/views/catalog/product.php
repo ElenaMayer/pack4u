@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="summary entry-summary">
                             <h1 class="product_title entry-title"><?= Html::encode($product->title) ?></h1>
                             <div class="product-status">
-                                <?php if($product->is_in_stock):?><span class="green">В наличии </span><?php else:?><span class="red">Отсутствует</span><?php endif;?>
+                                <?php if($product->getIsInStock()):?><span class="green">В наличии </span><?php else:?><span class="red">Отсутствует</span><?php endif;?>
                                 <span>&nbsp;-&nbsp;</span>
                                 <span>Арт: <?= $product->article?></span>
                             </div>
@@ -74,11 +74,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </span>
                                 <?php endif;?>
                             </div>
-                            <?php if($product->is_in_stock):?>
+                            <?php if($product->getIsInStock()):?>
                                 <form class="cart" action="/cart/add" method="get">
                                     <div class="quantity">
-                                        <input type="number" step="1" min="1" name="quantity" value="1" title="Количество" class="input-text qty text" size="4"/>
+                                        <input type="number" step="1" min="1" max="<?= $product->count ?>" name="quantity" value="1" title="Количество" class="input-text qty text product-qty" size="4"/>
                                         <input type="hidden" name="id" value="<?= $product->id ?>"/>
+                                        <input type="hidden" name="count" value="<?= $product->count ?>"/>
                                     </div>
                                     <?= Html::button('В корзину', ['type' => 'submit', 'class' => 'single_add_to_cart_button button'])?>
                                 </form>

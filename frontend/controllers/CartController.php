@@ -132,6 +132,8 @@ class CartController extends \yii\web\Controller
                             $transaction->rollBack();
                             \Yii::$app->session->addFlash('error', 'Невозможно создать заказ. Пожалуйста свяжитесь с нами.');
                             return $this->redirect('/catalog');
+                        } else {
+                            $product->minusCount($orderItem->quantity);
                         }
                     }
                 }

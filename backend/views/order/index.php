@@ -36,6 +36,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => Order::getStatuses()
             ],
             [
+                'header'=>'Сумма',
+                'value' => function ($model) {
+                    return $model->getCost();
+                }
+            ],
+            [
                 'attribute'=>'payment',
                 'value' => function ($model) {
                     return $model->payment ? 'Есть' : 'Нет';

@@ -105,6 +105,21 @@ class Order extends \yii\db\ActiveRecord
         if (parent::beforeSave($insert)) {
             if ($this->isNewRecord) {
                 $this->status = self::STATUS_NEW;
+            } else {
+                $oldAttributes = $this->getOldAttributes();
+                if($this->status != $oldAttributes['status']) {
+                    if($this->status == self::STATUS_CANCELED) {
+                        foreach ($this->orderItems as $item){
+                            $item->product->count += $item->quantity;
+                            $item->product->save();
+                        }
+                    } elseif($oldAttributes['status'] == self::STATUS_CANCELED){
+                        foreach ($this->orderItems as $item){
+                            $item->product->count -= $item->quantity;
+                            $item->product->save();
+                        }
+                    }
+                }
             }
             return true;
         } else {
@@ -154,9 +169,12 @@ class Order extends \yii\db\ActiveRecord
 
     public function sendEmail()
     {
+        $emails = [Yii::$app->params['adminEmail']];
+        if($this->email)
+            $emails[] = $this->email;
         return Yii::$app->mailer->compose('order', ['order' => $this])
-            ->setTo([$this->email, Yii::$app->params['adminEmail']])
-            ->setFrom(Yii::$app->params['adminEmail'])
+            ->setTo($emails)
+            ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->params['title']])
             ->setSubject('Заказ #' . $this->id . ' создан.')
             ->send();
     }
@@ -169,4 +187,5 @@ class Order extends \yii\db\ActiveRecord
         }
         return $cost + $this->shipping_cost;
     }
+
 }

@@ -49,13 +49,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <p><?= $product->size ? Html::encode($product->size). ' см': '' ?></p>
                                     </td>
                                     <td class="product-stock-status">
-                                        <span class="wishlist-in-stock <?= $product->is_in_stock ? 'green' : 'red' ?>"><?= $product->is_in_stock ? 'В наличии' : 'Отсутствует' ?></span>
+                                        <span class="wishlist-in-stock <?= $product->getIsInStock() ? 'green' : 'red' ?>"><?= $product->getIsInStock() ? 'В наличии' : 'Отсутствует' ?></span>
                                     </td>
                                     <td class="product-price">
                                         <span class="amount"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
                                     </td>
                                     <td class="product-add-to-cart">
-                                        <?php if($product->is_in_stock):?>
+                                        <?php if($product->getIsInStock()):?>
                                             <?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $product->id], ['class' => 'button add_to_cart button'])?>
                                         <?php endif;?>
                                     </td>
