@@ -52,7 +52,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span>&nbsp;-&nbsp;</span>
                                 <span>Арт: <?= $product->article?></span>
                             </div>
-                            <p class="price"><span class="amount"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span></p>
+                            <?php if($product->getIsInStock() && $product->new_price): ?>
+                                <p class="price">
+                                    <span class="amount old"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
+                                    <span class="amount new"><?= (int)$product->new_price ?><i class="fa fa-ruble"></i></span>
+                                </p>
+                            <?php else:?>
+                                <p class="price"><span class="amount"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span></p>
+                            <?php endif;?>
                             <p class="description"><?= $product->description ?></p>
                             <div class="product_meta">
                                 <?php if($product->size):?>
@@ -99,7 +106,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h2>С этим товаром также покупают:</h2>
                         <div class="products row product-grid">
                             <?php foreach (array_values($relatedProducts) as $index => $model) :?>
-                                <?= $this->render('_product', ['model' => $model->child, 'type' => 'small']); ?>
+                                <?php if($model->child->getIsActive() && $model->child->getIsInStock()):?>
+                                    <?= $this->render('_product', ['model' => $model->child, 'type' => 'small']); ?>
+                                <?php endif;?>
                             <?php endforeach;?>
                         </div>
                     </div>

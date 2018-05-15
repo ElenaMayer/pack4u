@@ -11,7 +11,7 @@ class IndexAsset extends AssetBundle
     ];
     public $css = [
         'css/owl.carousel.min.css',
-        'css/settings.min.css',
+        'css/settings.min.css?2',
     ];
     public $js = [
         'js/jquery.themepunch.tools.min.js',

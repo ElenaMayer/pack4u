@@ -16,9 +16,28 @@ use yii\helpers\Markdown;
                 ?>
             </a>
         </div>
+        <?php if($model->getIsInStock()): ?>
+            <?php if($model->new_price): ?>
+                <span class="product-label sale">
+                    <span>-<?=$model->getSale()?>%</span>
+                </span>
+            <?php elseif($model->is_novelty): ?>
+                <span class="product-label new">
+                    <span>new</span>
+                </span>
+            <?php endif;?>
+        <?php endif;?>
         <div class="noo-product-title">
             <h3><a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>" title="<?= $model->title?>"><?= Html::encode($model->title) ?></a></h3>
-            <span class="price"><span class="amount"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span></span>
+            <?php if($model->getIsInStock() && $model->new_price): ?>
+                <span class="price">
+                    <span class="amount old"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span>
+                    <span class="amount new"><?= (int)$model->new_price ?><i class="fa fa-ruble"></i></span>
+                </span>
+            <?php else:?>
+                <span class="price"><span class="amount"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span></span>
+            <?php endif;?>
+
             <?php if($model->size): ?>
                 <div class="noo-product-size">
                     <p><?= $model->size?> см</p>

@@ -11,7 +11,7 @@ use \yii\helpers\Html; ?>
         <div class="product-body">
             <div class="product-name">
                 <h3>
-                    <a href="/catalog/<?= $product->category->slug?>/<?= $product->id?>" title="<?= $product->price?>"><?= Html::encode($product->title)?></a>
+                    <a href="/catalog/<?= $product->category->slug?>/<?= $product->id?>" title="<?= $product->title?>"><?= Html::encode($product->title)?></a>
                 </h3>
             </div>
             <div class="product-count">

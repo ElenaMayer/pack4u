@@ -185,7 +185,10 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public function getPrice()
     {
         if ($this->getIsActive() && $this->getIsInStock()){
-            return $this->price;
+            if($this->getNewPrice())
+                return $this->getNewPrice();
+            else
+                return $this->price;
         } else {
             return 0;
         }
@@ -210,6 +213,12 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     {
         $product = Product::findOne($this->id);
         return $product->count;
+    }
+
+    public function getNewPrice()
+    {
+        $product = Product::findOne($this->id);
+        return $product->new_price;
     }
 
     /**
@@ -317,5 +326,22 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public function plusCount($count){
         $this->count += $count;
         $this->save();
+    }
+
+    public function getSale(){
+        if($this->price && $this->new_price){
+            return round(100 - ($this->new_price * 100 / $this->price));
+        } else {
+            return 0;
+        }
+    }
+
+    public static function getNovelties(){
+        $noveltyProducts = Product::find()
+            ->where(['is_active' => 1, 'is_in_stock' => 1, 'is_novelty' => 1])
+            ->andWhere(['>', 'count', '0'])
+            ->limit(Yii::$app->params['productNewCount'])
+            ->all();
+        return $noveltyProducts;
     }
 }

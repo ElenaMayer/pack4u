@@ -559,10 +559,10 @@ function revSlider_3(){
 			keyboardNavigation:"off",
 			keyboard_direction: "horizontal",
 			mouseScrollNavigation:"off",
-			onHoverStop:"off",
+			onHoverStop:"on",
 			arrows: {
 				style:"zeus",
-				enable:false,
+				enable:true,
 				hide_onmobile:false,
 				hide_onleave:false,
 				tmp:'<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div> </div>',

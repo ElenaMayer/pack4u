@@ -50,17 +50,13 @@ class CatalogController extends \yii\web\Controller
                 'pageSize' => isset($get['limit'])? $get['limit']: Yii::$app->params['catalogPageSize'],
             ],
         ]);
-        $noveltyProducts = Product::find()
-            ->andWhere(['is_active' => 1, 'is_in_stock' => 1, 'is_novelty' => 1])
-            ->limit(Yii::$app->params['productNewCount'])
-            ->all();
         return $this->render('list', [
             'category' => isset($category)? $category : null,
             'menuItems' => $this->getMenuItems(isset($category->id) ? $category->id : 'all'),
             'models' => $productsDataProvider->getModels(),
             'pagination' => $productsDataProvider->getPagination(),
             'pageCount' => $productsDataProvider->getCount(),
-            'noveltyProducts' => $noveltyProducts,
+            'noveltyProducts' => Product::getNovelties(),
         ]);
     }
 
@@ -97,21 +93,14 @@ class CatalogController extends \yii\web\Controller
     {
         $product = Product::find()->where(['id' => $productId])->one();
 
-        if($product->is_active){
+        if($product && $product->is_active){
             $category = Category::find()->where(['slug' => $categorySlug])->one();
-            $relatedProducts = ProductRelation::find()
-                ->Where(['parent_id' => $product->id])
-                ->limit(4)
-                ->all();
-            $noveltyProducts = Product::find()
-                ->andWhere(['is_active' => 1, 'is_in_stock' => 1, 'is_novelty' => 1])
-                ->limit(Yii::$app->params['productNewCount'])
-                ->all();
+
             return $this->render('product', [
                 'category' => $category,
                 'product' => $product,
-                'noveltyProducts' => $noveltyProducts,
-                'relatedProducts' => $relatedProducts,
+                'noveltyProducts' => Product::getNovelties(),
+                'relatedProducts' => $product->relations,
                 'menuItems' => $this->getMenuItems(null)
             ]);
         } else {

@@ -3932,6 +3932,37 @@ ul.post_list_widget li a .post-date {
     color: #79cba8;
 }
 
+.amount.old {
+    text-decoration: line-through;
+    color: #a9a9a9;
+    padding-right: 15px;
+}
+
+.amount.new {
+    color: #fc9090;
+}
+
+.product-label {
+    color: #ffffff;
+    position: absolute;
+    z-index: 50;
+    top: 20px;
+    left: 0;
+    line-height: 24px;
+    text-align: center;
+    width: 20%;
+}
+.product-label.sale {
+    background-color: #fc9090;
+}
+
+.product-label.new {
+    background-color: #79cba8;
+}
+* {
+    box-sizing: border-box;
+}
+
 .widget_product_tag_cloud .tagcloud a {
     border: 2px solid #f4eede;
     padding: 3px 15px;
@@ -14975,7 +15006,7 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 }
 
 .commerce .product-grid .noo-product-title .noo-product-action .noo-action .yith-wcwl-add-to-wishlist a:before {
-    color: #79cba8;
+    color: #fc9090;
 }
 
 .commerce .product-grid .noo-product-title .noo-product-action .noo-action .noo-qucik-view {

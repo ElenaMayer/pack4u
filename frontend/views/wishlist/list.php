@@ -52,7 +52,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <span class="wishlist-in-stock <?= $product->getIsInStock() ? 'green' : 'red' ?>"><?= $product->getIsInStock() ? 'В наличии' : 'Отсутствует' ?></span>
                                     </td>
                                     <td class="product-price">
-                                        <span class="amount"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
+                                        <?php if($product->getIsInStock() && $product->getNewPrice()): ?>
+                                            <p class="price">
+                                                <span class="amount old"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
+                                                <span class="amount new"><?= (int)$product->getNewPrice() ?><i class="fa fa-ruble"></i></span>
+                                            </p>
+                                        <?php else:?>
+                                            <p class="price"><span class="amount"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span></p>
+                                        <?php endif;?>
                                     </td>
                                     <td class="product-add-to-cart">
                                         <?php if($product->getIsInStock()):?>

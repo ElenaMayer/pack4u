@@ -653,12 +653,22 @@ fieldset[disabled] .mailchimp-widget .mc-subscribe-form button.active {
 .checkout-wrapper .cart_totals button.checkout-button {
     background: #96cb62;
 }
-.commerce .product-grid .noo-product-title .noo-product-action .noo-action .yith-wcwl-add-to-wishlist a:before {
-    color: #96cb62;
-}
 ul.user_menu li.active > a {
     color: #96cb62;
 }
 .commerce-cart table.cart .order-id a {
     color: #96cb62;
+}
+.product-label.new {
+    background-color: #96cb62;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open>.dropdown-toggle.btn-primary {
+    background-color: #96cb62;
+    border-color: #96cb62;
+}
+.btn-primary:focus, .btn-primary.focus {
+    background-color: #96cb62;
+    border-color: #709d4f;
 }

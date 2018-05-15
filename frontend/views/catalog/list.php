@@ -74,8 +74,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="widget commerce ht__pro__color">
                         <h3 class="widget-title">Фильтр по цвету</h3>
                         <ul class="ht__color__list">
-                            <li class="all <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'все') echo 'active'?>">
-                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','все')?>" title="все">все</a>
+                            <li class="all">
+                                <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','all')?>" title="все">все</a>
                             </li>
                             <li class="black <?php if(Yii::$app->request->get('color') && Yii::$app->request->get('color') == 'черный') echo 'active'?>">
                                 <a href="<?= StaticFunction::addGetParamToCurrentUrl('color','черный')?>" title="черный">черный</a>
