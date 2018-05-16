@@ -77,9 +77,11 @@ class CatalogController extends \yii\web\Controller
                 } elseif ($get['order'] == 'novelty') {
                     $query->orderBy('is_novelty');
                 } elseif ($get['order'] == 'price_lh'){
-                    $query->orderBy('price ASC');
+                    $query->select(['*', '(CASE WHEN new_price > 0 THEN new_price ELSE price END) as price_common']);
+                    $query->orderBy('price_common ASC');
                 } elseif ($get['order'] == 'price_hl'){
-                    $query->orderBy('price DESC');
+                    $query->select(['*', '(CASE WHEN new_price > 0 THEN new_price ELSE price END) as price_common']);
+                    $query->orderBy('price_common DESC');
                 }
             } else {
                 $query->orderBy('time DESC');
