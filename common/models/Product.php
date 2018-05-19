@@ -78,6 +78,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             [['price'], 'number'],
             [['time, color, tags'], 'safe'],
             [['title', 'slug', 'article', 'size'], 'string', 'max' => 255],
+            [['article'], 'unique'],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
@@ -343,5 +344,16 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             ->limit(Yii::$app->params['productNewCount'])
             ->all();
         return $noveltyProducts;
+    }
+
+    public function getActiveRelations()
+    {
+        $result = [];
+        foreach (array_values($this->relations) as $index => $model){
+            if($model->child->getIsActive() && $model->child->getIsInStock()){
+                $result[] = $model;
+            }
+        }
+        return $result;
     }
 }

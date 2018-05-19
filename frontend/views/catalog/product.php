@@ -102,16 +102,16 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="clear"></div>
                         </div>
                     </div>
-                    <div class="related products">
-                        <h2>С этим товаром также покупают:</h2>
-                        <div class="products row product-grid">
-                            <?php foreach (array_values($relatedProducts) as $index => $model) :?>
-                                <?php if($model->child->getIsActive() && $model->child->getIsInStock()):?>
+                    <?php if ($relations = $product->getActiveRelations()):?>
+                        <div class="related products">
+                            <h2>С этим товаром также покупают:</h2>
+                            <div class="products row product-grid">
+                                <?php foreach (array_values($relations) as $index => $model) :?>
                                     <?= $this->render('_product', ['model' => $model->child, 'type' => 'small']); ?>
-                                <?php endif;?>
-                            <?php endforeach;?>
+                                <?php endforeach;?>
+                            </div>
                         </div>
-                    </div>
+                    <?php endif;?>
                 </div>
             </div>
             <div class="noo-sidebar col-md-3">

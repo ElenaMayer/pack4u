@@ -102,7 +102,6 @@ class CatalogController extends \yii\web\Controller
                 'category' => $category,
                 'product' => $product,
                 'noveltyProducts' => Product::getNovelties(),
-                'relatedProducts' => $product->relations,
                 'menuItems' => $this->getMenuItems(null)
             ]);
         } else {
