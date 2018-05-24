@@ -321,12 +321,12 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 
     public function minusCount($count){
         $this->count -= $count;
-        $this->save();
+        $this->save(false);
     }
 
     public function plusCount($count){
         $this->count += $count;
-        $this->save();
+        $this->save(false);
     }
 
     public function getSale(){
@@ -355,5 +355,14 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             }
         }
         return $result;
+    }
+
+    public static function getActiveProductArr(){
+        $model = Product::find()
+            ->select(['*', 'CONCAT(article, \' - \', title , \' (\', count,\' шт)\') as description'])
+            ->where(['is_active' => 1, 'is_in_stock' => 1])
+            ->andWhere(['>', 'count', '0'])
+            ->all();
+        return ArrayHelper::map($model, 'id', 'description');
     }
 }

@@ -4,6 +4,11 @@ $(document).ready(function() {
         removeImage($(this));
         return false;
     });
+
+    $(document.body).on('click', '.add-item-link', function () {
+        $('.add-item-link').addClass('hide');
+        $('.add-item-form').removeClass('hide');
+    });
 });
 
 function removeImage(e) {

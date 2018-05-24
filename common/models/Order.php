@@ -187,5 +187,19 @@ class Order extends \yii\db\ActiveRecord
         }
         return $cost + $this->shipping_cost;
     }
+    
+    public function beforeDelete()
+    {
+        if (!parent::beforeDelete()) {
+            return false;
+        }
+
+        foreach ($this->orderItems as $item) {
+            $product = Product::findOne($item->product_id);
+            $product->plusCount($item->quantity);
+        }
+
+        return true;
+    }
 
 }

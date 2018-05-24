@@ -19,7 +19,7 @@ use common\models\Order;
         <?php if($order->city):?>
             <li><b>Город:</b> <?= $order->city ?></li>
         <?php endif;?>
-        <li><b>ТК:</b> <?= $order->tk ?></li>
+        <li><b>ТК:</b> <?= Order::getTkList()[$order->tk]; ?></li>
     <?php endif;?>
     <?php if($order->shipping_method == 'rcr' && $order->rcr):?>
         <li><b>РЦР:</b> <?= $order->rcr?></li>

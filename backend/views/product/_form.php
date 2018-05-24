@@ -67,7 +67,7 @@ use \common\models\Product;
             'multiple' => true,
             'placeholder' => Yii::t('app','Выберите связаные товары ...'),
         ],
-        'data'=>ArrayHelper::map(Product::find()->all(), 'id', 'article'),
+        'data'=>Product::getActiveProductArr(),
         'pluginOptions' => [
             'tags' => true,
             'tokenSeparators'=>[',',' '],

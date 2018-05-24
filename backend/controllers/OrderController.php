@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\Product;
 use Yii;
 use common\models\Order;
 use backend\models\OrderSearch;
@@ -9,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use common\models\OrderItem;
 
 /**
  * OrderController implements the CRUD actions for Order model.
@@ -58,6 +60,25 @@ class OrderController extends Controller
      */
     public function actionView($id)
     {
+        if($post = Yii::$app->request->post('OrderItem')){
+            $product = Product::findOne($post['product_id']);
+            if($product->count >= $post['quantity']) {
+                $orderItem = OrderItem::find()->where(['order_id' => $id, 'product_id' => $post['product_id']])->one();
+                if($orderItem) {
+                    $orderItem->quantity += $post['quantity'];
+                } else {
+                    $orderItem = new OrderItem();
+                    $orderItem->order_id = $id;
+                    $orderItem->title = $product->title;
+                    $orderItem->price = $product->getPrice();
+                    $orderItem->product_id = $post['product_id'];
+                    $orderItem->quantity = $post['quantity'];
+                }
+                if ($orderItem->save()) {
+                    $product->minusCount($post['quantity']);
+                }
+            }
+        }
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -111,6 +132,16 @@ class OrderController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionDelete_item($id, $itemId)
+    {
+        $model = OrderItem::find()->where(['order_id' => $id, 'product_id' => $itemId])->one();
+        $product = Product::findOne($itemId);
+        $product->plusCount($model->quantity);
+        $model->delete();
+
+        return $this->redirect(['view', 'id' => $id]);
     }
 
     /**

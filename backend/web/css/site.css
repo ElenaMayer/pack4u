@@ -118,3 +118,11 @@ a.image_remove:hover {
     display: inline-block;
     padding-bottom: 10px;
 }
+
+.add-item-link {
+    float: right;
+}
+
+.add-item-form {
+    width: 50%;
+}

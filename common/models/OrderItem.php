@@ -44,11 +44,11 @@ class OrderItem extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'order_id' => 'Order ID',
-            'title' => 'Title',
-            'price' => 'Price',
-            'product_id' => 'Product ID',
-            'quantity' => 'Quantity',
+            'order_id' => 'Заказ',
+            'title' => 'Описание',
+            'price' => 'Цена',
+            'product_id' => 'Товар',
+            'quantity' => 'Количество',
         ];
     }
 

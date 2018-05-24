@@ -2,7 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ActiveForm;
 use common\models\Order;
+use common\models\OrderItem;
+use common\models\Product;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Order */
@@ -81,10 +84,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at:date',
         ],
     ]) ?>
-    <h2>Заказ:</h2>
+    <a class="btn btn-success add-item-link">Добавить позицию</a><h2>Заказ:</h2>
+    <div class="add-item-form hide">
+        <?php $form = ActiveForm::begin();
+        $orderItem = new OrderItem(); ?>
+
+        <?= $form->field($orderItem, 'product_id')->dropDownList(Product::getActiveProductArr()) ?>
+        <?= $form->field($orderItem, 'quantity')->textInput(['step' => 1, 'min' => 1, 'value' => 1]) ?>
+        <div class="form-group">
+            <?= Html::submitButton('Добавить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        </div>
+        <?php ActiveForm::end(); ?>
+    </div>
     <table class="table table-striped table-bordered detail-view">
         <tr>
-            <th>Фото</th><th>Товар</th><th>Цена</th><th>Количество</th><th>Всего</th>
+            <th>Фото</th><th>Товар</th><th>Цена</th><th>Количество</th><th>Всего</th><th></th>
         </tr>
         <?php
         $sum = 0;
@@ -93,7 +107,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php $sum += $item->quantity * $item->price ?>
                 <td>
                     <div class="product-image">
-                        <a href="/catalog/<?= $item->product->category->slug?>/<?= $item->product->id?>">
+                        <a href="/product/view?id=<?= $item->product->id?>">
                             <?= Html::img($item->product->images[0]->getUrl('small'));?>
                         </a>
                     </div>
@@ -109,6 +123,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 </td>
                 <td>
                     <?= (int)($item->price * $item->quantity) . ' руб.'?>
+                </td>
+                <td>
+                    <?= Html::a('x', ['delete_item', 'id' => $model->id, 'itemId' => $item->product->id], [
+                        'class' => 'btn btn-danger',
+                    ]) ?>
                 </td>
             </tr>
         <?php endforeach ?>
