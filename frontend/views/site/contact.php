@@ -51,9 +51,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                         <div class="col-md-12">
                             <div class="form-control-wrap your-message">
-                        <?= $form->field($model, 'verifyCode', ['template'=>'{input}{error}'])
-                            ->widget(Captcha::className(), ['template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',])?>
+                                <?= $form->field($model, 'verifyCode', ['template'=>'{input}{error}'])
+                                    ->widget(Captcha::className(), ['template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',])?>
                             </div>
+                        </div>
+                        <div class="validator">
+                            <?= $form->field($model, 'validator', ['template'=>'{input}{error}']) ?>
                         </div>
                         <div class="col-md-12">
                             <input type="submit" value="Отправить" class="form-control submit btn-primary"/>

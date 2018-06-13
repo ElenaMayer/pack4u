@@ -15,6 +15,7 @@ class ContactForm extends Model
     public $phone;
     public $body;
     public $verifyCode;
+    public $validator;
 
     /**
      * @inheritdoc
@@ -27,6 +28,11 @@ class ContactForm extends Model
             ['email', 'email'],
             // verifyCode needs to be entered correctly
             ['verifyCode', 'captcha'],
+            ['validator', function ($attribute, $params) {
+                if ($this->$attribute) {
+                    $this->addError($attribute, "Don't spam!");
+                }
+            }],
         ];
     }
 

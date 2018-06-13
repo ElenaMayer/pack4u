@@ -11758,6 +11758,10 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     margin: 0 0 24px;
 }
 
+.contact-form .validator {
+    display: none;
+}
+
 .form p,
 .contact-form .hint {
     margin-bottom: 40px;
