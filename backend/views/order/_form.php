@@ -37,6 +37,8 @@ use \common\models\Order;
 
     <?= $form->field($model, 'payment')->dropDownList([1 => 'Есть', 0 => 'Нет']) ?>
 
+    <?= $form->field($model, 'discount')->textInput(['maxlength' => 255]) ?>
+
     <?= $form->field($model, 'notes')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">

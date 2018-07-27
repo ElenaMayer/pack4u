@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 use common\models\Order;
 use common\models\OrderItem;
 use common\models\Product;
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Order */
@@ -89,7 +90,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php $form = ActiveForm::begin();
         $orderItem = new OrderItem(); ?>
 
-        <?= $form->field($orderItem, 'product_id')->dropDownList(Product::getActiveProductArr()) ?>
+        <?= $form->field($orderItem, 'product_id')->widget(Select2::classname(), [
+            'options' => [
+                'placeholder' => Yii::t('app','Выберите товар ...'),
+            ],
+            'data'=>Product::getActiveProductArr(),
+        ]) ?>
+
         <?= $form->field($orderItem, 'quantity')->textInput(['step' => 1, 'min' => 1, 'value' => 1]) ?>
         <div class="form-group">
             <?= Html::submitButton('Добавить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
@@ -101,31 +108,37 @@ $this->params['breadcrumbs'][] = $this->title;
             <th>Фото</th><th>Товар</th><th>Цена</th><th>Количество</th><th>Всего</th><th></th>
         </tr>
         <?php
-        $sum = 0;
         foreach ($model->orderItems as $item): ?>
             <tr>
-                <?php $sum += $item->quantity * $item->price ?>
                 <td>
                     <div class="product-image">
-                        <a href="/product/view?id=<?= $item->product->id?>">
-                            <?= Html::img($item->product->images[0]->getUrl('small'));?>
-                        </a>
+                        <?php if($item->product_id):?>
+                            <a href="/product/view?id=<?= $item->product->id?>">
+                                <?= Html::img($item->product->images[0]->getUrl('small'));?>
+                            </a>
+                        <?php else:?>
+                            <?= Html::img('/images/box.png');?>
+                        <?php endif;?>
                     </div>
                 </td>
                 <td>
-                    <?= $item->title .' (Арт. '. $item->product->article .')'?>
+                    <?php echo $item->title . ($item->product_id ? ' (Арт. '. $item->product->article .')' : '');?>
                 </td>
                 <td>
                     <?= (int)$item->price . ' руб.'?>
                 </td>
                 <td>
-                    <?= $item->quantity?>
+                    <input type="text" value="<?= $item->quantity?>" class="cartitem_qty_value m_input">
+                    <input type="hidden" value="<?= $item->id?>" class="cartitem_id">
+                    <?= Html::button('Ок', [
+                        'class' => 'btn btn-success update_qty',
+                    ]) ?>
                 </td>
                 <td>
                     <?= (int)($item->price * $item->quantity) . ' руб.'?>
                 </td>
                 <td>
-                    <?= Html::a('x', ['delete_item', 'id' => $model->id, 'itemId' => $item->product->id], [
+                    <?= Html::a('x', ['delete_item', 'id' => $item->id], [
                         'class' => 'btn btn-danger',
                     ]) ?>
                 </td>
@@ -133,9 +146,21 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endforeach ?>
         <tr>
             <td>
-                <p><string>Итого: </string> <?= $sum?> руб.</p>
+                <p><string>Итого: </string> <?= $model->getSubCost()?> руб.</p>
             </td>
         </tr>
+        <?php if($model->discount):?>
+            <tr>
+                <td>
+                    <p><string>Скидка: </string> <?= $model->discount?>%</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><string>Итого со скидкой: </string> <?= $model->getCostWithDiscount() ?> руб.</p>
+                </td>
+            </tr>
+        <?php endif;?>
         <?php if($model->shipping_cost):?>
             <tr>
                 <td>
@@ -144,7 +169,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </tr>
             <tr>
                 <td>
-                    <p><string>К оплате: </string> <?= $sum + $model->shipping_cost?> руб.</p>
+                    <p><string>К оплате: </string> <?= $model->getCost()?> руб.</p>
                 </td>
             </tr>
         <?php endif;?>

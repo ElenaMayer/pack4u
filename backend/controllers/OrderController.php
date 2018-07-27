@@ -134,14 +134,31 @@ class OrderController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionDelete_item($id, $itemId)
+    public function actionDelete_item($id)
     {
-        $model = OrderItem::find()->where(['order_id' => $id, 'product_id' => $itemId])->one();
-        $product = Product::findOne($itemId);
-        $product->plusCount($model->quantity);
+        $model = OrderItem::findOne($id);
+        $product = Product::findOne($model->product_id);
+        if($product)
+            $product->plusCount($model->quantity);
         $model->delete();
 
-        return $this->redirect(['view', 'id' => $id]);
+        return $this->redirect(['view', 'id' => $model->order_id]);
+    }
+
+    public function actionUpdate_order_item_qty($id, $qty)
+    {
+        $model = OrderItem::findOne($id);
+        $product = Product::findOne($model->product_id);
+        if($product && $model->quantity != $qty){
+            if($model->quantity > $qty)
+                $product->minusCount($qty - $model->quantity);
+            else
+                $product->plusCount($model->quantity - $qty);
+        }
+        $model->quantity = $qty;
+        $model->save();
+
+        return $this->redirect(['view', 'id' => $model->order_id]);
     }
 
     /**

@@ -9,6 +9,10 @@ $(document).ready(function() {
         $('.add-item-link').addClass('hide');
         $('.add-item-form').removeClass('hide');
     });
+
+    $(document.body).on('click', '.update_qty' ,function(){
+        updateOrderItemQty($(this));
+    });
 });
 
 function removeImage(e) {
@@ -21,4 +25,14 @@ function removeImage(e) {
             e.parent('.product-image').remove();
         }
     });
+}
+
+function updateOrderItemQty(e) {
+    var qty = e.parent().children('input.cartitem_qty_value').val();
+    var id = e.parent().children('input.cartitem_id').val();
+    if(!e.hasClass('disable') && qty > 0){
+        e.addClass('disable').prop('readonly', true);
+        window.location.replace('/order/update_order_item_qty?id=' + id + '&qty=' + qty);
+    }
+
 }

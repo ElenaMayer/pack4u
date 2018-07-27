@@ -25,6 +25,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $zip
  * @property string $tk
  * @property string $rcr
+ * @property integer $discount
  *
  * @property OrderItem[] $orderItems
  */
@@ -58,7 +59,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at', 'shipping_cost', 'zip', 'payment'], 'integer'],
+            [['created_at', 'updated_at', 'shipping_cost', 'zip', 'payment', 'discount'], 'integer'],
             [['address', 'notes'], 'string'],
             [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method', 'tk', 'rcr'], 'string', 'max' => 255],
             [['phone', 'fio'], 'required'],
@@ -89,6 +90,7 @@ class Order extends \yii\db\ActiveRecord
             'zip' => 'Индекс',
             'tk' => 'Транспортная компания',
             'rcr' => 'Пункт выдачи РЦР',
+            'discount' => 'Скидка',
         ];
     }
 
@@ -179,13 +181,28 @@ class Order extends \yii\db\ActiveRecord
             ->send();
     }
 
-    public function getCost()
+    public function getSubCost()
     {
         $cost = 0;
         foreach ($this->orderItems as $item) {
             $cost += $item->getCost();
         }
+        return $cost;
+    }
+
+    public function getCost()
+    {
+        $cost = $this->getCostWithDiscount();
         return $cost + $this->shipping_cost;
+    }
+
+    public function getCostWithDiscount()
+    {
+        $cost = $this->getSubCost();
+        if($this->discount > 0)
+            return $cost - $cost * $this->discount/ 100;
+        else
+            return $cost;
     }
     
     public function beforeDelete()
