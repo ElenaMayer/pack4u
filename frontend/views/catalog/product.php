@@ -81,10 +81,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </span>
                                 <?php endif;?>
                             </div>
+                            <?php $quantity = $product->getQuantity(); ?>
                             <?php if($product->getIsInStock()):?>
                                 <form class="cart" action="/cart/add" method="get">
                                     <div class="quantity">
-                                        <input type="number" step="1" min="1" max="<?= $product->count ?>" name="quantity" value="1" title="Количество" class="input-text qty text product-qty" size="4"/>
+                                        <input type="number" step="1" min="1" name="quantity" value="1" title="Количество" class="input-text qty text product-qty" size="4"/>
                                         <input type="hidden" name="id" value="<?= $product->id ?>"/>
                                         <input type="hidden" name="count" value="<?= $product->count ?>"/>
                                     </div>
@@ -98,6 +99,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?php if(Yii::$app->user->isGuest):?>
                                     <div class="wishlist-login hide">Для использования "Избранного" необходимо <a href="/user/login">Войти</a></div>
                                 <?php endif;?>
+                                <div class="count-error has-error" style="display: none">В наличии осталось <?=$product->count ?> шт.</div>
                             <?php endif;?>
                             <div class="clear"></div>
                         </div>

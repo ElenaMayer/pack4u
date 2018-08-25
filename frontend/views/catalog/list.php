@@ -17,52 +17,12 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="commerce noo-shop-main">
     <div class="container">
         <div class="row">
-            <div class="noo-main col-md-9">
-                <div class="noo-catalog">
-                    <?php
-                    $begin = $pagination->getPage() * $pagination->pageSize + 1;
-                    $end = $begin + $pageCount - 1;
-                    ?>
-                    <p class="commerce-result-count">Товар с <?= $begin ?> по <?= $end ?> из <?= $pagination->totalCount ?></p>
-                    <div class="product-style-control pull-right">
-                        <span class="noo-list"><a><i class="fa fa-th-list"></i></a></span>
-                        <span class="noo-grid active"><a><i class="fa fa-th-large"></i></a></span>
-                    </div>
-                    <form class="commerce-ordering">
-                        <select name="orderby" class="orderby" id="p_sort_by" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'popular') ?>" <?php if(!Yii::$app->request->get('order') || Yii::$app->request->get('order') == 'popular'):?>selected="selected"<?php endif;?>>По популярности</option>
-                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'price_lh') ?>" <?php if(Yii::$app->request->get('order') && Yii::$app->request->get('order') == 'price_lh'):?>selected="selected"<?php endif;?>>По возрастанию цены</option>
-                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'price_hl') ?>" <?php if(Yii::$app->request->get('order') && Yii::$app->request->get('order') == 'price_hl'):?>selected="selected"<?php endif;?>>По убыванию цены</option>
-                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'novelty') ?>" <?php if(Yii::$app->request->get('order') && Yii::$app->request->get('order') == 'novelty'):?>selected="selected"<?php endif;?>>По новинкам</option>
-                        </select>
-                    </form>
-                </div>
-                <div class="products row product-grid">
-                    <?php foreach (array_values($models) as $index => $model) :?>
-                        <?= $this->render('_product', ['model'=>$model]); ?>
-                    <?php endforeach;?>
-                </div>
-                <?php echo LinkPager::widget([
-                    'pagination' => $pagination,
-                    'options' => [
-                        'class' => 'pagination list-center',
-                    ],
-                    'pageCssClass' => 'page-numbers',
-                    'firstPageLabel' => '<<',
-                    'firstPageCssClass' => 'page-numbers',
-                    'lastPageLabel' => '>>',
-                    'lastPageCssClass' => 'page-numbers',
-                    'activePageCssClass' => 'current',
-                    'prevPageCssClass' => 'page-numbers',
-                    'nextPageCssClass' => 'page-numbers next',
-                    'prevPageLabel' => '<',
-                    'nextPageLabel' => '>',
-                    'maxButtonCount' => 6
-                ]); ?>
-            </div>
             <div class="noo-sidebar col-md-3">
                 <div class="noo-sidebar-wrap">
-                    <div class="widget commerce widget_product_categories">
+                    <div class="widget commerce mobile-filter">
+                        <a class="mobile-filter-btn"><h3 class="widget-title">Фильтры<i class="fa fa-angle-down"></i></h3></a>
+                    </div>
+                    <div class="widget commerce widget_product_categories mobile-filter-field">
                         <h3 class="widget-title">Категории</h3>
                         <?= Menu::widget([
                             'items' => $menuItems,
@@ -71,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                         ]) ?>
                     </div>
-                    <div class="widget commerce ht__pro__color">
+                    <div class="widget commerce ht__pro__color mobile-filter-field">
                         <h3 class="widget-title">Фильтр по цвету</h3>
                         <ul class="ht__color__list">
                             <li class="all">
@@ -114,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </li>
                         </ul>
                     </div>
-                    <div class="widget commerce widget_price_filter">
+                    <div class="widget commerce widget_price_filter mobile-filter-field">
                         <h3 class="widget-title">Фильтр по цене</h3>
                         <form method="get">
                             <div class="price_slider_wrapper">
@@ -137,7 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </form>
                     </div>
-                    <div class="widget commerce widget_product_tag_cloud">
+                    <div class="widget commerce widget_product_tag_cloud mobile-filter-field">
                         <h3 class="widget-title">Теги <a href="<?= StaticFunction::addGetParamToCurrentUrl('tag', 'all') ?>">Все</a></h3>
 
                         <div class="tagcloud">
@@ -168,6 +128,49 @@ $this->params['breadcrumbs'][] = $this->title;
                         </ul>
                     </div>
                 </div>
+            </div>
+            <div class="noo-main col-md-9">
+                <div class="noo-catalog">
+                    <?php
+                    $begin = $pagination->getPage() * $pagination->pageSize + 1;
+                    $end = $begin + $pageCount - 1;
+                    ?>
+                    <p class="commerce-result-count">Товар с <?= $begin ?> по <?= $end ?> из <?= $pagination->totalCount ?></p>
+                    <div class="product-style-control pull-right">
+                        <span class="noo-list"><a><i class="fa fa-th-list"></i></a></span>
+                        <span class="noo-grid active"><a><i class="fa fa-th-large"></i></a></span>
+                    </div>
+                    <form class="commerce-ordering">
+                        <select name="orderby" class="orderby" id="p_sort_by" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'popular') ?>" <?php if(!Yii::$app->request->get('order') || Yii::$app->request->get('order') == 'popular'):?>selected="selected"<?php endif;?>>По популярности</option>
+                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'price_lh') ?>" <?php if(Yii::$app->request->get('order') && Yii::$app->request->get('order') == 'price_lh'):?>selected="selected"<?php endif;?>>По возрастанию цены</option>
+                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'price_hl') ?>" <?php if(Yii::$app->request->get('order') && Yii::$app->request->get('order') == 'price_hl'):?>selected="selected"<?php endif;?>>По убыванию цены</option>
+                            <option value="<?= StaticFunction::addGetParamToCurrentUrl('order', 'novelty') ?>" <?php if(Yii::$app->request->get('order') && Yii::$app->request->get('order') == 'novelty'):?>selected="selected"<?php endif;?>>По новинкам</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="products row product-grid">
+                    <?php foreach (array_values($models) as $index => $model) :?>
+                        <?= $this->render('_product', ['model'=>$model]); ?>
+                    <?php endforeach;?>
+                </div>
+                <?php echo LinkPager::widget([
+                    'pagination' => $pagination,
+                    'options' => [
+                        'class' => 'pagination list-center',
+                    ],
+                    'pageCssClass' => 'page-numbers',
+                    'firstPageLabel' => '<<',
+                    'firstPageCssClass' => 'page-numbers',
+                    'lastPageLabel' => '>>',
+                    'lastPageCssClass' => 'page-numbers',
+                    'activePageCssClass' => 'current',
+                    'prevPageCssClass' => 'page-numbers',
+                    'nextPageCssClass' => 'page-numbers next',
+                    'prevPageLabel' => '<',
+                    'nextPageLabel' => '>',
+                    'maxButtonCount' => 6
+                ]); ?>
             </div>
         </div>
     </div>

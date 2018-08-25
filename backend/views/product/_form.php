@@ -17,12 +17,6 @@ use \common\models\Product;
 
     <?= $form->field($model, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
-    <?= $form->field($model, 'article')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-
     <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories, 'id', 'title'), ['prompt' => 'Select category']) ?>
 
     <?= $form->field($model, 'is_in_stock')->checkbox() ?>
@@ -31,13 +25,19 @@ use \common\models\Product;
 
     <?= $form->field($model, 'is_novelty')->checkbox() ?>
 
-    <?= $form->field($model, 'price')->textInput(['maxlength' => 19]) ?>
+    <?= $form->field($model, 'article')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'new_price')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>
+
+    <?= $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'price')->textInput(['maxlength' => 19]) ?>
 
     <?= $form->field($model, 'count')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'new_price')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'color')->widget(Select2::classname(), [
         'options' => [

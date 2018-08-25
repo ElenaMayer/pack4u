@@ -23,6 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'rowOptions' => function($model) {
+            return ['class' => $model->status];
+        },
         'columns' => [
             'id',
             'fio',

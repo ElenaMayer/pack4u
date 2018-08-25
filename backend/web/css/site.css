@@ -134,3 +134,23 @@ a.image_remove:hover {
     border: solid 1px #dfdfdf;
     padding-left: 5px;
 }
+
+.order-index .table-striped tr.new,
+.order-index .table-striped tr.in_progress {
+    background-color: #82e086;
+}
+.order-index .table-striped tr.done {
+    background-color: #d4ecd6;
+}
+.order-index .table-striped tr.shipped {
+    background-color: #dfe181;
+}
+.order-index .table-striped tr.canceled {
+    background-color: #ddd;
+}
+.order-index .table-striped tr.payment {
+    background-color: #e18282;
+}
+.order-index .table-striped tr.pre_order {
+    background-color: #81e0e1;
+}

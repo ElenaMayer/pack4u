@@ -37,6 +37,7 @@ class Order extends \yii\db\ActiveRecord
     const STATUS_DONE = 'done';
     const STATUS_CANCELED = 'canceled';
     const STATUS_PAYMENT = 'payment';
+    const STATUS_PRE_ORDER = 'pre_order';
 
     public function behaviors()
     {
@@ -138,6 +139,7 @@ class Order extends \yii\db\ActiveRecord
             self::STATUS_SHIPPED => 'Передан в доставку',
             self::STATUS_DONE => 'Выполнен',
             self::STATUS_CANCELED => 'Отменен',
+            self::STATUS_PRE_ORDER => 'Предзаказ',
         ];
     }
 

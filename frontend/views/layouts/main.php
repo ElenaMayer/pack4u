@@ -41,7 +41,7 @@ IeAsset::register($this);
                     <ul>
                         <li>
                             <span><i class="fa fa-phone"></i></span>
-                            <?= Yii::$app->params['phone1'] ?>
+                            <a href="<?= Yii::$app->params['phone1'] ?>"><?= Yii::$app->params['phone1'] ?></a>
                         </li>
                         <li>
                             <div class="noo_social">
@@ -217,16 +217,25 @@ IeAsset::register($this);
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 item-footer-four">
-                        <div class="widget widget_noo_happyhours">
+                        <div class="widget widget_noo_openhours">
                             <h4 class="widget-title">Контакты</h4>
+                            <ul class="noo-openhours">
+                                <li>
+                                    <i class="fa fa-phone"></i><a href="<?= Yii::$app->params['phone1'] ?>"><?= Yii::$app->params['phone1'] ?></a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope"></i><a href="mailto:<?= Yii::$app->params['email'] ?>">
+                                        <?= Yii::$app->params['email'] ?>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget widget_noo_happyhours">
+                            <h4 class="widget-title">Время работы</h4>
                             <ul class="noo-happyhours">
                                 <li>
-                                    <div><?= Yii::$app->params['phone1'] ?></div>
-                                    <div>
-                                        <a href="mailto:<?= Yii::$app->params['email'] ?>">
-                                            <?= Yii::$app->params['email'] ?>
-                                        </a>
-                                    </div>
+                                    <div>9:00 - 21:00</div>
+                                    <div>Без выходных</div>
                                 </li>
                             </ul>
                             <span></span>

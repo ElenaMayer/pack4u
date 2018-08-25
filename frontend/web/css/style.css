@@ -3940,6 +3940,7 @@ ul.post_list_widget li a .post-date {
 
 .amount.new {
     color: #fc9090;
+    display: block;
 }
 
 .product-label {
@@ -9894,6 +9895,8 @@ article.format-video .blog-item .video-inner iframe {
 }
 
 
+
+
 /* === 4.17. REPRESENT === */
 
 .noo-represent {
@@ -12286,6 +12289,10 @@ fieldset[disabled] .mailchimp-widget .mc-subscribe-form button.active {
     color: #ffffff;
 }
 
+.noo-openhours li i {
+    margin-right: 8px;
+}
+
 .footer-3 .noo-bottom-bar-content {
     background: #2c2c2c;
     color: #ababab;
@@ -12875,6 +12882,23 @@ a.go-to-top:hover a.go-to-top:focus.on:hover {
 .noo-shop-main {
     padding-top: 100px;
     padding-bottom: 140px;
+}
+
+.noo-shop-main .mobile-filter {
+    border: 2px solid #f4eede;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 10px 20px;
+    width: auto;
+    cursor: pointer;
+    float: right;
+    display: none;
+}
+.noo-shop-main .mobile-filter i {
+    padding-left: 10px;
+}
+.noo-shop-main .noo-sidebar .mobile-filter .widget-title {
+    margin-bottom: 0;
 }
 
 
@@ -14741,6 +14765,10 @@ p.demo_store a {
     margin-top: 0
 }
 
+.commerce-cart .has-error {
+    padding-right: 10px;
+}
+
 .product.has-default-attributes.has-children>.images {
     opacity: 0
 }
@@ -15175,6 +15203,7 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 
 .commerce .product-list .noo-product-title .noo-product-action {
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .commerce .product-list .noo-product-title .noo-product-action h4 {
@@ -16843,6 +16872,12 @@ ul.user_menu li.active > a {
         top: 25px;
         right: -5px;
     }
+    .noo-shop-main .noo-sidebar {
+        min-width: 296px;
+    }
+    .noo-shop-main .noo-main {
+        width: 69%;
+    }
 }
 
 
@@ -17313,6 +17348,22 @@ ul.user_menu li.active > a {
         clear: both;
         padding-top: 54px;
     }
+    .widget.commerce.widget_products{
+        display: none;
+    }
+    .noo-shop-main .mobile-filter {
+        display: inline-block;
+    }
+    .mobile-filter-field {
+        display: none;
+    }
+    .noo-shop-main .noo-main {
+        clear: both;
+    }
+    .noo-shop-main {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 }
 
 
@@ -17470,7 +17521,10 @@ ul.user_menu li.active > a {
         width: 15%;
     }
     .commerce .cart-collaterals .cart_totals,
-    .commerce-page .cart-collaterals .cart_totals,
+    .commerce-page .cart-collaterals .cart_totals {
+        width: 100%;
+        margin-top: 20px;
+    }
     .checkout-wrapper .cart_totals {
         float: none;
         width: 100%;
@@ -17654,6 +17708,32 @@ ul.user_menu li.active > a {
     }
     .off-canvas #off-canvas-nav .noo-main-canvas .nav-collapse .small-menu {
         display: block;
+    }
+    .noo-shop-main .mobile-filter {
+        float: none;
+    }
+    .noo-sidebar .widget {
+        margin-top: 20px;
+    }
+    .widget.widget_price_filter {
+        padding-top: 20px;
+    }
+    .noo-sidebar {
+        margin-top: 0;
+    }
+    .noo-sidebar .widget-title {
+        margin-bottom: 15px;
+    }
+    .widget_product_categories ul li a {
+        line-height: 20px;
+    }
+    .commerce .product-list .noo-product-inner {
+        text-align: center;
+    }
+    .commerce .product-list .noo-product-thumbnail,
+    .commerce .product-list .noo-product-title {
+        margin: 0 auto;
+        float: none;
     }
 }
 
@@ -17843,7 +17923,6 @@ ul.user_menu li.active > a {
     .commerce .cart-collaterals .cart_totals,
     .commerce-page .cart-collaterals .cart_totals {
         width: 100%;
-        float: none;
     }
     .commerce-cart table.cart td.product-thumbnail a:last-child {
         padding-left: 0;

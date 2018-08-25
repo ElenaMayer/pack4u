@@ -77,8 +77,27 @@ $(document).ready(function() {
         var count = form.find("input[name='count']").val();
 		if(parseInt($('input.product-qty').val()) > count){
 			form.find("input[name='quantity']").val(count);
-        }
+            $('.count-error').show();
+        } else {
+            $('.count-error').hide();
+		}
 
+    });
+
+    $(".mobile-filter").on("click", function() {
+        i = $(this).find('i');
+        console.log(i);
+    	if(i.hasClass('fa-angle-down')){
+            $('.mobile-filter-field').each(function(){
+				$(this).show();
+				i.removeClass('fa-angle-down').addClass('fa-angle-up');
+            });
+		} else {
+            $('.mobile-filter-field').each(function(){
+                $(this).hide();
+                i.removeClass('fa-angle-up').addClass('fa-angle-down');
+            });
+		}
     });
 
     $(".noo-list").on("click", function() {
@@ -644,6 +663,9 @@ function updateCartQty(form) {
 	if(!e.hasClass('disable') && e.val() && e.val() > 0){
 		if(parseInt(e.val()) > count){
             form.find("input[name='quantity']").val(count);
+            $('.count-error').show();
+		} else {
+            $('.count-error').hide();
 		}
         e.addClass('disable').prop('readonly', true);
         $.ajax({
