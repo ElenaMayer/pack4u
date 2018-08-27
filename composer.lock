@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "df6887db26b83961224e565d61d2a212",
+    "content-hash": "6d7900a01d556f2d92892fef76155d49",
     "packages": [
+        {
+            "name": "amilna/yii2-elevatezoom",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amilna/yii2-elevatezoom.git",
+                "reference": "5fdabac758a6c1cbfe6460d47ea7919b3dd27566"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amilna/yii2-elevatezoom/zipball/5fdabac758a6c1cbfe6460d47ea7919b3dd27566",
+                "reference": "5fdabac758a6c1cbfe6460d47ea7919b3dd27566",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "amilna\\elevatezoom\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amilna",
+                    "homepage": "https://github.com/amilna/"
+                }
+            ],
+            "description": "Elevatezoom widget for Yii2",
+            "keywords": [
+                "elevatezoom",
+                "gallery",
+                "image",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-03-13T09:57:59+00:00"
+        },
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.3.5",
@@ -970,6 +1013,56 @@
             "time": "2018-02-22T11:57:06+00:00"
         },
         {
+            "name": "yiisoft/yii2-sphinx",
+            "version": "2.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-sphinx.git",
+                "reference": "ecea2db7cd674ecd2a837813d77b3cebe65f7b06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-sphinx/zipball/ecea2db7cd674ecd2a837813d77b3cebe65f7b06",
+                "reference": "ecea2db7cd674ecd2a837813d77b3cebe65f7b06",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "ext-pdo_mysql": "*",
+                "yiisoft/yii2": "~2.0.13"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\sphinx\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "Sphinx full text search engine extension for the Yii framework",
+            "keywords": [
+                "active-record",
+                "fulltext",
+                "search",
+                "sphinx",
+                "yii2"
+            ],
+            "time": "2018-02-13T15:16:20+00:00"
+        },
+        {
             "name": "yiisoft/yii2-swiftmailer",
             "version": "2.0.7",
             "source": {
@@ -1331,11 +1424,11 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "kartik-v/yii2-widget-select2": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.4.0"

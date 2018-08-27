@@ -3941,6 +3941,7 @@ ul.post_list_widget li a .post-date {
 .amount.new {
     color: #fc9090;
     display: block;
+    float: left;
 }
 
 .product-label {
