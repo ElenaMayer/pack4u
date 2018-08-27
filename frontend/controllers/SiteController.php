@@ -118,12 +118,7 @@ class SiteController extends Controller
                 'new_price' => $row['new_price'],
                 'count' => $row['count']];
         }
-
-//        $query = new Query();
-//        $rows = $query->from('pack4uindex')
-//            ->match($_GET['s'])
-//            ->all();
-//        print_r($rows);die();
+        Yii::$app->user->setReturnUrl(Yii::$app->request->url);
 
         return $this->render('search', [
                 'noveltyProducts' => Product::getNovelties(),
