@@ -99,8 +99,8 @@ class SiteController extends Controller
     public function actionSearch(){
 
         $q = Yii::$app->sphinx->escapeMatchValue($_GET['s']);
-        $sql = "SELECT id, SNIPPET(title, :q) as _title, SNIPPET(description, :q) AS _description,
-                        category_id, price, SNIPPET(article, :q) AS _article, is_in_stock, is_novelty, size, new_price, count
+        $sql = "SELECT id, SNIPPET(title, :q) as _title, category_id, price, SNIPPET(article, :q) AS _article, 
+                is_in_stock, is_novelty, size, new_price, count
                 FROM pack4uindex WHERE MATCH(:q)";
         $rows = Yii::$app->sphinx->createCommand($sql)
             ->bindValue('q', $q)
@@ -109,7 +109,6 @@ class SiteController extends Controller
         foreach ($rows as $row) {
             $snippets[$row['id']] = [
                 'title' => $row['_title'],
-                'description' => $row['_description'],
                 'article' => $row['_article'],
                 'category_id' => $row['category_id'],
                 'price' => $row['price'],
