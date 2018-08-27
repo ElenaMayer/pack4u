@@ -8,6 +8,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\Product;
 use common\models\Category;
+use yii\sphinx\Query;
 
 /**
  * Site controller
@@ -72,20 +73,7 @@ class SiteController extends Controller
 
     public function actionContact()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Спасибо,что написали нам. Мы свяжемся с Вами в ближайщее время.');
-            } else {
-                Yii::$app->session->setFlash('error', 'Ошибка при отправке сообщения.');
-            }
-
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
+        return $this->render('contact');
     }
 
     public function actionShipping()
@@ -106,5 +94,43 @@ class SiteController extends Controller
     public function actionOffer()
     {
         return $this->render('offer');
+    }
+
+    public function actionSearch(){
+
+        $q = Yii::$app->sphinx->escapeMatchValue($_GET['s']);
+        $sql = "SELECT id, SNIPPET(title, :q) as _title, SNIPPET(description, :q) AS _description,
+                        category_id, price, SNIPPET(article, :q) AS _article, is_in_stock, is_novelty, size, new_price, count
+                FROM pack4uindex WHERE MATCH(:q)";
+        $rows = Yii::$app->sphinx->createCommand($sql)
+            ->bindValue('q', $q)
+            ->queryAll();
+        $snippets = [];
+        foreach ($rows as $row) {
+            $snippets[$row['id']] = [
+                'title' => $row['_title'],
+                'description' => $row['_description'],
+                'article' => $row['_article'],
+                'category_id' => $row['category_id'],
+                'price' => $row['price'],
+                'is_in_stock' => $row['is_in_stock'],
+                'is_novelty' => $row['is_novelty'],
+                'size' => $row['size'],
+                'new_price' => $row['new_price'],
+                'count' => $row['count']];
+        }
+
+//        $query = new Query();
+//        $rows = $query->from('pack4uindex')
+//            ->match($_GET['s'])
+//            ->all();
+//        print_r($rows);die();
+
+        return $this->render('search', [
+                'noveltyProducts' => Product::getNovelties(),
+                'menuItems' => Category::getMenuItems(null),
+                'snippets' => $snippets,
+            ]
+        );
     }
 }

@@ -20,7 +20,7 @@ IeAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <?= Html::csrfMetaTags() ?>
     <?php Yii::$app->view->registerMetaTag(['name' => 'description','content' => Yii::$app->params['companySlogan']]); ?>
-    <title><?= Html::encode(Yii::$app->name . ' - ' .  Yii::$app->params['title']) ?></title>
+    <title><?= Html::encode(Yii::$app->name . ' - ' .  $this->title) ?></title>
     <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/images/favicon-16x16.png?1', 'sizes' => '16x16']); ?>
     <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/images/favicon-32x32.png', 'sizes' => '32x32']); ?>
     <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/images/favicon-96x96.png', 'sizes' => '96x96']); ?>
@@ -88,6 +88,9 @@ IeAsset::register($this);
                                 </span>
                             </a>
                         </li>
+                        <li>
+                            <a href="#" class="fa fa-search noo-search" id="noo-search"></a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -98,6 +101,9 @@ IeAsset::register($this);
                             <div class="navbar-header pull-left">
                                 <h1 class="sr-only"><?= Yii::$app->name ?></h1>
                                 <div class="noo_menu_canvas">
+                                    <div class="btn-search noo-search topbar-has-search">
+                                        <i class="fa fa-search"></i>
+                                    </div>
                                     <div class="topbar-has-cart btn-cart">
                                         <a href="/cart">
                                             <span class="has-cart">
@@ -148,9 +154,19 @@ IeAsset::register($this);
                     </div>
                 </div>
             </div>
+            <div class="search-header5">
+                <div class="remove-form"></div>
+                <div class="container">
+                    <form class="form-horizontal" action="/search">
+                        <label class="note-search">Введите текст и нажмите Enter</label>
+                        <input type="search" name="s" class="form-control" value="" placeholder="Найти...">
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+            </div>
         </header>
         <?php if($this->context->action->id != 'index'):?>
-        <section class="noo-page-heading eff heading-2">
+        <section class="noo-page-heading eff heading-2 <?= $this->context->action->id ?>">
             <div class="container">
                 <div class="noo-heading-content">
                     <h1 class="page-title eff"><?= $this->title ?></h1>

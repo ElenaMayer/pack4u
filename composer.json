@@ -23,7 +23,8 @@
         "dektrium/yii2-user": "^0.9.12",
         "yiisoft/yii2-imagine": "^2.1",
         "kartik-v/yii2-widget-select2": "@dev",
-        "amilna/yii2-elevatezoom": "*"
+        "amilna/yii2-elevatezoom": "*",
+        "yiisoft/yii2-sphinx": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

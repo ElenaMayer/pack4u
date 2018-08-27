@@ -14,13 +14,20 @@ $this->title = Html::encode($title);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="commerce noo-shop-main">
+<div class="commerce noo-shop-main product-catalog">
     <div class="container">
         <div class="row">
             <div class="noo-sidebar col-md-3">
                 <div class="noo-sidebar-wrap">
                     <div class="widget commerce mobile-filter">
                         <a class="mobile-filter-btn"><h3 class="widget-title">Фильтры<i class="fa fa-angle-down"></i></h3></a>
+                    </div>
+                    <div class="widget commerce widget_product_search">
+                        <h3 class="widget-title">Поиск</h3>
+                        <form action="/search">
+                            <input type="search" class="search-field" placeholder="Найти товар&hellip;" value="" name="s"/>
+                            <input type="submit" value="Search"/>
+                        </form>
                     </div>
                     <div class="widget commerce widget_product_categories mobile-filter-field">
                         <h3 class="widget-title">Категории</h3>

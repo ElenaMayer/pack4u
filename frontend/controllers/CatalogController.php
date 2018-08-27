@@ -52,7 +52,7 @@ class CatalogController extends \yii\web\Controller
         ]);
         return $this->render('list', [
             'category' => isset($category)? $category : null,
-            'menuItems' => $this->getMenuItems(isset($category->id) ? $category->id : 'all'),
+            'menuItems' => Category::getMenuItems(isset($category->id) ? $category->id : 'all'),
             'models' => $productsDataProvider->getModels(),
             'pagination' => $productsDataProvider->getPagination(),
             'pageCount' => $productsDataProvider->getCount(),
@@ -102,7 +102,7 @@ class CatalogController extends \yii\web\Controller
                 'category' => $category,
                 'product' => $product,
                 'noveltyProducts' => Product::getNovelties(),
-                'menuItems' => $this->getMenuItems(null)
+                'menuItems' => Category::getMenuItems(null)
             ]);
         } else {
             return $this->redirect('/catalog/list');
@@ -113,35 +113,6 @@ class CatalogController extends \yii\web\Controller
     {
         return $this->render('view');
     }
-
-    /**
-     * @param Category[] $categories
-     * @param int $activeId
-     * @param int $parent
-     * @return array
-     */
-    private function getMenuItems($activeId = null, $parent = null)
-    {
-
-        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
-        $menuItems = ['0' => [
-            'active' => ($activeId == 'all')?1:0,
-            'label' => 'Все',
-            'url' => ['/catalog']
-            ]
-        ];
-        foreach ($categories as $category) {
-            if ($category->parent_id === $parent) {
-                $menuItems[$category->id] = [
-                    'active' => $activeId === $category->id,
-                    'label' => $category->title,
-                    'url' => ['/catalog/'.$category->slug],
-                ];
-            }
-        }
-        return $menuItems;
-    }
-
 
     /**
      * Returns IDs of category and all its sub-categories

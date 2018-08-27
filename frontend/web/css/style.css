@@ -4416,7 +4416,7 @@ ul.post_list_widget li a .post-date {
 .noo-header.header-2 .menu-position {
     background: #ffffff;
     padding-left: 30px;
-    padding-right: 15px;
+    padding-right: 50px;
 }
 
 @media (max-width: 767px) {
@@ -4978,6 +4978,10 @@ ul.post_list_widget li a .post-date {
 .noo-topbar ul li a {
     color: #ffffff;
     position: relative;
+}
+
+.topbar-has-cart a:hover {
+    color: #212121;
 }
 
 .noo-topbar ul li a:after {
@@ -5987,14 +5991,18 @@ body.fixed_top .noo-header.header-5.eff .navbar-wrapper {
 .noo-header.header-2 .navbar-wrapper.sticky__header.scroll-header .noo_menu_canvas .btn-cart {
     display: block;
     top: 26px;
-    right: -5px;
+    right: 32px;
 }
 
+.noo-header.header-2 .navbar-wrapper.sticky__header.scroll-header .noo_menu_canvas .btn-search {
+    display: block;
+    top: 26px;
+    right: -5px;
+}
 
 /* --------------------------------------------------------------------- */
 /* 4. BASIC ELEMENTS
 /* --------------------------------------------------------------------- */
-
 
 /* === 4.1. HEADING === */
 
@@ -16870,13 +16878,20 @@ ul.user_menu li.active > a {
     }
     .noo-header.header-2 .navbar-wrapper.sticky__header.scroll-header .noo_menu_canvas .btn-cart {
         top: 25px;
-        right: -5px;
+        right: 30px;
     }
     .noo-shop-main .noo-sidebar {
         min-width: 296px;
     }
     .noo-shop-main .noo-main {
         width: 69%;
+    }
+    .container .noo_menu_canvas .btn-search {
+        top: 25px;
+        right: -5px;
+    }
+    .noo-header.header-2 .menu-position {
+        padding-right: 50px;
     }
 }
 
@@ -16888,12 +16903,11 @@ ul.user_menu li.active > a {
 
 .noo_menu_canvas .btn-search,
 .noo_menu_canvas .btn-cart {
-    display: none;
     color: #212121;
     font-size: 18px;
-    right: 40px;
+    right: -5px;
     position: absolute;
-    top: -7px;
+    top: 26px;
     cursor: pointer;
 }
 
@@ -16940,13 +16954,6 @@ ul.user_menu li.active > a {
         -ms-transform: translate(0, -50%);
         -o-transform: translate(0, -50%);
         transform: translate(0, -50%);
-    }
-    .noo_menu_canvas .btn-search {
-        display: block;
-    }
-    .noo_menu_canvas .btn-search.topbar-has-search,
-    .noo_menu_canvas .topbar-has-cart {
-        display: none;
     }
     .noo_menu_canvas .btn-navbar {
         width: 25px;
@@ -17338,7 +17345,11 @@ ul.user_menu li.active > a {
     }
     .noo-header.header-2 .navbar-wrapper.sticky__header.scroll-header .noo_menu_canvas .btn-cart {
         top: -7px;
-        right: 40px;
+        right: 80px;
+    }
+    .noo-header.header-2 .navbar-wrapper.sticky__header.scroll-header .noo_menu_canvas .btn-search {
+        top: -7px;
+        right: 43px;
     }
     .widget .ht__color__list {
         float: left;
@@ -17348,7 +17359,8 @@ ul.user_menu li.active > a {
         clear: both;
         padding-top: 54px;
     }
-    .widget.commerce.widget_products{
+    .product-catalog .widget.commerce.widget_products,
+    .product-catalog .widget.commerce.widget_product_search {
         display: none;
     }
     .noo-shop-main .mobile-filter {
@@ -17361,8 +17373,12 @@ ul.user_menu li.active > a {
         clear: both;
     }
     .noo-shop-main {
-        padding-top: 0;
-        padding-bottom: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .noo_menu_canvas .btn-search,
+    .noo_menu_canvas .btn-cart {
+        display: none;
     }
 }
 
@@ -17451,12 +17467,16 @@ ul.user_menu li.active > a {
     .noo_menu_canvas {
         right: 0;
     }
-    .noo_menu_canvas .btn-search {
-        display: block;
-    }
     .noo_menu_canvas .btn-search.topbar-has-search,
     .noo_menu_canvas .topbar-has-cart {
         display: block;
+        top: -7px;
+    }
+    .noo_menu_canvas .btn-search.topbar-has-search {
+        right: 43px;
+    }
+    .noo_menu_canvas .topbar-has-cart {
+        right: 80px;
     }
     .header-4 .noo_menu_canvas .btn-search,
     .header-6 .noo_menu_canvas .btn-search {
@@ -17935,5 +17955,21 @@ ul.user_menu li.active > a {
     }
     .commerce-wishlist .noo-main {
         overflow-x: auto;
+    }
+    .navbar-brand .noo-logo-img {
+        max-height: 46px;
+    }
+    .noo-header.header-2 .menu-position {
+        min-height: 63px;
+    }
+    .noo-shop-main {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .commerce-cart table.cart td {
+        padding: 20px 0;
+    }
+    .footer-2 {
+        padding-top: 20px;
     }
 }

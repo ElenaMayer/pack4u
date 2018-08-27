@@ -99,4 +99,32 @@ class Category extends \yii\db\ActiveRecord
         $parents = Category::find()->select(['id', 'title'])->all();
         return ArrayHelper::map($parents, 'id', 'title');
     }
+
+    /**
+     * @param Category[] $categories
+     * @param int $activeId
+     * @param int $parent
+     * @return array
+     */
+    public static function getMenuItems($activeId = null, $parent = null)
+    {
+
+        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
+        $menuItems = ['0' => [
+            'active' => ($activeId == 'all')?1:0,
+            'label' => 'Все',
+            'url' => ['/catalog']
+        ]
+        ];
+        foreach ($categories as $category) {
+            if ($category->parent_id === $parent) {
+                $menuItems[$category->id] = [
+                    'active' => $activeId === $category->id,
+                    'label' => $category->title,
+                    'url' => ['/catalog/'.$category->slug],
+                ];
+            }
+        }
+        return $menuItems;
+    }
 }

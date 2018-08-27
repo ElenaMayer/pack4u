@@ -46,6 +46,7 @@ return [
                 'offer' => 'site/offer',
                 'history' => 'cart/history',
                 'history/<orderId:\d+>' => 'cart/history_item',
+                'search' => 'site/search',
             ],
         ],
         'view' => [

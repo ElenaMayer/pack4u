@@ -1433,6 +1433,9 @@ header .navbar,
 .noo-page-heading {
   background-image: url('../images/banner/banner_1920x470.jpg?1');
 }
+.noo-page-heading.heading-2.contact {
+  background-image: url('../images/banner/contact_1920x470.jpg');
+}
 .noo-page-heading.heading-2 {
   background-image: url('../images/banner/banner_1920x470.jpg?1');
 }

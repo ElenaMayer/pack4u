@@ -118,6 +118,13 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="noo-sidebar col-md-3">
                 <div class="noo-sidebar-wrap">
+                    <div class="widget commerce widget_product_search">
+                        <h3 class="widget-title">Поиск</h3>
+                        <form action="/search">
+                            <input type="search" class="search-field" placeholder="Найти товар&hellip;" value="" name="s"/>
+                            <input type="submit" value="Search"/>
+                        </form>
+                    </div>
                     <div class="widget commerce widget_product_categories">
                         <h3 class="widget-title">Категории</h3>
                         <?= Menu::widget([
