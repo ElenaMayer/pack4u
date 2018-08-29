@@ -9352,6 +9352,10 @@ article.format-video .blog-item .video-inner iframe {
     margin-top: 90px;
 }
 
+.product-sliders .owl-theme .owl-controls {
+    text-align: center;
+}
+
 .noo_testimonial_wrap .owl-theme .owl-controls .owl-page.active span,
 .noo_testimonial_wrap .owl-theme .owl-controls .owl-page:hover span {
     background-color: #ffffff;
@@ -9490,6 +9494,11 @@ article.format-video .blog-item .video-inner iframe {
     -ms-transform: translate(-50%, 0);
     -o-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
+}
+
+.product-sliders .owl-controls .owl-buttons div {
+    display: inline;
+    padding-right: 10px;
 }
 
 .noo_testimonial_wrap .noo-testimonial-sync2 .owl-controls .owl-buttons:before,
@@ -10698,10 +10707,6 @@ article.format-video .blog-item .video-inner iframe {
 .noo-product-slider.eff .noo-product-thumbnail {
     opacity: 0.2;
     filter: alpha(opacity=20);
-}
-
-.owl-theme .owl-controls {
-    margin-top: 60px;
 }
 
 .owl-theme .owl-controls .owl-page.active span,
@@ -12894,7 +12899,7 @@ a.go-to-top:hover a.go-to-top:focus.on:hover {
 }
 
 .noo-shop-main .mobile-filter {
-    border: 2px solid #f4eede;
+    background-color: #79cba8;
     margin-bottom: 10px;
     position: relative;
     padding: 10px 20px;
@@ -12902,6 +12907,9 @@ a.go-to-top:hover a.go-to-top:focus.on:hover {
     cursor: pointer;
     float: right;
     display: none;
+}
+.noo-shop-main .mobile-filter .widget-title {
+    color: #ffffff;
 }
 .noo-shop-main .mobile-filter i {
     padding-left: 10px;
@@ -17191,9 +17199,6 @@ ul.user_menu li.active > a {
     .noo-blog-title {
         margin-bottom: 30px;
     }
-    .owl-theme .owl-controls {
-        margin-top: 30px;
-    }
     .noo-simple-product-bk {
         width: 100%;
     }
@@ -17972,5 +17977,14 @@ ul.user_menu li.active > a {
     }
     .footer-2 {
         padding-top: 20px;
+    }
+    .owl-carousel .owl-wrapper .owl-item {
+        float: none;
+    }
+    .owl-carousel .owl-wrapper-outer {
+        height: auto !important;
+    }
+    .owl-carousel .owl-controls {
+        display: none !important;
     }
 }

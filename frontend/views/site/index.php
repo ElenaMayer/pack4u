@@ -139,7 +139,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="tp-bannertimer"></div>
     </div>
 </div>
-<div class="noo-simple-product-wrap">
+<div class="noo-simple-product-wrap product-sliders">
     <ul class="noo-simple-product-slider">
         <?php foreach ($categories as $category) :?>
             <li>
@@ -153,7 +153,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </ul>
 </div>
 <?php if($noveltyProducts):?>
-    <div class="pt-12 pb-10 clear">
+    <div class="pt-5 pb-5 clear product-sliders">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">

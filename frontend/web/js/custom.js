@@ -233,7 +233,13 @@ $(document).ready(function() {
 		addClassActive: true,
 		autoPlay: false,
 		loop:true,
-		pagination: true
+		pagination: false,
+        navigation:true,
+        navigationText: [
+            "<i class='fa fa-chevron-left'></i>",
+            "<i class='fa fa-chevron-right'></i>"
+        ],
+        dots: true,
 	});
 	
 	//Owl Carousel
@@ -257,7 +263,7 @@ $(document).ready(function() {
 		pagination: false
 	});
 	
-	$('.noo-simple-product-slider').owlCarousel({
+    $('.noo-simple-product-slider').owlCarousel({
 		items : 5,
 		itemsDesktop : [1199,5],
 		itemsDesktopSmall : [979,3],
@@ -269,8 +275,15 @@ $(document).ready(function() {
 		addClassActive: true,
 		autoPlay: false,
 		loop:true,
-		pagination: false
-	});
+		pagination: false,
+        navigation:true,
+        navigationText: [
+            "<i class='fa fa-chevron-left'></i>",
+            "<i class='fa fa-chevron-right'></i>"
+        ],
+        dots: true,
+
+    });
 	
 	//Testimonial Carousel
 	var sync1 = $(".noo-testimonial-sync2");

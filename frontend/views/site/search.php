@@ -4,8 +4,10 @@ use yii\widgets\Menu;
 use \common\models\Product;
 
 /* @var $this yii\web\View */
-
-$this->title = 'Поиск по запросу "'.$_GET['s'] .'""';
+if($_GET['s'])
+    $this->title = 'Поиск по запросу "'.$_GET['s'] .'""';
+else
+    $this->title = 'Поиск';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -20,13 +22,15 @@ $this->params['breadcrumbs'][] = $this->title;
                             <input type="submit" value="Search"/>
                         </form>
                     </div>
-                    <h3 class="entry-title">Результаты по запросу "<span class="archive-name"><?= $_GET['s'] ?></span>"</h3>
-                    <div class="products row product-grid">
-                        <?php foreach ($snippets as $id => $snippet) :?>
-                            <?php $model = Product::findOne($id)?>
-                            <?= $this->render('../catalog/_product', ['model'=>$model]); ?>
-                        <?php endforeach;?>
-                    </div>
+                    <?php if($_GET['s']):?>
+                        <h3 class="entry-title">Результаты по запросу "<span class="archive-name"><?= $_GET['s'] ?></span>"</h3>
+                        <div class="products row product-grid">
+                            <?php foreach ($snippets as $id => $snippet) :?>
+                                <?php $model = Product::findOne($id)?>
+                                <?= $this->render('../catalog/_product', ['model'=>$model]); ?>
+                            <?php endforeach;?>
+                        </div>
+                    <?php endif;?>
                 </div>
             </div>
             <div class="noo-sidebar col-md-3">
