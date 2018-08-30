@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
         '//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic,700italic,900italic',
         '//fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic',
         'css/custom.min.css?2',
-        'css/style.css?66',
+        'css/style.css?67',
         'css/colors/apple-green.css?10',
     ];
     public $js = [

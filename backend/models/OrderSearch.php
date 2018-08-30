@@ -19,7 +19,7 @@ class OrderSearch extends Order
     {
         return [
             [['id', 'created_at', 'updated_at', 'payment'], 'integer'],
-            [['phone', 'email', 'notes', 'status'], 'safe'],
+            [['phone', 'email', 'notes', 'status', 'fio'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class OrderSearch extends Order
      */
     public function search($params)
     {
-        $query = Order::find()->orderBy('id DESC');
+        $query = Order::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -62,7 +62,8 @@ class OrderSearch extends Order
         $query->andFilterWhere(['like', 'phone', $this->phone])
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'notes', $this->notes])
-            ->andFilterWhere(['like', 'status', $this->status]);
+            ->andFilterWhere(['like', 'status', $this->status])
+            ->andFilterWhere(['like', 'fio', $this->fio]);
 
         return $dataProvider;
     }

@@ -6115,6 +6115,9 @@ body.fixed_top .noo-header.header-5.eff .navbar-wrapper {
     display: none;
 }
 
+.exit-cavas {
+    position: fixed;
+}
 
 /* === 4.2. BOX LAYOUT === */
 
@@ -17151,7 +17154,6 @@ ul.user_menu li.active > a {
         line-height: 50px;
     }
     .exit-cavas {
-        position: absolute;
         top: 10px;
         right: -289px;
         width: 30px;
@@ -17986,5 +17988,12 @@ ul.user_menu li.active > a {
     }
     .owl-carousel .owl-controls {
         display: none !important;
+    }
+    .spinner {
+        left: 40%;
+        top: 45%;
+    }
+    .tp-revslider-slidesli :last-child>div>div.tp-mask-wrap {
+        padding-top: 20px;
     }
 }
