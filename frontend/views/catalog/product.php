@@ -7,7 +7,7 @@ use frontend\assets\ProductAsset;
 ProductAsset::register($this);
 
 /* @var $this yii\web\View */
-$title = $product->title;
+$title = $product->title . ' ' . $product->size . 'см купить';
 $this->title = Html::encode($title);
 $this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['/catalog']];
 $this->params['breadcrumbs'][] = ['label' => $category->title, 'url' => ['/catalog/' . $category->slug]];
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="swiper-wrapper">
                                         <?php foreach ($images as $key => $image):?>
                                             <div class="swiper-slide">
-                                                <?= Html::img($image->getUrl(), ['width' => '100%', 'alt'=>$product->title]);?>
+                                                <?= Html::img($image->getUrl(), ['width' => '100%', 'alt'=>$product->title . ' ' . $product->size. 'см']);?>
                                             </div>
                                         <?php endforeach;?>
                                     </div>
@@ -152,7 +152,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <?php
                                             $images = $model->images;
                                             if (isset($images[0])) {
-                                                echo Html::img($images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt' => $model->title]);
+                                                echo Html::img($images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt' => $model->title . ' ' . $model->size. 'см']);
                                             }
                                             ?>
                                             <span class="product-title"><?= $model->title ?></span>

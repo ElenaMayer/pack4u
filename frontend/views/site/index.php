@@ -5,7 +5,7 @@ use frontend\assets\IndexAsset;
 IndexAsset::register($this);
 
 /* @var $this yii\web\View */
-$this->title = Yii::$app->name;
+$this->title = Yii::$app->params['indexTitle'];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -177,7 +177,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="noo-footer-shop-now">
     <div class="container">
         <div class="col-md-7">
-            <h4>- Стильная упаковка -</h4>
+            <h4>- Красивая упаковка -</h4>
             <h3>Каждый день</h3>
         </div>
     </div>

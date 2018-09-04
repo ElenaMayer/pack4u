@@ -30,6 +30,7 @@ use yii\helpers\ArrayHelper;
  * @property string $tags
  * @property integer $new_price
  * @property integer $count
+ * @property double $weight
  * @property string $time
  *
  * @property Image[] $images
@@ -74,10 +75,12 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         return [
             [['description'], 'string'],
             [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count'], 'integer'],
-            [['title', 'article', 'category_id', 'count', 'price'], 'required'],
+            [['weight'], 'double'],
+            [['title', 'article', 'category_id', 'count', 'price', 'weight'], 'required'],
             [['price'], 'number'],
             [['time, color, tags'], 'safe'],
-            [['title', 'slug', 'article', 'size'], 'string', 'max' => 255],
+            [['slug', 'article', 'size'], 'string', 'max' => 255],
+            [['title'], 'string', 'max' => 40],
             [['article'], 'unique'],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];
@@ -104,6 +107,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'tags' => 'Теги',
             'new_price' => 'Новая цена',
             'count' => 'Кол-во',
+            'weight' => 'Вес, кг',
             'time' => 'Дата создания',
             'imageFiles' => 'Фото',
             'relationsArr' => 'Связанные товары'

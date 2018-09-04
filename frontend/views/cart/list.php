@@ -108,7 +108,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="noo-footer-shop-now">
     <div class="container">
         <div class="col-md-7">
-            <h4>- Стильная упаковка -</h4>
+            <h4>- Красивая упаковка -</h4>
             <h3>ДЛЯ ВАС</h3>
         </div>
     </div>

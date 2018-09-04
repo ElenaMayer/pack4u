@@ -221,4 +221,12 @@ class Order extends \yii\db\ActiveRecord
         return true;
     }
 
+    public function getWeight(){
+        $weight = 0;
+        foreach ($this->orderItems as $item) {
+            $weight += $item->getWeight();
+        }
+        return $weight;
+    }
+
 }

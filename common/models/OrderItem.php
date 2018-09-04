@@ -73,4 +73,13 @@ class OrderItem extends \yii\db\ActiveRecord
         $cost = $this->quantity * $this->price;
         return $cost;
     }
+
+    public function getWeight()
+    {
+        $weight = 0;
+        $product = $this->product;
+        if(is_object($product))
+            $weight = $this->quantity * $this->product->weight;
+        return $weight;
+    }
 }

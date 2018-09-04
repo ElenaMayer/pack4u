@@ -9,7 +9,7 @@ use frontend\assets\CatalogAsset;
 CatalogAsset::register($this);
 
 /* @var $this yii\web\View */
-$title = $category === null ? 'Каталог' : $category->title;
+$title = $category === null ? 'Каталог красивой упаковки' : $category->title;
 $this->title = Html::encode($title);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -81,29 +81,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             </li>
                         </ul>
                     </div>
-                    <div class="widget commerce widget_price_filter mobile-filter-field">
-                        <h3 class="widget-title">Фильтр по цене</h3>
-                        <form method="get">
-                            <div class="price_slider_wrapper">
-                                <div class="price_slider" style="display:none;"></div>
-                                <div class="price_slider_amount">
-                                    <?php $urlParams = StaticFunction::getParamArrayFromCurrentUrl() ?>
-                                    <?php foreach ($urlParams as $urlName => $urlValue):?>
-                                        <?php if($urlName != 'min_price' && $urlName != 'max_price'):?>
-                                            <input type="hidden" name="<?= $urlName ?>" value="<?= $urlValue ?>">
-                                        <?php endif;?>
-                                    <?php endforeach;?>
-                                    <input type="text" id="min_price" name="min_price" value="<?= Yii::$app->request->get('min_price')?Yii::$app->request->get('min_price'):''?>" data-min="0" placeholder="Минимальная"/>
-                                    <input type="text" id="max_price" name="max_price" value="<?= Yii::$app->request->get('max_price')?Yii::$app->request->get('max_price'):''?>" data-max="<?= Product::find()->max('price'); ?>" placeholder="Максимальная"/>
-                                    <button type="submit" class="button">Найти</button>
-                                    <div class="price_label" style="display:none;">
-                                        Цена: <span class="from"></span> &mdash; <span class="to"></span>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                     <div class="widget commerce widget_product_tag_cloud mobile-filter-field">
                         <h3 class="widget-title">Теги <a href="<?= StaticFunction::addGetParamToCurrentUrl('tag', 'all') ?>">Все</a></h3>
 
@@ -124,7 +101,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?php
                                         $images = $model->images;
                                         if (isset($images[0])) {
-                                            echo Html::img($images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt' => $model->title]);
+                                            echo Html::img($images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt' => $model->title . ' ' . $model->size. 'см']);
                                         }
                                         ?>
                                         <span class="product-title"><?= $model->title ?></span>

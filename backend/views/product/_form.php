@@ -35,6 +35,8 @@ use \common\models\Product;
 
     <?= $form->field($model, 'count')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'weight')->textInput() ?>
+
     <?= $form->field($model, 'new_price')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>

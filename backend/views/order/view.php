@@ -146,6 +146,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endforeach ?>
         <tr>
             <td>
+                <p><string>Вес: </string> <?= $model->getWeight()?> кг</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <p><string>Итого: </string> <?= $model->getSubCost()?> руб.</p>
             </td>
         </tr>

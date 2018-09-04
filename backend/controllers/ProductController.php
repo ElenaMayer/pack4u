@@ -76,6 +76,7 @@ class ProductController extends Controller
         $model = new Product();
         $model->is_active = 1;
         $model->is_in_stock = 1;
+        $model->weight = 0;
 
         if($post = Yii::$app->request->post()) {
             if (is_array($post['Product']['color'])) {
