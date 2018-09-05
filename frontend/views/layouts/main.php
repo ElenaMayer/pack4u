@@ -134,6 +134,7 @@ IeAsset::register($this);
                                             <?php foreach ($categories as $category):?>
                                                 <li><a href="/catalog/<?= $category->slug ?>"><?= $category->title ?></a></li>
                                             <?php endforeach;?>
+                                            <li><a class="red" href="/catalog/sale">Скидки</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="/contact">Контакты</a></li>

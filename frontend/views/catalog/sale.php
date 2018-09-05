@@ -1,14 +1,14 @@
 <?php
 use yii\helpers\Html;
-use common\models\StaticFunction;
 use yii\widgets\LinkPager;
 use \common\models\Product;
 use frontend\assets\CatalogAsset;
+use common\models\StaticFunction;
 
 CatalogAsset::register($this);
 
 /* @var $this yii\web\View */
-$title = $category === null ? 'Каталог красивой упаковки' : $category->title;
+$title = 'Скидки до ' . $maxSale . '%!';
 $this->title = Html::encode($title);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -17,7 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
         <div class="row">
             <?= $this->render('_sidebar', [
-                'menuItems' => $menuItems,
                 'noveltyProducts' => Product::getNovelties(),
             ]); ?>
             <div class="noo-main col-md-9">

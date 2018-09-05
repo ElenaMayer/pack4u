@@ -4068,6 +4068,13 @@ ul.post_list_widget li a .post-date {
     padding: 0;
     margin: 0;
 }
+.noo-main-menu .navbar-nav li > .sub-menu li a.red {
+    color: #ff6868;
+}
+
+.noo-main-menu .navbar-nav li > .sub-menu li a.red:hover {
+    color: #d22a2a;
+}
 
 .noo-header.header-5 .noo-main-menu > ul.navbar-nav {
 	width: 100%;

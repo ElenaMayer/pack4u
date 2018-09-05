@@ -109,9 +109,40 @@ class CatalogController extends \yii\web\Controller
         }
     }
 
-    public function actionView()
+    public function actionSale()
     {
-        return $this->render('view');
+        $get = Yii::$app->request->get();
+        if (!empty($get) && isset($get['urlParams'])){
+            $this->redirect($get['urlParams']);
+        }
+
+        $productsQuery = Product::find()
+            ->where(['is_active' => 1, 'is_in_stock' => 1])
+            ->andWhere(['>', 'new_price', 0])
+            ->andWhere(['>', 'count', 0]);
+
+        $this->prepareFilter($productsQuery);
+
+        $productsDataProvider = new ActiveDataProvider([
+            'query' => $productsQuery,
+            'pagination' => [
+                'pageSize' => isset($get['limit'])? $get['limit']: Yii::$app->params['catalogPageSize'],
+            ],
+        ]);
+
+        $maxSale = Product::find()
+            ->where(['is_active' => 1, 'is_in_stock' => 1])
+            ->andWhere(['>', 'new_price', 0])
+            ->andWhere(['>', 'count', 0])
+            ->max('(price - new_price) * 100 / price');
+
+        return $this->render('sale', [
+            'maxSale' => round($maxSale),
+            'models' => $productsDataProvider->getModels(),
+            'pagination' => $productsDataProvider->getPagination(),
+            'pageCount' => $productsDataProvider->getCount(),
+            'noveltyProducts' => Product::getNovelties(),
+        ]);
     }
 
     /**
