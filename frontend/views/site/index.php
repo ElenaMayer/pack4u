@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-start="500"
                      data-splitin="none"
                      data-splitout="none"
-                     data-responsive_offset="on"><?= Yii::$app->params['indexTitle']; ?>
+                     data-responsive_offset="on"><?= Yii::$app->params['companyName']; ?>
                 </div>
                 <div class="tp-caption tp-resizeme"
                      data-x="center"
