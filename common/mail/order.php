@@ -46,7 +46,7 @@ use common\models\Order;
         <tr>
             <td>
                 <div class="product-image">
-                    <a href="/catalog/<?= $item->product->category->slug?>/<?= $item->product->id?>">
+                    <a href="<?= Yii::$app->params['domain']; ?>/catalog/<?= $item->product->category->slug?>/<?= $item->product->id?>">
                         <?= Html::img($item->product->images[0]->getUrl('small'));?>
                     </a>
                 </div>

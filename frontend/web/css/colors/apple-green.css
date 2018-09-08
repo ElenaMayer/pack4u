@@ -675,3 +675,7 @@ ul.user_menu li.active > a {
 .noo-shop-main .mobile-filter {
     background-color: #96cb62;
 }
+.widget_product_tag_cloud .tagcloud a:hover, .widget_product_tag_cloud .tagcloud a.active {
+    background: #96cb62;
+    border-color: #96cb62;
+}

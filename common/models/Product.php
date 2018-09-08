@@ -75,7 +75,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         return [
             [['description'], 'string'],
             [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count'], 'integer'],
-            [['weight'], 'double'],
+            ['weight', 'match', 'pattern' => '/^[0-9]+[0-9,.]*$/', 'message' => 'Значение должно быть числом.'],
             [['title', 'article', 'category_id', 'count', 'price', 'weight'], 'required'],
             [['price'], 'number'],
             [['time, color, tags'], 'safe'],
@@ -268,7 +268,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 
     public static function getTagsArray()
     {
-        $models = Product::find()->all();
+        $models = Product::find()->where(['is_active' => 1])->all();
         $tags = [];
         foreach ($models as $m)
         {
@@ -361,12 +361,22 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         return $result;
     }
 
-    public static function getActiveProductArr(){
+    public static function getActiveProductArr()
+    {
         $model = Product::find()
             ->select(['*', 'CONCAT(article, \' - \', title , \' (\', count,\' шт)\') as description'])
             ->where(['is_active' => 1, 'is_in_stock' => 1])
             ->andWhere(['>', 'count', '0'])
             ->all();
         return ArrayHelper::map($model, 'id', 'description');
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->weight = str_replace(',', '.', $this->weight);
+            return true;
+        }
+        return false;
     }
 }
