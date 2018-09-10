@@ -74,7 +74,7 @@ use yii\helpers\Html;
         <div class="widget commerce widget_product_tag_cloud mobile-filter-field">
             <h3 class="widget-title">Теги <a href="<?= StaticFunction::addGetParamToCurrentUrl('tag', 'all') ?>">Все</a></h3>
             <div class="tagcloud">
-                <?php foreach (Product::getTagsArray() as $key => $tag):?>
+                <?php foreach (Product::getTagsArray(true) as $key => $tag):?>
                     <a <?php if(Yii::$app->request->get('tag') == $key):?>class="active"<?php endif;?> href="/catalog?tag=<?=$tag?>">
                         <?= $tag ?>
                     </a>

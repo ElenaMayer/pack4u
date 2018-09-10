@@ -266,9 +266,12 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         return $colors;
     }
 
-    public static function getTagsArray()
+    public static function getTagsArray($is_active = null)
     {
-        $models = Product::find()->where(['is_active' => 1])->all();
+        $models = Product::find();
+        if($is_active)
+            $models = $models->where(['is_active' => $is_active]);
+        $models = $models->all();
         $tags = [];
         foreach ($models as $m)
         {
