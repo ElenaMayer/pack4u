@@ -21,6 +21,7 @@ use \yii\helpers\Html; ?>
             <div class="product-price">
                 <span><?= (int)$product->getCost()?><i class="fa fa-ruble"></i></span>
             </div>
+            <div class="count-error has-error" <?php if($quantity <= $product->count):?>style="display: none" <?php endif;?>>В наличии осталось <?=$product->count ?> шт.</div>
         </div>
     </div><!-- /.cart-item -->
     <?= Html::a('×', ['cart/remove', 'id' => $product->getId(), 'returnUrl' => '/cart/order'], ['class' => 'remove'])?>

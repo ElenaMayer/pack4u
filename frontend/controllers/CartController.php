@@ -36,8 +36,14 @@ class CartController extends \yii\web\Controller
     public function actionUpdate_cart_qty()
     {
         $get = Yii::$app->request->get();
-        if($get && isset($get['id']) && isset($get['quantity'])) {
-            $this->updateQty($get['id'], $get['quantity']);
+        if($get && isset($get['id']) && isset($get['quantity']) && $get['quantity'] > 0) {
+            $product = Product::findOne($get['id']);
+            if($product->count > $get['quantity']){
+                $count = $get['quantity'];
+            } else {
+                $count = $product->count;
+            }
+            $this->updateQty($get['id'], $count);
             $cart = \Yii::$app->cart;
 
             $product = $cart->getPositionById($get['id']);
@@ -45,6 +51,7 @@ class CartController extends \yii\web\Controller
             \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return [
                 'id' => $get['id'],
+                'count' => $count,
                 'productTotal' => $product->getCost(),
                 'total' => $total,
             ];
@@ -127,7 +134,10 @@ class CartController extends \yii\web\Controller
                         $orderItem->title = $product->title;
                         $orderItem->price = $product->getPrice();
                         $orderItem->product_id = $product->id;
-                        $orderItem->quantity = $product->getQuantity();
+                        $qty = $product->getQuantity();
+                        if($product->count < $qty)
+                            $qty = $product->count;
+                        $orderItem->quantity = $qty;
                         if (!$orderItem->save(false)) {
                             $transaction->rollBack();
                             \Yii::$app->session->addFlash('error', 'Невозможно создать заказ. Пожалуйста свяжитесь с нами.');
