@@ -9,6 +9,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
         <div class="row about">
             <div class="col-sm-12">
+                <h3>Система скидок</h3>
+                <p>Скидки предоставляются при заказе от суммы:</p>
+                <p><i class="fa fa-angle-right"></i>5 000 руб. - 5%</p>
+                <p><i class="fa fa-angle-right"></i>10 000 руб. - 7%</p>
+                <p><i class="fa fa-angle-right"></i>15 000 руб. - 10%</p>
+
                 <h3>Наличный расчет</h3>
                 <p>Наличный расчет при заказе курьером (только для Новосибирска)</p>
 
