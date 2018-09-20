@@ -80,7 +80,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="cart_totals">
                         <?= $this->render('_total', ['total'=>$total]); ?>
                         <div class="wc-proceed-to-checkout">
-                            <?= Html::a('Оформить заказ', ['cart/order'], ['class' => 'checkout-button button alt wc-forward'])?>
+                            <?= Html::a('Оформить заказ',
+                                ['cart/order'],
+                                ['class' => 'checkout-button button alt wc-forward' . (($total < Yii::$app->params['orderMinSum'])? ' disabled': '')])?>
                         </div>
                     </div>
                 </div>

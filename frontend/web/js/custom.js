@@ -73,15 +73,11 @@ $(document).ready(function() {
     });
 
     $(document.body).on('change', 'input.product-qty' ,function(){
-        form = $(this).parents('form');
-        var count = form.find("input[name='count']").val();
-		if(parseInt($('input.product-qty').val()) > count){
-			form.find("input[name='quantity']").val(count);
-            $('.count-error').show();
-        } else {
-            $('.count-error').hide();
-		}
+        checkProductCount($(this).parents('form'));
+    });
 
+    $(document.body).on('keyup', 'input.product-qty' ,function(){
+        checkProductCount($(this).parents('form'));
     });
 
     $(".mobile-filter").on("click", function() {
@@ -676,7 +672,6 @@ function updateCartQty(form) {
 	if(!e.hasClass('disable') && e.val() && e.val() > 0){
 		if(parseInt(e.val()) > count){
             form.find("input[name='quantity']").val(count);
-            console.log(e.parents('.product-quantity'));
             e.parents('.product-quantity').find('.count-error').show();
 		} else {
             e.parents('.product-quantity').find('.count-error').hide();
@@ -691,12 +686,33 @@ function updateCartQty(form) {
 			$('#amount_val_'+data.id).text(data.productTotal);
             $('#amount_total').text(data.total);
             e.val(data.count);
+            orderAvailableCheck(data);
             // e.removeClass('disable').prop('readonly', false);
         }).fail(function( data ) {
             e.removeClass('disable').prop('readonly', false);
         });
 	}
 
+}
+
+function checkProductCount(form) {
+    var count = form.find("input[name='count']").val();
+    if(parseInt($('input.product-qty').val()) > count){
+        form.find("input[name='quantity']").val(count);
+        $('.count-error').show();
+    } else {
+        $('.count-error').hide();
+    }
+}
+
+function orderAvailableCheck(data) {
+	if(data.orderAvailable){
+		$('.min_order_sum').hide();
+		$('.checkout-button').removeClass('disabled');
+	} else {
+        $('.min_order_sum').show();
+        $('.checkout-button').addClass('disabled');
+	}
 }
 
 function removeItemFromCart(id) {

@@ -14996,7 +14996,7 @@ input[type='checkbox'] {
     text-transform: uppercase;
     margin: 0;
     padding: 0;
-    min-height: 2em;
+    min-height: 2.4em;
 }
 
 .commerce .product-grid .noo-product-title .price {
@@ -16283,6 +16283,10 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     transition: all 0.4s ease 0s;
 }
 
+.commerce-cart table.cart td.product-thumbnail .product_size {
+    color: #8e8d8d;
+}
+
 .commerce-cart table.cart td.product-subtotal {
     color: #212121;
 }
@@ -16414,8 +16418,13 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 }
 
 .commerce-page .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button:hover,
-.checkout-wrapper .cart_totals button.checkout-button:hover {
+.checkout-wrapper .cart_totals button.checkout-button:hover,
+.commerce-page .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button.disabled {
     background: #000000;
+}
+
+.commerce-page .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button.disabled {
+    pointer-events: none;
 }
 
 .commerce-page .cart-collaterals .noocart-coupon {
@@ -16801,6 +16810,10 @@ ul.user_menu li.active > a {
 
 .cart-item .product-body {
     overflow: hidden;
+}
+
+.cart_totals .min_sum_error {
+    color: #fc9090;
 }
 
 .payment-detail-wrapper .product-image img {
@@ -18009,5 +18022,8 @@ ul.user_menu li.active > a {
     }
     .tp-revslider-slidesli :last-child>div>div.tp-mask-wrap {
         padding-top: 20px;
+    }
+    .search-header5 form {
+        width: 90%;
     }
 }

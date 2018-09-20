@@ -21,4 +21,9 @@
         <th>Итого</th>
         <td><strong><span class="amount"><span id="amount_total"><?= $total ?></span><i class="fa fa-ruble"></i></span></strong> </td>
     </tr>
+    <tr class="min_order_sum" <?php if($total >= Yii::$app->params['orderMinSum']):?>style="display: none"<?php endif;?>>
+        <td colspan="2" class="min_sum_error">
+            <p>Минимальная сумма заказа <?= Yii::$app->params['orderMinSum']?> рублей.</p>
+        </td>
+    </tr>
 </table>

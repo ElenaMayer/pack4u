@@ -54,6 +54,7 @@ class CartController extends \yii\web\Controller
                 'count' => $count,
                 'productTotal' => $product->getCost(),
                 'total' => $total,
+                'orderAvailable' => $total >= Yii::$app->params['orderMinSum'],
             ];
         } else {
             return false;

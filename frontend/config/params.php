@@ -1,5 +1,5 @@
 <?php
-//Yii::$app->params['companyName'];
+//Yii::$app->params['orderMinSum'];
 return [
     'companyName' => 'Красивая упаковка',
     'indexTitle' => 'Интернет-магазин подарочных коробок и красивой упаковки',
@@ -9,4 +9,5 @@ return [
 //    'indexPageProductCount' => 7,
 //    'indexPageNoveltyCount' => 10,
     'productNewCount' => 6,
+    'orderMinSum' => 300,
 ];
