@@ -7,11 +7,12 @@ use frontend\assets\ProductAsset;
 ProductAsset::register($this);
 
 /* @var $this yii\web\View */
-$title = $product->title . ' ' . $product->size . 'см купить';
-$this->title = Html::encode($title);
-$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['/catalog']];
+$title = $product->title;
+$subcategory = $product->getSubcategory();
 $this->params['breadcrumbs'][] = ['label' => $category->title, 'url' => ['/catalog/' . $category->slug]];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => $subcategory->title, 'url' => ['/catalog/' . $subcategory->slug]];
+$this->params['breadcrumbs'][] = $title;
+$this->title = Html::encode($title . ' ' . $product->size . 'см');
 ?>
 
 <div class="commerce single-product noo-shop-main">

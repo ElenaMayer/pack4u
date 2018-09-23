@@ -13,6 +13,30 @@ $(document).ready(function() {
     $(document.body).on('click', '.update_qty' ,function(){
         updateOrderItemQty($(this));
     });
+
+    $(document.body).on('change', '#order-shipping_method' ,function(){
+        if($(this).children("option:selected").val() == 'self'){
+            $('.shipping_method_field').each(function(){
+                $(this).hide();
+            });
+        } else if($(this).children("option:selected").val() == 'rcr'){
+            $('.shipping_method_field').each(function(){
+                $(this).hide();
+            });
+            $('.method_rcr').show();
+        } else if($(this).children("option:selected").val() == 'rp'){
+            $('.shipping_method_field').each(function(){
+                $(this).hide();
+            });
+            $('.method_rp').show();
+        } else if($(this).children("option:selected").val() == 'tk'){
+            $('.shipping_method_field').each(function(){
+                $(this).hide();
+            });
+            $('.method_tk').show();
+            $('.city_field').show();
+        }
+    });
 });
 
 function removeImage(e) {

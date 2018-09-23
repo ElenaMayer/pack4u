@@ -108,14 +108,24 @@ class Category extends \yii\db\ActiveRecord
      */
     public static function getMenuItems($activeId = null, $parent = null)
     {
+        $categories = Category::find()->indexBy('id')->orderBy('id')->all();
 
-        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
-        $menuItems = ['0' => [
-            'active' => ($activeId == 'all')?1:0,
-            'label' => 'Все',
-            'url' => ['/catalog']
-        ]
-        ];
+        if($activeId) {
+            $activeCategory = Category::findOne($activeId);
+            if($activeCategory && $activeCategory->parent){
+                $activeParentId = $activeCategory->parent->id;
+            }
+        }
+        if(!$parent) {
+            $menuItems = ['0' => [
+                'active' => ($activeId == 'all') ? 1 : 0,
+                'label' => 'Все',
+                'url' => ['/catalog']
+            ]
+            ];
+        } else {
+            $menuItems = [];
+        }
         foreach ($categories as $category) {
             if ($category->parent_id === $parent) {
                 $menuItems[$category->id] = [
@@ -123,8 +133,42 @@ class Category extends \yii\db\ActiveRecord
                     'label' => $category->title,
                     'url' => ['/catalog/'.$category->slug],
                 ];
+                if($activeId === $category->id || (isset($activeParentId) && $activeParentId === $category->id))
+                    $menuItems[$category->id]['items'] = Category::getMenuItems($activeId, $category->id);
             }
         }
         return $menuItems;
+    }
+
+    public static function getCategoryArray()
+    {
+        $categories = Category::find()->where(['parent_id' => null])->all();
+        $categoryArray = ArrayHelper::map($categories, 'id', 'title');
+        return $categoryArray;
+    }
+
+    public static function getSubcategoryArray($parent_id = null)
+    {
+        $subcategoryArray = [];
+        if($parent_id){
+            $subcategories = Category::find()->where(['parent_id' => $parent_id])->all();
+            $subcategoryArray = ArrayHelper::map($subcategories, 'id', 'title');
+        }
+        return $subcategoryArray;
+    }
+
+    public static function getSubcategoryDDArray($parent_id = null)
+    {
+        $subcategoryArray = [];
+        if($parent_id){
+            $subcategories = Category::find()->where(['parent_id' => $parent_id])->all();
+            foreach ($subcategories as $subcategory){
+                $subcategoryArray[] = [
+                    'id' => $subcategory->id,
+                    'name' => $subcategory->title,
+                ];
+            }
+        }
+        return $subcategoryArray;
     }
 }

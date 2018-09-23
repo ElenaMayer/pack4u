@@ -3858,7 +3858,7 @@ ul.post_list_widget li a .post-date {
     right: 20px;
 }
 
-.widget_product_categories li.active a {
+.widget_product_categories li.active > a {
     color:#79cba8;
 }
 

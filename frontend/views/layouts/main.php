@@ -132,7 +132,7 @@ IeAsset::register($this);
                                     <li class="menu-item-has-children current-menu-item">
                                         <a href="/catalog">Каталог</a>
                                         <ul class="sub-menu">
-                                            <?php $categories = Category::find()->where(['is_active' => 1])->all(); ?>
+                                            <?php $categories = Category::find()->where(['is_active' => 1, 'parent_id' => null])->all(); ?>
                                             <?php foreach ($categories as $category):?>
                                                 <li><a href="/catalog/<?= $category->slug ?>"><?= $category->title ?></a></li>
                                             <?php endforeach;?>

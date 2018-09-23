@@ -25,7 +25,7 @@ use yii\helpers\Html;
                     'options' => [
                         'class' => 'product-categories',
                     ],
-                ]) ?>
+                ]); ?>
             </div>
         <?php endif;?>
         <div class="widget commerce ht__pro__color mobile-filter-field">

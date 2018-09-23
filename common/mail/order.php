@@ -52,7 +52,7 @@ use common\models\Order;
                 </div>
             </td>
             <td>
-                <?= $item->title .' (Арт. '. $item->product->article .')'?>
+                <?= $item->title . ' ' . $item->product->size . 'см  (Арт. '. $item->product->article .')'?>
             </td>
             <td>
                 <?= (int)$item->price?> р.

@@ -23,15 +23,23 @@ use \common\models\Order;
 
     <?= $form->field($model, 'shipping_method')->dropDownList(Order::getShippingMethods()) ?>
 
+    <div class="shipping_method_field method_tk" <?php if($model->shipping_method != 'tk'):?>style="display: none"<?php endif;?>">
+        <?= $form->field($model, 'tk')->dropDownList(Order::getTkList()) ?>
+    </div>
+
+    <div class="shipping_method_field method_rcr" <?php if($model->shipping_method != 'rcr'):?>style="display: none"<?php endif;?>">
+        <?= $form->field($model, 'rcr')->textInput(['maxlength' => 255]) ?>
+    </div>
+
+    <div class="shipping_method_field method_rp" <?php if($model->shipping_method != 'rp'):?>style="display: none"<?php endif;?>">
+        <?= $form->field($model, 'address')->textInput(['maxlength' => 255]) ?>
+    </div>
+
+    <div class="shipping_method_field city_field" <?php if($model->shipping_method != 'tk'):?>style="display: none"<?php endif;?>">
+        <?= $form->field($model, 'city')->textInput(['maxlength' => 255]) ?>
+    </div>
+
     <?= $form->field($model, 'shipping_cost')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'city')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'tk')->dropDownList(Order::getTkList()) ?>
-
-    <?= $form->field($model, 'rcr')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'address')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'payment_method')->dropDownList(Order::getPaymentMethods()) ?>
 

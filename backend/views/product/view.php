@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\helpers\Url;
+use common\models\Category;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Product */
@@ -46,6 +47,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'category_id',
                 'value' => function ($model) {
                     return empty($model->category_id) ? '-' : $model->category->title;
+                },
+            ],
+            [
+                'attribute' => 'subcategories',
+                'value' => function ($model) {
+                    $subcatArr = [];
+                    foreach (explode(",",$model->subcategories) as $category_id){
+                        $category = Category::findOne($category_id);
+                        if($category)
+                            $subcatArr[] = $category->title;
+                    }
+                    return implode(",", $subcatArr);
                 },
             ],
             'price',

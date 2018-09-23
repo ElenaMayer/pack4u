@@ -4,8 +4,6 @@ namespace frontend\controllers;
 
 use common\models\Category;
 use common\models\Product;
-use common\models\ProductRelation;
-use common\models\StaticFunction;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 use Yii;
@@ -37,12 +35,15 @@ class CatalogController extends \yii\web\Controller
         $productsQuery = Product::find()->where(['is_active' => 1]);
 
         $this->prepareFilter($productsQuery);
-
         if ($categorySlug !== null) {
             $category = Category::find()->where(['slug' => $categorySlug])->one();
         }
         if ($category) {
-            $productsQuery->andWhere(['category_id' => $this->getCategoryIds($categories, $category->id)]);
+            if(!$category->parent)
+                $productsQuery->andWhere(['category_id' => $this->getCategoryIds($categories, $category->id)]);
+            else {
+                $productsQuery->andWhere(['REGEXP', 'subcategories','^'.$category->id.'$|^'.$category->id.',.+|^.+,'.$category->id.'$|^.+,'.$category->id.',']);
+            }
         }
         $productsDataProvider = new ActiveDataProvider([
             'query' => $productsQuery,
@@ -72,22 +73,22 @@ class CatalogController extends \yii\web\Controller
                 $query->andWhere(['between', 'price', $get['min_price'], $get['max_price']]);
             }
             if(isset($get['order'])){
-                if($get['order'] == 'popular') {
-                    $query->orderBy('id DESC');
-                } elseif ($get['order'] == 'novelty') {
-                    $query->orderBy('is_novelty');
+                if ($get['order'] == 'novelty') {
+                    $query->orderBy('is_in_stock DESC, is_novelty');
                 } elseif ($get['order'] == 'price_lh'){
                     $query->select(['*', '(CASE WHEN new_price > 0 THEN new_price ELSE price END) as price_common']);
                     $query->orderBy('price_common ASC');
                 } elseif ($get['order'] == 'price_hl'){
                     $query->select(['*', '(CASE WHEN new_price > 0 THEN new_price ELSE price END) as price_common']);
                     $query->orderBy('price_common DESC');
+                } else {
+                    $query->orderBy('is_in_stock DESC, sort DESC, id DESC');
                 }
             } else {
-                $query->orderBy('time DESC');
+                $query->orderBy('is_in_stock DESC, sort DESC, id DESC');
             }
         } else {
-            $query->orderBy('time DESC');
+            $query->orderBy('is_in_stock DESC, sort DESC, id DESC');
         }
     }
 

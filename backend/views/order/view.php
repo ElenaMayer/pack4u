@@ -49,25 +49,25 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Order::getShippingMethods()[$model->shipping_method];
                 },
             ],
-            'city',
-            [
+            $model->shipping_method == 'tk' ? [
                 'attribute' => 'tk',
                 'value' => function ($model) {
                     return $model->shipping_method == 'tk' ? Order::getTkList()[$model->tk] : '';
                 },
-            ],
-            [
+            ]: ($model->shipping_method == 'rcr' ?
+                [
                 'attribute' => 'rcr',
                 'value' => function ($model) {
                     return $model->shipping_method == 'rcr' ? $model->rcr : '';
                 },
-            ],
+            ] :
             [
                 'attribute' => 'address',
                 'value' => function ($model) {
                     return $model->shipping_method == 'rp' ? $model->address : '';
                 },
-            ],
+            ]),
+            'city',
             [
                 'attribute' => 'payment_method',
                 'value' => function ($model) {
@@ -122,7 +122,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </td>
                 <td>
-                    <?php echo $item->title . ($item->product_id ? ' (Арт. '. $item->product->article .')' : '');?>
+                    <?php echo $item->title . ' ' . ($item->product_id ? $item->product->size . 'см (Арт. '. $item->product->article .')' : '');?>
                 </td>
                 <td>
                     <?= (int)$item->price . ' руб.'?>

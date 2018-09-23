@@ -32,6 +32,8 @@ use yii\helpers\ArrayHelper;
  * @property integer $count
  * @property double $weight
  * @property string $time
+ * @property integer $sort
+ * @property string $subcategories
  *
  * @property Image[] $images
  * @property OrderItem[] $orderItems
@@ -74,11 +76,11 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     {
         return [
             [['description'], 'string'],
-            [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count'], 'integer'],
+            [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count', 'sort'], 'integer'],
             ['weight', 'match', 'pattern' => '/^[0-9]+[0-9,.]*$/', 'message' => 'Значение должно быть числом.'],
             [['title', 'article', 'category_id', 'count', 'price', 'weight'], 'required'],
             [['price'], 'number'],
-            [['time, color, tags'], 'safe'],
+            [['time, color, tags, subcategories'], 'safe'],
             [['slug', 'article', 'size'], 'string', 'max' => 255],
             [['title'], 'string', 'max' => 40],
             [['article'], 'unique'],
@@ -97,6 +99,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'slug' => 'Slug',
             'description' => 'Описание',
             'category_id' => 'Категория',
+            'subcategories' => 'Подкатегория',
             'price' => 'Цена',
             'article' => 'Артикул',
             'is_in_stock' => 'В наличии',
@@ -110,7 +113,8 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'weight' => 'Вес, кг',
             'time' => 'Дата создания',
             'imageFiles' => 'Фото',
-            'relationsArr' => 'Связанные товары'
+            'relationsArr' => 'Связанные товары',
+            'sort' => 'Сортировка',
         ];
     }
 
@@ -328,11 +332,17 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 
     public function minusCount($count){
         $this->count -= $count;
+        if($this->count <= 0){
+            $this->is_in_stock = 0;
+        }
         $this->save(false);
     }
 
     public function plusCount($count){
         $this->count += $count;
+        if($this->count > 0 && $this->is_in_stock == 0){
+            $this->is_in_stock = 1;
+        }
         $this->save(false);
     }
 
@@ -381,5 +391,14 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             return true;
         }
         return false;
+    }
+
+    public function getSubcategory()
+    {
+        preg_match('/^[0-9]+,|^[0-9]+$/', $this->subcategories, $subcatId);
+        if(!empty($subcatId))
+            return Category::findOne(trim($subcatId[0], ','));
+        else
+            return null;
     }
 }

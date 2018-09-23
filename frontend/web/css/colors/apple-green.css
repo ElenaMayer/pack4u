@@ -614,7 +614,7 @@ fieldset[disabled] .mailchimp-widget .mc-subscribe-form button.active {
     background-color: #709c44;
     border-color: #709c44;
 }
-.widget_product_categories li.active a {
+.widget_product_categories li.active > a {
     color: #96cb62;
 }
 .widget-title a {
