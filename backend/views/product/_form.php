@@ -59,6 +59,8 @@ use common\models\Category;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
+    <?= $form->field($model, 'sort')->textInput() ?>
+
     <?= $form->field($model, 'color')->widget(Select2::classname(), [
         'options' => [
             'multiple' => true,

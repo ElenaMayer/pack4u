@@ -40,26 +40,40 @@ $(document).ready(function() {
         updateWishlist(e);
     });
 
+    $(document.body).on('submit', '#order-form', function (e) {
+        if ("ga" in window) {
+            tracker = ga.getAll()[0];
+            if (tracker)
+                tracker.send("event", "button", "send_order");
+        }
+    });
+
     aweProductRender(true);
 
     $(document.body).on('change', '#order-shipping_method' ,function(){
         $('.shipping_methods').children().each(function(){
         	$(this).hide();
+        	$('#order-zip').val(null);
+            $('#amount_total').text($('#amount_subtotal').text());
 		});
         if($(this).children("option:selected").val() == 'self'){
             $('#order-payment_method').append($('<option>', {
                 value: 'cash',
                 text: 'Наличными при получении'
             }));
+            $('tr.shipping > td > p').html('0<i class="fa fa-ruble"></i>');
         } else {
             $('#order-payment_method').children("option[value='cash']").remove();
 
             if($(this).children("option:selected").val() == 'rcr'){
                 $('.shipping_methods .rcr').show();
+                $('tr.shipping > td > p').html('0<i class="fa fa-ruble"></i>');
             } else if($(this).children("option:selected").val() == 'rp'){
                 $('.shipping_methods .rp').show();
+                $('tr.shipping > td > p').html('Для расчета стоимости введите индекс');
             } else if($(this).children("option:selected").val() == 'tk'){
                 $('.shipping_methods .tk').show();
+                $('tr.shipping > td > p').html('Оплата при получении. Стоимость можно уточнить в выбранной ТК');
             }
 		}
     });
@@ -444,6 +458,36 @@ $(document).ready(function() {
 	if($('#rev_slider_3').length > 0) {
 		revSlider_3();
 	}
+
+    $(document.body).on('keyup', '#order-zip' ,function(){
+        if ($(this).val().length == 6) {
+            total = parseInt($('#amount_subtotal').text());
+            postcalc_url = 'http://test.postcalc.ru/mystat.php/';
+            postcode_from = '630001';
+            postcode_to = $(this).val();
+            weight = $('#order_weight').val() * 1000 * 1.1;
+            url = postcalc_url + '?f=' + postcode_from + '&t=' + postcode_to +'&v=' + total +'&w=' + weight +'&o=json';
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: 'jsonp',
+                success: function (data) {
+                    if (data['Status'] == "OK") {
+                        tariff = parseInt(data['Отправления']['ЦеннаяПосылка']['Тариф']);
+                        shipping_cost = tariff + 30;
+                        new_total = total + shipping_cost;
+                        $('.shipping > td > p').html(shipping_cost.toFixed(0) + "<i class=\"fa fa-ruble\"></i>");
+                        $('#amount_total').html(new_total.toFixed(0));
+                        $("#order-shipping_cost").val(shipping_cost.toFixed(0));
+                    } else if(data['Status'] == "BAD_TO_INDEX"){
+                        $('.shipping > td > p').html("Стоимость не определена. Проверьте индекс и попробуйте снова");
+                        $('#amount_total').html(total);
+                        $("#order-shipping_cost").val(null);
+                    }
+                }
+            })
+        }
+    });
 });
 
 function revSlider_1(){

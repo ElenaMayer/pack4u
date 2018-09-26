@@ -116,10 +116,14 @@ class ProductController extends Controller
             if (is_array($post['Product']['color']))
             {
                 $model->color = implode(",",$post['Product']['color']);
+            } else {
+                $model->color = '';
             }
             if (is_array($post['Product']['tags']))
             {
                 $model->tags = implode(",",$post['Product']['tags']);
+            } else {
+                $model->tags = '';
             }
             if (is_array($post['Product']['subcategories']))
             {

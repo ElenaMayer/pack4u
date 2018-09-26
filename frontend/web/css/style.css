@@ -14768,6 +14768,10 @@ p.demo_store a {
     line-height: 1.5em
 }
 
+.checkout-wrapper .cart_totals table td p {
+    margin: 0;
+}
+
 .commerce-cart .cart-collaterals .cart_totals table small,
 .checkout-wrapper .cart_totals table small {
     color: #777

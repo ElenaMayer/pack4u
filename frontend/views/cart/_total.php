@@ -10,10 +10,21 @@
             </tr>
         <?php endif;?>
     <?php else:?>
+        <?php if($this->context->action->id == 'order'):?>
+            <tr class="order-subtotal">
+                <th>Подитог</th>
+                <td><strong><span class="amount"><span id="amount_subtotal"><?= $total ?></span><i class="fa fa-ruble"></i></span></strong> </td>
+            </tr>
+        <?php endif;?>
         <tr class="shipping">
             <th>Доставка</th>
             <td>
-                <p>Будет рассчитана в зависимости от выбранного способа доставки.</p>
+                <?php if($this->context->action->id != 'order'):?>
+                    <p>Будет рассчитана в зависимости от выбранного способа доставки.</p>
+                <?php else:?>
+                    <p>0<i class="fa fa-ruble"></i></p>
+                <?php endif;?>
+
             </td>
         </tr>
     <?php endif;?>
@@ -23,7 +34,7 @@
     </tr>
     <tr class="min_order_sum" <?php if($total >= Yii::$app->params['orderMinSum']):?>style="display: none"<?php endif;?>>
         <td colspan="2" class="min_sum_error">
-            <p>Минимальная сумма заказа <?= Yii::$app->params['orderMinSum']?> рублей.</p>
+            <p>Минимальная сумма заказа <?= Yii::$app->params['orderMinSum']?><i class="fa fa-ruble"></i></p>
         </td>
     </tr>
 </table>

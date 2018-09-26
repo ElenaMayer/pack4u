@@ -33,6 +33,7 @@ use \common\models\Order;
 
     <div class="shipping_method_field method_rp" <?php if($model->shipping_method != 'rp'):?>style="display: none"<?php endif;?>">
         <?= $form->field($model, 'address')->textInput(['maxlength' => 255]) ?>
+        <?= $form->field($model, 'zip')->textInput(['maxlength' => 6]) ?>
     </div>
 
     <div class="shipping_method_field city_field" <?php if($model->shipping_method != 'tk'):?>style="display: none"<?php endif;?>">

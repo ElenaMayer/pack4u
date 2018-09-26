@@ -42,7 +42,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="shipping_methods">
                     <div class="rp" style="display: none">
-                        <?= $form->field($order, 'address')->textInput(['placeholder' => '630000, Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark']); ?>
+                        <?= $form->field($order, 'zip')->textInput(['placeholder' => '630000', 'class' => 'form-control dark', 'maxlength' => 6]); ?>
+                        <?= $form->field($order, 'address')->textInput(['placeholder' => 'Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark']); ?>
                     </div>
                     <div class="tk" style="display: none">
                         <?= $form->field($order, 'city')->textInput(['class' => 'form-control dark']); ?>
@@ -51,6 +52,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="rcr" style="display: none">
                         <?= $form->field($order, 'rcr')->textInput(['placeholder' => 'РЦР Маркса', 'class' => 'form-control dark']); ?>
                     </div>
+                    <input type="hidden" id="order_weight" value="<?= $order->getWeight() ?>">
+                    <?= $form->field($order, 'shipping_cost')->hiddenInput()->label(false); ?>
                 </div>
 
                 <?php echo $form->field($order, 'payment_method')->dropDownList(Order::getPaymentMethods()); ?>

@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
             $model->shipping_method == 'tk' ? [
                 'attribute' => 'tk',
                 'value' => function ($model) {
-                    return $model->shipping_method == 'tk' ? Order::getTkList()[$model->tk] : '';
+                    return $model->shipping_method == 'tk' ? $model->city . ' - ' . Order::getTkList()[$model->tk] : '';
                 },
             ]: ($model->shipping_method == 'rcr' ?
                 [
@@ -60,14 +60,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                     return $model->shipping_method == 'rcr' ? $model->rcr : '';
                 },
-            ] :
+            ] : (
             [
                 'attribute' => 'address',
                 'value' => function ($model) {
-                    return $model->shipping_method == 'rp' ? $model->address : '';
+                    return $model->shipping_method == 'rp' ? $model->zip . ', ' . $model->address : '';
                 },
-            ]),
-            'city',
+            ])),
             [
                 'attribute' => 'payment_method',
                 'value' => function ($model) {

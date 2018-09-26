@@ -146,8 +146,8 @@ class Order extends \yii\db\ActiveRecord
     public static function getShippingMethods()
     {
         return [
-            'self' => 'Самовывоз',
-            'rcr' => 'РЦР',
+            'self' => 'Самовывоз ('.Yii::$app->params['address'].')',
+            'rcr' => 'РЦР (для Новосибирска)',
             'rp' => 'Почта России',
             'tk' => 'Транспортная компания',
         ];
@@ -223,10 +223,18 @@ class Order extends \yii\db\ActiveRecord
 
     public function getWeight(){
         $weight = 0;
-        foreach ($this->orderItems as $item) {
-            $weight += $item->getWeight();
+        if($this->orderItems){
+            foreach ($this->orderItems as $item) {
+                $weight += $item->getWeight();
+            }
+        } else {
+            $cart = \Yii::$app->cart;
+            /* @var $products Product[] */
+            $products = $cart->getPositions();
+            foreach ($products as $item) {
+                $weight += $item->weight;
+            }
         }
         return $weight;
     }
-
 }

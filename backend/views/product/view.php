@@ -71,6 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'is_active',
             'is_in_stock',
             'is_novelty',
+            'sort',
             'time'
         ],
     ]) ?>
