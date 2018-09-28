@@ -80,7 +80,7 @@ IeAsset::register($this);
                             </li>
                         <?php endif;?>
                         <li>
-                            <a href="/cart">
+                            <a class="main_cart" href="/cart">
                                 <span class="has-cart">
                                     <i class="fa fa-shopping-cart"></i>
                                     <?php $itemsInCart = Yii::$app->cart->getCount(); ?>
@@ -107,7 +107,7 @@ IeAsset::register($this);
                                         <i class="fa fa-search"></i>
                                     </div>
                                     <div class="topbar-has-cart btn-cart">
-                                        <a href="/cart">
+                                        <a class="scroll-main" href="/cart">
                                             <span class="has-cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 <?php $itemsInCart = Yii::$app->cart->getCount(); ?>

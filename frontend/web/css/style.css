@@ -15117,7 +15117,9 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     outline-color: transparent;
 }
 
-.commerce .product-grid .noo-product-title .noo-product-action .noo-action .add_to_cart_button span:before {
+.commerce .product-grid .noo-product-title .noo-product-action .noo-action .add_to_cart_button span:before,
+.commerce .product-grid .noo-product-title .noo-product-action .noo-action .add_to_cart_button em:before,
+.single-product div.product .entry-summary form.cart .button em:before {
     font-family: 'FontAwesome';
     content: '';
     content: "\f07a";
@@ -15835,12 +15837,88 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     height: 40px;
     background: #79cba8;
     font-size: 14px;
-    font-weight: 600;
+    width: 150px;
+}
+
+.single-product div.product .entry-summary form.cart .button:focus {
+    outline: none;
 }
 
 .single-product div.product .entry-summary form.cart .button:hover {
     background: #45b284;
     color: #ffffff;
+}
+
+.single-product div.product .entry-summary form.cart .add-to-cart_div {
+    display: inline-block;
+    width: 130px;
+}
+
+.products .add-to-cart {
+    width: 100%;
+}
+
+.cd-customization {
+    display: inline-block;
+}
+.cd-customization .add-to-cart em {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-style: normal;
+    /* Force Hardware Acceleration */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+}
+.cd-customization .add-to-cart svg {
+    /* this is the check icon */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    /* move the icon on the right - outside the button */
+    -webkit-transform: translateX(50%) translateY(-50%);
+    -moz-transform: translateX(50%) translateY(-50%);
+    -ms-transform: translateX(50%) translateY(-50%);
+    -o-transform: translateX(50%) translateY(-50%);
+    transform: translateX(50%) translateY(-50%);
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.cd-customization .add-to-cart.is-added em {
+    /* product added to the cart - hide text message on the left with no transition*/
+    color: transparent;
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: -webkit-transform 0s;
+    -moz-transition: -moz-transform 0s;
+    transition: transform 0s;
+}
+.cd-customization .add-to-cart.is-added svg {
+    /* product added to the cart - move the svg back inside the button */
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transition: -webkit-transform 0s;
+    -moz-transition: -moz-transform 0s;
+    transition: transform 0s;
 }
 
 .single-product div.product .entry-summary .yith-wcwl-add-to-wishlist {
@@ -16313,7 +16391,8 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     border: 1px solid #f4eede;
 }
 
-.commerce-cart table.cart td .quantity .qty:focus {
+.commerce-cart table.cart td .quantity .qty:focus,
+.commerce button.button:focus {
     outline: none;
 }
 

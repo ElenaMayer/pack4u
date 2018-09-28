@@ -28,8 +28,12 @@ class CartController extends \yii\web\Controller
     {
         $product = Product::findOne($id);
         if ($product) {
-            \Yii::$app->cart->put($product, $quantity);
-            return $this->goBack();
+            $cart = \Yii::$app->cart;
+            $cart->put($product, $quantity);
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return [
+                'count' => $cart->getCount(),
+            ];
         }
     }
 

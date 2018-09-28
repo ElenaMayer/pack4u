@@ -24,6 +24,26 @@ $(document).ready(function() {
         }
     });
 
+    $(document.body).on('click', '.add-to-cart', function (event) {
+        button = $(this);
+        quantity = $('product-product-qty').val();
+        if(!quantity) {
+            quantity = 1;
+        }
+        $.ajax({
+            method: 'get',
+            url: '/cart/add',
+            dataType: 'json',
+            data: {
+                id: button.data('id'),
+                quantity: quantity,
+            },
+        }).done(function( data ) {
+            add_to_cart_animation(button, data.count);
+        });
+
+    });
+
     $(document.body).on('click', '.product_wishlist', function () {
         var w = $('.wishlist-login');
         var e = $(this);
@@ -489,6 +509,30 @@ $(document).ready(function() {
         }
     });
 });
+
+function add_to_cart_animation(button, count){
+    button.addClass('is-added').find('path').eq(0).animate({
+        //draw the check icon
+        'stroke-dashoffset':0
+    }, 300, function(){
+        setTimeout(function(){
+            $('.has-cart').each(function(){
+                $(this).children('em').text(count);
+            });
+            button.removeClass('is-added').find('em').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+                //wait for the end of the transition to reset the check icon
+                button.find('path').eq(0).css('stroke-dashoffset', '19.79');
+                animating =  false;
+            });
+
+            if( $('.no-csstransitions').length > 0 ) {
+                // check if browser doesn't support css transitions
+                addToCartBtn.find('path').eq(0).css('stroke-dashoffset', '19.79');
+                animating =  false;
+            }
+        }, 600);
+    });
+}
 
 function revSlider_1(){
 	$("#rev_slider_1").show().revolution({
