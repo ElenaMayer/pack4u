@@ -64,10 +64,9 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
         return $this->render('index', [
             'noveltyProducts' => Product::getNovelties(),
-            'categories' => $categories
+            'categories' => Category::getMainCategories(),
         ]);
     }
 

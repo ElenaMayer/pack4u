@@ -42,8 +42,7 @@ IeAsset::register($this);
                 <div class="container">
                     <ul>
                         <li>
-                            <span><i class="fa fa-phone"></i></span>
-                            <a href="<?= Yii::$app->params['phone1'] ?>"><?= Yii::$app->params['phone1'] ?></a>
+                            <a href="<?= Yii::$app->params['phone1'] ?>"><i class="fa fa-phone"></i><?= Yii::$app->params['phone1'] ?></a>
                         </li>
                         <li>
                             <div class="noo_social">
@@ -58,8 +57,7 @@ IeAsset::register($this);
                     <ul>
                         <?php if (Yii::$app->user->isGuest):?>
                             <li>
-                                <span><i class="fa fa-user"></i></span>
-                                <a href="/user/login" title="Вход">Вход</a>
+                                <a href="/user/login" title="Вход"><i class="fa fa-user"></i>Вход</a>
                             </li>
                         <?php else:?>
                             <li>
@@ -168,7 +166,7 @@ IeAsset::register($this);
         <section class="noo-page-heading eff heading-2 <?= $this->context->action->id ?>">
             <div class="container">
                 <div class="noo-heading-content">
-                    <h1 class="page-title eff"><?= $this->title ?></h1>
+                    <span class="page-title eff"><?= $this->title ?></span>
                     <?= Breadcrumbs::widget([
                         'itemTemplate' => "<span>{link}</span>\n",
                         'activeItemTemplate' => "<span class=\"active\">{link}</span>\n",

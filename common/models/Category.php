@@ -140,6 +140,16 @@ class Category extends \yii\db\ActiveRecord
         return $menuItems;
     }
 
+    public static function getMainCategories()
+    {
+        $categories = Category::find()
+            ->where(['parent_id' => null, 'is_active' => 1])
+            ->indexBy('id')
+            ->orderBy('id')
+            ->all();
+        return $categories;
+    }
+
     public static function getCategoryArray()
     {
         $categories = Category::find()->where(['parent_id' => null])->all();

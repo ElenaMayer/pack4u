@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div id="rev_slider_3" class="rev_slider fullscreenbanner">
         <ul>
             <li data-transition="fade" data-slotamount="default" data-easein="Power3.easeOut" data-easeout="Power3.easeOut" data-masterspeed="700" data-rotate="0" data-saveperformance="off" data-title="Slide">
-                <img src="images/banner/banner_1920x1080.jpg?1" alt="" width="1920" height="1080" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" />
+                <img src="images/slider/index_1.jpg?1" alt="" width="1920" height="1080" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" />
                 <div class="tp-caption caption-15 tp-resizeme"
                      data-x="center"
                      data-hoffset=""
@@ -85,7 +85,7 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-transform_out="opacity:0;s:300;s:300;"
                      data-start="4000"
                      data-responsive_offset="on">
-                    <img src="images/banner/star.png" alt="" width="25" height="20" />
+                    <img src="images/banner/star_b.png" alt="" width="25" height="20" />
                 </div>
                 <div class="tp-caption tp-resizeme"
                      data-x="center"
@@ -99,7 +99,7 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-transform_out="opacity:0;s:300;s:300;"
                      data-start="4200"
                      data-responsive_offset="on">
-                    <img src="images/banner/star2.png" alt="" width="15" height="18" />
+                    <img src="images/banner/star2_b.png" alt="" width="15" height="18" />
                 </div>
                 <div class="tp-caption tp-resizeme"
                      data-x="center"
@@ -113,7 +113,7 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-transform_out="opacity:0;s:300;s:300;"
                      data-start="4200"
                      data-responsive_offset="on">
-                    <img src="images/banner/star2.png" alt="" width="15" height="18" />
+                    <img src="images/banner/star2_b.png" alt="" width="15" height="18" />
                 </div>
                 <div class="tp-caption rev-btn btn-2"
                      data-x="center"
@@ -135,6 +135,12 @@ $this->params['breadcrumbs'][] = $this->title;
                      data-actions='[{"event":"click","action":"simplelink","target":"_self","url":"/catalog"}]'>Каталог
                 </div>
             </li>
+            <li data-transition="fade" data-slotamount="default" data-easein="Power3.easeOut" data-easeout="Power3.easeOut" data-masterspeed="700" data-rotate="0" data-saveperformance="off" data-title="Slide">
+                <img src="images/slider/index_2.jpg?1" alt="" width="1920" height="1080" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" />
+            </li>
+            <li data-transition="fade" data-slotamount="default" data-easein="Power3.easeOut" data-easeout="Power3.easeOut" data-masterspeed="700" data-rotate="0" data-saveperformance="off" data-title="Slide">
+                <img src="images/slider/index_3.jpg?1" alt="" width="1920" height="1080" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" />
+            </li>
         </ul>
         <div class="tp-bannertimer"></div>
     </div>
@@ -144,7 +150,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php foreach ($categories as $category) :?>
             <li>
                 <a href="/catalog/<?= $category->slug ?>">
-                    <div class="noo-simple-slider-item" data-bg="images/slider/<?= $category->slug ?>.jpg?1">
+                    <div class="noo-simple-slider-item" data-bg="images/slider/<?= $category->slug ?>.jpg?2">
                         <h3><?= $category->title ?></h3>
                     </div>
                 </a>

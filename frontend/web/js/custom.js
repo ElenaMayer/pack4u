@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     $(document.body).on('click', '.add-to-cart', function (event) {
         button = $(this);
-        quantity = $('product-product-qty').val();
+        quantity = $('.product-qty').val();
         if(!quantity) {
             quantity = 1;
         }
@@ -749,7 +749,7 @@ function revSlider_3(){
 			onHoverStop:"on",
 			arrows: {
 				style:"zeus",
-				enable:false,
+				enable:true,
 				hide_onmobile:false,
 				hide_onleave:false,
 				tmp:'<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div> </div>',
