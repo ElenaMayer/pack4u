@@ -93,10 +93,23 @@ $(document).ready(function() {
                 $('tr.shipping > td > p').html('Для расчета стоимости введите индекс');
             } else if($(this).children("option:selected").val() == 'tk'){
                 $('.shipping_methods .tk').show();
-                $('tr.shipping > td > p').html('Оплата при получении. Стоимость можно уточнить в выбранной ТК');
+                $('tr.shipping > td > p').html('Уточнить стоимость можно у нашего менеджера');
             }
 		}
     });
+
+    $(document.body).on('change', '#order-tk' ,function(){
+        if($(this).children("option:selected").val() == 'cdek'){
+            $('tr.shipping > td > p').html('Уточнить стоимость можно у нашего менеджера');
+        } else if($(this).children("option:selected").val() == 'pec') {
+            $('tr.shipping > td > p').html('Оплата при получении. Уточнить стоимость можно <a target="_blank" class="text-primary" href="https://pecom.ru/services-are/the-calculation-of-the-cost/">ТУТ</a>');
+        } else if($(this).children("option:selected").val() == 'dellin') {
+            $('tr.shipping > td > p').html('Оплата при получении. Уточнить стоимость можно <a target="_blank" class="text-primary" href="https://novosibirsk.dellin.ru/">ТУТ</a>');
+        } else if($(this).children("option:selected").val() == 'nrg') {
+            $('tr.shipping > td > p').html('Оплата при получении. Уточнить стоимость можно <a target="_blank" class="text-primary" href="https://nrg-tk.ru/client/calculator/">ТУТ</a>');
+        }
+    });
+
 
     //Change cart qty
     $(document.body).on('change', 'input.cart-qty' ,function(){
@@ -104,6 +117,64 @@ $(document).ready(function() {
     });
     $(document.body).on('keyup', 'input.cart-qty' ,function(){
         updateCartQty($(this).parents('form'));
+    });
+
+    $(document.body).on('click', '#remove_cart_item' ,function(){
+        e = $(this).parents('.cart_item');
+        $.ajax({
+            method: 'get',
+            url: '/cart/remove',
+            dataType: 'json',
+            data: {
+                id: $(this).data('id'),
+            },
+        }).done(function( data ) {
+            e.hide('slow');
+            $('.has-cart').each(function(){
+                $(this).children('em').show().text(data.count);
+            });
+            $('#amount_total').text(data.total);
+            orderAvailableCheck(data);
+        });
+    });
+
+    $(document.body).on('click', '#remove_order_item' ,function(){
+        e = $(this).parents('li');
+        $.ajax({
+            method: 'get',
+            url: '/cart/remove',
+            dataType: 'json',
+            data: {
+                id: $(this).data('id'),
+            },
+        }).done(function( data ) {
+            e.hide('slow');
+            $('.has-cart').each(function(){
+                $(this).children('em').show().text(data.count);
+            });
+            $('#amount_subtotal').text(data.total);
+            shipping = parseInt($('#amount_shipping').text());
+            if(shipping) {
+                $('#amount_total').text(data.total + shipping);
+            } else {
+                $('#amount_total').text(data.total);
+            }
+            orderAvailableCheck(data);
+        });
+    });
+
+    $(document.body).on('click', '#remove_wl_item' ,function(){
+        e = $(this).parents('tr');
+        $.ajax({
+            method: 'get',
+            url: '/wishlist/remove',
+            dataType: 'json',
+            data: {
+                id: $(this).data('id'),
+            },
+        }).done(function( data ) {
+            e.hide('slow');
+        });
     });
 
     $(document.body).on('change', 'input.product-qty' ,function(){
@@ -496,7 +567,7 @@ $(document).ready(function() {
                         tariff = parseInt(data['Отправления']['ЦеннаяПосылка']['Тариф']);
                         shipping_cost = tariff + 30;
                         new_total = total + shipping_cost;
-                        $('.shipping > td > p').html(shipping_cost.toFixed(0) + "<i class=\"fa fa-ruble\"></i>");
+                        $('.shipping > td > p').html("<span id=\"amount_shipping\">" + shipping_cost.toFixed(0) + "</span><i class=\"fa fa-ruble\"></i>");
                         $('#amount_total').html(new_total.toFixed(0));
                         $("#order-shipping_cost").val(shipping_cost.toFixed(0));
                     } else if(data['Status'] == "BAD_TO_INDEX"){
@@ -517,7 +588,7 @@ function add_to_cart_animation(button, count){
     }, 300, function(){
         setTimeout(function(){
             $('.has-cart').each(function(){
-                $(this).children('em').text(count);
+                $(this).children('em').show().text(count);
             });
             button.removeClass('is-added').find('em').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
                 //wait for the end of the transition to reset the check icon
@@ -801,17 +872,6 @@ function orderAvailableCheck(data) {
         $('.min_order_sum').show();
         $('.checkout-button').addClass('disabled');
 	}
-}
-
-function removeItemFromCart(id) {
-    $.ajax({
-        method: 'get',
-        url: '/cart/order',
-        dataType: 'html',
-        data: { id : id },
-    }).done(function( data ) {
-        $('div.main').html(data);
-    });
 }
 
 function updateWishlist(e) {

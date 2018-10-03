@@ -82,7 +82,14 @@ class CartController extends \yii\web\Controller
     public function actionRemove($id)
     {
         $this->removeItemFromCart($id);
-        $this->redirect(['cart/list']);
+        $cart = \Yii::$app->cart;
+        $total = $cart->getCost();
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return [
+            'count' => $cart->getCount(),
+            'total' => $total,
+            'orderAvailable' => $total >= Yii::$app->params['orderMinSum'],
+        ];
     }
 
     public function removeItemFromCart($id)

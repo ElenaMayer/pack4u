@@ -6046,6 +6046,10 @@ body.fixed_top .noo-header.header-5.eff .navbar-wrapper {
     display: table;
 }
 
+.noo-page-heading .container .noo-page-breadcrumb {
+    padding-left: 0;
+}
+
 .noo-page-heading .noo-heading-content {
     display: table-cell;
     vertical-align: middle;
@@ -13041,7 +13045,8 @@ p.demo_store a {
     color: #fc9090!important;
     text-decoration: none;
     font-weight: 700;
-    border: 0
+    border: 0;
+    cursor: pointer;
 }
 
 .commerce a.remove:hover,
@@ -15833,7 +15838,8 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     border: 1px solid #f4eede;
 }
 
-.single-product div.product .entry-summary form.cart .button {
+.single-product div.product .entry-summary form.cart .button,
+.commerce-wishlist button.button {
     height: 40px;
     background: #79cba8;
     font-size: 14px;
@@ -15860,6 +15866,10 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 
 .cd-customization {
     display: inline-block;
+}
+/* For Iphone */
+form.cart .cd-customization {
+    float: left;
 }
 .cd-customization .add-to-cart em {
     position: absolute;
@@ -16835,6 +16845,7 @@ ul.user_menu li.active > a {
 
 .checkout-wrapper h2 {
     padding-bottom: 20px;
+    margin-top: 0;
 }
 
 .payment-detail-wrapper {
@@ -17034,9 +17045,6 @@ ul.user_menu li.active > a {
 }
 
 @media (max-width: 991px) {
-    .payment-right {
-        padding-left: 70px;
-    }
     .responsive-t40 .column-inner {
         padding-top: 40px !important;
     }
@@ -17498,6 +17506,16 @@ ul.user_menu li.active > a {
     .noo_menu_canvas .btn-cart {
         display: none;
     }
+    .noo-page-heading .container {
+        padding-top: 50px;
+    }
+    .commerce-cart table.cart .product-thumbnail {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .checkout-wrapper .cart_totals {
+         margin-top: 0;
+    }
 }
 
 
@@ -17507,9 +17525,6 @@ ul.user_menu li.active > a {
 */
 
 @media (max-width: 767px) {
-    .payment-right {
-        padding-left: 0;
-    }
     .checkout-wrapper .cart-list > li .remove,
     .checkout-wrapper .cart-list > li .remove-cart {
         top: 0;
@@ -17666,7 +17681,6 @@ ul.user_menu li.active > a {
     .checkout-wrapper .cart_totals {
         float: none;
         width: 100%;
-        margin-top: 20px;
     }
     .noo-page-heading {
         height: 250px;
@@ -17872,6 +17886,9 @@ ul.user_menu li.active > a {
     .commerce .product-list .noo-product-title {
         margin: 0 auto;
         float: none;
+    }
+    .noo-page-heading .container {
+        padding-top: 0;
     }
 }
 

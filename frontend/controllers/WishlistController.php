@@ -74,7 +74,7 @@ class WishlistController extends \yii\web\Controller
             if ($wishlistItem) {
                 $wishlistItem->delete();
             }
-            $this->redirect(['/wishlist']);
+            return true;
         }
     }
 }

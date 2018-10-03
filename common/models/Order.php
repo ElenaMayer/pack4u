@@ -164,8 +164,8 @@ class Order extends \yii\db\ActiveRecord
     public static function getTkList()
     {
         return [
-            'dellin' => 'Деловые линии',
             'cdek' => 'СДЭК',
+            'dellin' => 'Деловые линии',
             'pec' => 'ПЭК',
             'nrg' => 'Энергия',
         ];

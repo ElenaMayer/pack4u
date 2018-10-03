@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <tr>
                                     <td class="product-remove">
                                         <div>
-                                            <?= Html::a('×', ['/wishlist/remove', 'id' => $wishlistItem->id], ['class' => 'remove'])?>
+                                            <a data-id="<?= $wishlistItem->id ?>" id="remove_wl_item" class="remove">×</a>
                                         </div>
                                     </td>
                                     <td class="product-thumbnail">
@@ -63,7 +63,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </td>
                                     <td class="product-add-to-cart">
                                         <?php if($product->getIsInStock()):?>
-                                            <?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $product->id], ['class' => 'button add_to_cart button'])?>
+                                            <div class="cd-customization">
+                                                <button type="button" class="add-to-cart single_add_to_cart_button button" data-id="<?= $product->id ?>">
+                                                    <em>В корзину</em>
+                                                    <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32">
+                                                        <path stroke-dasharray="19.79 19.79" stroke-dashoffset="19.79" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         <?php endif;?>
                                     </td>
                                 </tr>

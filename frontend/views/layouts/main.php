@@ -84,9 +84,7 @@ IeAsset::register($this);
                                 <span class="has-cart">
                                     <i class="fa fa-shopping-cart"></i>
                                     <?php $itemsInCart = Yii::$app->cart->getCount(); ?>
-                                    <?php if($itemsInCart):?>
-                                    <em><?= $itemsInCart ?></em>
-                                    <?php endif; ?>
+                                    <em <?php if($itemsInCart == 0):?>style="display: none" <?php endif; ?>><?= $itemsInCart ?></em>
                                 </span>
                             </a>
                         </li>
@@ -111,9 +109,7 @@ IeAsset::register($this);
                                             <span class="has-cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 <?php $itemsInCart = Yii::$app->cart->getCount(); ?>
-                                                <?php if($itemsInCart):?>
-                                                    <em><?= $itemsInCart ?></em>
-                                                <?php endif; ?>
+                                                <em <?php if($itemsInCart == 0):?>style="display: none" <?php endif; ?>><?= $itemsInCart ?></em>
                                             </span>
                                         </a>
                                     </div>

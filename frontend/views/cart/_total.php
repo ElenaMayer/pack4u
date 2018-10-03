@@ -22,7 +22,7 @@
                 <?php if($this->context->action->id != 'order'):?>
                     <p>Будет рассчитана в зависимости от выбранного способа доставки.</p>
                 <?php else:?>
-                    <p>0<i class="fa fa-ruble"></i></p>
+                    <p><span id="amount_shipping">0</span><i class="fa fa-ruble"></i></p>
                 <?php endif;?>
 
             </td>

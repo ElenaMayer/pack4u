@@ -24,5 +24,5 @@ use \yii\helpers\Html; ?>
             <div class="count-error has-error" <?php if($quantity <= $product->count):?>style="display: none" <?php endif;?>>В наличии осталось <?=$product->count ?> шт.</div>
         </div>
     </div><!-- /.cart-item -->
-    <?= Html::a('×', ['cart/remove', 'id' => $product->getId(), 'returnUrl' => '/cart/order'], ['class' => 'remove'])?>
+    <td class="product-remove"><a data-id="<?= $product->getId() ?>" id="remove_order_item" class="remove">×</a></td>
 </li>

@@ -69,8 +69,8 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="col-md-6">
                 <div class="payment-right">
-                    <h2>Ваш заказ</h2>
                     <div class="payment-detail-wrapper">
+                        <h2>Ваш заказ</h2>
                         <ul class="cart-list">
                             <?php foreach ($products as $product):?>
                                 <?php if($product->getIsActive() && $product->getIsInStock()):?>

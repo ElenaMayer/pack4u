@@ -67,9 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <td class="product-subtotal">
                                     <span class="amount"><span id="amount_val_<?= $product->id ?>"><?= $product->getCost() ?></span><i class="fa fa-ruble"></i></span>
                                 </td>
-                                <td class="product-remove">
-                                    <?= Html::a('×', ['cart/remove', 'id' => $product->getId(), 'returnUrl' => '/cart/list'], ['class' => 'remove'])?>
-                                </td>
+                                <td class="product-remove"><a data-id="<?= $product->id ?>" id="remove_cart_item" class="remove">×</a></td>
                             </tr>
                         <?php endif;?>
                     <?php endforeach; ?>
