@@ -9,2502 +9,2502 @@
 
 <url>
   <loc>http://pack4u.ru/</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/user/login</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/cart</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/sale</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/contact</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/shipping</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/payment</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/229</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/243</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/230</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/247</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/231</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/248</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/232</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/249</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/233</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/252</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/packets/254</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/refund</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/user/register</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/user/forgot</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/user/resend</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/228</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/227</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/226</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/225</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/224</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/223</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/222</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=4&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=5&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=6&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=19&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=Handmade</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BE%D1%82%D1%82%D0%B8%D1%81%D0%BA</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BB%D0%B5%D0%BD%D1%82%D0%B0</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=For%20you</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%82%D0%B8%D1%88%D1%8C%D1%8E</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=Handmade</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%D1%82%D1%80%D1%83%D0%B6%D0%BA%D0%B0</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BA%D0%B0%D1%80%D1%83%D0%BD</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BB%D0%B5%D0%BD%D0%BA%D0%B0</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B1%D1%83%D0%BC%D0%B0%D0%B3%D0%B0</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B8%D0%BD%D0%B0</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%B7%D0%B5%D1%84%D0%B8%D1%80%D0%B0</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B3%D0%BE%D0%B4</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%84%D0%BB%D0%B0%D0%BC%D0%B8%D0%BD%D0%B3%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/352</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/351</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/350</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=4&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/347</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=5&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/340</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=6&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/339</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=10&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/338</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/other/337</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/other/336</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/other/335</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/other/334</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/other/333</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?page=4&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?page=5&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?page=6&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?page=27&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/small</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/capcasks</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/sweets</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/jewelry</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/zephyry</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/macaroon</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/cake</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/pullout</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/solid</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes?tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/120</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/328</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/88</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/327</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/87</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/312</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/70</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/311</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/69</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/307</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/68</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/306</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/67</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/297</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/66</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/296</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/65</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/295</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/48</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/294</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/47</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/290</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/46</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/286</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=stickers&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=stickers&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=4&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=5&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=6&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?categorySlug=boxes&amp;page=12&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/stickers?tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/tags/219</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/323</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/tags/86</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/322</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/tags/64</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/305</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/tags/63</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/304</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/tags/62</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/292</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/tags/31</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/291</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/tags/30</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/242</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/tags/29</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/234</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/stickers/120</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?categorySlug=stickers&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?categorySlug=stickers&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?categorySlug=stickers&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/tags?tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/218</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/331</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/217</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/330</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/216</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/318</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/215</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/317</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/214</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/293</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/213</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/279</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/197</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/262</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/196</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/251</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/195</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/250</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/194</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/241</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/193</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/219</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/192</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=tags&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=packets&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=tags&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=packets&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/paper_packet</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=packets&amp;page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/plastic_packet</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/cookie</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/wine</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets?tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/186</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/326</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/185</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/325</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/184</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/324</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/183</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/319</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/182</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/310</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/181</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/309</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/180</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/303</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/179</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/302</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/178</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/301</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/177</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/300</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/176</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/299</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/175</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=packets&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=packets&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=packets&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=packets&amp;page=4&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=4&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/ribbon</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=5&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/paper</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/filler</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/another</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/other?tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81+%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/332</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/39</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/321</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/133</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/320</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/124</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F+%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/119</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F+%D0%BC%D0%B0%D0%BA%D0%B0%D1%80%D1%83%D0%BD</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=4&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/144</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=5&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/145</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=6&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/146</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog?categorySlug=other&amp;page=7&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/221</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=all</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/220</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/212</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/211</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/210</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/209</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/208</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/207</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/206</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/205</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/204</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/203</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/202</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/sale?tag=all</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/201</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/boxes/126</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/200</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/boxes/58</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/199</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/boxes/57</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/198</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/boxes/56</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/191</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/boxes/24</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/190</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog/boxes/23</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/189</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog?tag=For+you</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/188</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>http://pack4u.ru/catalog?color=%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/187</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/other/174</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=7&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/other/173</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/other/172</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/other/171</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/other/170</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/other/169</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/other/168</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/167</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/166</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/165</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/164</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/163</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/162</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=8&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/8</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=18&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=14&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=15&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=16&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?page=17&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=all&amp;tag=all</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=all&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=all&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=all&amp;page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=all&amp;page=4&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=all&amp;page=5&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=all&amp;page=6&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=all&amp;page=19&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?color=all&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9&amp;page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=all&amp;page=27&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/284</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/237</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/197</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=4&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/196</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=5&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/193</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9&amp;page=4&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/153</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/150</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/148</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/117</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=4&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/115</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=5&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/packets/114</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=6&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/104</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/102</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9&amp;page=9&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/158</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/236</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/154</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/235</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/126</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/207</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/58</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/184</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/177</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/117</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/other/115</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/packets/114</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/96</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/other/39</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/232</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/84</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/136</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/275</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/89</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/274</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/45</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/267</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/189</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/182</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/other/175</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/stickers/65</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/240</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/238</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/209</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/208</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/288</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/246</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9&amp;page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/239</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9&amp;page=4&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9&amp;page=4&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/143</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/289</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/132</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/266</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/125</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/258</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/257</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/256</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9&amp;page=4&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9&amp;page=5&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/141</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/287</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/137</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/277</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/123</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/276</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/113</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/231</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/111</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/203</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/83</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/202</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/52</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/180</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/173</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/143</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/other/125</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/157</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/other/121</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/100</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/other/75</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/17</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/160</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/121</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/81</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/100</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/80</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/stickers/68</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/220</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/157</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/other/75</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9&amp;tag=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=all&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/190</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=all&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/160</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=all&amp;page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/81</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=all&amp;page=4&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/80</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=all&amp;page=5&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/tags/31</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=all&amp;page=6&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=all&amp;page=19&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/other/348</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=all&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=all&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=all&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=all&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=all&amp;page=4&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=all&amp;page=5&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=all&amp;page=6&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=all&amp;page=27&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=all</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets/108</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/packets/107</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog/boxes/9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/8</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B0-%D0%BF%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/packets/90</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/packets/43</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/packets/42</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/packets/10</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8%D0%BA&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/142</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/140</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/130</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/57</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/56</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/55</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/15</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/105</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/85</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/329</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/149</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/298</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/280</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/packets/253</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/233</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/105</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81+%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81+%D0%B7%D0%B0%D0%B2%D1%8F%D0%B7%D0%BA%D0%BE%D0%B9&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=all</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B2%D1%8B%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%B0%D1%8F&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/159</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/156</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/155</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/boxes/103</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/278</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F+%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/226</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F+%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/225</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F+%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;page=3&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/224</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/212</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/146</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/145</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/144</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81+%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81+%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%83%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B9&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/28</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/27</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/26</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/19</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/18</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%BF%D0%BA%D0%B5%D0%B9%D0%BA%D0%BE%D0%B2&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F+%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;page=1&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F+%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;page=2&amp;per-page=12</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog?tag=%D0%B4%D0%BB%D1%8F%20%D1%82%D0%BE%D1%80%D1%82%D0%B0&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://pack4u.ru/catalog/boxes/53</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81+%D0%BE%D0%BA%D0%BD%D0%BE%D0%BC&amp;page=3&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://pack4u.ru/catalog/stickers/35</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <loc>http://pack4u.ru/catalog/boxes/53</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BA%D1%80%D0%B0%D1%84%D1%82&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=all</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D1%81%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/27</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/28</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=all</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=For%20you&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/222</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/stickers/67</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/tags/30</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=all</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
-  <lastmod>2018-08-15T03:13:42+00:00</lastmod>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=Handmade&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/tags/86</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/stickers/66</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/tags/64</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/tags/63</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/tags/62</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/stickers/35</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/stickers/70</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=Handmade&amp;page=1&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=Handmade&amp;page=2&amp;per-page=12</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=all</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D0%B1%D0%B5%D0%BB%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D0%BC%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D0%BA%D1%80%D0%B0%D1%84%D1%82</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%BE</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D1%80%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D0%B3%D0%BE%D0%BB%D1%83%D0%B1%D0%BE%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D1%84%D0%B8%D0%BE%D0%BB%D0%B5%D1%82%D0%BE%D0%B2%D1%8B%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog?tag=%D0%BC%D1%80%D0%B0%D0%BC%D0%BE%D1%80&amp;color=%D1%81%D0%B8%D0%BD%D0%B8%D0%B9</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/260</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://pack4u.ru/catalog/boxes/259</loc>
+  <lastmod>2018-09-29T02:35:31+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 

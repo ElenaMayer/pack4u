@@ -232,7 +232,7 @@ class Order extends \yii\db\ActiveRecord
             /* @var $products Product[] */
             $products = $cart->getPositions();
             foreach ($products as $item) {
-                $weight += $item->weight;
+                $weight += $item->weight * $item->quantity;
             }
         }
         return $weight;

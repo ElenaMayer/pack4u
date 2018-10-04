@@ -5009,6 +5009,10 @@ ul.post_list_widget li a .post-date {
     padding-right: 7px;
 }
 
+.noo-topbar ul li a i.fa-shopping-cart {
+    padding-right: 0;
+}
+
 .topbar-has-cart a:hover {
     color: #212121;
 }
@@ -8063,7 +8067,7 @@ div.products-sh-title h4 {
     font-size: 35px;
     color: #212121;
     background-color: white;
-    opacity: 0.7;
+    opacity: 0.9;
 }
 
 div.creative-product-title {

@@ -557,7 +557,7 @@ $(document).ready(function() {
             postcode_from = '630001';
             postcode_to = $(this).val();
             weight = $('#order_weight').val() * 1000 * 1.1;
-            url = postcalc_url + '?f=' + postcode_from + '&t=' + postcode_to +'&v=' + total +'&w=' + weight +'&o=json';
+            url = postcalc_url + '?f=' + postcode_from + '&t=' + postcode_to +'&w=' + weight +'&o=json';
             $.ajax({
                 url: url,
                 type: "GET",
