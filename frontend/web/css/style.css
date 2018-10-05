@@ -6059,10 +6059,23 @@ body.fixed_top .noo-header.header-5.eff .navbar-wrapper {
     background-image: url(../images/slider/header_3.jpg?1);
 }
 
+.site .noo-page-heading.cart,
+.site .noo-page-heading.order {
+    background-image: url(../images/slider/header_1.jpg?1);
+}
+
 .noo-page-heading .container {
     height: 100%;
     position: relative;
     display: table;
+}
+
+.noo-page-heading.product .container {
+    padding-top: 50px;
+}
+
+.noo-page-heading.product .page-title.eff {
+    display: inline-block;
 }
 
 .noo-page-heading .container .noo-page-breadcrumb {

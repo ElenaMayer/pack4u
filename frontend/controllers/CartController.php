@@ -66,7 +66,7 @@ class CartController extends \yii\web\Controller
 
     }
 
-    public function actionList()
+    public function actionCart()
     {
         $cart = \Yii::$app->cart;
 

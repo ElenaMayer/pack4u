@@ -10,7 +10,9 @@ ProductAsset::register($this);
 $title = $product->title;
 $subcategory = $product->getSubcategory();
 $this->params['breadcrumbs'][] = ['label' => $category->title, 'url' => ['/catalog/' . $category->slug]];
-$this->params['breadcrumbs'][] = ['label' => $subcategory->title, 'url' => ['/catalog/' . $subcategory->slug]];
+if($subcategory){
+    $this->params['breadcrumbs'][] = ['label' => $subcategory->title, 'url' => ['/catalog/' . $subcategory->slug]];
+}
 $this->params['breadcrumbs'][] = $title;
 $this->title = Html::encode($title . ' ' . $product->size . 'см');
 ?>
