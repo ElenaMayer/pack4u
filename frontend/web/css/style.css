@@ -17070,6 +17070,22 @@ ul.user_menu li.active > a {
     .commerce .product-grid .noo-product-title h3 a {
         margin: auto 0;
     }
+    .site .noo-page-heading {
+        background-image: url(../images/slider/header_5_1120.jpg);
+    }
+
+    .site .noo-page-heading.list {
+        background-image: url(../images/slider/header_4_1120.jpg);
+    }
+
+    .site .noo-page-heading.product {
+        background-image: url(../images/slider/header_3_1120.jpg);
+    }
+
+    .site .noo-page-heading.cart,
+    .site .noo-page-heading.order {
+        background-image: url(../images/slider/header_1_1120.jpg);
+    }
 }
 
 
@@ -17560,6 +17576,22 @@ ul.user_menu li.active > a {
     .checkout-wrapper .cart_totals {
          margin-top: 0;
     }
+    .site .noo-page-heading {
+        background-image: url(../images/slider/header_5_992.jpg);
+    }
+
+    .site .noo-page-heading.list {
+        background-image: url(../images/slider/header_4_992.jpg);
+    }
+
+    .site .noo-page-heading.product {
+        background-image: url(../images/slider/header_3_992.jpg);
+    }
+
+    .site .noo-page-heading.cart,
+    .site .noo-page-heading.order {
+        background-image: url(../images/slider/header_1_992.jpg);
+    }
 }
 
 
@@ -17934,8 +17966,46 @@ ul.user_menu li.active > a {
     .noo-page-heading .container {
         padding-top: 0;
     }
+
+    .site .noo-page-heading {
+        background-image: url(../images/slider/header_5_768.jpg);
+    }
+
+    .site .noo-page-heading.list {
+        background-image: url(../images/slider/header_4_768.jpg);
+    }
+
+    .site .noo-page-heading.product {
+        background-image: url(../images/slider/header_3_768.jpg);
+    }
+
+    .site .noo-page-heading.cart,
+    .site .noo-page-heading.order {
+        background-image: url(../images/slider/header_1_768.jpg);
+    }
 }
 
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 481px) and (max-width: 1119px),
+only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 481px) and (max-width: 1119px),
+only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 481px) and (max-width: 1119px),
+only screen and (min-device-pixel-ratio: 2) and (min-width: 481px) and (max-width: 1119px),
+only screen and (min-resolution: 192dpi) and (min-width: 481px) and (max-width: 1119px),
+only screen and (min-resolution: 2dppx) and (min-width: 481px) and (max-width: 1119px) {
+    .site .noo-page-heading {
+        background-image: url(../images/slider/header_5.jpg);
+    }
+    .site .noo-page-heading.list {
+        background-image: url(../images/slider/header_4.jpg);
+    }
+    .site .noo-page-heading.product {
+        background-image: url(../images/slider/header_3.jpg);
+    }
+    .site .noo-page-heading.cart,
+    .site .noo-page-heading.order {
+        background-image: url(../images/slider/header_1.jpg);
+    }
+}
 
 /*
 * 6.3 Responsive - Mobile devices 479
@@ -18114,6 +18184,44 @@ ul.user_menu li.active > a {
     }
     .commerce-cart table.cart th.product-quantity {
         width: 28%;
+    }
+    .site .noo-page-heading {
+        background-image: url(../images/slider/header_5_480.jpg);
+    }
+
+    .site .noo-page-heading.list {
+        background-image: url(../images/slider/header_4_480.jpg);
+    }
+
+    .site .noo-page-heading.product {
+        background-image: url(../images/slider/header_3_480.jpg);
+    }
+
+    .site .noo-page-heading.cart,
+    .site .noo-page-heading.order {
+        background-image: url(../images/slider/header_1_480.jpg);
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 480px),
+only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 480px),
+only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 480px),
+only screen and (min-device-pixel-ratio: 2) and (max-width: 480px),
+only screen and (min-resolution: 192dpi) and (max-width: 480px),
+only screen and (min-resolution: 2dppx) and (max-width: 480px) {
+    .site .noo-page-heading {
+        background-image: url(../images/slider/header_5_1120.jpg);
+    }
+    .site .noo-page-heading.list {
+        background-image: url(../images/slider/header_4_1120.jpg);
+    }
+    .site .noo-page-heading.product {
+        background-image: url(../images/slider/header_3_1120.jpg);
+    }
+    .site .noo-page-heading.cart,
+    .site .noo-page-heading.order {
+        background-image: url(../images/slider/header_1_1120.jpg);
     }
 }
 
