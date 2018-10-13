@@ -86,6 +86,10 @@ class ProductController extends Controller
             if (is_array($post['Product']['tags'])) {
                 $model->tags = implode(",", $post['Product']['tags']);
             }
+            if (is_array($post['Product']['subcategories']))
+            {
+                $model->subcategories = implode(",",$post['Product']['subcategories']);
+            }
             if ($model->load($post) && $model->save()) {
                 $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
                 if ($model->upload()) {
@@ -192,11 +196,9 @@ class ProductController extends Controller
             if ($parents != null) {
                 $cat_id = $parents[0];
                 $out = Category::getSubcategoryDDArray($cat_id);
-                echo Json::encode(['output'=>$out, 'selected'=>'']);
-                return;
+                return Json::encode(['output'=>$out, 'selected'=>'']);
             }
         }
-        echo Json::encode(['output'=>'', 'selected'=>'']);
-        return;
+        return Json::encode(['output'=>'', 'selected'=>'']);
     }
 }
