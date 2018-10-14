@@ -93,7 +93,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'options' => [
                 'placeholder' => Yii::t('app','Выберите товар ...'),
             ],
-            'data'=>Product::getActiveProductArr(),
+            'data'=>Product::getProductArr(),
         ]) ?>
 
         <?= $form->field($orderItem, 'quantity')->textInput(['step' => 1, 'min' => 1, 'value' => 1]) ?>

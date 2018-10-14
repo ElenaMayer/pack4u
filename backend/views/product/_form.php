@@ -89,7 +89,7 @@ use common\models\Category;
             'multiple' => true,
             'placeholder' => Yii::t('app','Выберите связаные товары ...'),
         ],
-        'data'=>Product::getActiveProductArr(),
+        'data'=>Product::getProductArr(),
         'pluginOptions' => [
             'tags' => true,
             'tokenSeparators'=>[',',' '],

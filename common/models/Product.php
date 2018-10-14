@@ -374,13 +374,31 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         return $result;
     }
 
-    public static function getActiveProductArr()
+    public static function getProductArr($is_active = false, $is_in_stock = false)
     {
         $model = Product::find()
-            ->select(['*', 'CONCAT(article, \' - \', title , \' (\', count,\' шт)\') as description'])
-            ->where(['is_active' => 1, 'is_in_stock' => 1])
-            ->andWhere(['>', 'count', '0'])
-            ->all();
+            ->select(['*', 'CONCAT(article, \' - \', title , \' (\', count,\' шт)\') as description']);
+
+        if($is_active) {
+            $model = $model->andWhere(['is_active' => 1]);
+        }
+        if($is_in_stock){
+            $model = $model->andWhere(['is_in_stock' => 1])->andWhere(['>', 'count', '0']);
+        }
+        $model = $model->all();
+        return ArrayHelper::map($model, 'id', 'description');
+    }
+
+    public static function getProductArr1($is_active = false, $is_in_stock = false)
+    {
+        $model = Product::find()->select(['*', 'CONCAT(article, \' - \', title , \' (\', count,\' шт)\') as description']);
+        if($is_active) {
+            $model = $model->andWhere(['is_active' => 1]);
+        }
+        if($is_in_stock){
+            $model = $model->andWhere(['is_in_stock' => 1])->andWhere(['>', 'count', '0']);
+        }
+        $model = $model->all();
         return ArrayHelper::map($model, 'id', 'description');
     }
 

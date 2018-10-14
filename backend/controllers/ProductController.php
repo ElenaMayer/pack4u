@@ -91,6 +91,10 @@ class ProductController extends Controller
                 $model->subcategories = implode(",",$post['Product']['subcategories']);
             }
             if ($model->load($post) && $model->save()) {
+                if (is_array($post['Product']['relationsArr']))
+                {
+                    $model->saveRelations($post['Product']['relationsArr']);
+                }
                 $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
                 if ($model->upload()) {
                     return $this->redirect(['view', 'id' => $model->id]);
