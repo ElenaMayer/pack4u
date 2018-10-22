@@ -86,7 +86,7 @@ $this->title = Html::encode($title . ' ' . $product->size . 'см');
                             </div>
                             <?php $quantity = $product->getQuantity(); ?>
                             <?php if($product->getIsInStock()):?>
-                                <form class="cart"">
+                                <form class="cart">
                                     <div class="quantity">
                                         <input type="number" step="1" min="1" name="quantity" value="1" title="Количество" class="input-text qty text product-qty" size="4"/>
                                         <input type="hidden" name="count" value="<?= $product->count ?>"/>

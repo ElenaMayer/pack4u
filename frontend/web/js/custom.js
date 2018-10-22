@@ -68,6 +68,14 @@ $(document).ready(function() {
         }
     });
 
+    $(document.body).on('click', '.add-to-cart', function (e) {
+        if ("ga" in window) {
+            tracker = ga.getAll()[0];
+            if (tracker)
+                tracker.send("event", "button", "send_order");
+        }
+    });
+
     aweProductRender(true);
 
     $(document.body).on('change', '#order-shipping_method' ,function(){
