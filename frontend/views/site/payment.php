@@ -15,9 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <h3>Система скидок</h3>
                 <p>Скидки предоставляются при заказе от суммы (на уцененный товар скидки не распростаняются):</p>
-                <p><i class="fa fa-angle-right"></i>5 000 руб. - 5%</p>
-                <p><i class="fa fa-angle-right"></i>10 000 руб. - 7%</p>
-                <p><i class="fa fa-angle-right"></i>15 000 руб. - 10%</p>
+                <p><i class="fa fa-angle-right"></i>5 000 руб. - 3%</p>
+                <p><i class="fa fa-angle-right"></i>10 000 руб. - 5%</p>
+                <p><i class="fa fa-angle-right"></i>15 000 руб. - 7%</p>
 
                 <h3>Наличный расчет</h3>
                 <p>Наличный расчет при доставке курьером или при получении в пункте выдачи (только <b>для Новосибирска</b>)</p>

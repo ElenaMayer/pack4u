@@ -42,7 +42,7 @@ IeAsset::register($this);
                 <div class="container">
                     <ul>
                         <li>
-                            <a href="<?= Yii::$app->params['phone1'] ?>"><i class="fa fa-phone"></i><?= Yii::$app->params['phone1'] ?></a>
+                            <a href="tel:<?= Yii::$app->params['phone1'] ?>"><i class="fa fa-phone"></i><?= Yii::$app->params['phone1'] ?></a>
                         </li>
                         <li>
                             <div class="noo_social">
@@ -234,7 +234,7 @@ IeAsset::register($this);
                             <h4 class="widget-title">Контакты</h4>
                             <ul class="noo-openhours">
                                 <li>
-                                    <i class="fa fa-phone"></i><a href="<?= Yii::$app->params['phone1'] ?>"><?= Yii::$app->params['phone1'] ?></a>
+                                    <i class="fa fa-phone"></i><a href="tel:<?= Yii::$app->params['phone1'] ?>"><?= Yii::$app->params['phone1'] ?></a>
                                 </li>
                                 <li>
                                     <i class="fa fa-envelope"></i><a href="mailto:<?= Yii::$app->params['email'] ?>">

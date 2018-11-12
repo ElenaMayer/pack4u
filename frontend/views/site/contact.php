@@ -35,11 +35,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             </li>
                             <li>
                                 <i class="fa fa-phone"> </i>
-                                <span><a href="<?= Yii::$app->params['phone1'] ?>"><?= Yii::$app->params['phone1'] ?></a></span>
+                                <span><a href="tel:<?= Yii::$app->params['phone1'] ?>"><?= Yii::$app->params['phone1'] ?></a></span>
                             </li>
                             <li>
                                 <i class="fa fa-phone"> </i>
-                                <span><a href="<?= Yii::$app->params['phone2'] ?>"><?= Yii::$app->params['phone2'] ?></a></span>
+                                <span><a href="tel:<?= Yii::$app->params['phone2'] ?>"><?= Yii::$app->params['phone2'] ?></a></span>
                             </li>
                         </ul>
                     </div>
