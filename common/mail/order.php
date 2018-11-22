@@ -65,16 +65,21 @@ use common\models\Order;
             </td>
         </tr>
     <?php endforeach ?>
+    <tr>
+        <td>
+            <p><b>Вес: </b> <?= $model->getWeight()?> кг</p>
+        </td>
+    </tr>
     <?php if($order->shipping_cost):?>
     <tr>
         <td>
-            <p><b>Доставка: </b> <?= $order->shipping_cost?> р.</p>
+            <p><b>Доставка: </b> <?= $order->shipping_cost?> р</p>
         </td>
     </tr>
     <?php endif;?>
     <tr>
         <td>
-            <p><b>Итого: </b> <?= $order->getCost(); ?> р.</p>
+            <p><b>Итого: </b> <?= $order->getCost(); ?> р</p>
         </td>
     </tr>
 </table>

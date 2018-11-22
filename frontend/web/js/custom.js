@@ -66,14 +66,16 @@ $(document).ready(function() {
             if (tracker)
                 tracker.send("event", "button", "send_order");
         }
+        yaCounter48289898.reachGoal('ORDER');
     });
 
     $(document.body).on('click', '.add-to-cart', function (e) {
         if ("ga" in window) {
             tracker = ga.getAll()[0];
             if (tracker)
-                tracker.send("event", "button", "send_order");
+                tracker.send("event", "button", "add_to_cart");
         }
+        yaCounter48289898.reachGoal('ORDER');
     });
 
     aweProductRender(true);

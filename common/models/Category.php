@@ -96,7 +96,7 @@ class Category extends \yii\db\ActiveRecord
 
     public static function getCategoryList()
     {
-        $parents = Category::find()->select(['id', 'title'])->all();
+        $parents = Category::find()->select(['id', 'title'])->where(['parent_id' => null])->all();
         return ArrayHelper::map($parents, 'id', 'title');
     }
 

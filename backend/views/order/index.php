@@ -30,13 +30,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'fio',
             'phone',
-            'email:email',
             [
                 'attribute'=>'status',
                 'value' => function ($model) {
                     return $model->getStatuses()[$model->status];
                 },
                 'filter' => Order::getStatuses()
+            ],
+            [
+                'attribute'=>'shipping_method',
+                'value' => function ($model) {
+                    if($model->shipping_method == 'tk') return Order::getTkList()[$model->tk] . ' - ' . $model->city;
+                    elseif ($model->shipping_method == 'self') return 'Самовывоз';
+                    else return Order::getShippingMethods()[$model->shipping_method];
+                },
             ],
             [
                 'header'=>'Сумма',

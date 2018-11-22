@@ -14,7 +14,7 @@ if($subcategory){
     $this->params['breadcrumbs'][] = ['label' => $subcategory->title, 'url' => ['/catalog/' . $subcategory->slug]];
 }
 $this->params['breadcrumbs'][] = $title;
-$this->title = Html::encode($title . ' ' . $product->size . 'см');
+$this->title = Html::encode($title . ' ' . ($product->size?$product->size . 'см':''));
 ?>
 
 <div class="commerce single-product noo-shop-main">

@@ -29,7 +29,7 @@ use yii\helpers\Markdown;
         <?php endif;?>
         <div class="noo-product-title">
             <h3><a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>" title="<?= $model->title?>"><?= Html::encode($model->title) ?></a></h3>
-            <div><?= $model->size. ' см'?></div>
+            <div><?php if($model->size):?><?= $model->size. ' см'?><?php else: ?>&nbsp;<?php endif;?></div>
             <?php if($model->getIsInStock() && $model->new_price): ?>
                 <span class="price">
                     <span class="amount old"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span>
