@@ -67,7 +67,7 @@ use common\models\Order;
     <?php endforeach ?>
     <tr>
         <td>
-            <p><b>Вес: </b> <?= $model->getWeight()?> кг</p>
+            <p><b>Вес: </b> <?= $order->getWeight()?> кг</p>
         </td>
     </tr>
     <?php if($order->shipping_cost):?>

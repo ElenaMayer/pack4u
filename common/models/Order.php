@@ -85,7 +85,7 @@ class Order extends \yii\db\ActiveRecord
             'fio' => 'ФИО',
             'shipping_cost' => 'Стоимость доставки',
             'payment' => 'Оплата',
-            'city' => 'Город',
+            'city' => 'Город, Пункт выдачи',
             'shipping_method' => 'Способ доставки',
             'payment_method' => 'Способ оплаты',
             'zip' => 'Индекс',
@@ -111,15 +111,15 @@ class Order extends \yii\db\ActiveRecord
             } else {
                 $oldAttributes = $this->getOldAttributes();
                 if($this->status != $oldAttributes['status']) {
-                    if($this->status == self::STATUS_CANCELED) {
-                        foreach ($this->orderItems as $item){
-                            $item->product->count += $item->quantity;
-                            $item->product->save();
-                        }
-                    } elseif($oldAttributes['status'] == self::STATUS_CANCELED){
-                        foreach ($this->orderItems as $item){
-                            $item->product->count -= $item->quantity;
-                            $item->product->save();
+                    if($this->status != $oldAttributes['status']) {
+                        if($this->status == self::STATUS_CANCELED) {
+                            foreach ($this->orderItems as $item){
+                                $item->product->plusCount($item->quantity);
+                            }
+                        } elseif($oldAttributes['status'] == self::STATUS_CANCELED){
+                            foreach ($this->orderItems as $item){
+                                $item->product->minusCount($item->quantity);
+                            }
                         }
                     }
                 }
@@ -134,7 +134,7 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             self::STATUS_NEW => 'Новый',
-            self::STATUS_IN_PROGRESS => 'В обработке',
+            self::STATUS_IN_PROGRESS => 'Готов к отправке',
             self::STATUS_PAYMENT => 'Ожидает оплаты',
             self::STATUS_SHIPPED => 'Передан в доставку',
             self::STATUS_DONE => 'Выполнен',

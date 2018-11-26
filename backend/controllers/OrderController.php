@@ -62,21 +62,19 @@ class OrderController extends Controller
     {
         if($post = Yii::$app->request->post('OrderItem')){
             $product = Product::findOne($post['product_id']);
-            if($product->count >= $post['quantity']) {
-                $orderItem = OrderItem::find()->where(['order_id' => $id, 'product_id' => $post['product_id']])->one();
-                if($orderItem) {
-                    $orderItem->quantity += $post['quantity'];
-                } else {
-                    $orderItem = new OrderItem();
-                    $orderItem->order_id = $id;
-                    $orderItem->title = $product->title;
-                    $orderItem->price = $product->price;
-                    $orderItem->product_id = $post['product_id'];
-                    $orderItem->quantity = $post['quantity'];
-                }
-                if ($orderItem->save()) {
-                    $product->minusCount($post['quantity']);
-                }
+            $orderItem = OrderItem::find()->where(['order_id' => $id, 'product_id' => $post['product_id']])->one();
+            if($orderItem) {
+                $orderItem->quantity += $post['quantity'];
+            } else {
+                $orderItem = new OrderItem();
+                $orderItem->order_id = $id;
+                $orderItem->title = $product->title;
+                $orderItem->price = $product->price;
+                $orderItem->product_id = $post['product_id'];
+                $orderItem->quantity = $post['quantity'];
+            }
+            if ($orderItem->save()) {
+                $product->minusCount($post['quantity']);
             }
         }
         return $this->render('view', [

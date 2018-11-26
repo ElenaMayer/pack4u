@@ -340,7 +340,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 
     public function plusCount($count){
         $this->count += $count;
-        if($this->count > 0 && $this->is_in_stock == 0){
+        if($this->count > 0){
             $this->is_in_stock = 1;
         }
         $this->save(false);
@@ -406,6 +406,10 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     {
         if (parent::beforeSave($insert)) {
             $this->weight = str_replace(',', '.', $this->weight);
+            if($this->count > 0)
+                $this->is_in_stock = 1;
+            else
+                $this->is_in_stock = 0;
             return true;
         }
         return false;
