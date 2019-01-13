@@ -135,6 +135,11 @@ a.image_remove:hover {
     padding-left: 5px;
 }
 
+.m_input.cartitem_title_value {
+    width: 300px;
+    margin-top: 10px;
+}
+
 .order-index .table-striped tr.new {
     background-color: #82e086;
 }

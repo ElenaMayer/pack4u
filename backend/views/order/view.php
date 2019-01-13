@@ -122,9 +122,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 </td>
                 <td>
                     <?php echo $item->title . ' ' . ($item->product_id ? $item->product->size . 'см (Арт. '. $item->product->article .')' : '');?>
+                    <div>
+                        <input type="text" value="<?= $item->title?>" class="cartitem_title_value m_input">
+                        <?= Html::button('Ок', [
+                            'class' => 'btn btn-success update_title',
+                        ]) ?>
+                    </div>
                 </td>
                 <td>
-                    <?= (int)$item->price . ' руб.'?>
+                    <input type="text" value="<?= (int)$item->price?>" class="cartitem_price_value m_input">
+                    <?= Html::button('Ок', [
+                        'class' => 'btn btn-success update_price',
+                    ]) ?>
                 </td>
                 <td>
                     <input type="text" value="<?= $item->quantity?>" class="cartitem_qty_value m_input">

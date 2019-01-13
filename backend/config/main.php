@@ -12,7 +12,7 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
-    'defaultRoute' => 'product/index',
+    'defaultRoute' => 'order/index',
     'components' => [
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

@@ -142,18 +142,19 @@ class OrderController extends Controller
 
         return $this->redirect(['view', 'id' => $model->order_id]);
     }
-
-    public function actionUpdate_order_item_qty($id, $qty)
+    public function actionUpdate_order_item($id, $field, $value)
     {
         $model = OrderItem::findOne($id);
         $product = Product::findOne($model->product_id);
-        if($product && $model->quantity != $qty){
-            if($model->quantity > $qty)
-                $product->minusCount($qty - $model->quantity);
-            else
-                $product->plusCount($model->quantity - $qty);
+        if($product && $model->$field != $value){
+            if($field == 'quantity') {
+                if ($model->quantity > $value)
+                    $product->minusCount($value - $model->quantity);
+                else
+                    $product->plusCount($model->quantity - $value);
+            }
         }
-        $model->quantity = $qty;
+        $model->$field = $value;
         $model->save();
 
         return $this->redirect(['view', 'id' => $model->order_id]);

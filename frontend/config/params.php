@@ -1,5 +1,5 @@
 <?php
-//Yii::$app->params['orderMinSum'];
+//Yii::$app->params['sphinxLimit'];
 return [
     'companyName' => 'Красивая упаковка',
     'indexTitle' => 'Интернет-магазин подарочных коробок и красивой упаковки',
@@ -10,4 +10,5 @@ return [
 //    'indexPageNoveltyCount' => 10,
     'productNewCount' => 6,
     'orderMinSum' => 300,
+    'sphinxLimit' => 100,
 ];

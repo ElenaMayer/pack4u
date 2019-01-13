@@ -100,7 +100,7 @@ class SiteController extends Controller
         $q = Yii::$app->sphinx->escapeMatchValue($_GET['s']);
         $sql = "SELECT id, SNIPPET(title, :q) as _title, category_id, price, SNIPPET(article, :q) AS _article, 
                 is_in_stock, is_novelty, size, new_price, count
-                FROM pack4uindex WHERE MATCH(:q)";
+                FROM pack4uindex WHERE MATCH(:q) LIMIT " . Yii::$app->params['sphinxLimit'];
         $rows = Yii::$app->sphinx->createCommand($sql)
             ->bindValue('q', $q)
             ->queryAll();

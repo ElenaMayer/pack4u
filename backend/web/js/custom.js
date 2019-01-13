@@ -11,7 +11,30 @@ $(document).ready(function() {
     });
 
     $(document.body).on('click', '.update_qty' ,function(){
-        updateOrderItemQty($(this));
+        var qty = $(this).parent().children('input.cartitem_qty_value').val();
+        var id = $(this).parent().children('input.cartitem_id').val();
+        if(!$(this).hasClass('disable') && qty > 0){
+            $(this).addClass('disable').prop('readonly', true);
+            window.location.replace('/order/update_order_item?id=' + id + '&field=quantity&value=' + qty);
+        }
+    });
+
+    $(document.body).on('click', '.update_price' ,function(){
+        var price = $(this).parent().children('input.cartitem_price_value').val();
+        var id = $(this).parents('tr').find('.cartitem_id').val();
+        if(!$(this).hasClass('disable') && price >= 0){
+            $(this).addClass('disable').prop('readonly', true);
+            window.location.replace('/order/update_order_item?id=' + id + '&field=price&value=' + price);
+        }
+    });
+
+    $(document.body).on('click', '.update_title' ,function(){
+        var title = $(this).parent().children('input.cartitem_title_value').val();
+        var id = $(this).parents('tr').find('.cartitem_id').val();
+        if(!$(this).hasClass('disable') && title.length > 0){
+            $(this).addClass('disable').prop('readonly', true);
+            window.location.replace('/order/update_order_item?id=' + id + '&field=title&value=' + title);
+        }
     });
 
     $(document.body).on('change', '#order-shipping_method' ,function(){
@@ -49,14 +72,4 @@ function removeImage(e) {
             e.parent('.product-image').remove();
         }
     });
-}
-
-function updateOrderItemQty(e) {
-    var qty = e.parent().children('input.cartitem_qty_value').val();
-    var id = e.parent().children('input.cartitem_id').val();
-    if(!e.hasClass('disable') && qty > 0){
-        e.addClass('disable').prop('readonly', true);
-        window.location.replace('/order/update_order_item_qty?id=' + id + '&qty=' + qty);
-    }
-
 }
