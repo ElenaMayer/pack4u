@@ -75,7 +75,15 @@ $(document).ready(function() {
             if (tracker)
                 tracker.send("event", "button", "add_to_cart");
         }
-        yaCounter48289898.reachGoal('ORDER');
+        yaCounter48289898.reachGoal('ADD_TO_CART');
+    });
+
+    $(document.body).on('mouseover', '.order-discount .fa-question-circle', function (e) {
+        $(".prices-popup").removeClass("hide");
+    });
+
+    $(document.body).on('mouseout', '.order-discount .fa-question-circle', function (e) {
+        $(".prices-popup").addClass("hide");
     });
 
     aweProductRender(true);
@@ -143,8 +151,7 @@ $(document).ready(function() {
             $('.has-cart').each(function(){
                 $(this).children('em').show().text(data.count);
             });
-            $('#amount_total').text(data.total);
-            orderAvailableCheck(data);
+            $("#data_total").html(data.data);
         });
     });
 
@@ -162,14 +169,13 @@ $(document).ready(function() {
             $('.has-cart').each(function(){
                 $(this).children('em').show().text(data.count);
             });
-            $('#amount_subtotal').text(data.total);
+            $("#data_total").html(data.data);
             shipping = parseInt($('#amount_shipping').text());
             if(shipping) {
                 $('#amount_total').text(data.total + shipping);
             } else {
                 $('#amount_total').text(data.total);
             }
-            orderAvailableCheck(data);
         });
     });
 
@@ -853,9 +859,8 @@ function updateCartQty(form) {
            data: $(form).serialize(),
         }).done(function( data ) {
 			$('#amount_val_'+data.id).text(data.productTotal);
-            $('#amount_total').text(data.total);
             e.val(data.count);
-            orderAvailableCheck(data);
+            $("#data_total").html(data.data);
             // e.removeClass('disable').prop('readonly', false);
         }).fail(function( data ) {
             e.removeClass('disable').prop('readonly', false);
@@ -872,16 +877,6 @@ function checkProductCount(form) {
     } else {
         $('.count-error').hide();
     }
-}
-
-function orderAvailableCheck(data) {
-	if(data.orderAvailable){
-		$('.min_order_sum').hide();
-		$('.checkout-button').removeClass('disabled');
-	} else {
-        $('.min_order_sum').show();
-        $('.checkout-button').addClass('disabled');
-	}
 }
 
 function updateWishlist(e) {

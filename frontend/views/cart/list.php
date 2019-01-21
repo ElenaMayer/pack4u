@@ -76,11 +76,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="cart-collaterals">
                     <a class="continue" href="/catalog">Продолжить покупки</a>
                     <div class="cart_totals">
-                        <?= $this->render('_total', ['total'=>$total]); ?>
+                        <div id="data_total">
+                            <?= $this->render('_total', [
+                                'subtotal' => $cart->getCost(),
+                                'total' => $cart->getCost(true),
+                                'discount' => $cart->getDiscount(),
+                                'discountPercent' => $cart->getDiscountPercent(),
+                            ]); ?>
+                        </div>
                         <div class="wc-proceed-to-checkout">
                             <?= Html::a('Оформить заказ',
                                 ['cart/order'],
-                                ['class' => 'checkout-button button alt wc-forward' . (($total < Yii::$app->params['orderMinSum'])? ' disabled': '')])?>
+                                ['class' => 'checkout-button button alt wc-forward' . (($cart->getCost() < Yii::$app->params['orderMinSum'])? ' disabled': '')])?>
                         </div>
                     </div>
                 </div>

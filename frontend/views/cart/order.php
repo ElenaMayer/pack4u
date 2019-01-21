@@ -80,8 +80,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         </ul> <!-- /.cart-list -->
                     </div><!-- /.payment-detail-wrapper -->
                     <div class="cart_totals">
-                        <?= $this->render('_total', ['total'=>$total]); ?>
-
+                        <div id="data_total">
+                            <?= $this->render('_total', [
+                                'subtotal' => $cart->getCost(),
+                                'total' => $cart->getCost(true),
+                                'discount' => $cart->getDiscount(),
+                                'discountPercent' => $cart->getDiscountPercent(),
+                            ]); ?>
+                        </div>
 <!--                        <div class="cart-offer">Нажимая на кнопку "Отправить заказ",</br> вы принимаете условия --><?//= Html::a('Публичной оферты', ['site/offer'])?><!--</div>-->
                         <div class="wc-proceed-to-checkout">
                             <?= Html::submitButton('Отправить заказ', ['class' => 'checkout-button button alt wc-forward']) ?>

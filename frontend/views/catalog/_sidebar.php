@@ -75,30 +75,33 @@ use yii\helpers\Html;
             <h3 class="widget-title">Теги <a href="<?= StaticFunction::addGetParamToCurrentUrl('tag', 'all') ?>">Все</a></h3>
             <div class="tagcloud">
                 <?php foreach (Product::getTagsArray(true) as $key => $tag):?>
-                    <a <?php if(Yii::$app->request->get('tag') == $key):?>class="active"<?php endif;?> href="/catalog?tag=<?=$tag?>">
+                    <a <?php if(Yii::$app->request->get('tag') == $key):?>class="active"<?php endif;?>
+                       href="<?= StaticFunction::addGetParamToCurrentUrl('tag',$tag)?>">
                         <?= $tag ?>
                     </a>
                 <?php endforeach;?>
             </div>
         </div>
-        <div class="widget commerce widget_products">
-            <h3 class="widget-title">Новинки</h3>
-            <ul class="product_list_widget">
-                <?php foreach (array_values($noveltyProducts) as $model) :?>
-                    <li>
-                        <a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>">
-                            <?php
-                            $images = $model->images;
-                            if (isset($images[0])) {
-                                echo Html::img($images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt' => $model->title . ' ' . $model->size. 'см']);
-                            }
-                            ?>
-                            <span class="product-title"><?= $model->title ?></span>
-                        </a>
-                        <span class="amount"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span>
-                    </li>
-                <?php endforeach;?>
-            </ul>
-        </div>
+        <?php if($noveltyProducts):?>
+            <div class="widget commerce widget_products">
+                <h3 class="widget-title">Новинки</h3>
+                <ul class="product_list_widget">
+                    <?php foreach (array_values($noveltyProducts) as $model) :?>
+                        <li>
+                            <a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>">
+                                <?php
+                                $images = $model->images;
+                                if (isset($images[0])) {
+                                    echo Html::img($images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt' => $model->title . ' ' . $model->size. 'см']);
+                                }
+                                ?>
+                                <span class="product-title"><?= $model->title ?></span>
+                            </a>
+                            <span class="amount"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span>
+                        </li>
+                    <?php endforeach;?>
+                </ul>
+            </div>
+        <?php endif;?>
     </div>
 </div>

@@ -191,9 +191,9 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     /**
      * @inheritdoc
      */
-    public function getPrice()
+    public function getPrice($orderCreated = false)
     {
-        if ($this->getIsActive() && $this->getIsInStock()){
+        if (($this->getIsActive() && $this->getIsInStock()) || $orderCreated){
             if($this->getNewPrice())
                 return $this->getNewPrice();
             else

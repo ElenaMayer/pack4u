@@ -206,6 +206,15 @@ class Order extends \yii\db\ActiveRecord
         else
             return $cost;
     }
+
+    public function getDiscountValue()
+    {
+        $cost = $this->getSubCost();
+        if($this->discount > 0)
+            return $cost * $this->discount/ 100;
+        else
+            return 0;
+    }
     
     public function beforeDelete()
     {

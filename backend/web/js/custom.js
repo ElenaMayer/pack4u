@@ -28,15 +28,6 @@ $(document).ready(function() {
         }
     });
 
-    $(document.body).on('click', '.update_title' ,function(){
-        var title = $(this).parent().children('input.cartitem_title_value').val();
-        var id = $(this).parents('tr').find('.cartitem_id').val();
-        if(!$(this).hasClass('disable') && title.length > 0){
-            $(this).addClass('disable').prop('readonly', true);
-            window.location.replace('/order/update_order_item?id=' + id + '&field=title&value=' + title);
-        }
-    });
-
     $(document.body).on('change', '#order-shipping_method' ,function(){
         if($(this).children("option:selected").val() == 'self'){
             $('.shipping_method_field').each(function(){

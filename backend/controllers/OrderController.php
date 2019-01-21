@@ -69,7 +69,7 @@ class OrderController extends Controller
                 $orderItem = new OrderItem();
                 $orderItem->order_id = $id;
                 $orderItem->title = $product->title;
-                $orderItem->price = $product->price;
+                $orderItem->price = $product->getPrice(true);
                 $orderItem->product_id = $post['product_id'];
                 $orderItem->quantity = $post['quantity'];
             }

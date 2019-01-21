@@ -49,7 +49,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 </table>
                 <div class="cart-collaterals">
                     <div class="cart_totals">
-                        <?= $this->render('_total', ['total'=>$order->getCost(), 'order' => $order]); ?>
+                        <div id="data_total">
+                            <?= $this->render('_total', [
+                                    'order' => $order,
+                                    'subtotal' => $order->getSubCost(),
+                                    'total' => $order->getCost(),
+                                    'discount' => $order->getDiscountValue(),
+                                    'discountPercent' => $order->discount,
+                                ]); ?>
+                        </div>
                     </div>
                 </div>
             </div>

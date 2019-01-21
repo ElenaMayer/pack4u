@@ -4082,12 +4082,60 @@ ul.post_list_widget li a .post-date {
     padding: 0;
     margin: 0;
 }
-.noo-main-menu .navbar-nav li > .sub-menu li a.red {
+.noo-main-menu .navbar-nav li > .sub-menu li a.red,
+tr.red {
     color: #ff6868;
 }
 
 .noo-main-menu .navbar-nav li > .sub-menu li a.red:hover {
     color: #d22a2a;
+}
+
+.prices-popup {
+    padding: 10px 0px;
+    position: absolute;
+}
+
+.prices-popup-p {
+    border-radius: 2px;
+    border: 1px solid #cbcbcb;
+    box-shadow: 0 1px 2px rgba(37,40,43,.1);
+    color: #333;
+    font-size: 12px;
+    letter-spacing: -.2px;
+    line-height: 13px;
+    padding: 15px 15px 5px;
+    text-shadow: none;
+    background: #fff;
+}
+
+.ttip__arrow {
+    position: relative;
+    background: #ffffff;
+    top: 1px;
+}
+.ttip__arrow:after, .ttip__arrow:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.ttip__arrow:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 10px;
+    margin-left: -10px;
+}
+.ttip__arrow:before {
+    border-color: rgba(203, 203, 203, 0);
+    border-bottom-color: #cbcbcb;
+    border-width: 11px;
+    margin-left: -11px;
 }
 
 .noo-header.header-5 .noo-main-menu > ul.navbar-nav {

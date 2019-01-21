@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter' => [1 => 'Есть', 0 => 'Нет']
             ],
-            'created_at:date',
+            'created_at:datetime',
             [
                 'class' => 'yii\grid\ActionColumn'
             ],

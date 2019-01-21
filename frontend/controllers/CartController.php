@@ -57,8 +57,12 @@ class CartController extends \yii\web\Controller
                 'id' => $get['id'],
                 'count' => $count,
                 'productTotal' => $product->getCost(),
-                'total' => $total,
-                'orderAvailable' => $total >= Yii::$app->params['orderMinSum'],
+                'data' => $this->renderPartial('_total', [
+                    'subtotal' => $cart->getCost(),
+                    'total' => $cart->getCost(true),
+                    'discount' => $cart->getDiscount(),
+                    'discountPercent' => $cart->getDiscountPercent(),
+                ])
             ];
         } else {
             return false;
@@ -70,12 +74,9 @@ class CartController extends \yii\web\Controller
     {
         $cart = \Yii::$app->cart;
 
-        $products = $cart->getPositions();
-        $total = $cart->getCost();
-
         return $this->render('list', [
-            'products' => $products,
-            'total' => $total,
+            'products' => $cart->getPositions(),
+            'cart' => $cart,
         ]);
     }
 
@@ -83,13 +84,13 @@ class CartController extends \yii\web\Controller
     {
         $this->removeItemFromCart($id);
         $cart = \Yii::$app->cart;
-        $total = $cart->getCost();
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        return [
-            'count' => $cart->getCount(),
-            'total' => $total,
-            'orderAvailable' => $total >= Yii::$app->params['orderMinSum'],
-        ];
+        return ['data' => $this->renderPartial('_total', [
+            'subtotal' => $cart->getCost(),
+            'total' => $cart->getCost(true),
+            'discount' => $cart->getDiscount(),
+            'discountPercent' => $cart->getDiscountPercent(),
+        ])];
     }
 
     public function removeItemFromCart($id)
@@ -128,7 +129,6 @@ class CartController extends \yii\web\Controller
         $cart = \Yii::$app->cart;
         /* @var $products Product[] */
         $products = $cart->getPositions();
-        $total = $cart->getCost();
 
         if($products) {
             if ($order->load(\Yii::$app->request->post()) && $order->validate()) {
@@ -136,6 +136,7 @@ class CartController extends \yii\web\Controller
                 if (!Yii::$app->user->isGuest) {
                     $order->user_id = Yii::$app->user->id;
                     $order->id = date('ymdB');
+                    $order->discount = $cart->getDiscountPercent();
                 }
                 $order->save(false);
 
@@ -185,13 +186,13 @@ class CartController extends \yii\web\Controller
                 return $this->renderPartial('order', [
                     'order' => $order,
                     'products' => $products,
-                    'total' => $total,
+                    'cart' => $cart,
                 ]);
             } else {
                 return $this->render('order', [
                     'order' => $order,
                     'products' => $products,
-                    'total' => $total,
+                    'cart' => $cart,
                 ]);
             }
         } else {
