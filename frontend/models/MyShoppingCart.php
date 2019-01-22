@@ -25,6 +25,8 @@ class MyShoppingCart extends ShoppingCart
 
     public function getDiscount()
     {
+        return 0; // without discount
+
         $cost = 0;
         foreach ($this->_positions as $position) {
             $cost += $position->getCost();
@@ -38,6 +40,8 @@ class MyShoppingCart extends ShoppingCart
 
     public function getDiscountPercent()
     {
+        return 0; // without discount
+
         $cost = 0;
         foreach ($this->_positions as $position) {
             $cost += $position->getCost();
@@ -48,5 +52,10 @@ class MyShoppingCart extends ShoppingCart
         $this->trigger(self::EVENT_COST_CALCULATION, $costEvent);
 
         return $costEvent->discountValue * 100 / $cost;
+    }
+
+    public function getCost($withDiscount = false)
+    {
+        return parent::getCost(false); // without discount
     }
 }

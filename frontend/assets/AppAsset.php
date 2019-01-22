@@ -31,7 +31,7 @@ class AppAsset extends AssetBundle
         'js/off-cavnass.min.js',
         "js/swiper.min.js",
         'js/owl.carousel.min.js?1',
-        'js/custom.js?42',
+        'js/custom.js?43',
         'js/instafeed.min.js',
 
     ];
