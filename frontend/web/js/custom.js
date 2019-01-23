@@ -151,6 +151,7 @@ $(document).ready(function() {
             $('.has-cart').each(function(){
                 $(this).children('em').show().text(data.count);
             });
+            orderAvailableCheck(data);
             $("#data_total").html(data.data);
         });
     });
@@ -176,6 +177,7 @@ $(document).ready(function() {
             } else {
                 $('#amount_total').text(data.total);
             }
+            orderAvailableCheck(data);
         });
     });
 
@@ -860,6 +862,7 @@ function updateCartQty(form) {
         }).done(function( data ) {
 			$('#amount_val_'+data.id).text(data.productTotal);
             e.val(data.count);
+            orderAvailableCheck(data);
             $("#data_total").html(data.data);
             // e.removeClass('disable').prop('readonly', false);
         }).fail(function( data ) {
@@ -894,4 +897,14 @@ function updateWishlist(e) {
         else
             p.addClass('active');
     });
+}
+
+function orderAvailableCheck(data) {
+    if(data.orderAvailable){
+        $('.min_order_sum').hide();
+        $('.checkout-button').removeClass('disabled');
+    } else {
+        $('.min_order_sum').show();
+        $('.checkout-button').addClass('disabled');
+    }
 }

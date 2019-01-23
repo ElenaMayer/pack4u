@@ -57,6 +57,7 @@ class CartController extends \yii\web\Controller
                 'id' => $get['id'],
                 'count' => $count,
                 'productTotal' => $product->getCost(),
+                'orderAvailable' => ($total >= Yii::$app->params['orderMinSum']),
                 'data' => $this->renderPartial('_total', [
                     'subtotal' => $cart->getCost(),
                     'total' => $cart->getCost(true),
@@ -86,6 +87,7 @@ class CartController extends \yii\web\Controller
         $cart = \Yii::$app->cart;
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         return ['data' => $this->renderPartial('_total', [
+            'orderAvailable' => $cart->getCost() >= Yii::$app->params['orderMinSum'],
             'subtotal' => $cart->getCost(),
             'total' => $cart->getCost(true),
             'discount' => $cart->getDiscount(),
