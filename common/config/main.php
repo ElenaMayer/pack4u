@@ -6,6 +6,10 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter',
+            'timeZone' => 'Asia/Novosibirsk',
+        ],
     ],
     'modules' => [
         'user' => [

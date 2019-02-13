@@ -206,7 +206,7 @@ IeAsset::register($this);
                         <div class="widget widget_text">
                             <div class="textwidget">
                                 <div class="copyright">
-                                    Copyright &copy; 2018 <?= Yii::$app->params['domain'] ?><br/>
+                                    Copyright &copy; <?= date('Y') ?> <?= Yii::$app->params['domain'] ?><br/>
                                     Developed with <i class="fa fa-heart-o"></i> by <a href="<?= Yii::$app->params['developerSite'] ?>" rel="external"><?= Yii::$app->params['developer'] ?></a>.
                                 </div>
                             </div>

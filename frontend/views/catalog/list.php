@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     $begin = $pagination->getPage() * $pagination->pageSize + 1;
                     $end = $begin + $pageCount - 1;
                     ?>
-                    <p class="commerce-result-count">Товар с <?= $begin ?> по <?= $end ?> из <?= $pagination->totalCount ?></p>
+                    <p class="commerce-result-count">Товары с <?= $begin ?> по <?= $end ?> из <?= $pagination->totalCount ?></p>
                     <div class="product-style-control pull-right">
                         <span class="noo-list"><a><i class="fa fa-th-list"></i></a></span>
                         <span class="noo-grid active"><a><i class="fa fa-th-large"></i></a></span>

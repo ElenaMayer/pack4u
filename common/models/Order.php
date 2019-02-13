@@ -38,6 +38,7 @@ class Order extends \yii\db\ActiveRecord
     const STATUS_CANCELED = 'canceled';
     const STATUS_PAYMENT = 'payment';
     const STATUS_PRE_ORDER = 'pre_order';
+    const STATUS_PAID = 'paid';
 
     public function behaviors()
     {
@@ -134,12 +135,13 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             self::STATUS_NEW => 'Новый',
-            self::STATUS_IN_PROGRESS => 'Готов к отправке',
             self::STATUS_PAYMENT => 'Ожидает оплаты',
+            self::STATUS_PAID => 'Оплачено',
+            self::STATUS_IN_PROGRESS => 'Готов к отправке',
             self::STATUS_SHIPPED => 'Передан в доставку',
+            self::STATUS_PRE_ORDER => 'Предзаказ',
             self::STATUS_DONE => 'Выполнен',
             self::STATUS_CANCELED => 'Отменен',
-            self::STATUS_PRE_ORDER => 'Предзаказ',
         ];
     }
 
@@ -244,6 +246,6 @@ class Order extends \yii\db\ActiveRecord
                 $weight += $item->weight * $item->quantity;
             }
         }
-        return $weight;
+        return $weight * 1.1;
     }
 }

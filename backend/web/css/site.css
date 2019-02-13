@@ -145,7 +145,7 @@ a.image_remove:hover {
     background-color: #d4ecd6;
 }
 .order-index .table-striped tr.shipped {
-    background-color: #fbbe89;
+    background-color: #ffe1c6;
 }
 .order-index .table-striped tr.canceled {
     background-color: #ddd;
@@ -155,4 +155,7 @@ a.image_remove:hover {
 }
 .order-index .table-striped tr.pre_order {
     background-color: #81e0e1;
+}
+.order-index .table-striped tr.paid {
+    background-color: #fbbe89;
 }

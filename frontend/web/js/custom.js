@@ -3,7 +3,7 @@ $(document).ready(function() {
         get: 'user',
         userId: '6706865954',
         clientId: '5240196a48394517bde1696155cb28c1',
-        accessToken: '6706865954.5240196.016e2364c64641598da0171f864a1399',
+        accessToken: '6706865954.5240196.e99d36ce7cd845129a3d2ed2c5185883',
         template: '<a href="{{link}}" class="instafeed_image" target="_blank" id="{{id}}"><img src="{{image}}" /></a>',
         sortBy: 'most-recent',
         limit: 9,
