@@ -137,7 +137,7 @@ class Order extends \yii\db\ActiveRecord
             self::STATUS_NEW => 'Новый',
             self::STATUS_PAYMENT => 'Ожидает оплаты',
             self::STATUS_PAID => 'Оплачено',
-            self::STATUS_IN_PROGRESS => 'Готов к отправке',
+            self::STATUS_IN_PROGRESS => 'Собран',
             self::STATUS_SHIPPED => 'Передан в доставку',
             self::STATUS_PRE_ORDER => 'Предзаказ',
             self::STATUS_DONE => 'Выполнен',

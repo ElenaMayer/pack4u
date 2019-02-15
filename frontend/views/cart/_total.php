@@ -1,10 +1,10 @@
 <h2>Итого</h2>
 <table>
-    <?php if(isset($discount) && $discount > 0):?>
         <tr class="order-subtotal">
             <th>Подитог</th>
             <td><strong><span class="amount"><span id="amount_subtotal"><?= $subtotal ?></span><i class="fa fa-ruble"></i></span></strong> </td>
         </tr>
+        <?php if(isset($discount) && $discount > 0):?>
         <tr class="order-discount red">
             <th>
                 Скидка <?= $discountPercent ?>% <i class="fa fa-question-circle"></i>

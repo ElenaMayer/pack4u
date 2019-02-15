@@ -1,6 +1,4 @@
 <?php
-use yii\bootstrap\ActiveForm;
-use yii\captcha\Captcha;
 use frontend\assets\ContactAsset;
 
 ContactAsset::register($this);
