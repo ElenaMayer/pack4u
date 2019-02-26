@@ -133,6 +133,7 @@ IeAsset::register($this);
                                             <li><a class="red" href="/catalog/sale">Скидки</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="/instruction">Инструкции</a></li>
                                     <li><a href="/contact">Контакты</a></li>
                                     <li><a href="/shipping">Доставка</a></li>
                                     <li><a href="/payment">Оплата</a></li>

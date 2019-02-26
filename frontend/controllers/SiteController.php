@@ -2,13 +2,13 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\ContactForm;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\Product;
 use common\models\Category;
-use yii\sphinx\Query;
+use Google_Client;
+use Google_Service_YouTube;
 
 /**
  * Site controller
@@ -126,4 +126,54 @@ class SiteController extends Controller
             ]
         );
     }
+
+    public function actionInstruction(){
+        $data = $this->getYoutubeData();
+        return $this->render('instruction', ['data' => $data]);
+    }
+
+    private function getYoutubeData($cache_life = 86400) {
+
+        $cache = Yii::$app->cache;
+
+        $data = $cache->getOrSet('youtube', function () {
+            return $this->getYoutubePlaylist();
+        }, $cache_life);
+        return $data;
+    }
+
+    private function getYoutubePlaylist(){
+        $client = new Google_Client();
+
+        $client->setDeveloperKey(Yii::$app->params['youtubeApiKey']);
+        $service = new Google_Service_YouTube($client);
+        $response = $service->playlistItems->listPlaylistItems(
+            'snippet,contentDetails',
+            array('maxResults' => 25, 'playlistId' => Yii::$app->params['youtubePlayListId'])
+        );
+        return $response->getItems();
+    }
+
+    public function actionInstruction_item($id){
+        $data = $this->getYoutubeVideoById($id);
+        return $this->render('instruction-item', [
+            'data' => $data,
+            'menuItems' => Category::getMenuItems(null),
+            'noveltyProducts' => Product::getNovelties(),
+            ]);
+    }
+
+    private function getYoutubeVideoById($id){
+        $client = new Google_Client();
+
+        $client->setDeveloperKey(Yii::$app->params['youtubeApiKey']);
+        $service = new Google_Service_YouTube($client);
+        $response = $service->videos->listVideos(
+            'snippet',
+            array('id' => $id)
+        );
+        return $response->getItems();
+    }
+
+
 }

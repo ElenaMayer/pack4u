@@ -24,8 +24,13 @@ use common\models\Order;
     <?php if($order->shipping_method == 'rcr' && $order->rcr):?>
         <li><b>РЦР:</b> <?= $order->rcr?></li>
     <?php endif;?>
-    <?php if($order->shipping_method == 'rp' && $order->address):?>
-        <li><b>ТК:</b> <?= $order->address ?></li>
+    <?php if($order->shipping_method == 'rp'):?>
+        <?php if($order->zip):?>
+            <li><b>Индекс:</b> <?= $order->zip ?></li>
+        <?php endif;?>
+        <?php if($order->address):?>
+            <li><b>Адрес:</b> <?= $order->address ?></li>
+        <?php endif;?>
     <?php endif;?>
     <?php if($order->payment_method):?>
         <li><b>Оплата:</b> <?= Order::getPaymentMethods()[$order->payment_method]; ?></li>

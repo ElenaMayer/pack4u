@@ -9213,6 +9213,7 @@ div.blog-sh-title2 p {
     padding: 0;
     margin-top: -2px;
     text-align: center;
+    padding-bottom: 20px;
 }
 
 .single .blog-item .blog-description .meta {
@@ -9221,6 +9222,8 @@ div.blog-sh-title2 p {
 
 .single .blog-item .blog-description h1 {
     margin-bottom: 0;
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
 }
 
 .single .blog-item .content-featured {

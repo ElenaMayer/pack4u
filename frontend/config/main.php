@@ -48,6 +48,8 @@ return [
                 'history' => 'cart/history',
                 'history/<orderId:\d+>' => 'cart/history_item',
                 'search' => 'site/search',
+                'instruction' => 'site/instruction',
+                'instruction/<id>' => 'site/instruction_item',
             ],
         ],
         'view' => [
@@ -70,7 +72,10 @@ return [
                     ]
                 ]
             ]
-        ]
+        ],
+        'cache' => [
+            'class' => 'yii\caching\FileCache',
+        ],
     ],
     'params' => $params,
 ];
