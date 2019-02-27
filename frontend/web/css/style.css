@@ -4082,6 +4082,15 @@ ul.post_list_widget li a .post-date {
     padding: 0;
     margin: 0;
 }
+
+.noo-main-menu .navbar-nav a.red {
+    color: #fc9090;
+}
+
+.noo-main-menu .navbar-nav a.red:hover {
+    color: #ff6f6f;
+}
+
 .noo-main-menu .navbar-nav li > .sub-menu li a.red,
 tr.red {
     color: #ff6868;
@@ -16103,6 +16112,16 @@ form.cart .cd-customization {
 .single-product div.product .product_meta .tagged_as a {
     text-transform: none;
     margin-right: 10px;
+}
+
+.single-product div.product .product_meta .posted_in.instruction a:first-child {
+    text-transform: uppercase;
+    margin-left: 0;
+    color: #fc9090;
+}
+
+.single-product div.product .product_meta .posted_in.instruction a:first-child:hover {
+    color: #ff6f6f;
 }
 
 .single-product div.product .product_meta .posted_in a:first-child,

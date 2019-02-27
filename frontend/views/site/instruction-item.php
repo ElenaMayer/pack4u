@@ -18,9 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="noo-main col-md-9">
                 <article>
                     <div class="blog-item">
-                        <div class="blog-description">
-                            <h1><?= $snippet->title ?></h1>
-                        </div>
                         <div class="content-featured">
                             <div class="noo-video-container">
                                 <div class="video-inner full-screen">

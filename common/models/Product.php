@@ -34,6 +34,7 @@ use yii\helpers\ArrayHelper;
  * @property string $time
  * @property integer $sort
  * @property string $subcategories
+ * @property string $instruction
  *
  * @property Image[] $images
  * @property OrderItem[] $orderItems
@@ -82,7 +83,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             [['price'], 'number'],
             [['time, color, tags, subcategories'], 'safe'],
             [['slug', 'article', 'size'], 'string', 'max' => 255],
-            [['title'], 'string', 'max' => 40],
+            [['title', 'instruction'], 'string', 'max' => 40],
             [['article'], 'unique'],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];
@@ -115,6 +116,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'imageFiles' => 'Фото',
             'relationsArr' => 'Связанные товары',
             'sort' => 'Сортировка',
+            'instruction' => 'Youtube инструкция'
         ];
     }
 

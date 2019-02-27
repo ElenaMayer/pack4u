@@ -133,7 +133,7 @@ IeAsset::register($this);
                                             <li><a class="red" href="/catalog/sale">Скидки</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/instruction">Инструкции</a></li>
+                                    <li><a class="red" href="/instruction">Инструкции</a></li>
                                     <li><a href="/contact">Контакты</a></li>
                                     <li><a href="/shipping">Доставка</a></li>
                                     <li><a href="/payment">Оплата</a></li>
@@ -186,7 +186,7 @@ IeAsset::register($this);
         <footer class="wrap-footer footer-2 colophon wigetized">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 item-footer-four">
+                    <div class="col-md-4 col-sm-6 item-footer-four">
                         <div class="widget widget_about">
                             <div class="noo_about_widget">
                                 <a href="/">
@@ -213,11 +213,12 @@ IeAsset::register($this);
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 item-footer-four">
+                    <div class="col-md-2 col-sm-6 item-footer-four">
                         <div class="widget widget_text">
                             <h4 class="widget-title">Помощь</h4>
                             <div class="textwidget">
                                 <p><a href="/contact">Контакты</a></p>
+                                <p><a href="/instruction">Инструкции</a></p>
                                 <p><a href="/shipping">Информация о доставке</a></p>
                                 <p><a href="/payment">Способы оплаты</a></p>
                                 <p><a href="/refund">Возврат товара</a></p>

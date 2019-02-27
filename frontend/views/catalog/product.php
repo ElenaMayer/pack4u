@@ -65,6 +65,9 @@ $this->title = Html::encode($title . ' ' . ($product->size?$product->size . 'с�
                             <?php endif;?>
                             <p class="description"><?= $product->description ?></p>
                             <div class="product_meta">
+                                <?php if($product->instruction):?>
+                                    <span class="posted_in instruction"><a href="/instruction/<?=$product->instruction?>" target="_blank">Смотреть инструкцию по сборке</a></span>
+                                <?php endif;?>
                                 <?php if($product->size):?>
                                     <span class="posted_in">Размер: <span class="value"><?= Html::encode($product->size) ?> см</span></span>
                                 <?php endif;?>

@@ -10,7 +10,7 @@ CatalogAsset::register($this);
 /* @var $this yii\web\View */
 $title = $category === null ? 'Каталог красивой упаковки' : $category->title;
 $this->title = Html::encode($title);
-if($category->parent){
+if(isset($category->parent)){
     $this->params['breadcrumbs'][] = ['label' => $category->parent->title, 'url' => ['/catalog/' . $category->parent->slug]];
 }
 $this->params['breadcrumbs'][] = $this->title;
