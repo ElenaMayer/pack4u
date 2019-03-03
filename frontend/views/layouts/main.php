@@ -246,10 +246,10 @@ IeAsset::register($this);
                             </ul>
                         </div>
                         <div class="widget widget_noo_happyhours">
-                            <h4 class="widget-title">Время работы</h4>
+                            <p class="widget-title">Время обработки </br> заказов</p>
                             <ul class="noo-happyhours">
                                 <li>
-                                    <div>9:00 - 21:00</div>
+                                    <div>9:00 - 21:00 (НСК)</div>
                                     <div>Без выходных</div>
                                 </li>
                             </ul>

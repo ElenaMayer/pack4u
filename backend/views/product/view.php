@@ -13,9 +13,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Товары', 'url' => ['index']]
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-view">
-
     <h1><a href='http://<?= Yii::$app->params['domain']?>/catalog/<?=$model->category->slug?>/<?=$model->id?>'><?= Html::encode($this->title) ?></a></h1>
-
     <div class="product-images">
         <?php foreach ($model->images as $image):?>
             <div class="product-image">
@@ -24,7 +22,6 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         <?php endforeach;?>
     </div>
-
     <p>
         <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [

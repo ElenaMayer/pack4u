@@ -20,7 +20,7 @@ use yii\helpers\ArrayHelper;
  * @property string $slug
  * @property string $description
  * @property integer $category_id
- * @property string $price
+ * @property integer $price
  * @property string $article
  * @property integer $is_in_stock
  * @property integer $is_active
@@ -77,10 +77,9 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     {
         return [
             [['description'], 'string'],
-            [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count', 'sort'], 'integer'],
+            [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count', 'sort', 'price'], 'integer'],
             ['weight', 'match', 'pattern' => '/^[0-9]+[0-9,.]*$/', 'message' => 'Значение должно быть числом.'],
             [['title', 'article', 'category_id', 'count', 'price', 'weight'], 'required'],
-            [['price'], 'number'],
             [['time, color, tags, subcategories'], 'safe'],
             [['slug', 'article', 'size'], 'string', 'max' => 255],
             [['title', 'instruction'], 'string', 'max' => 40],

@@ -49,7 +49,7 @@ use common\models\Category;
 
     <?= $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'price')->textInput(['maxlength' => 19]) ?>
+    <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'count')->textInput(['maxlength' => true]) ?>
 
