@@ -28,7 +28,21 @@ $this->params['breadcrumbs'][] = $this->title;
         },
         'columns' => [
             'id',
-            'fio',
+            [
+                'attribute'=>'fio',
+                'format' => 'html',
+                'value' => function ($model) {
+                    if($model->user_id){
+                        $href = 'index?OrderSearch%5Buser_id%5D='.$model->user_id;
+                        return '<a href=' . $href . '>' . $model->fio . '</a>';
+                    } elseif (Order::isSameFioExist($model->fio)){
+                        $href = 'index?OrderSearch%5Bfio%5D='.$model->fio;
+                        return '<a href=' . $href . '>' . $model->fio . '</a>';
+                    } else {
+                        return $model->fio;
+                    }
+                },
+            ],
             'phone',
             [
                 'attribute'=>'status',

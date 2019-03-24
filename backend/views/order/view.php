@@ -108,7 +108,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </tr>
         <?php
         if($model->orderItems):
-            foreach ($model->orderItems as $item): ?>
+            foreach ($model->getSortOrderItems() as $item): ?>
                 <tr>
                     <td>
                         <div class="product-image">

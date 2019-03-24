@@ -248,4 +248,22 @@ class Order extends \yii\db\ActiveRecord
         }
         return $weight * 1.1;
     }
+
+    public function getSortOrderItems(){
+        return OrderItem::find()
+            ->joinWith('product')
+            ->where(['order_id' => $this->id])
+            ->orderBy('product.article')
+            ->all();
+    }
+
+    public static function isSameFioExist($fio){
+        $orders = Order::find()
+            ->where(['fio' => $fio])
+            ->all();
+        if(count($orders) > 1)
+            return true;
+        else
+            return false;
+    }
 }
