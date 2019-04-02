@@ -53,10 +53,12 @@ class CartController extends \yii\web\Controller
             $product = $cart->getPositionById($get['id']);
             $total = $cart->getCost();
             \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
             return [
                 'id' => $get['id'],
                 'count' => $count,
                 'productTotal' => $product->getCost(),
+                'productPrice' => $product->getPrice($count),
                 'orderAvailable' => ($total >= Yii::$app->params['orderMinSum']),
                 'data' => $this->renderPartial('_total', [
                     'subtotal' => $cart->getCost(),
@@ -144,12 +146,12 @@ class CartController extends \yii\web\Controller
 
                 foreach ($products as $product) {
                     if ($product->getIsActive() && $product->getIsInStock()) {
+                        $qty = $product->getQuantity();
                         $orderItem = new OrderItem();
                         $orderItem->order_id = $order->id;
                         $orderItem->title = $product->title;
-                        $orderItem->price = $product->getPrice();
+                        $orderItem->price = $product->getPrice($qty);
                         $orderItem->product_id = $product->id;
-                        $qty = $product->getQuantity();
                         if($product->count < $qty)
                             $qty = $product->count;
                         $orderItem->quantity = $qty;

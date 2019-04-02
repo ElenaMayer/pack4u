@@ -524,6 +524,9 @@ fieldset[disabled] .mailchimp-widget .mc-subscribe-form button.active {
 .single-product div.product .entry-summary .price {
     color: #96cb62;
 }
+.single-product div.product .entry-summary .multiprice .amount {
+    color: #96cb62;
+}
 .single-product div.product .entry-summary form.cart .button {
     background: #96cb62;
 }

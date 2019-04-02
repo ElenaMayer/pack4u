@@ -39,8 +39,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter' => Category::getCategoryList()
             ],
-            'price',
-            'new_price',
+            [
+                'attribute'=>'price',
+                'format' => 'html',
+                'value' => function ($model) {
+                    if($model->multiprice) {
+                        return $model->getMultipricesStr();
+                    } elseif($model->new_price) {
+                        return '<s>' . $model->price . '</s> ' . $model->new_price;
+                    } else {
+                        return $model->price;
+                    }
+                },
+            ],
             'size',
             'count',
             [

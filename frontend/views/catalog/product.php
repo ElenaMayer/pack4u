@@ -55,14 +55,23 @@ $this->title = Html::encode($title . ' ' . ($product->size?$product->size . 'с�
                                 <span>&nbsp;-&nbsp;</span>
                                 <span>Арт: <?= $product->article?></span>
                             </div>
-                            <?php if($product->getIsInStock() && $product->new_price): ?>
-                                <p class="price">
-                                    <span class="amount old"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
-                                    <span class="amount new"><?= (int)$product->new_price ?><i class="fa fa-ruble"></i></span>
-                                </p>
-                            <?php else:?>
-                                <p class="price"><span class="amount"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span></p>
-                            <?php endif;?>
+                                <?php if($product->multiprice): ?>
+                                    <?php foreach ($product->prices as $price):?>
+                                    <p class="multiprice">
+                                        <span class="amount"><?= $price->price ?><i class="fa fa-ruble"></i></span>
+                                        <span class="count"> от <?= $price->count ?> шт.</span>
+                                    </p>
+                                    <?php endforeach;?>
+                                <?php elseif($product->getIsInStock() && $product->new_price): ?>
+                                    <p class="price">
+                                        <span class="amount old"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
+                                        <span class="amount new"><?= (int)$product->new_price ?><i class="fa fa-ruble"></i></span>
+                                    </p>
+                                <?php else:?>
+                                    <p class="price">
+                                        <span class="amount"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
+                                    </p>
+                                <?php endif;?>
                             <p class="description"><?= $product->description ?></p>
                             <div class="product_meta">
                                 <?php if($product->instruction):?>

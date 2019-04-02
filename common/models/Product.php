@@ -2,12 +2,11 @@
 
 namespace common\models;
 
-use common\models\ProductRelation;
 use frontend\models\Wishlist;
 use Yii;
 use yii\behaviors\SluggableBehavior;
 use yz\shoppingcart\CartPositionInterface;
-use yz\shoppingcart\CartPositionTrait;
+use frontend\models\MyCartPositionTrait;
 use yii\web\UploadedFile;
 use Imagine\Image\Box;
 use yii\helpers\ArrayHelper;
@@ -35,15 +34,17 @@ use yii\helpers\ArrayHelper;
  * @property integer $sort
  * @property string $subcategories
  * @property string $instruction
+ * @property integer $multiprice
  *
  * @property Image[] $images
  * @property OrderItem[] $orderItems
  * @property Category $category
  * @property ProductRelation[] $relations
+ * @property ProductPrice[] $prices
  */
 class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 {
-    use CartPositionTrait;
+    use MyCartPositionTrait;
 
     /**
      * @var UploadedFile[]
@@ -51,6 +52,8 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public $imageFiles;
 
     public $relationsArr;
+
+    private $_productPrices;
 
     /**
      * @inheritdoc
@@ -77,7 +80,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     {
         return [
             [['description'], 'string'],
-            [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count', 'sort', 'price'], 'integer'],
+            [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count', 'sort', 'price', 'multiprice'], 'integer'],
             ['weight', 'match', 'pattern' => '/^[0-9]+[0-9,.]*$/', 'message' => 'Значение должно быть числом.'],
             [['title', 'article', 'category_id', 'count', 'price', 'weight'], 'required'],
             [['time, color, tags, subcategories'], 'safe'],
@@ -115,7 +118,8 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'imageFiles' => 'Фото',
             'relationsArr' => 'Связанные товары',
             'sort' => 'Сортировка',
-            'instruction' => 'Youtube инструкция'
+            'instruction' => 'Youtube инструкция',
+            'multiprice' => 'Цена от количества',
         ];
     }
 
@@ -175,6 +179,14 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 
+    /**
+     * @return ProductPrice[]
+     */
+    public function getPrices()
+    {
+        return $this->hasMany(ProductPrice::className(), ['product_id' => 'id']);
+    }
+
     public function isInWishlist()
     {
         if (!Yii::$app->user->isGuest) {
@@ -192,10 +204,12 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     /**
      * @inheritdoc
      */
-    public function getPrice($orderCreated = false)
+    public function getPrice($qty = 0, $orderCreated = false)
     {
         if (($this->getIsActive() && $this->getIsInStock()) || $orderCreated){
-            if($this->getNewPrice())
+            if($this->multiprice)
+                return $this->getMultiprice($qty);
+            elseif($this->getNewPrice())
                 return $this->getNewPrice();
             else
                 return $this->price;
@@ -423,5 +437,86 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             return Category::findOne(trim($subcatId[0], ','));
         else
             return null;
+    }
+
+    public function getProductPrices()
+    {
+        if ($this->_productPrices === null) {
+            $this->_productPrices = $this->isNewRecord ? [] : $this->prices;
+        }
+        return $this->_productPrices;
+    }
+
+    private function getProductPrice($key)
+    {
+        $price = $key && strpos($key, 'new') === false ? ProductPrice::findOne($key) : false;
+        if (!$price) {
+            $price = new ProductPrice();
+            $price->loadDefaultValues();
+        }
+        return $price;
+    }
+
+    public function setProductPrices($prices)
+    {
+        unset($prices['__id__']); // remove the hidden "new ProductSize" row
+        $this->_productPrices = [];
+        foreach ($prices as $key => $price) {
+            if (is_array($price)) {
+                $this->_productPrices[$key] = $this->getProductPrice($key);
+                $this->_productPrices[$key]->setAttributes($price);
+            } elseif ($price instanceof ProductSize) {
+                $this->_productPrices[$price->id] = $price;
+            }
+        }
+    }
+
+    public function afterSave($insert, $changedAttributes){
+        parent::afterSave($insert, $changedAttributes);
+        $this->savePrices();
+    }
+
+    public function savePrices()
+    {
+        $keep = [];
+        foreach ($this->productPrices as $price) {
+            if($price->price) {
+                $price->product_id = $this->id;
+                if (!$price->save(false)) {
+                    return false;
+                }
+                $keep[] = $price->id;
+            }
+        }
+        $query = ProductPrice::find()->andWhere(['product_id' => $this->id]);
+        if ($keep) {
+            $query->andWhere(['not in', 'id', $keep]);
+        }
+        foreach ($query->all() as $price) {
+            $price->delete();
+        }
+        return true;
+    }
+
+    public function getMultiprice($quantity){
+        $result = 0;
+        foreach ($this->prices as $price){
+            if($quantity >= $price->count){
+                $result = $price->price;
+            }
+        }
+        return $result;
+    }
+
+    public function getMultipricesStr(){
+        $result = '';
+        foreach ($this->prices as $price){
+            $result .= $price->price . '/';
+        }
+        return trim($result, '/');
+    }
+
+    public function getMinMultiprice(){
+        return ProductPrice::find()->where(['product_id' => $this->id])->min('price');
     }
 }

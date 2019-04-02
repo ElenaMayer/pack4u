@@ -3,7 +3,7 @@ $(document).ready(function() {
         get: 'user',
         userId: '6706865954',
         clientId: '5240196a48394517bde1696155cb28c1',
-        accessToken: '6706865954.5240196.e99d36ce7cd845129a3d2ed2c5185883',
+        accessToken: '6706865954.5240196.56f267dc18a04dcdab58b9f7d53697b4',
         template: '<a href="{{link}}" class="instafeed_image" target="_blank" id="{{id}}"><img src="{{image}}" /></a>',
         sortBy: 'most-recent',
         limit: 9,
@@ -861,6 +861,7 @@ function updateCartQty(form) {
            data: $(form).serialize(),
         }).done(function( data ) {
 			$('#amount_val_'+data.id).text(data.productTotal);
+            $('#amount_price_'+data.id).text(data.productPrice);
             e.val(data.count);
             orderAvailableCheck(data);
             $("#data_total").html(data.data);

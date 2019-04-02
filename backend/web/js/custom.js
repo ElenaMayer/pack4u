@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    priceForm($('#product-multiprice'));
+
     $(document.body).on('click', '.image_remove', function () {
         removeImage($(this));
         return false;
@@ -51,6 +53,10 @@ $(document).ready(function() {
             $('.city_field').show();
         }
     });
+
+    $(document.body).on('click', '#product-multiprice' ,function(){
+        priceForm($(this));
+    });
 });
 
 function removeImage(e) {
@@ -63,4 +69,14 @@ function removeImage(e) {
             e.parent('.product-image').remove();
         }
     });
+}
+
+function priceForm(e) {
+    if(e.is(':checked')){
+        $('.price-and-count').show();
+        $('.price-without-count').hide();
+    } else {
+        $('.price-and-count').hide();
+        $('.price-without-count').show();
+    }
 }

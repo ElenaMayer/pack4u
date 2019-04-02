@@ -13156,7 +13156,7 @@ p.demo_store a {
 .commerce a.remove:hover,
 .checkout-wrapper a.remove:hover {
     color: #fff!important;
-    background: #fc9090
+    background: #fc9090!important;
 }
 
 .commerce .commerce-error,
@@ -14830,6 +14830,56 @@ p.demo_store a {
     text-decoration: none
 }
 
+/*.commerce-cart .price_tooltip {*/
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*border-bottom: 1px dotted black; !* If you want dots under the hoverable text *!*/
+/*}*/
+
+/*Tooltip text*/
+.commerce-cart .price_tooltip {
+    position: relative;
+    display: inline-block;
+    color: #79cba8;
+}
+
+.commerce-cart .price_tooltip .tooltip-text {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
+    visibility: hidden;
+    max-width: 300px;
+    background-color: #79cba8;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: -208%;
+    left: 210%;
+    margin-left: 0;
+    opacity: 0;
+    transition: .3s;
+    width: max-content;
+}
+
+.commerce-cart .price_tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -4%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #79cba8 transparent transparent;
+}
+
+.commerce-cart .price_tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
 #add_payment_method #payment ul.payment_methods li:after,
 #add_payment_method #payment ul.payment_methods li:before,
 #add_payment_method #payment ul.payment_methods:after,
@@ -15918,6 +15968,14 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     color: #79cba8;
     border-bottom: 1px solid #f4eede;
     padding-bottom: 25px;
+}
+
+.single-product div.product .entry-summary .multiprice {
+    font-size: 27px;
+}
+
+.single-product div.product .entry-summary .multiprice .amount {
+    color: #79cba8;
 }
 
 .single-product div.product .entry-summary .description {

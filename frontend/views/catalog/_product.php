@@ -17,7 +17,7 @@ use yii\helpers\Markdown;
             </a>
         </div>
         <?php if($model->getIsInStock()): ?>
-            <?php if($model->new_price): ?>
+            <?php if(!$model->multiprice && $model->new_price): ?>
                 <span class="product-label sale">
                     <span>-<?=$model->getSale()?>%</span>
                 </span>
@@ -30,14 +30,16 @@ use yii\helpers\Markdown;
         <div class="noo-product-title">
             <h3><a href="/catalog/<?= $model->category->slug?>/<?= $model->id?>" title="<?= $model->title?>"><?= Html::encode($model->title) ?></a></h3>
             <div><?php if($model->size):?><?= $model->size. ' см'?><?php else: ?>&nbsp;<?php endif;?></div>
-            <?php if($model->getIsInStock() && $model->new_price): ?>
-                <span class="price">
+            <span class="price">
+                <?php if($model->multiprice): ?>
+                    <span class="amount">от <?= (int)$model->getMinMultiprice() ?><i class="fa fa-ruble"></i></span>
+                <?php elseif($model->getIsInStock() && $model->new_price): ?>
                     <span class="amount old"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span>
                     <span class="amount new"><?= (int)$model->new_price ?><i class="fa fa-ruble"></i></span>
-                </span>
-            <?php else:?>
-                <span class="price"><span class="amount"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span></span>
-            <?php endif;?>
+                <?php else:?>
+                    <span class="amount"><?= (int)$model->price ?><i class="fa fa-ruble"></i></span>
+                <?php endif;?>
+            </span>
 
             <?php if($model->size): ?>
                 <div class="noo-product-size">

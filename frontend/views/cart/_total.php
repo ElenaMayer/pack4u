@@ -1,7 +1,7 @@
 <h2>Итого</h2>
 <table>
         <tr class="order-subtotal">
-            <th>Подитог</th>
+            <th>Подытог</th>
             <td><strong><span class="amount"><span id="amount_subtotal"><?= $subtotal ?></span><i class="fa fa-ruble"></i></span></strong> </td>
         </tr>
         <?php if(isset($discount) && $discount > 0):?>

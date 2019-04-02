@@ -41,7 +41,25 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </a>
                                 </td>
                                 <td class="product-price">
-                                    <?php if($product->getIsInStock() && $product->getNewPrice()): ?>
+                                    <?php if($product->multiprice): ?>
+                                        <div class="price">
+                                            <span class="amount">
+                                                <span id="amount_price_<?= $product->id ?>">
+                                                    <?= (int)$product->getMultiprice($quantity) ?>
+                                                </span>
+                                                <i class="fa fa-ruble"></i>
+                                                &nbsp;
+                                                <div class="price_tooltip">
+                                                    <i class="fa fa-question-circle"></i>
+                                                    <span class="tooltip-text">
+                                                        <?php foreach ($product->prices as $price):?>
+                                                            <p>от <?= $price->count?>шт. - <?= $price->price?><i class="fa fa-ruble"></i></p>
+                                                        <?php endforeach;?>
+                                                    </span>
+                                                </div>
+                                            </span>
+                                        </div>
+                                    <?php elseif($product->getIsInStock() && $product->getNewPrice()): ?>
                                         <p class="price">
                                             <span class="amount old"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
                                             <span class="amount new"><?= (int)$product->getNewPrice() ?><i class="fa fa-ruble"></i></span>

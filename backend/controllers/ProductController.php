@@ -79,31 +79,8 @@ class ProductController extends Controller
         $model->weight = 0;
         $model->sort = 0;
 
-        if($post = Yii::$app->request->post()) {
-            if (is_array($post['Product']['color'])) {
-                $model->color = implode(",", $post['Product']['color']);
-            }
-            if (is_array($post['Product']['tags'])) {
-                $model->tags = implode(",", $post['Product']['tags']);
-            }
-            if (is_array($post['Product']['subcategories']))
-            {
-                $model->subcategories = implode(",",$post['Product']['subcategories']);
-            }
-            if ($model->load($post) && $model->save()) {
-                if (is_array($post['Product']['relationsArr']))
-                {
-                    $model->saveRelations($post['Product']['relationsArr']);
-                }
-                $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
-                if ($model->upload()) {
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
-            } else {
-                return $this->render('create', [
-                    'model' => $model,
-                ]);
-            }
+        if($this->processingProduct($model)) {
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -120,22 +97,31 @@ class ProductController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if($post = Yii::$app->request->post()){
-            if (is_array($post['Product']['color']))
-            {
-                $model->color = implode(",",$post['Product']['color']);
-            } else {
-                $model->color = '';
+
+        if($this->processingProduct($model)) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function processingProduct($model){
+        if($post = Yii::$app->request->post()) {
+            if (is_array($post['Product']['color'])) {
+                $model->color = implode(",", $post['Product']['color']);
             }
-            if (is_array($post['Product']['tags']))
-            {
-                $model->tags = implode(",",$post['Product']['tags']);
-            } else {
-                $model->tags = '';
+            if (is_array($post['Product']['tags'])) {
+                $model->tags = implode(",", $post['Product']['tags']);
             }
             if (is_array($post['Product']['subcategories']))
             {
                 $model->subcategories = implode(",",$post['Product']['subcategories']);
+            }
+            if (is_array($post['ProductPrice']))
+            {
+                $model->productPrices = $post['ProductPrice'];
             }
             if($post['Product']['count'] != $model->count && $post['Product']['count'] <= 0 && $model->is_in_stock == 1) {
                 $post['Product']['is_in_stock'] = 0;
@@ -147,20 +133,16 @@ class ProductController extends Controller
                 }
                 $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
                 if ($model->upload()) {
-                    return $this->redirect(['view', 'id' => $model->id]);
+                    return true;
                 }
             } else {
-                return $this->render('update', [
-                    'model' => $model,
-                ]);
+                return false;
             }
         } else {
             $model->color = !empty($model->color)?explode(",",$model->color):[];
             $model->tags = !empty($model->tags)?explode(",",$model->tags):[];
             $model->subcategories = !empty($model->subcategories)?explode(",",$model->subcategories):[];
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+            return false;
         }
     }
 
@@ -192,6 +174,7 @@ class ProductController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
     public function actionGet_subcategories()
     {
         $out = [];
