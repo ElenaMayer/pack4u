@@ -71,6 +71,20 @@ use yii\helpers\Html;
                 </li>
             </ul>
         </div>
+        <?php if($category):
+        $sizes = Product::getSizesArray($category->id); ?>
+            <div class="widget commerce widget_product_tag_cloud mobile-filter-field">
+                <h3 class="widget-title">Размеры <a href="<?= StaticFunction::addGetParamToCurrentUrl('size', 'all') ?>">Все</a></h3>
+                <div class="tagcloud">
+                    <?php foreach ($sizes as $key => $size):?>
+                        <a <?php if(Yii::$app->request->get('size') == $key):?>class="active"<?php endif;?>
+                           href="<?= StaticFunction::addGetParamToCurrentUrl('size', $size)?>">
+                            <?= $size ?>
+                        </a>
+                    <?php endforeach;?>
+                </div>
+            </div>
+        <?php endif;?>
         <div class="widget commerce widget_product_tag_cloud mobile-filter-field">
             <h3 class="widget-title">Теги <a href="<?= StaticFunction::addGetParamToCurrentUrl('tag', 'all') ?>">Все</a></h3>
             <div class="tagcloud">

@@ -519,4 +519,24 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public function getMinMultiprice(){
         return ProductPrice::find()->where(['product_id' => $this->id])->min('price');
     }
+
+    public static function getSizesArray($categoryId = null){
+        if($categoryId) {
+            $models = Product::find()
+                ->where(['is_active' => 1])
+                ->where(['or', ['category_id' => $categoryId], ['subcategories' => $categoryId]]);
+            $models = $models->all();
+            $sizes = [];
+            foreach ($models as $m)
+            {
+                if ($m->size && !in_array($m->size, $sizes)) {
+                    $sizes[$m->size] = $m->size;
+                }
+            }
+            asort($sizes);
+            return $sizes;
+        } else {
+            return [];
+        }
+    }
 }

@@ -20,8 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
         <div class="row">
             <?= $this->render('_sidebar', [
-                'menuItems' => $menuItems,
-                'noveltyProducts' => Product::getNovelties(),
+                    'category' => $category,
+                    'menuItems' => $menuItems,
+                    'noveltyProducts' => Product::getNovelties(),
             ]); ?>
             <div class="noo-main col-md-9">
                 <div class="noo-catalog">
