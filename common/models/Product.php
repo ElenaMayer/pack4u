@@ -55,6 +55,9 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 
     private $_productPrices;
 
+    public $group_cnt;
+    public $group_sum;
+
     /**
      * @inheritdoc
      */
@@ -523,13 +526,15 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public static function getSizesArray($categoryId = null){
         if($categoryId) {
             $models = Product::find()
-                ->where(['is_active' => 1])
-                ->where(['or', ['category_id' => $categoryId], ['subcategories' => $categoryId]]);
-            $models = $models->all();
+                ->select(['COUNT(id) AS group_cnt', 'SUM(count) AS group_sum', 'size'])
+                ->where(['is_active' => 1, 'is_in_stock' => 1])
+                ->andWhere(['or', ['category_id' => $categoryId], ['subcategories' => $categoryId]])
+                ->groupBy('size')
+                ->all();
             $sizes = [];
             foreach ($models as $m)
             {
-                if ($m->size && !in_array($m->size, $sizes)) {
+                if ($m->size && ($m->group_cnt >= Yii::$app->params['sizeFilterMinCount'] || $m->group_sum > Yii::$app->params['sizeFilterMinSum'])) {
                     $sizes[$m->size] = $m->size;
                 }
             }
