@@ -67,7 +67,12 @@ class CatalogController extends \yii\web\Controller
                 $query->andFilterWhere(['like', 'color', $get['color']]);
             }
             if(isset($get['size']) && $get['size'] != 'all'){
-                $query->andFilterWhere(['size' => $get['size']]);
+                if(strripos($get['size'], ';') === false) {
+                    $query->andFilterWhere(['size' => $get['size']]);
+                } else {
+                    $sizes = array_diff(explode(';', $get['size']), array(''));
+                    $query->andWhere(['in','size', $sizes]);
+                }
             }
             if(isset($get['tag']) && $get['tag'] != 'all'){
                 $query->andFilterWhere(['like', 'tags', $get['tag']]);

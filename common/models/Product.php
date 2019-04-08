@@ -349,19 +349,23 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     }
 
     public function minusCount($count){
+        $oldCount = $this->count;
         $this->count -= $count;
         if($this->count <= 0){
             $this->is_in_stock = 0;
         }
-        $this->save(false);
+        if($this->save(false))
+            Yii::debug('Арт.' . $this->article . ': ' . $oldCount . '-' . $count . '=' . $this->count . 'шт', 'order');
     }
 
     public function plusCount($count){
+        $oldCount = $this->count;
         $this->count += $count;
         if($this->count > 0){
             $this->is_in_stock = 1;
         }
-        $this->save(false);
+        if($this->save(false))
+            Yii::debug('Арт.' . $this->article . ': ' . $oldCount . '+' . $count . '=' . $this->count . 'шт', 'order');
     }
 
     public function getSale(){
@@ -523,7 +527,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         return ProductPrice::find()->where(['product_id' => $this->id])->min('price');
     }
 
-    public static function getSizesArray($categoryId = null){
+    public static function getSizesArray($categoryId = null, $type = false){
         if($categoryId) {
             $models = Product::find()
                 ->select(['COUNT(id) AS group_cnt', 'SUM(count) AS group_sum', 'size'])
@@ -534,12 +538,15 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             $sizes = [];
             foreach ($models as $m)
             {
-                if ($m->size && ($m->group_cnt >= Yii::$app->params['sizeFilterMinCount'] || $m->group_sum > Yii::$app->params['sizeFilterMinSum'])) {
+                if($type == 'full'){
                     $sizes[$m->size] = $m->size;
+                } else {
+                    if ($m->size && ($m->group_cnt >= Yii::$app->params['sizeFilterMinCount'] || $m->group_sum > Yii::$app->params['sizeFilterMinSum'])) {
+                        $sizes[$m->size] = $m->size;
+                    }
                 }
             }
-            asort($sizes);
-            return $sizes;
+            return StaticFunction::arrayMultiSort($sizes);
         } else {
             return [];
         }

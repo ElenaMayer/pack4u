@@ -62,6 +62,9 @@ class OrderController extends Controller
     {
         if($post = Yii::$app->request->post('OrderItem')){
             $product = Product::findOne($post['product_id']);
+
+            Yii::debug('Добавлен в заказ #' . $id . ' арт.' . $product->article, 'order');
+
             $orderItem = OrderItem::find()->where(['order_id' => $id, 'product_id' => $post['product_id']])->one();
             if($orderItem) {
                 $orderItem->quantity += $post['quantity'];
@@ -135,11 +138,12 @@ class OrderController extends Controller
     public function actionDelete_item($id)
     {
         $model = OrderItem::findOne($id);
+        Yii::debug('Удаление из заказа #' . $model->order_id . ' арт.' . $model->product->article, 'order');
+
         $product = Product::findOne($model->product_id);
         if($product)
             $product->plusCount($model->quantity);
         $model->delete();
-
         return $this->redirect(['view', 'id' => $model->order_id]);
     }
     public function actionUpdate_order_item($id, $field, $value)
@@ -148,6 +152,7 @@ class OrderController extends Controller
         $product = Product::findOne($model->product_id);
         if($product && $model->$field != $value){
             if($field == 'quantity') {
+                Yii::debug('Редактирование заказа #' . $id . ' арт.' . $product->article, 'order');
                 if ($model->quantity > $value)
                     $product->minusCount($value - $model->quantity);
                 else

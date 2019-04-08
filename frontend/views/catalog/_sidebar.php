@@ -72,18 +72,33 @@ use yii\helpers\Html;
             </ul>
         </div>
         <?php if($category):
-        $sizes = Product::getSizesArray($category->id); ?>
-            <div class="widget commerce widget_product_tag_cloud mobile-filter-field">
-                <h3 class="widget-title">Размеры <a href="<?= StaticFunction::addGetParamToCurrentUrl('size', 'all') ?>">Все</a></h3>
-                <div class="tagcloud">
-                    <?php foreach ($sizes as $key => $size):?>
-                        <a <?php if(Yii::$app->request->get('size') == $key):?>class="active"<?php endif;?>
-                           href="<?= StaticFunction::addGetParamToCurrentUrl('size', $size)?>">
-                            <?= $size ?>
-                        </a>
-                    <?php endforeach;?>
+            $filterSizeType = false;
+            if(Yii::$app->request->get('filter_s') && Yii::$app->request->get('filter_s') == 'full'){
+                $filterSizeType = true;
+            }
+            $sizes = Product::getSizesArray($category->id, $filterSizeType);
+            if($sizes):?>
+                <div class="widget commerce widget_product_tag_cloud mobile-filter-field">
+                    <h3 class="widget-title">Размеры <a href="<?= StaticFunction::addGetParamToCurrentUrl('size', 'all') ?>">Все</a></h3>
+                    <div class="tagcloud">
+                        <?php foreach ($sizes as $size):?>
+                            <a <?php if(strripos(Yii::$app->request->get('size'), $size) !== false):?>class="active"<?php endif;?>
+                               href="<?= StaticFunction::addGetParamToCurrentUrl('size', $size, true)?>">
+                                <?= $size ?>
+                            </a>
+                        <?php endforeach;?>
+                        <?php if(Yii::$app->request->get('filter_s') && Yii::$app->request->get('filter_s') == 'full'):?>
+                            <a class="active filter-size-short" href="<?= StaticFunction::addGetParamToCurrentUrl('filter_s', 'short')?>">
+                                Скрыть <i class="fa fa-angle-up"></i>
+                            </a>
+                        <?php else:?>
+                            <a class="active filter-size-full" href="<?= StaticFunction::addGetParamToCurrentUrl('filter_s', 'full')?>">
+                                Показать еще <i class="fa fa-angle-down"></i>
+                            </a>
+                        <?php endif;?>
+                    </div>
                 </div>
-            </div>
+            <?php endif;?>
         <?php endif;?>
         <div class="widget commerce widget_product_tag_cloud mobile-filter-field">
             <h3 class="widget-title">Теги <a href="<?= StaticFunction::addGetParamToCurrentUrl('tag', 'all') ?>">Все</a></h3>

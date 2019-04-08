@@ -143,6 +143,7 @@ class CartController extends \yii\web\Controller
                     $order->discount = $cart->getDiscountPercent();
                 }
                 $order->save(false);
+                Yii::debug('Заказ  #' . $order->id . ' создан.', 'order');
 
                 foreach ($products as $product) {
                     if ($product->getIsActive() && $product->getIsInStock()) {

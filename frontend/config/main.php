@@ -13,11 +13,19 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'log' => [
+            'flushInterval' => 1,
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                ],[
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['trace'],
+                    'categories' => ['order'],
+                    'logFile' => '@runtime/logs/order.log',
+                    'logVars' => [],
+                    'exportInterval' => 1,
                 ],
             ],
         ],
