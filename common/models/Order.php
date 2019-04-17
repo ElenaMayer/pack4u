@@ -31,14 +31,14 @@ use yii\behaviors\TimestampBehavior;
  */
 class Order extends \yii\db\ActiveRecord
 {
-    const STATUS_NEW = 'new';
-    const STATUS_IN_PROGRESS = 'in_progress';
-    const STATUS_SHIPPED = 'shipped';
+    const STATUS_NEW = 'x_new';
+    const STATUS_COLLECTED = 'was_collected';
+    const STATUS_SHIPPED = 'in_shipping';
     const STATUS_DONE = 'done';
     const STATUS_CANCELED = 'canceled';
     const STATUS_PAYMENT = 'payment';
-    const STATUS_PRE_ORDER = 'pre_order';
-    const STATUS_PAID = 'paid';
+    const STATUS_PRE_ORDER = 'is_pre_order';
+    const STATUS_PAID = 'was_paid';
 
     public function behaviors()
     {
@@ -139,7 +139,7 @@ class Order extends \yii\db\ActiveRecord
             self::STATUS_NEW => 'Новый',
             self::STATUS_PAYMENT => 'Ожидает оплаты',
             self::STATUS_PAID => 'Оплачено',
-            self::STATUS_IN_PROGRESS => 'Собран',
+            self::STATUS_COLLECTED => 'Собран',
             self::STATUS_SHIPPED => 'Передан в доставку',
             self::STATUS_PRE_ORDER => 'Предзаказ',
             self::STATUS_DONE => 'Выполнен',

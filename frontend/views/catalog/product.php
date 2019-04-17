@@ -57,10 +57,12 @@ $this->title = Html::encode($title . ' ' . ($product->size?$product->size . 'с�
                             </div>
                                 <?php if($product->multiprice): ?>
                                     <?php foreach ($product->prices as $price):?>
-                                    <p class="multiprice">
-                                        <span class="amount"><?= $price->price ?><i class="fa fa-ruble"></i></span>
-                                        <span class="count"> от <?= $price->count ?> шт.</span>
-                                    </p>
+                                        <?php if($price->count <= $product->count):?>
+                                            <p class="multiprice">
+                                                <span class="amount"><?= $price->price ?><i class="fa fa-ruble"></i></span>
+                                                <span class="count"> от <?= $price->count ?> шт.</span>
+                                            </p>
+                                        <?php endif;?>
                                     <?php endforeach;?>
                                 <?php elseif($product->getIsInStock() && $product->new_price): ?>
                                     <p class="price">

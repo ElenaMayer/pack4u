@@ -135,16 +135,16 @@ a.image_remove:hover {
     padding-left: 5px;
 }
 
-.order-index .table-striped tr.new {
+.order-index .table-striped tr.x_new {
     background-color: #82e086;
 }
-.order-index .table-striped tr.in_progress {
+.order-index .table-striped tr.was_collected {
     background-color: #dfe181;
 }
 .order-index .table-striped tr.done {
     background-color: #d4ecd6;
 }
-.order-index .table-striped tr.shipped {
+.order-index .table-striped tr.in_shipping {
     background-color: #ffe1c6;
 }
 .order-index .table-striped tr.canceled {
@@ -153,10 +153,10 @@ a.image_remove:hover {
 .order-index .table-striped tr.payment {
     background-color: #ffbbba;
 }
-.order-index .table-striped tr.pre_order {
+.order-index .table-striped tr.is_pre_order {
     background-color: #81e0e1;
 }
-.order-index .table-striped tr.paid {
+.order-index .table-striped tr.was_paid {
     background-color: #fbbe89;
 }
 

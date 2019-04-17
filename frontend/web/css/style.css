@@ -15971,7 +15971,7 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 }
 
 .single-product div.product .entry-summary .multiprice {
-    font-size: 27px;
+    font-size: 23px;
 }
 
 .single-product div.product .entry-summary .multiprice .amount {
@@ -18306,7 +18306,8 @@ only screen and (min-resolution: 2dppx) and (min-width: 481px) and (max-width: 1
         width: 100%;
     }
     .commerce-cart table.cart th.product-quantity {
-        width: 28%;
+        width: 17%;
+        overflow: hidden;
     }
     .site .noo-page-heading {
         background-image: url(../images/slider/header_5_480.jpg);

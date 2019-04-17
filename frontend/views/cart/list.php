@@ -53,7 +53,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <i class="fa fa-question-circle"></i>
                                                     <span class="tooltip-text">
                                                         <?php foreach ($product->prices as $price):?>
-                                                            <p>от <?= $price->count?>шт. - <?= $price->price?><i class="fa fa-ruble"></i></p>
+                                                            <?php if($price->count <= $product->count):?>
+                                                                <p>от <?= $price->count?>шт. - <?= $price->price?><i class="fa fa-ruble"></i></p>
+                                                            <?php endif;?>
                                                         <?php endforeach;?>
                                                     </span>
                                                 </div>
