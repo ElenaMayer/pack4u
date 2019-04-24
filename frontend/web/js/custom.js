@@ -94,6 +94,7 @@ $(document).ready(function() {
         	$('#order-zip').val(null);
             $('#amount_total').text($('#amount_subtotal').text());
 		});
+        $('#order-address').val('');
         if($(this).children("option:selected").val() == 'self'){
             $('#order-payment_method').append($('<option>', {
                 value: 'cash',
@@ -102,14 +103,20 @@ $(document).ready(function() {
             $('tr.shipping > td > p').html('0<i class="fa fa-ruble"></i>');
         } else {
             $('#order-payment_method').children("option[value='cash']").remove();
-
-            if($(this).children("option:selected").val() == 'rcr'){
+            shipping = $(this).children("option:selected").val();
+            if(shipping == 'rcr'){
                 $('.shipping_methods .rcr').show();
                 $('tr.shipping > td > p').html('0<i class="fa fa-ruble"></i>');
-            } else if($(this).children("option:selected").val() == 'rp'){
-                $('.shipping_methods .rp').show();
-                $('tr.shipping > td > p').html('Для расчета стоимости введите индекс');
-            } else if($(this).children("option:selected").val() == 'tk'){
+            } else if(shipping == 'rp' || shipping == 'courier'){
+                $('.shipping_methods .order-address').show();
+                if(shipping == 'rp'){
+                    $('.shipping_methods .order-address').removeClass('courier');
+                    $('tr.shipping > td > p').html('Для расчета стоимости введите индекс');
+                } else {
+                    $('.shipping_methods .order-address').addClass('courier');
+                    $('tr.shipping > td > p').html('Для расчета стоимости введите адрес');
+                }
+            } else if(shipping == 'tk'){
                 $('.shipping_methods .tk').show();
                 $('tr.shipping > td > p').html('Уточнить стоимость можно у нашего менеджера');
             }
@@ -205,7 +212,6 @@ $(document).ready(function() {
 
     $(".mobile-filter").on("click", function() {
         i = $(this).find('i');
-        console.log(i);
     	if(i.hasClass('fa-angle-down')){
             $('.mobile-filter-field').each(function(){
 				$(this).show();
@@ -575,10 +581,15 @@ $(document).ready(function() {
             postcode_from = '630001';
             postcode_to = $(this).val();
             weight = $('#order_weight').val() * 1000 * 1.1;
-            url = postcalc_url + '?f=' + postcode_from + '&t=' + postcode_to +'&w=' + weight +'&o=json';
             $.ajax({
-                url: url,
+                url: postcalc_url,
                 type: "GET",
+                data: {
+                    f: postcode_from,
+                    t: postcode_to,
+                    w: weight,
+                    o: 'json',
+                },
                 dataType: 'jsonp',
                 success: function (data) {
                     if (data['Status'] == "OK") {
@@ -595,6 +606,40 @@ $(document).ready(function() {
                     }
                 }
             })
+        }
+    });
+
+    $(document.body).on('click', '.courier_cost_button' ,function(){
+        address = $('#order-address').val();
+        if(address.length > 0) {
+            weight = $('#order_weight').val() * 1.05;
+            total = parseInt($('#amount_subtotal').text());
+            $('html').addClass("wait");
+            $.ajax({
+                url: '/cart/get_courier_cost',
+                type: "GET",
+                data: {
+                    weight: weight,
+                    address: address,
+                },
+                complete: function () {
+                    $('html').removeClass("wait");
+                },
+                success: function (data) {
+                    if(data){
+                        new_total = total + parseInt(data);
+                        $('.shipping > td > p').html("<span id=\"amount_shipping\">" + parseInt(data).toFixed(0) + "</span><i class=\"fa fa-ruble\"></i>");
+                        $('#amount_total').html(new_total.toFixed(0));
+                        $("#order-shipping_cost").val(parseInt(data));
+                    } else {
+                        $('.courier .help-block-error').text('Некорректный адрес');
+                        $('.courier .form-group').addClass('has-error');
+                    }
+                }
+            })
+        } else {
+            $('.courier .help-block-error').text('Введите адрес для расчета');
+            $('.courier .form-group').addClass('has-error');
         }
     });
 });

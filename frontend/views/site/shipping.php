@@ -12,7 +12,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h1>Доставка по Новосибирску</h1>
 
                 <h3>Самовывоз</h3>
-                <p>Самовывоз осуществляется <b>бесплатно</b>, по предварительной договоренности.</p>
+                <p>Самовывоз осуществляется <b>бесплатно</b>, по предварительной договоренности по адресу <b><?= Yii::$app->params['address'] ?></b>.</p>
+
+                <h3>Курьер</h3>
+                <p>Стоимость доставки курьером зависит от адреса доставки и расчитывается при оформлении заказа.</p>
 
                 <h3>РЦР</h3>
 
@@ -32,9 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <p><i class="fa fa-angle-right"></i>После отправки мы высылаем номер для отслеживания посылки.</p>
                 <p><i class="fa fa-angle-right"></i>Рассчитать стоимость доставки Вы можете самостоятельно, пройдя по ссылкам:</p>
 
-                <p class="sub"><i class="fa fa-angle-right"></i><a href="https://www.dellin.ru/" target="_blank">Деловые линии</a></p>
+<!--                <p class="sub"><i class="fa fa-angle-right"></i><a href="https://www.dellin.ru/" target="_blank">Деловые линии</a></p>-->
                 <p class="sub"><i class="fa fa-angle-right"></i><a href="https://www.cdek.ru" target="_blank">СДЭК</a></p>
-                <p class="sub"><i class="fa fa-angle-right"></i><a href="https://pecom.ru/" target="_blank">ПЭК</a></p>
+<!--                <p class="sub"><i class="fa fa-angle-right"></i><a href="https://pecom.ru/" target="_blank">ПЭК</a></p>-->
                 <p class="sub"><i class="fa fa-angle-right"></i><a href="https://nrg-tk.ru/client/calculator/" target="_blank">Энергия</a></p>
                 <p class="sub"><i class="fa fa-angle-right"></i><a href="https://www.pochta.ru/" target="_blank">Почта России</a></p>
 

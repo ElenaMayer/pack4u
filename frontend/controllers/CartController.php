@@ -8,6 +8,7 @@ use common\models\Product;
 use common\models\User;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\Json;
 
 class CartController extends \yii\web\Controller
 {
@@ -221,5 +222,37 @@ class CartController extends \yii\web\Controller
             'order' => $order,
         ]);
     }
+
+    public function actionGet_courier_cost($weight, $address)
+    {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, Yii::$app->params['dostavistaUrl']);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($curl, CURLOPT_HTTPHEADER, ['X-DV-Auth-Token: ' . Yii::$app->params['dostavistaToken']]);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $data = [
+            'total_weight_kg' => $weight,
+            'points' => [
+                [
+                    'address' => Yii::$app->params['dostavistaAddress'],
+                ],
+                [
+                    'address' => 'г Новосибирск ' . $address,
+                ],
+            ],
+        ];
+
+        $json = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
+
+        $result = curl_exec($curl);
+        if ($result === false) {
+            throw new Exception(curl_error($curl), curl_errno($curl));
+        }
+
+        return Json::decode($result)['order']['payment_amount'];
+    }
+
 }
 

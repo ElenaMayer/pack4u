@@ -24,7 +24,7 @@ use common\models\Order;
     <?php if($order->shipping_method == 'rcr' && $order->rcr):?>
         <li><b>РЦР:</b> <?= $order->rcr?></li>
     <?php endif;?>
-    <?php if($order->shipping_method == 'rp'):?>
+    <?php if($order->shipping_method == 'rp' || $order->shipping_method == 'courier'):?>
         <?php if($order->zip):?>
             <li><b>Индекс:</b> <?= $order->zip ?></li>
         <?php endif;?>

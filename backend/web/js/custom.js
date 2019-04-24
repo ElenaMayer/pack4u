@@ -31,24 +31,18 @@ $(document).ready(function() {
     });
 
     $(document.body).on('change', '#order-shipping_method' ,function(){
-        if($(this).children("option:selected").val() == 'self'){
-            $('.shipping_method_field').each(function(){
-                $(this).hide();
-            });
-        } else if($(this).children("option:selected").val() == 'rcr'){
-            $('.shipping_method_field').each(function(){
-                $(this).hide();
-            });
+        shipping = $(this).children("option:selected").val();
+        $('.shipping_method_field').each(function(){
+            $(this).hide();
+        });
+        if(shipping == 'rcr'){
             $('.method_rcr').show();
-        } else if($(this).children("option:selected").val() == 'rp'){
-            $('.shipping_method_field').each(function(){
-                $(this).hide();
-            });
+        } else if(shipping == 'rp'){
             $('.method_rp').show();
-        } else if($(this).children("option:selected").val() == 'tk'){
-            $('.shipping_method_field').each(function(){
-                $(this).hide();
-            });
+            $('.method_rp_address').show();
+        } else if(shipping == 'courier'){
+            $('.method_courier').show();
+        } else if(shipping == 'tk'){
             $('.method_tk').show();
             $('.city_field').show();
         }

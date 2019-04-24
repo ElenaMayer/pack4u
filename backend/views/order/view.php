@@ -64,7 +64,11 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'address',
                 'value' => function ($model) {
-                    return $model->shipping_method == 'rp' ? $model->zip . ', ' . $model->address : '';
+                    if($model->shipping_method == 'rp'){
+                        return $model->zip . ', ' . $model->address;
+                    } elseif($model->shipping_method == 'courier') {
+                        return $model->address;
+                    }
                 },
             ])),
             [

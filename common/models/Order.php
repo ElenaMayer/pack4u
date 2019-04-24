@@ -151,6 +151,7 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'self' => 'Самовывоз ('.Yii::$app->params['address'].')',
+            'courier' => 'Курьер (для Новосибирска)',
             'rcr' => 'РЦР (для Новосибирска)',
             'rp' => 'Почта России',
             'tk' => 'Транспортная компания',
@@ -169,8 +170,6 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'cdek' => 'СДЭК',
-            'dellin' => 'Деловые линии',
-            'pec' => 'ПЭК',
             'nrg' => 'Энергия',
         ];
     }

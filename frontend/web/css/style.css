@@ -540,6 +540,11 @@ h6,
     font-size: 12px;
 }
 
+html.wait body,
+html.wait body {
+    cursor: wait !important;
+}
+
 p {
     margin: 0 0 10px;
 }
@@ -1059,11 +1064,25 @@ input[type="search"] {
 
 .form-group {
     margin-bottom: 15px;
+    clear: both;
 }
 .form-group.required label.control-label:after {
     content: " *";
     color: #fc9090;
 }
+.courier .form-group.field-order-address {
+    width: 79%;
+    float: left;
+}
+.courier .field-order-zip {
+    display: none;
+}
+.commerce .courier button.courier_cost_button.button {
+    margin-top: 25px;
+    height: 34px;
+    display: inline-block !important;
+}
+
 
 .radio,
 .checkbox {
@@ -17209,6 +17228,9 @@ ul.user_menu li.active > a {
     .site .noo-page-heading.order {
         background-image: url(../images/slider/header_1_1120.jpg);
     }
+    .courier .form-group.field-order-address {
+        width: 74%;
+    }
 }
 
 
@@ -17715,6 +17737,9 @@ ul.user_menu li.active > a {
     .site .noo-page-heading.order {
         background-image: url(../images/slider/header_1_992.jpg);
     }
+    .courier .form-group.field-order-address {
+        width: 83%;
+    }
 }
 
 
@@ -18106,6 +18131,9 @@ ul.user_menu li.active > a {
     .site .noo-page-heading.order {
         background-image: url(../images/slider/header_1_768.jpg);
     }
+    .courier .form-group.field-order-address {
+        width: 74%;
+    }
 }
 
 @media
@@ -18324,6 +18352,20 @@ only screen and (min-resolution: 2dppx) and (min-width: 481px) and (max-width: 1
     .site .noo-page-heading.cart,
     .site .noo-page-heading.order {
         background-image: url(../images/slider/header_1_480.jpg);
+    }
+    .courier .form-group.field-order-address {
+        width: 100%;
+        float: none;
+        margin-bottom: 0;
+    }
+    .courier .form-group.field-order-address .help-block {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .commerce button.courier_cost_button.button {
+        margin-top: 0;
+        width: 100%;
+        margin-bottom: 10px;
     }
 }
 
