@@ -35,12 +35,14 @@ use yii\helpers\ArrayHelper;
  * @property string $subcategories
  * @property string $instruction
  * @property integer $multiprice
+ * @property integer $diversity
  *
  * @property Image[] $images
  * @property OrderItem[] $orderItems
  * @property Category $category
  * @property ProductRelation[] $relations
  * @property ProductPrice[] $prices
+ * @property ProductDiversity[] $diversities
  */
 class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 {
@@ -54,6 +56,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public $relationsArr;
 
     private $_productPrices;
+    private $_productDiversities;
 
     public $group_cnt;
     public $group_sum;
@@ -83,7 +86,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     {
         return [
             [['description'], 'string'],
-            [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count', 'sort', 'price', 'multiprice'], 'integer'],
+            [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count', 'sort', 'price', 'multiprice', 'diversity'], 'integer'],
             ['weight', 'match', 'pattern' => '/^[0-9]+[0-9,.]*$/', 'message' => 'Значение должно быть числом.'],
             [['title', 'article', 'category_id', 'count', 'price', 'weight'], 'required'],
             [['time, color, tags, subcategories'], 'safe'],
@@ -123,6 +126,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'sort' => 'Сортировка',
             'instruction' => 'Youtube инструкция',
             'multiprice' => 'Цена от количества',
+            'diversity' => 'Расцветки'
         ];
     }
 
@@ -190,6 +194,14 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         return $this->hasMany(ProductPrice::className(), ['product_id' => 'id']);
     }
 
+    /**
+     * @return ProductDiversity[]
+     */
+    public function getDiversities()
+    {
+        return $this->hasMany(ProductDiversity::className(), ['product_id' => 'id']);
+    }
+
     public function isInWishlist()
     {
         if (!Yii::$app->user->isGuest) {
@@ -207,7 +219,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     /**
      * @inheritdoc
      */
-    public function getPrice($qty = 0, $orderCreated = false)
+    public function getPrice($qty = 0, $orderCreated = false, $diversityId = null)
     {
         if (($this->getIsActive() && $this->getIsInStock()) || $orderCreated){
             if($this->multiprice)
@@ -221,19 +233,26 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         }
     }
 
-    public function getIsActive()
+    public function getIsActive($diversityId = null)
     {
         $product = Product::findOne($this->id);
-        return $product->is_active;
+        if($product->diversity && $diversityId){
+            $diversity = ProductDiversity::findOne($diversityId);
+            return $diversity->is_active;
+        } else {
+            return $product->is_active;
+        }
     }
 
-    public function getIsInStock()
+    public function getIsInStock($diversityId = null)
     {
         $product = Product::findOne($this->id);
-        if($product->is_in_stock && $product->count > 0)
-            return true;
-        else
-            return false;
+        if($product->diversity && $diversityId){
+            $diversity = ProductDiversity::findOne($diversityId);
+            return ($diversity->count > 0);
+        } else {
+            return ($product->is_in_stock && $product->count > 0);
+        }
     }
 
     public function getCount()
@@ -348,24 +367,59 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         $this->relationsArr = ArrayHelper::map($this->relations, 'id', 'child_id');
     }
 
-    public function minusCount($count){
-        $oldCount = $this->count;
-        $this->count -= $count;
-        if($this->count <= 0){
-            $this->is_in_stock = 0;
+    public function minusCount($count, $diversityId = null){
+        if($diversityId){
+            $diversity = ProductDiversity::findOne($diversityId);
+            if($diversity) {
+                $oldCount = $diversity->count;
+                $diversity->count -= $count;
+                $diversity->save(false);
+                if ($diversity->count <= 0) {
+                    $activeDiv = 0;
+                    foreach ($this->diversities as $div){
+                        if($div->is_active && $div->count > 0){
+                            $activeDiv = 1;
+                            break;
+                        }
+                    }
+                    if($activeDiv == 0) {
+                        $this->is_in_stock = 0;
+                        $this->save(false);
+                    }
+                }
+            }
+        } else {
+            $oldCount = $this->count;
+            $this->count -= $count;
+            if ($this->count <= 0) {
+                $this->is_in_stock = 0;
+            }
+            $this->save(false);
         }
-        if($this->save(false))
-            Yii::debug('Арт.' . $this->article . ': ' . $oldCount . '-' . $count . '=' . $this->count . 'шт', 'order');
+        Yii::debug('Арт.' . $this->article . ': ' . $oldCount . '-' . $count . '=' . $this->count . 'шт', 'order');
     }
 
-    public function plusCount($count){
-        $oldCount = $this->count;
-        $this->count += $count;
-        if($this->count > 0){
-            $this->is_in_stock = 1;
+    public function plusCount($count, $diversityId = null){
+        if($diversityId){
+            $diversity = ProductDiversity::findOne($diversityId);
+            if($diversity) {
+                $oldCount = $diversity->count;
+                $diversity->count += $count;
+                $diversity->save(false);
+                if ($diversity->count > 0 && $this->is_in_stock == 0) {
+                    $this->is_in_stock = 1;
+                    $this->save(false);
+                }
+            }
+        } else {
+            $oldCount = $this->count;
+            $this->count += $count;
+            if ($this->count > 0) {
+                $this->is_in_stock = 1;
+            }
+            $this->save(false);
         }
-        if($this->save(false))
-            Yii::debug('Арт.' . $this->article . ': ' . $oldCount . '+' . $count . '=' . $this->count . 'шт', 'order');
+        Yii::debug('Арт.' . $this->article . ': ' . $oldCount . '+' . $count . '=' . $this->count . 'шт', 'order');
     }
 
     public function getSale(){
@@ -401,19 +455,6 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         $model = Product::find()
             ->select(['*', 'CONCAT(article, \' - \', title , \' (\', count,\' шт)\') as description']);
 
-        if($is_active) {
-            $model = $model->andWhere(['is_active' => 1]);
-        }
-        if($is_in_stock){
-            $model = $model->andWhere(['is_in_stock' => 1])->andWhere(['>', 'count', '0']);
-        }
-        $model = $model->all();
-        return ArrayHelper::map($model, 'id', 'description');
-    }
-
-    public static function getProductArr1($is_active = false, $is_in_stock = false)
-    {
-        $model = Product::find()->select(['*', 'CONCAT(article, \' - \', title , \' (\', count,\' шт)\') as description']);
         if($is_active) {
             $model = $model->andWhere(['is_active' => 1]);
         }
@@ -477,10 +518,42 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             }
         }
     }
+    public function getProductDiversities()
+    {
+        if ($this->_productDiversities === null) {
+            $this->_productDiversities = $this->isNewRecord ? [] : $this->diversities;
+        }
+        return $this->_productDiversities;
+    }
+
+    private function getProductDiversity($key)
+    {
+        $diversity = $key && strpos($key, 'new') === false ? ProductDiversity::findOne($key) : false;
+        if (!$diversity) {
+            $diversity = new ProductDiversity();
+            $diversity->loadDefaultValues();
+        }
+        return $diversity;
+    }
+
+    public function setProductDiversities($diversities)
+    {
+        unset($diversities['__id__']); // remove the hidden "new ProductSize" row
+        $this->_productDiversities = [];
+        foreach ($diversities as $key => $diversity) {
+            if (is_array($diversity)) {
+                $this->_productDiversities[$key] = $this->getProductDiversity($key);
+                $this->_productDiversities[$key]->setAttributes($diversity);
+            } elseif ($diversity instanceof ProductSize) {
+                $this->_productDiversities[$diversity->id] = $diversity;
+            }
+        }
+    }
 
     public function afterSave($insert, $changedAttributes){
         parent::afterSave($insert, $changedAttributes);
         $this->savePrices();
+        $this->saveDiversities();
     }
 
     public function savePrices()
@@ -501,6 +574,49 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         }
         foreach ($query->all() as $price) {
             $price->delete();
+        }
+        return true;
+    }
+
+    public function saveDiversities()
+    {
+        $keep = [];
+        foreach ($this->productDiversities as $diversity) {
+            if($diversity->article) {
+                $diversity->product_id = $this->id;
+                if(!$diversity->id) {
+                    Yii::debug('Добавление количества в админке (разн.) арт.' .
+                        $diversity->article . ': ' . $diversity->count . 'шт.', 'order');
+                } else {
+                    $divOld = ProductDiversity::findOne($diversity->id);
+                    if($divOld->count != $diversity->count){
+                        Yii::debug('Изменение количества в админке (разн.) арт.' .
+                            $diversity->article . '. Было '. $divOld->count . 'шт, стало ' . $diversity->count . 'шт.', 'order');
+                    }
+                }
+                if ($diversity->save()) {
+                    $diversity->imageFile = UploadedFile::getInstanceByName('ProductDiversity['.$diversity->id.'][imageFile]');
+                    if($diversity->imageFile) {
+                        if($image = $diversity->upload()){
+                            if($diversity->image_id){
+                                Image::findOne($diversity->image_id)->delete();
+                            }
+                            $diversity->image_id = $image->id;
+                            $diversity->save(false);
+                        }
+                    }
+                } else {
+                    return false;
+                }
+                $keep[] = $diversity->id;
+            }
+        }
+        $query = ProductDiversity::find()->andWhere(['product_id' => $this->id]);
+        if ($keep) {
+            $query->andWhere(['not in', 'id', $keep]);
+        }
+        foreach ($query->all() as $diversity) {
+            $diversity->delete();
         }
         return true;
     }
@@ -553,5 +669,33 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         } else {
             return [];
         }
+    }
+
+    public function getCartPosition($params = [])
+    {
+        return Yii::createObject([
+            'class' => 'frontend\models\ProductCartPosition',
+            'id' => $this->id,
+        ]);
+    }
+
+    public function getItemCount($diversion_id){
+        if($diversion_id) {
+            $diversion = ProductDiversity::findOne($diversion_id);
+            $count = $diversion->count;
+        } else {
+            $count = $this->count;
+        }
+        return $count;
+    }
+
+    public function activeDiversitiesCount(){
+        $count = 0;
+        foreach ($this->diversities as $diversity){
+            if($diversity->is_active && $diversity->count > 0){
+                $count++;
+            }
+        }
+        return $count;
     }
 }

@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\Category;
 use common\models\Product;
+use common\models\ProductDiversity;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 use Yii;
@@ -83,6 +84,8 @@ class CatalogController extends \yii\web\Controller
             if(isset($get['order'])){
                 if ($get['order'] == 'novelty') {
                     $query->orderBy('is_in_stock DESC, is_novelty');
+                } elseif ($get['order'] == 'article'){
+                    $query->orderBy('article ASC');
                 } elseif ($get['order'] == 'price_lh'){
                     $query->select(['*', '(CASE WHEN new_price > 0 THEN new_price ELSE price END) as price_common']);
                     $query->orderBy('price_common ASC');
@@ -100,22 +103,30 @@ class CatalogController extends \yii\web\Controller
         }
     }
 
-    public function actionProduct($categorySlug, $productId)
+    public function actionProduct($categorySlug, $productId, $diversityId=null)
     {
-        $product = Product::find()->where(['id' => $productId])->one();
-
-        if($product && $product->is_active){
-            $category = Category::find()->where(['slug' => $categorySlug])->one();
-
-            return $this->render('product', [
-                'category' => $category,
-                'product' => $product,
-                'noveltyProducts' => Product::getNovelties(),
-                'menuItems' => Category::getMenuItems(null)
-            ]);
-        } else {
+        $product = Product::findOne($productId);
+        if(!$product || !$product->is_active){
             return $this->redirect('/catalog/list');
+        } elseif(!$diversityId && $product->diversity && $product->activeDiversitiesCount() == 1){
+            $diversityId = $product->diversities[0]->id;
+            $categorySlug = $product->category->slug;
+            return $this->redirect("/catalog/$categorySlug/$product->id/$diversityId");
         }
+
+        $category = Category::find()->where(['slug' => $categorySlug])->one();
+
+        if($product->diversity && $diversityId){
+            $diversity = ProductDiversity::findOne($diversityId);
+        }
+
+        return $this->render('product', [
+            'category' => $category,
+            'product' => $product,
+            'diversity' => (isset($diversity) && $diversity->is_active)? $diversity : null,
+            'noveltyProducts' => Product::getNovelties(),
+            'menuItems' => Category::getMenuItems(null)
+        ]);
     }
 
     public function actionSale()

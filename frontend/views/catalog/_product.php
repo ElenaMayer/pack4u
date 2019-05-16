@@ -52,14 +52,19 @@ use yii\helpers\Markdown;
             <?php if($model->getIsInStock()):?>
                 <div class="noo-product-action">
                     <div class="noo-action cd-customization">
-                        <button data-id ="<?=$model->id?>" type="button" class="add-to-cart single_add_to_cart_button button add_to_cart_button">
-                            <em>В корзину</em>
-                            <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32">
-                                <path stroke-dasharray="19.79 19.79" stroke-dashoffset="19.79" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
-                            </svg>
-                        </button>
-                        <!--?= Html::a('<span>В корзину</span>', ['/cart/add', 'id' => $model->id], ['class' => 'button product_type_simple add_to_cart_button'])?-->
-                        <?php if(!Yii::$app->user->isGuest):?>
+                        <?php if($model->diversity):?>
+                            <a class="single_add_to_cart_button button add_to_cart_button" href="/catalog/<?= $model->category->slug?>/<?= $model->id?>" title="<?= $model->title?>">
+                                <em>Купить</em>
+                            </a>
+                        <?php else:?>
+                            <button data-id ="<?=$model->id?>" type="button" class="add-to-cart single_add_to_cart_button button add_to_cart_button">
+                                <em>В корзину</em>
+                                <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32">
+                                    <path stroke-dasharray="19.79 19.79" stroke-dashoffset="19.79" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+                                </svg>
+                            </button>
+                        <?php endif;?>
+                        <?php if(!Yii::$app->user->isGuest && !$model->diversity):?>
                             <div class="yith-wcwl-add-to-wishlist <?php if($model->isInWishlist()):?>active<?php endif;?>">
                                 <div class="yith-wcwl-add-button">
                                     <a class='catalog_wishlist' id="<?=$model->id?>"></a>

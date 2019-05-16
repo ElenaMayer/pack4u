@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     priceForm($('#product-multiprice'));
+    diversityForm($('#product-diversity'));
 
     $(document.body).on('click', '.image_remove', function () {
         removeImage($(this));
@@ -51,6 +52,10 @@ $(document).ready(function() {
     $(document.body).on('click', '#product-multiprice' ,function(){
         priceForm($(this));
     });
+
+    $(document.body).on('click', '#product-diversity' ,function(){
+        diversityForm($(this));
+    });
 });
 
 function removeImage(e) {
@@ -72,5 +77,13 @@ function priceForm(e) {
     } else {
         $('.price-and-count').hide();
         $('.price-without-count').show();
+    }
+}
+
+function diversityForm(e) {
+    if(e.is(':checked')){
+        $('.diversity').show();
+    } else {
+        $('.diversity').hide();
     }
 }

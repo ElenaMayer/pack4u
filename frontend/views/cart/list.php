@@ -1,5 +1,6 @@
 <?php
 use \yii\helpers\Html;
+use common\models\ProductDiversity;
 
 /* @var $this yii\web\View */
 /* @var $products common\models\Product[] */
@@ -7,8 +8,11 @@ use \yii\helpers\Html;
 $this->title = 'Корзина';
 $this->params['breadcrumbs'][] = $this->title;
 
+$cart = \Yii::$app->cart;
+$positions = $cart->getPositions();
+
 ?>
-<?php if(count($products) > 0):?>
+<?php if($cart->getCount() > 0):?>
 <div class="commerce commerce-page commerce-cart noo-shop-main">
     <div class="container">
         <div class="row">
@@ -25,26 +29,45 @@ $this->params['breadcrumbs'][] = $this->title;
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($products as $product):?>
-                        <?php if($product->getIsActive()):?>
-                            <?php $quantity = $product->getQuantity(); ?>
-                            <tr class="cart_item <?php if(!$product->getIsInStock()):?>out_of_stock<?php endif;?>">
+                    <?php foreach ($positions as $position):?>
+                        <?php $product = $position->getProduct();?>
+                        <?php if($product->getIsActive($position->diversity_id)):?>
+                            <?php
+                                $quantity = $position->getQuantity();
+                                $diversity = ProductDiversity::findOne($position->diversity_id);
+                            ?>
+                            <tr class="cart_item <?php if(!$product->getIsInStock($position->diversity_id)):?>out_of_stock<?php endif;?>">
                                 <td class="product-img">
-                                    <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>">
-                                        <?= Html::img($product->images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$product->title]);?>
-                                    </a>
+                                    <?php if($diversity):?>
+                                        <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>/<?=$diversity->id?>">
+                                            <?= Html::img($diversity->image->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$diversity->title]);?>
+                                        </a>
+                                    <?php else:?>
+                                        <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>">
+                                            <?= Html::img($product->images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$product->title]);?>
+                                        </a>
+                                    <?php endif;?>
                                 </td>
                                 <td class="product-thumbnail">
-                                    <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>"><?= Html::encode($product->title) ?>
-                                        <div class="product_size"><?= $product->size ?> см</div>
-                                        <?php if(!$product->getIsInStock()):?><span class="out_of_stock_title">Нет в наличии</span><?php endif;?>
-                                    </a>
+                                    <?php if($diversity):?>
+                                        <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>/<?=$diversity->id?>">
+                                            <?= Html::encode($product->title)?> "<?=$diversity->title ?>"
+                                            <div class="product_size"><?= $product->size ?> см</div>
+                                            <?php if(!$product->getIsInStock($position->diversity_id)):?><span class="out_of_stock_title">Нет в наличии</span><?php endif;?>
+                                        </a>
+                                    <?php else:?>
+                                        <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>">
+                                            <?= Html::encode($product->title)?>
+                                            <div class="product_size"><?= $product->size ?> см</div>
+                                            <?php if(!$product->getIsInStock($position->diversity_id)):?><span class="out_of_stock_title">Нет в наличии</span><?php endif;?>
+                                        </a>
+                                    <?php endif;?>
                                 </td>
                                 <td class="product-price">
                                     <?php if($product->multiprice): ?>
                                         <div class="price">
                                             <span class="amount">
-                                                <span id="amount_price_<?= $product->id ?>">
+                                                <span id="amount_price_<?= $position->getId() ?>">
                                                     <?= (int)$product->getMultiprice($quantity) ?>
                                                 </span>
                                                 <i class="fa fa-ruble"></i>
@@ -61,7 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 </div>
                                             </span>
                                         </div>
-                                    <?php elseif($product->getIsInStock() && $product->getNewPrice()): ?>
+                                    <?php elseif($product->getIsInStock($position->diversity_id) && $product->getNewPrice()): ?>
                                         <p class="price">
                                             <span class="amount old"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
                                             <span class="amount new"><?= (int)$product->getNewPrice() ?><i class="fa fa-ruble"></i></span>
@@ -71,23 +94,24 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <?php endif;?>
                                 </td>
                                 <td class="product-quantity">
-                                    <?php if($product->getIsInStock()):?>
+                                    <?php if($product->getIsInStock($position->diversity_id)):?>
                                         <form id="update-qty-<?=$product->getId()?>" method="get">
                                             <div class="quantity">
                                                 <input type="number" step="1" min="1" name="quantity" value="<?= $quantity ?>" class="input-text cart-qty qty text" size="4"/>
-                                                <input type="hidden" name="id" value="<?=$product->getId()?>">
-                                                <input type="hidden" name="count" value="<?= $product->count ?>"/>
+                                                <input type="hidden" name="id" value="<?=$position->getId()?>">
+                                                <?php $count = ($diversity) ? $diversity->count : $product->count; ?>
+                                                <input type="hidden" name="count" value="<?=$count?>"/>
                                             </div>
                                         </form>
-                                        <div class="count-error has-error" <?php if($quantity <= $product->count):?>style="display: none" <?php endif;?>>В наличии осталось <?=$product->count ?> шт.</div>
+                                        <div class="count-error has-error" <?php if($quantity <= $count):?>style="display: none" <?php endif;?>>В наличии осталось <?=$count?> шт.</div>
                                     <?php else:?>
                                         0
                                     <?php endif;?>
                                 </td>
                                 <td class="product-subtotal">
-                                    <span class="amount"><span id="amount_val_<?= $product->id ?>"><?= $product->getCost() ?></span><i class="fa fa-ruble"></i></span>
+                                    <span class="amount"><span id="amount_val_<?= $position->getId() ?>"><?= $position->getCost() ?></span><i class="fa fa-ruble"></i></span>
                                 </td>
-                                <td class="product-remove"><a data-id="<?= $product->id ?>" id="remove_cart_item" class="remove">×</a></td>
+                                <td class="product-remove"><a data-id="<?= $position->getId() ?>" id="remove_cart_item" class="remove">×</a></td>
                             </tr>
                         <?php endif;?>
                     <?php endforeach; ?>

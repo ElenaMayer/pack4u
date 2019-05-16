@@ -116,12 +116,12 @@ class Order extends \yii\db\ActiveRecord
                         if($this->status == self::STATUS_CANCELED) {
                             Yii::debug('Отменен заказ #' . $this->id, 'order');
                             foreach ($this->orderItems as $item){
-                                $item->product->plusCount($item->quantity);
+                                $item->product->plusCount($item->quantity, $item->diversity_id);
                             }
                         } elseif($oldAttributes['status'] == self::STATUS_CANCELED){
                             Yii::debug('Открыт отмененный заказ #' . $this->id, 'order');
                             foreach ($this->orderItems as $item){
-                                $item->product->minusCount($item->quantity);
+                                $item->product->minusCount($item->quantity, $item->diversity_id);
                             }
                         }
                     }
@@ -227,7 +227,7 @@ class Order extends \yii\db\ActiveRecord
 
         foreach ($this->orderItems as $item) {
             $product = Product::findOne($item->product_id);
-            $product->plusCount($item->quantity);
+            $product->plusCount($item->quantity, $item->diversity_id);
         }
 
         return true;
@@ -241,10 +241,10 @@ class Order extends \yii\db\ActiveRecord
             }
         } else {
             $cart = \Yii::$app->cart;
-            /* @var $products Product[] */
-            $products = $cart->getPositions();
-            foreach ($products as $item) {
-                $weight += $item->weight * $item->quantity;
+            $positions = $cart->getPositions();
+            foreach ($positions as $position) {
+                $product = $position->getProduct();
+                $weight += $product->weight * $position->getQuantity();
             }
         }
         return $weight * 1.1;

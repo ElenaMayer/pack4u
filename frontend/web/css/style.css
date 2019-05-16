@@ -16001,6 +16001,7 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     margin-bottom: 20px;
     margin-top: 30px;
     white-space: pre-wrap;
+    clear: both;
 }
 
 .single-product div.product .entry-summary form.cart {
@@ -16047,7 +16048,8 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 form.cart .cd-customization {
     float: left;
 }
-.cd-customization .add-to-cart em {
+.cd-customization .add-to-cart em,
+.cd-customization .add_to_cart_button em {
     position: absolute;
     top: 0;
     left: 0;
@@ -16490,6 +16492,53 @@ form.cart .cd-customization {
 
 .stars a:hover {
     color: #f5a64a;
+}
+
+.diversities {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.diversities .diversity {
+    padding: 0;
+    min-width: 110px;
+}
+
+.diversities .diversity .diversity_inner {
+    margin: 2px;
+    border: 3px solid #ddd;
+}
+
+.diversities .diversity.active .diversity_inner {
+    border: 3px solid #76cca7;
+}
+
+.diversities.has_error {
+    border: 3px solid #fe8f8e;
+}
+
+.sold-out {
+    background-color: rgba(255, 255, 255, 0.79);
+    color: #696969;
+    pointer-events: none;
+    padding: 15px 0;
+    display: block;
+    text-align: center;
+    width: 100%;
+    z-index: 5;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: default;
+    font-size: 11px;
+    font-family: "Etelka Light Pro", sans-serif;
+    letter-spacing: 0.05em;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 /* === 7.4. CART === */

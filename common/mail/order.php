@@ -2,6 +2,7 @@
 /* @var $order common\models\Order */
 use yii\helpers\Html;
 use common\models\Order;
+use common\models\ProductDiversity;
 ?>
 
 <h1>Заказ #<?= $order->id ?> успешно создан.</h1>
@@ -51,9 +52,18 @@ use common\models\Order;
         <tr>
             <td>
                 <div class="product-image">
-                    <a href="<?= Yii::$app->params['domain']; ?>/catalog/<?= $item->product->category->slug?>/<?= $item->product->id?>">
-                        <?= Html::img($item->product->images[0]->getUrl('small'));?>
-                    </a>
+                    <?php if($item->diversity_id):?>
+                        <?php $div = ProductDiversity::findOne($item->diversity_id);
+                        if($div):?>
+                            <a href="<?= Yii::$app->params['domain']; ?>/catalog/<?= $item->product->category->slug ?>/<?= $item->product_id ?>/<?=$item->diversity_id?>">
+                                <?= Html::img($div->image->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$item->title]);?>
+                            </a>
+                        <?php endif;?>
+                    <?php else:?>
+                        <a href="<?= Yii::$app->params['domain']; ?>/catalog/<?= $item->product->category->slug ?>/<?= $item->product_id?>">
+                            <?= Html::img($item->product->images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$item->title]);?>
+                        </a>
+                    <?php endif;?>
                 </div>
             </td>
             <td>

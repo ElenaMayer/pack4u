@@ -73,9 +73,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="payment-detail-wrapper">
                         <h2>Ваш заказ</h2>
                         <ul class="cart-list">
-                            <?php foreach ($products as $product):?>
-                                <?php if($product->getIsActive() && $product->getIsInStock()):?>
-                                    <?= $this->render('_products', ['product'=>$product]); ?>
+                            <?php foreach ($positions as $position):?>
+                            <?php $product = $position->getProduct();?>
+                                <?php if($product->getIsActive($position->diversity_id)):?>
+                                    <?= $this->render('_products', [
+                                            'position' => $position,
+                                            'product' => $product
+                                    ]); ?>
                                 <?php endif;?>
                             <?php endforeach ?>
                         </ul> <!-- /.cart-list -->

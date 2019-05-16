@@ -682,3 +682,6 @@ ul.user_menu li.active > a {
     background: #96cb62;
     border-color: #96cb62;
 }
+.diversities .diversity.active {
+    border: 3px solid #96cb62;
+}

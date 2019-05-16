@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\Product;
+use common\models\ProductDiversity;
 use Yii;
 use common\models\Order;
 use backend\models\OrderSearch;
@@ -11,6 +12,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\OrderItem;
+use yii\helpers\Json;
 
 /**
  * OrderController implements the CRUD actions for Order model.
@@ -65,19 +67,26 @@ class OrderController extends Controller
 
             Yii::debug('Добавлен в заказ #' . $id . ' арт.' . $product->article, 'order');
 
-            $orderItem = OrderItem::find()->where(['order_id' => $id, 'product_id' => $post['product_id']])->one();
+            $orderItem = OrderItem::find()->where(['order_id' => $id, 'product_id' => $post['product_id']]);
+            $div = [];
+            if($post['diversity_id']){
+                $div = ProductDiversity::findOne($post['diversity_id']);
+                $orderItem = $orderItem->andWhere(['diversity_id' => $post['diversity_id']]);
+            }
+            $orderItem = $orderItem->one();
             if($orderItem) {
                 $orderItem->quantity += $post['quantity'];
             } else {
                 $orderItem = new OrderItem();
                 $orderItem->order_id = $id;
-                $orderItem->title = $product->title;
+                $orderItem->title = $product->title . ($div ? ' "' . $div->title . '"' : '');
                 $orderItem->price = $product->getPrice($post['quantity'], true);
                 $orderItem->product_id = $post['product_id'];
                 $orderItem->quantity = $post['quantity'];
+                $orderItem->diversity_id = $post['diversity_id'];
             }
             if ($orderItem->save()) {
-                $product->minusCount($post['quantity']);
+                $product->minusCount($post['quantity'], $orderItem->diversity_id);
             }
         }
         return $this->render('view', [
@@ -142,21 +151,23 @@ class OrderController extends Controller
 
         $product = Product::findOne($model->product_id);
         if($product)
-            $product->plusCount($model->quantity);
+            $product->plusCount($model->quantity, $model->diversity_id);
         $model->delete();
         return $this->redirect(['view', 'id' => $model->order_id]);
     }
+
     public function actionUpdate_order_item($id, $field, $value)
     {
         $model = OrderItem::findOne($id);
         $product = Product::findOne($model->product_id);
         if($product && $model->$field != $value){
             if($field == 'quantity') {
+                $model->price = $product->getPrice($value);
                 Yii::debug('Редактирование заказа #' . $id . ' арт.' . $product->article, 'order');
                 if ($model->quantity > $value)
-                    $product->minusCount($value - $model->quantity);
+                    $product->minusCount($value - $model->quantity, $model->diversity_id);
                 else
-                    $product->plusCount($model->quantity - $value);
+                    $product->plusCount($model->quantity - $value, $model->diversity_id);
             }
         }
         $model->$field = $value;
@@ -180,4 +191,19 @@ class OrderController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionGet_diversity()
+    {
+        $out = [];
+        if (isset($_POST['depdrop_parents'])) {
+            $parents = $_POST['depdrop_parents'];
+            if ($parents != null) {
+                $item_id = $parents[0];
+                $out = ProductDiversity::getDiversityDDArray($item_id);
+                return Json::encode(['output'=>$out, 'selected'=>'']);
+            }
+        }
+        return Json::encode(['output'=>'', 'selected'=>'']);
+    }
+
 }

@@ -1,5 +1,6 @@
 <?php
 use \yii\helpers\Html;
+use common\models\ProductDiversity;
 
 $this->title = 'Заказ #' . $order->id;
 
@@ -24,15 +25,27 @@ $this->params['breadcrumbs'][] = $this->title;
                     <tbody>
                     <?php foreach ($order->orderItems as $item):?>
                         <?php
-                        $product = $item->product; ?>
+                        $product = $item->product;
+                        $diversity = ProductDiversity::findOne($item->diversity_id);
+                        ?>
                         <tr class="cart_item">
                             <td class="product-img">
-                                <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>">
-                                    <?= Html::img($product->images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$product->title]);?>
-                                </a>
+                                <?php if($diversity):?>
+                                    <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>/<?=$diversity->id?>">
+                                        <?= Html::img($diversity->image->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$item->title]);?>
+                                    </a>
+                                <?php else:?>
+                                    <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>">
+                                        <?= Html::img($product->images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$item->title]);?>
+                                    </a>
+                                <?php endif;?>
                             </td>
                             <td class="product-thumbnail">
-                                <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>"><?= Html::encode($product->title) ?></a>
+                                <?php if($diversity):?>
+                                    <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>/<?=$diversity->id?>"><?= Html::encode($item->title) ?></a>
+                                <?php else:?>
+                                    <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>"><?= Html::encode($item->title) ?></a>
+                                <?php endif;?>
                             </td>
                             <td class="product-price">
                                 <span class="amount"><?= (int)$item->price ?><i class="fa fa-ruble"></i></span>

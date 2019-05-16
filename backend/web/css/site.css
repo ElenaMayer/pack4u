@@ -164,3 +164,22 @@ a.image_remove:hover {
 .table.table-prices thead > tr > th {
     border: none;
 }
+
+.diversity-fields {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.diversity-fields .control-label {
+    width: 100px;
+}
+
+.diversity-fields .form-control {
+    width: 100px;
+    display: inline;
+}
+
+.form-group {
+    clear: both;
+}

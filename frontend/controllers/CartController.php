@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\models\Order;
 use common\models\OrderItem;
 use common\models\Product;
+use common\models\ProductDiversity;
 use common\models\User;
 use Yii;
 use yii\filters\AccessControl;
@@ -25,12 +26,15 @@ class CartController extends \yii\web\Controller
         ];
     }
 
-    public function actionAdd($id, $quantity = 1)
+    public function actionAdd($id, $diversity_id = null, $quantity = 1)
     {
         $product = Product::findOne($id);
         if ($product) {
+            $position = $product->getCartPosition();
+            if ($diversity_id)
+                $position->diversity_id = $diversity_id;
             $cart = \Yii::$app->cart;
-            $cart->put($product, $quantity);
+            $cart->put($position, $quantity);
             \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return [
                 'count' => $cart->getCount(),
@@ -42,14 +46,18 @@ class CartController extends \yii\web\Controller
     {
         $get = Yii::$app->request->get();
         if($get && isset($get['id']) && isset($get['quantity']) && $get['quantity'] > 0) {
-            $product = Product::findOne($get['id']);
-            if($product->count > $get['quantity']){
-                $count = $get['quantity'];
-            } else {
-                $count = $product->count;
-            }
-            $this->updateQty($get['id'], $count);
             $cart = \Yii::$app->cart;
+            $position = $cart->getPositionById($get['id']);
+
+            if ($position) {
+                $product = $position->getProduct();
+                if($product->getItemCount($position->diversity_id) > $get['quantity']){
+                    $count = $get['quantity'];
+                } else {
+                    $count = $product->getItemCount($position->diversity_id);
+                }
+                $this->updateQty($get['id'], $count);
+            }
 
             $product = $cart->getPositionById($get['id']);
             $total = $cart->getCost();
@@ -86,8 +94,8 @@ class CartController extends \yii\web\Controller
 
     public function actionRemove($id)
     {
-        $this->removeItemFromCart($id);
         $cart = \Yii::$app->cart;
+        $cart->removeById($id);
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         return ['data' => $this->renderPartial('_total', [
             'orderAvailable' => $cart->getCost() >= Yii::$app->params['orderMinSum'],
@@ -98,14 +106,6 @@ class CartController extends \yii\web\Controller
         ])];
     }
 
-    public function removeItemFromCart($id)
-    {
-        $product = Product::findOne($id);
-        if ($product) {
-            \Yii::$app->cart->remove($product);
-        }
-    }
-
     public function actionUpdate($id, $quantity)
     {
         $this->updateQty($id, $quantity);
@@ -114,9 +114,10 @@ class CartController extends \yii\web\Controller
 
     public function updateQty($id, $quantity)
     {
-        $product = Product::findOne($id);
-        if ($product) {
-            \Yii::$app->cart->update($product, $quantity);
+        $cart = \Yii::$app->cart;
+        $position = $cart->getPositionById($id);
+        if ($position) {
+            \Yii::$app->cart->update($position, $quantity);
         }
     }
 
@@ -126,16 +127,16 @@ class CartController extends \yii\web\Controller
         $ajax = false;
         if($get && isset($get['id'])) {
             $ajax = true;
-            $this->removeItemFromCart($get['id']);
+            $cart = \Yii::$app->cart;
+            $cart->removeById($get['id']);
         }
 
         $order = new Order();
         /* @var $cart ShoppingCart */
         $cart = \Yii::$app->cart;
-        /* @var $products Product[] */
-        $products = $cart->getPositions();
+        $positions = $cart->getPositions();
 
-        if($products) {
+        if($positions) {
             if ($order->load(\Yii::$app->request->post()) && $order->validate()) {
                 $transaction = $order->getDb()->beginTransaction();
                 if (!Yii::$app->user->isGuest) {
@@ -146,23 +147,29 @@ class CartController extends \yii\web\Controller
                 $order->save(false);
                 Yii::debug('Заказ  #' . $order->id . ' создан.', 'order');
 
-                foreach ($products as $product) {
+                foreach ($positions as $position) {
+                    $product = $position->getProduct();
                     if ($product->getIsActive() && $product->getIsInStock()) {
-                        $qty = $product->getQuantity();
+                        $qty = $position->getQuantity();
                         $orderItem = new OrderItem();
                         $orderItem->order_id = $order->id;
                         $orderItem->title = $product->title;
+                        if($position->diversity_id){
+                            $diversity = ProductDiversity::findOne($position->diversity_id);
+                            $orderItem->title .= ' "' . $diversity->title . '"';
+                        }
                         $orderItem->price = $product->getPrice($qty);
                         $orderItem->product_id = $product->id;
-                        if($product->count < $qty)
-                            $qty = $product->count;
+                        $orderItem->diversity_id = $position->diversity_id;
+                        if($product->getItemCount($position->diversity_id) < $qty)
+                            $qty = $product->getItemCount($position->diversity_id);
                         $orderItem->quantity = $qty;
                         if (!$orderItem->save(false)) {
                             $transaction->rollBack();
                             \Yii::$app->session->addFlash('error', 'Невозможно создать заказ. Пожалуйста свяжитесь с нами.');
                             return $this->redirect('/catalog');
                         } else {
-                            $product->minusCount($orderItem->quantity);
+                            $product->minusCount($orderItem->quantity, $position->diversity_id);
                         }
                     }
                 }
@@ -191,13 +198,13 @@ class CartController extends \yii\web\Controller
             if($ajax){
                 return $this->renderPartial('order', [
                     'order' => $order,
-                    'products' => $products,
+                    'positions' => $positions,
                     'cart' => $cart,
                 ]);
             } else {
                 return $this->render('order', [
                     'order' => $order,
-                    'products' => $products,
+                    'positions' => $positions,
                     'cart' => $cart,
                 ]);
             }
@@ -205,7 +212,7 @@ class CartController extends \yii\web\Controller
             if($ajax){
                 return false;
             } else
-            $this->redirect('/cart/list');
+            $this->redirect('/cart');
         }
     }
 

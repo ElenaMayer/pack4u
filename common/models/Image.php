@@ -48,12 +48,12 @@ class Image extends \yii\db\ActiveRecord
 
     public function getPath($size = 'origin')
     {
-        return Yii::getAlias('@frontend/web/uploads/product/' . $this->product_id . '_' . $this->id . '_' . $size . '.jpg');
+        return Yii::getAlias('@frontend/web/uploads/product/' . $this->id . '_' . $size . '.jpg');
     }
 
     public function getUrl($size = 'origin')
     {
-        return Yii::getAlias('@frontendWebroot/uploads/product/' . $this->product_id . '_' . $this->id . '_' . $size . '.jpg');
+        return Yii::getAlias('@frontendWebroot/uploads/product/' . $this->id . '_' . $size . '.jpg');
     }
 
     public function afterDelete()

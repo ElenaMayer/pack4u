@@ -85,6 +85,19 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <?php if($model->diversities):?>
+        <h2>Расцветка</h2>
+        <div class="product-images">
+            <?php foreach ($model->diversities as $diversity):?>
+                <?php if($diversity->image_id):?>
+                    <div class="product-image">
+                        <?= Html::img($diversity->image->getUrl('small'));?>
+                    </div>
+                <?php endif;?>
+            <?php endforeach;?>
+        </div>
+    <?php endif;?>
+
     <?php if($model->relations):?>
         <h2><?= $model->getAttributeLabel('relationsArr'); ?></h2>
 

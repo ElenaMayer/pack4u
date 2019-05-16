@@ -25,22 +25,28 @@ $(document).ready(function() {
     });
 
     $(document.body).on('click', '.add-to-cart', function (event) {
-        button = $(this);
-        quantity = $('.product-qty').val();
-        if(!quantity) {
-            quantity = 1;
+        if($('#diversity').val() == 1 && $('#diversity_id').val() == 0){
+            $('.diversities').addClass('has_error');
+            $('.diversity-error').show();
+        } else {
+            button = $(this);
+            quantity = $('.product-qty').val();
+            if (!quantity) {
+                quantity = 1;
+            }
+            $.ajax({
+                method: 'get',
+                url: '/cart/add',
+                dataType: 'json',
+                data: {
+                    id: button.data('id'),
+                    diversity_id: button.data('diversity_id'),
+                    quantity: quantity,
+                },
+            }).done(function (data) {
+                add_to_cart_animation(button, data.count);
+            });
         }
-        $.ajax({
-            method: 'get',
-            url: '/cart/add',
-            dataType: 'json',
-            data: {
-                id: button.data('id'),
-                quantity: quantity,
-            },
-        }).done(function( data ) {
-            add_to_cart_animation(button, data.count);
-        });
 
     });
 
@@ -95,6 +101,7 @@ $(document).ready(function() {
             $('#amount_total').text($('#amount_subtotal').text());
 		});
         $('#order-address').val('');
+        $("#order-shipping_cost").val(null);
         if($(this).children("option:selected").val() == 'self'){
             $('#order-payment_method').append($('<option>', {
                 value: 'cash',

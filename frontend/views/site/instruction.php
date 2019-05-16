@@ -13,21 +13,24 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php
                         $snippet = $item->getSnippet();
                         $videoId = $snippet->getResourceId()->getVideoId();
-                        $img = $snippet->getThumbnails()->getStandard()->getUrl();
-                        ?>
-                        <div class="masonry-item col-md-4 col-sm-6 format-image">
-                            <div class="blog-item">
-                                <a class="blog-thumbnail" href="/instruction/<?= $videoId?>">
-                                    <img width="640" height="480" src="<?= $img?>" alt="<?= $snippet->title ?>"/>
-                                </a>
-                                <div class="blog-description">
-                                    <h3>
-                                        <a href="/instruction/<?= $videoId?>"><?= $snippet->title ?></a>
-                                    </h3>
-                                    <a class="view-more" href="/instruction/<?= $videoId?>">Смотреть</a>
+                        $img = $snippet->getThumbnails();
+                        if($img):
+                            $img = $img->getStandard()->getUrl();
+                            ?>
+                            <div class="masonry-item col-md-4 col-sm-6 format-image">
+                                <div class="blog-item">
+                                    <a class="blog-thumbnail" href="/instruction/<?= $videoId?>">
+                                        <img width="640" height="480" src="<?= $img?>" alt="<?= $snippet->title ?>"/>
+                                    </a>
+                                    <div class="blog-description">
+                                        <h3>
+                                            <a href="/instruction/<?= $videoId?>"><?= $snippet->title ?></a>
+                                        </h3>
+                                        <a class="view-more" href="/instruction/<?= $videoId?>">Смотреть</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php endif;?>
                     <?php endforeach;?>
                 </div>
             </div>

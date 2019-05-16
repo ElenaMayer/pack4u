@@ -12,13 +12,18 @@ use Yii;
  * @property string $title
  * @property string $price
  * @property integer $product_id
+ * @property integer $diversity_id
  * @property double $quantity
  *
  * @property Product $product
+ * @property Diversity $diversity
  * @property Order $order
  */
 class OrderItem extends \yii\db\ActiveRecord
 {
+
+    public $diversities;
+
     /**
      * @inheritdoc
      */
@@ -48,7 +53,9 @@ class OrderItem extends \yii\db\ActiveRecord
             'title' => 'Описание',
             'price' => 'Цена',
             'product_id' => 'Товар',
+            'diversity_id' => 'Расцветка',
             'quantity' => 'Количество',
+            'diversities' => 'Расцветка'
         ];
     }
 
@@ -58,6 +65,14 @@ class OrderItem extends \yii\db\ActiveRecord
     public function getProduct()
     {
         return $this->hasOne(Product::className(), ['id' => 'product_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDiversity()
+    {
+        return $this->hasOne(Product::className(), ['id' => 'diversity_id']);
     }
 
     /**

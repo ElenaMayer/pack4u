@@ -123,8 +123,16 @@ class ProductController extends Controller
             {
                 $model->productPrices = $post['ProductPrice'];
             }
-            if($post['Product']['count'] != $model->count && $post['Product']['count'] <= 0 && $model->is_in_stock == 1) {
-                $post['Product']['is_in_stock'] = 0;
+            if (is_array($post['ProductDiversity']))
+            {
+                $model->productDiversities = $post['ProductDiversity'];
+            }
+            if($post['Product']['count'] != $model->count) {
+                Yii::debug('Изменение количества в админке арт.' .
+                    $model->article . '. Было '. $model->count . 'шт, стало ' . $post['Product']['count'] . 'шт.', 'order');
+                if ($post['Product']['count'] <= 0 && $model->is_in_stock == 1) {
+                    $post['Product']['is_in_stock'] = 0;
+                }
             }
             if ($model->load($post) && $model->save()) {
                 if (is_array($post['Product']['relationsArr']))
