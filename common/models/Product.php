@@ -507,13 +507,13 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 
     public function setProductPrices($prices)
     {
-        unset($prices['__id__']); // remove the hidden "new ProductSize" row
+        unset($prices['__id__']); // remove the hidden "new ProductPrice" row
         $this->_productPrices = [];
         foreach ($prices as $key => $price) {
             if (is_array($price)) {
                 $this->_productPrices[$key] = $this->getProductPrice($key);
                 $this->_productPrices[$key]->setAttributes($price);
-            } elseif ($price instanceof ProductSize) {
+            } elseif ($price instanceof ProductPrice) {
                 $this->_productPrices[$price->id] = $price;
             }
         }
@@ -538,13 +538,13 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 
     public function setProductDiversities($diversities)
     {
-        unset($diversities['__id__']); // remove the hidden "new ProductSize" row
+        unset($diversities['__id__']); // remove the hidden "new ProductDiversity" row
         $this->_productDiversities = [];
         foreach ($diversities as $key => $diversity) {
             if (is_array($diversity)) {
                 $this->_productDiversities[$key] = $this->getProductDiversity($key);
                 $this->_productDiversities[$key]->setAttributes($diversity);
-            } elseif ($diversity instanceof ProductSize) {
+            } elseif ($diversity instanceof ProductDiversity) {
                 $this->_productDiversities[$diversity->id] = $diversity;
             }
         }

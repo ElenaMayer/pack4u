@@ -96,7 +96,7 @@ $diversityId = ($product->diversity && $diversity && $diversity->id) ? $diversit
                                 <div class="diversities">
                                     <?php foreach ($product->diversities as $div):?>
                                         <?php if($div->is_active):?>
-                                            <div class="diversity col-md-4 <?php if($diversityId && $div->id == $diversityId):?>active<?php endif;?><?php if($div->count <= 0):?> out_of_stock<?php endif;?>">
+                                            <div class="diversity <?php if($diversityId && $div->id == $diversityId):?>active<?php endif;?><?php if($div->count <= 0):?> out_of_stock<?php endif;?>">
                                                 <div class="diversity_inner">
                                                     <?php if($div->count <= 0):?>
                                                         <?= Html::img($div->image->getUrl('small'), ['alt'=>$div->title]);?>
@@ -142,7 +142,7 @@ $diversityId = ($product->diversity && $diversity && $diversity->id) ? $diversit
                                 <form class="cart">
                                     <div class="quantity">
                                         <input type="number" step="1" min="1" name="quantity" value="1" title="Количество" class="input-text qty text product-qty" size="4"/>
-                                        <input type="hidden" name="count" value="<?= $product->count ?>"/>
+                                        <input type="hidden" name="count" value="<?= $diversityId ? $diversity->count : $product->count ?>"/>
                                     </div>
                                     <?php if($product->diversity):?>
                                         <input type="hidden" id="diversity" value="1"/>
@@ -167,7 +167,7 @@ $diversityId = ($product->diversity && $diversity && $diversity->id) ? $diversit
                                 <?php if(Yii::$app->user->isGuest):?>
                                     <div class="wishlist-login hide">Для использования "Избранного" необходимо <a href="/user/login">Войти</a></div>
                                 <?php endif;?>
-                                <div class="count-error has-error" style="display: none">В наличии осталось <?=$product->count ?> шт.</div>
+                                <div class="count-error has-error" style="display: none">В наличии осталось <?= $diversityId ? $diversity->count : $product->count ?> шт.</div>
                             <?php endif;?>
                             <div class="clear"></div>
                         </div>

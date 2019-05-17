@@ -16502,11 +16502,13 @@ form.cart .cd-customization {
 .diversities .diversity {
     padding: 0;
     min-width: 110px;
+    float: left;
 }
 
 .diversities .diversity .diversity_inner {
     margin: 2px;
     border: 3px solid #ddd;
+    width: max-content;
 }
 
 .diversities .diversity.active .diversity_inner {
@@ -16532,13 +16534,13 @@ form.cart .cd-customization {
     font-size: 11px;
     font-family: "Etelka Light Pro", sans-serif;
     letter-spacing: 0.05em;
-    position: absolute;
-    top: 50%;
+    position: relative;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
+    margin-top: -45px;
 }
 
 /* === 7.4. CART === */
