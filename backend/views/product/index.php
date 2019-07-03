@@ -53,7 +53,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             'size',
-            'count',
+            [
+                'attribute'=>'count',
+                'format' => 'html',
+                'value' => function ($model) {
+                    if($model->diversity) {
+                        $result = '';
+                        foreach ($model->diversities as $diversity){
+                            $result .= $diversity->count . '/';
+                        }
+                        return trim($result, ' / ');
+                    } else
+                        return $model->count;
+                },
+            ],
             [
                 'attribute'=>'is_active',
                 'value' => function ($model) {

@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
                 'value' => function ($model) {
                     if($model->multiprice) {
-                        return $model->getMultipricesStr();
+                        return $model->getMultipricesStrFull();
                     } elseif($model->new_price) {
                         return '<s>' . $model->price . '</s> ' . $model->new_price;
                     } else {
@@ -73,7 +73,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'size',
             'color',
-            'count',
+            [
+                'attribute'=>'count',
+                'format' => 'html',
+                'value' => function ($model) {
+                    if($model->diversity) {
+                        $result = '';
+                        foreach ($model->diversities as $diversity){
+                            $result .= $diversity->title . ' - ' . $diversity->count . 'шт / ';
+                        }
+                    return trim($result, ' / ');
+                    } else
+                        return $model->count;
+                },
+            ],
             'weight',
             'tags',
             'is_active',
@@ -85,7 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <?php if($model->diversities):?>
+    <?php if($model->diversities && $model->diversity):?>
         <h2>Расцветка</h2>
         <div class="product-images">
             <?php foreach ($model->diversities as $diversity):?>

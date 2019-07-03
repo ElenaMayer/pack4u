@@ -162,7 +162,7 @@ class OrderController extends Controller
         $product = Product::findOne($model->product_id);
         if($product && $model->$field != $value){
             if($field == 'quantity') {
-                $model->price = $product->getPrice($value);
+                $model->price = $product->getPrice($value, true, $model->diversity_id);
                 Yii::debug('Редактирование заказа #' . $id . ' арт.' . $product->article, 'order');
                 if ($model->quantity > $value)
                     $product->minusCount($value - $model->quantity, $model->diversity_id);

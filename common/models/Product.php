@@ -581,10 +581,11 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public function saveDiversities()
     {
         $keep = [];
-        foreach ($this->productDiversities as $diversity) {
+        foreach ($this->productDiversities as $uploadId => $diversity) {
             if($diversity->article) {
                 $diversity->product_id = $this->id;
                 if(!$diversity->id) {
+                   // todo('Id никогда не пуст, надо проверять по вхождению new');
                     Yii::debug('Добавление количества в админке (разн.) арт.' .
                         $diversity->article . ': ' . $diversity->count . 'шт.', 'order');
                 } else {
@@ -595,11 +596,14 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
                     }
                 }
                 if ($diversity->save()) {
-                    $diversity->imageFile = UploadedFile::getInstanceByName('ProductDiversity['.$diversity->id.'][imageFile]');
+                    $diversity->imageFile = UploadedFile::getInstanceByName('ProductDiversity['.$uploadId.'][imageFile]');
                     if($diversity->imageFile) {
                         if($image = $diversity->upload()){
                             if($diversity->image_id){
-                                Image::findOne($diversity->image_id)->delete();
+                                $imageO = Image::findOne($diversity->image_id);
+                                if($imageO) {
+                                    $imageO->delete();
+                                }
                             }
                             $diversity->image_id = $image->id;
                             $diversity->save(false);
@@ -637,6 +641,14 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             $result .= $price->price . '/';
         }
         return trim($result, '/');
+    }
+
+    public function getMultipricesStrFull(){
+        $result = '';
+        foreach ($this->prices as $price){
+            $result .= 'от ' . $price->count . 'шт - ' . $price->price . 'р / ';
+        }
+        return trim($result, ' / ');
     }
 
     public function getMinMultiprice(){
