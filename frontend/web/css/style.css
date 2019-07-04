@@ -16149,6 +16149,7 @@ form.cart .cd-customization {
 
 .single-product div.product .entry-summary .has-error {
     clear: both;
+    margin-bottom: -22px;
 }
 
 .single-product div.product .entry-summary .yith-wcwl-add-to-wishlist a:hover {
@@ -16497,6 +16498,7 @@ form.cart .cd-customization {
 .diversities {
     margin-top: 10px;
     display: inline-block;
+    border: 3px solid #ffffff;
 }
 
 .diversities .diversity {
@@ -16517,6 +16519,7 @@ form.cart .cd-customization {
 
 .diversities.has_error {
     border: 3px solid #fe8f8e;
+    max-width: 336px;
 }
 
 .sold-out {
@@ -18495,4 +18498,8 @@ only screen and (min-resolution: 2dppx) and (max-width: 480px) {
     .search-header5 form {
         width: 90%;
     }
+    .diversities.has_error {
+        max-width: 226px;
+    }
+
 }

@@ -646,9 +646,9 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public function getMultipricesStrFull(){
         $result = '';
         foreach ($this->prices as $price){
-            $result .= 'от ' . $price->count . 'шт - ' . $price->price . 'р / ';
+            $result .= 'от ' . $price->count . 'шт - ' . $price->price . 'р <br>';
         }
-        return trim($result, ' / ');
+        return $result;
     }
 
     public function getMinMultiprice(){

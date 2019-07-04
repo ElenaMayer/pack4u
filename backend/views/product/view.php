@@ -80,9 +80,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     if($model->diversity) {
                         $result = '';
                         foreach ($model->diversities as $diversity){
-                            $result .= $diversity->title . ' - ' . $diversity->count . 'шт / ';
+                            $result .= $diversity->title . ' - ' . $diversity->count . 'шт <br>';
                         }
-                    return trim($result, ' / ');
+                    return $result;
                     } else
                         return $model->count;
                 },
@@ -102,7 +102,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h2>Расцветка</h2>
         <div class="product-images">
             <?php foreach ($model->diversities as $diversity):?>
-                <?php if($diversity->image_id):?>
+                <?php if($diversity->image_id && $diversity->image):?>
                     <div class="product-image">
                         <?= Html::img($diversity->image->getUrl('small'));?>
                     </div>
