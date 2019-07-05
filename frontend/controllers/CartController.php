@@ -84,6 +84,7 @@ class CartController extends \yii\web\Controller
 
     public function actionCart()
     {
+        Yii::debug('Тестттт!', 'order');
         $cart = \Yii::$app->cart;
 
         return $this->render('list', [
@@ -145,7 +146,6 @@ class CartController extends \yii\web\Controller
                     $order->discount = $cart->getDiscountPercent();
                 }
                 $order->save(false);
-                Yii::debug('Заказ  #' . $order->id . ' создан.', 'order');
 
                 foreach ($positions as $position) {
                     $product = $position->getProduct();

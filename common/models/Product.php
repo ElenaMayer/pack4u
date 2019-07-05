@@ -396,7 +396,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             }
             $this->save(false);
         }
-        Yii::debug('Арт.' . $this->article . ': ' . $oldCount . '-' . $count . '=' . $this->count . 'шт', 'order');
+        //Yii::debug('Арт.' . $article . ': ' . $oldCount . '-' . $count . '=' . $this->count . 'шт', 'order');
     }
 
     public function plusCount($count, $diversityId = null){
@@ -419,7 +419,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             }
             $this->save(false);
         }
-        Yii::debug('Арт.' . $this->article . ': ' . $oldCount . '+' . $count . '=' . $this->count . 'шт', 'order');
+        //Yii::debug('Арт.' . $article . ': ' . $oldCount . '+' . $count . '=' . $this->count . 'шт', 'order');
     }
 
     public function getSale(){
@@ -552,6 +552,15 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 
     public function afterSave($insert, $changedAttributes){
         parent::afterSave($insert, $changedAttributes);
+        if(!$this->diversity) {
+            if ($insert) {
+                Yii::debug('Добавление арт.' .
+                    $this->article . ': ' . $this->count . 'шт', 'order');
+            } elseif($this->count != $changedAttributes['count']) {
+                Yii::debug('Изменение арт.' .
+                    $this->article . ': ' . $changedAttributes['count'] . ' / ' . $this->count . 'шт', 'order');
+            }
+        }
         $this->savePrices();
         $this->saveDiversities();
     }
@@ -584,17 +593,6 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         foreach ($this->productDiversities as $uploadId => $diversity) {
             if($diversity->article) {
                 $diversity->product_id = $this->id;
-                if(!$diversity->id) {
-                   // todo('Id никогда не пуст, надо проверять по вхождению new');
-                    Yii::debug('Добавление количества в админке (разн.) арт.' .
-                        $diversity->article . ': ' . $diversity->count . 'шт.', 'order');
-                } else {
-                    $divOld = ProductDiversity::findOne($diversity->id);
-                    if($divOld->count != $diversity->count){
-                        Yii::debug('Изменение количества в админке (разн.) арт.' .
-                            $diversity->article . '. Было '. $divOld->count . 'шт, стало ' . $diversity->count . 'шт.', 'order');
-                    }
-                }
                 if ($diversity->save()) {
                     $diversity->imageFile = UploadedFile::getInstanceByName('ProductDiversity['.$uploadId.'][imageFile]');
                     if($diversity->imageFile) {

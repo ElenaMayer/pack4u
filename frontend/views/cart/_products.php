@@ -3,10 +3,15 @@ use \yii\helpers\Html;
 use common\models\ProductDiversity;
 
 $diversity = ProductDiversity::findOne($position->diversity_id);
+if($diversity && $diversity->id) {
+    $isInStock = $product->getIsInStock($diversity->id);
+} else {
+    $isInStock = false;
+}
 ?>
 
 <li>
-    <div class="cart-item <?php if(!$product->getIsInStock($diversity->id)):?>absent<?php endif;?>">
+    <div class="cart-item <?php if(!$isInStock):?>absent<?php endif;?>">
         <div class="product-image">
             <?php if($diversity):?>
                 <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>/<?=$diversity->id?>" title="<?= Html::encode($product->title)?>">

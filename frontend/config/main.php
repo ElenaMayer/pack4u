@@ -23,7 +23,7 @@ return [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['trace'],
                     'categories' => ['order'],
-                    'logFile' => '@runtime/logs/order.log',
+                    'logFile' => '@backend/runtime/logs/order.log',
                     'logVars' => [],
                     'exportInterval' => 1,
                 ],

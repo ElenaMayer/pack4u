@@ -64,9 +64,6 @@ class OrderController extends Controller
     {
         if($post = Yii::$app->request->post('OrderItem')){
             $product = Product::findOne($post['product_id']);
-
-            Yii::debug('Добавлен в заказ #' . $id . ' арт.' . $product->article, 'order');
-
             $orderItem = OrderItem::find()->where(['order_id' => $id, 'product_id' => $post['product_id']]);
             $div = [];
             if($post['diversity_id']){
@@ -76,6 +73,7 @@ class OrderController extends Controller
             $orderItem = $orderItem->one();
             if($orderItem) {
                 $orderItem->quantity += $post['quantity'];
+                Yii::debug('Изменение в заказе (2) #' . $id, 'order');
             } else {
                 $orderItem = new OrderItem();
                 $orderItem->order_id = $id;
@@ -84,6 +82,7 @@ class OrderController extends Controller
                 $orderItem->product_id = $post['product_id'];
                 $orderItem->quantity = $post['quantity'];
                 $orderItem->diversity_id = $post['diversity_id'];
+                Yii::debug('Добавление в заказ #' . $id, 'order');
             }
             if ($orderItem->save()) {
                 $product->minusCount($post['quantity'], $orderItem->diversity_id);
@@ -147,7 +146,7 @@ class OrderController extends Controller
     public function actionDelete_item($id)
     {
         $model = OrderItem::findOne($id);
-        Yii::debug('Удаление из заказа #' . $model->order_id . ' арт.' . $model->product->article, 'order');
+        Yii::debug('Удаление из заказа #' . $model->order_id, 'order');
 
         $product = Product::findOne($model->product_id);
         if($product)
@@ -163,7 +162,7 @@ class OrderController extends Controller
         if($product && $model->$field != $value){
             if($field == 'quantity') {
                 $model->price = $product->getPrice($value, true, $model->diversity_id);
-                Yii::debug('Редактирование заказа #' . $id . ' арт.' . $product->article, 'order');
+                Yii::debug('Изменение в заказе #' . $id, 'order');
                 if ($model->quantity > $value)
                     $product->minusCount($value - $model->quantity, $model->diversity_id);
                 else

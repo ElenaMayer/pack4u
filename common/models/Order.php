@@ -107,7 +107,8 @@ class Order extends \yii\db\ActiveRecord
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
-            if ($this->isNewRecord) {
+            if ($insert) {
+                Yii::debug('Заказ  #' . $this->id . ' создан.', 'order');
                 $this->status = self::STATUS_NEW;
             } else {
                 $oldAttributes = $this->getOldAttributes();

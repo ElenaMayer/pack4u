@@ -13,7 +13,16 @@ $this->params['breadcrumbs'][] = ['label' => 'Товары', 'url' => ['index']]
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-view">
-    <h1><a href='http://<?= Yii::$app->params['domain']?>/catalog/<?=$model->category->slug?>/<?=$model->id?>'><?= Html::encode($this->title) ?></a></h1>
+    <h1>
+        <a href='http://<?= Yii::$app->params['domain']?>/catalog/<?=$model->category->slug?>/<?=$model->id?>'>
+            <?= Html::encode($this->title) ?>
+        </a>
+        <?php if(!$model->is_active):?>
+            <span class="not_active">Не отображается</span>
+                <?php elseif(!$model->diversity && !$model->is_in_stock):?>
+            <span class="not_is_stock">Закончилось</span>
+        <?php endif;?>
+    </h1>
     <div class="product-images">
         <?php foreach ($model->images as $image):?>
             <div class="product-image">

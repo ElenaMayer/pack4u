@@ -87,11 +87,9 @@ class ProductDiversity extends \yii\db\ActiveRecord
 
     public function upload()
     {
-        Yii::debug('diversityid #' . $this->id, 'order');
         if ($this->validate()) {
             $image = new Image();
             if ($image->save()) {
-                Yii::debug('imageid1 #' . $image->id, 'order');
                 $this->imageFile->saveAs($image->getPath());
                 \yii\imagine\Image::getImagine()
                     ->open($image->getPath())
@@ -124,5 +122,16 @@ class ProductDiversity extends \yii\db\ActiveRecord
             }
         }
         return $divArray;
+    }
+
+    public function afterSave($insert, $changedAttributes){
+        parent::afterSave($insert, $changedAttributes);
+        if ($insert) {
+            Yii::debug('Добавление div арт.' .
+                $this->article . ': ' . $this->count . 'шт', 'order');
+        } elseif($this->count != $changedAttributes['count']) {
+            Yii::debug('Изменение div арт.' .
+                $this->article . ': ' . $changedAttributes['count'] . ' / ' . $this->count . 'шт', 'order');
+        }
     }
 }
