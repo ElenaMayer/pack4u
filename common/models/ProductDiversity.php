@@ -46,7 +46,7 @@ class ProductDiversity extends \yii\db\ActiveRecord
         return [
             [['product_id', 'is_in_stock', 'is_active', 'count', 'image_id'], 'integer'],
             [['article', 'color', 'title'], 'string', 'max' => 255],
-            [['article'], 'unique'],
+            //[['article'], 'unique'],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],
         ];
     }

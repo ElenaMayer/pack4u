@@ -84,7 +84,6 @@ class CartController extends \yii\web\Controller
 
     public function actionCart()
     {
-        Yii::debug('Тестттт!', 'order');
         $cart = \Yii::$app->cart;
 
         return $this->render('list', [

@@ -107,22 +107,44 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <?php if($model->diversities && $model->diversity):?>
+    <?php if($model->diversity && $model->diversities):?>
         <h2>Расцветка</h2>
-        <div class="product-images">
-            <?php foreach ($model->diversities as $diversity):?>
-                <?php if($diversity->image_id && $diversity->image):?>
-                    <div class="product-image">
-                        <?= Html::img($diversity->image->getUrl('small'));?>
-                    </div>
-                <?php endif;?>
-            <?php endforeach;?>
-        </div>
+
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th></th><th>Артикул</th><th>Название</th><th>Количество</th><th>Показывать</th>
+            </tr>
+            <?php foreach ($model->diversities as $diversity): ?>
+                <tr>
+                    <td>
+                        <?php if($diversity->image_id && $diversity->image):?>
+                            <div>
+                                <a href='http://<?= Yii::$app->params['domain']?>/catalog/<?=$model->category->slug?>/<?=$model->id?>/<?=$diversity->id?>'>
+                                    <?= Html::img($diversity->image->getUrl('small'));?>
+                                </a>
+                            </div>
+                        <?php endif;?>
+                    </td>
+                    <td>
+                        <?= $diversity->article;?>
+                    </td>
+                    <td>
+                        <?= $diversity->title;?>
+                    </td>
+                    <td>
+                        <?= $diversity->count;?>
+                    </td>
+                    <td>
+                        <?= ($diversity->is_active)? 'Да' : 'Нет' ?>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </table>
+
     <?php endif;?>
 
     <?php if($model->relations):?>
         <h2><?= $model->getAttributeLabel('relationsArr'); ?></h2>
-
         <div class="product-images">
             <?php foreach ($model->relations as $relation):?>
                 <?php if($relation->child->images):?>
