@@ -191,3 +191,7 @@ a.image_remove:hover {
 .form-group {
     clear: both;
 }
+
+.index-full {
+    float: right;
+}

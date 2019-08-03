@@ -9,16 +9,14 @@ use common\models\Category;
 /* @var $searchModel backend\models\ProductSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Товары';
+$this->title = 'Товары с расцветками';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p class="index-full">
-        <?= Html::a('Полный вид', ['index_full'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Краткий вид', ['index'], ['class' => 'btn btn-info']) ?>
     </p>
     <p>
         <?= Html::a('Добавить товар', ['create'], ['class' => 'btn btn-success']) ?>
@@ -30,9 +28,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             [
                 'format' => 'image',
-                'value'=>function($model) { return isset($model->images[0])?$model->images[0]->getUrl('small'):''; }
+                'value'=>function($model) { return $model->getImageWithDiversity($model->diversity_id); }
             ],
-            'id',
+            [
+                'attribute'=>'id',
+                'value' => function ($model) {
+                    return ($model->diversity)?($model->id . '/'. $model->diversity_id):$model->id;
+                },
+            ],
             'article',
             'title',
             [
@@ -42,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter' => Category::getCategoryList()
             ],
-            [
+            /*[
                 'attribute'=>'price',
                 'format' => 'html',
                 'value' => function ($model) {
@@ -54,22 +57,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         return $model->price;
                     }
                 },
-            ],
-            'size',
-            /*[
+            ],*/
+            [
                 'attribute'=>'count',
                 'format' => 'html',
-                'value' => function ($model) {
-                    if($model->diversity) {
-                        $result = '';
-                        foreach ($model->diversities as $diversity){
-                            $result .= $diversity->count . '/';
-                        }
-                        return trim($result, ' / ');
-                    } else
-                        return $model->count;
-                },
-            ],*/
+                'value' => function($model) { return $model->getCountWithDiversity($model->diversity_id); }
+            ],
             [
                 'attribute'=>'is_active',
                 'value' => function ($model) {
@@ -84,16 +77,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter' => [1 => 'Да', 0 => 'Нет']
             ],
-            [
+            /*[
                 'attribute'=>'is_novelty',
                 'value' => function ($model) {
                     return $model->is_novelty ? 'Да' : 'Нет';
                 },
                 'filter' => [1 => 'Да', 0 => 'Нет']
-            ],
+            ],*/
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update} {delete}',
+                'template' => '{view} {update}',
                 'buttons' => [
                     'images' => function ($url, $model, $key) {
                          return Html::a('<span class="glyphicon glyphicon glyphicon-picture" aria-label="Image"></span>', Url::to(['image/index', 'id' => $model->id]));

@@ -2,7 +2,6 @@
 
 namespace backend\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Product;
@@ -12,14 +11,16 @@ use common\models\Product;
  */
 class ProductSearch extends Product
 {
+
+    public $diversity_id;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'category_id', 'is_active', 'is_in_stock', 'is_novelty'], 'integer'],
-            [['title', 'description', 'article'], 'safe'],
+            [['id', 'category_id', 'is_active', 'is_in_stock', 'is_novelty', 'diversity_id'], 'integer'],
+            [['title', 'article'], 'safe'],
             [['price'], 'number'],
         ];
     }
@@ -66,6 +67,33 @@ class ProductSearch extends Product
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'article', $this->article]);
 
+        return $dataProvider;
+    }
+
+    public function searchFull($params)
+    {
+        $query = ProductDiversityView::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'sort'=> ['defaultOrder' => ['id' => SORT_DESC]]
+        ]);
+
+        if (!($this->load($params) && $this->validate())) {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'category_id' => $this->category_id,
+            'price' => $this->price,
+            'is_active' => $this->is_active,
+            'is_in_stock' => $this->is_in_stock,
+            'is_novelty' => $this->is_novelty,
+        ]);
+
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'article', $this->article]);
         return $dataProvider;
     }
 }

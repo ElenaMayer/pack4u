@@ -54,6 +54,17 @@ class ProductController extends Controller
         ]);
     }
 
+    public function actionIndex_full()
+    {
+        $searchModel = new ProductSearch();
+        $dataProvider = $searchModel->searchFull(Yii::$app->request->queryParams);
+
+        return $this->render('index_full', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single Product model.
      * @param integer $id

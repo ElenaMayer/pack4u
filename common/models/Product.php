@@ -43,6 +43,7 @@ use yii\helpers\ArrayHelper;
  * @property ProductRelation[] $relations
  * @property ProductPrice[] $prices
  * @property ProductDiversity[] $diversities
+ * @property ProductDiversity[] $diversitiesForSearch
  */
 class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 {
@@ -200,6 +201,14 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     public function getDiversities()
     {
         return $this->hasMany(ProductDiversity::className(), ['product_id' => 'id']);
+    }
+
+    /**
+     * @return ProductDiversity[]
+     */
+    public function getDiversitiesForSearch()
+    {
+        return $this->hasOne(ProductDiversity::className(), ['product_id' => 'id']);
     }
 
     public function isInWishlist()
@@ -469,10 +478,12 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
     {
         if (parent::beforeSave($insert)) {
             $this->weight = str_replace(',', '.', $this->weight);
-            if($this->count > 0)
-                $this->is_in_stock = 1;
-            else
-                $this->is_in_stock = 0;
+            if(!$this->diversity) {
+                if ($this->count > 0)
+                    $this->is_in_stock = 1;
+                else
+                    $this->is_in_stock = 0;
+            }
             return true;
         }
         return false;
@@ -707,5 +718,33 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             }
         }
         return $count;
+    }
+
+    public function getImageWithDiversity($diversityId){
+        if($diversityId){
+            $diversity = ProductDiversity::findOne($diversityId);
+            if($diversity && $image=$diversity->image){
+                return $image->getUrl('small');
+            } else {
+                return false;
+            }
+        } else {
+            if ($this->images && isset($this->images[0]) && $image = $this->images[0]){
+                return $image->getUrl('small');
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public function getCountWithDiversity($diversityId){
+        if($diversityId){
+            $diversity = ProductDiversity::findOne($diversityId);
+            if($diversity){
+                return $diversity->count;
+            }
+        } else {
+            return $this->count;
+        }
     }
 }

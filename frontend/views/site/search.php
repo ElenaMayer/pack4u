@@ -5,7 +5,7 @@ use \common\models\Product;
 
 /* @var $this yii\web\View */
 if($_GET['s'])
-    $this->title = 'Поиск по запросу "'.$_GET['s'] .'""';
+    $this->title = "Поиск по запросу '" . $_GET['s'] . "'";
 else
     $this->title = 'Поиск';
 $this->params['breadcrumbs'][] = $this->title;
@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </form>
                     </div>
                     <?php if($_GET['s']):?>
-                        <h3 class="entry-title">Результаты по запросу "<span class="archive-name"><?= $_GET['s'] ?></span>"</h3>
+                        <h3 class="entry-title">Результаты по запросу '<span class="archive-name"><?= $_GET['s'] ?></span>'</h3>
                         <div class="products row product-grid">
                             <?php foreach ($snippets as $id => $snippet) :?>
                                 <?php $model = Product::findOne($id)?>
