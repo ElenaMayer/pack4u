@@ -8,6 +8,8 @@ ProductAsset::register($this);
 
 /* @var $this yii\web\View */
 $title = $product->title;
+$diversityId = ($product->diversity && $diversity && $diversity->id) ? $diversity->id : null;
+if($diversityId) $title .= " " . $diversity->title;
 $subcategory = $product->getSubcategory();
 $this->params['breadcrumbs'][] = ['label' => $category->title, 'url' => ['/catalog/' . $category->slug]];
 if($subcategory){
@@ -15,16 +17,19 @@ if($subcategory){
 }
 $this->params['breadcrumbs'][] = $title;
 $this->title = Html::encode($title . ' ' . ($product->size?$product->size . 'см':''));
-$diversityId = ($product->diversity && $diversity && $diversity->id) ? $diversity->id : null;
+$images = $product->images;
 ?>
-
+<meta property="og:title" content="<?=$title?>"/>
+<meta property="og:description" content="<?=$product->description?>"/>
+<meta property="og:image" content="<?=$images[0]->getUrl()?>"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content= "https://ru.wikipedia.org/wiki/Мэрилин_Монро" />
 <div class="commerce single-product noo-shop-main">
     <div class="container">
         <div class="row">
             <div class="noo-main col-md-9">
                 <div class="product">
                     <div class="single-inner">
-                        <?php $images = $product->images; ?>
                         <div class="col-md-6">
                             <div class="product-slider-wrapper thumbs-bottom">
                                 <div class="swiper-container product-slider-main">
@@ -36,7 +41,7 @@ $diversityId = ($product->diversity && $diversity && $diversity->id) ? $diversit
                                         <?php endif;?>
                                         <?php foreach ($images as $key => $image):?>
                                             <div class="swiper-slide">
-                                                <?= Html::img($image->getUrl(), ['width' => '100%', 'alt'=>$product->title . ' ' . $product->size. 'см']);?>
+                                                    <?= Html::img($image->getUrl(), ['width' => '100%', 'alt'=>$product->title . ' ' . $product->size. 'см']);?>
                                             </div>
                                         <?php endforeach;?>
                                     </div>
@@ -62,7 +67,6 @@ $diversityId = ($product->diversity && $diversity && $diversity->id) ? $diversit
                         <div class="summary entry-summary">
                             <h1 class="product_title entry-title">
                                 <?= Html::encode($product->title) ?>
-                                <?php if($diversityId):?> "<?=$diversity->title?>"<?php endif;?>
                             </h1>
                             <div class="product-status">
                                 <?php if($diversityId):?>

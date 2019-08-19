@@ -27,8 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             [
-                'format' => 'image',
-                'value'=>function($model) { return $model->getImageWithDiversity($model->diversity_id); }
+                'format' => 'html',
+                'value'=>function($model) {
+                        return Html::a('<img src="'.$model->getImageWithDiversity($model->diversity_id).'">', Url::to(['/product/update', 'id' => $model->id]));
+                        }
             ],
             [
                 'attribute'=>'id',
@@ -45,19 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter' => Category::getCategoryList()
             ],
-            /*[
-                'attribute'=>'price',
-                'format' => 'html',
-                'value' => function ($model) {
-                    if($model->multiprice) {
-                        return $model->getMultipricesStr();
-                    } elseif($model->new_price) {
-                        return '<s>' . $model->price . '</s> ' . $model->new_price;
-                    } else {
-                        return $model->price;
-                    }
-                },
-            ],*/
+            'size',
             [
                 'attribute'=>'count',
                 'format' => 'html',
@@ -76,22 +66,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->is_in_stock ? 'Да' : 'Нет';
                 },
                 'filter' => [1 => 'Да', 0 => 'Нет']
-            ],
-            /*[
-                'attribute'=>'is_novelty',
-                'value' => function ($model) {
-                    return $model->is_novelty ? 'Да' : 'Нет';
-                },
-                'filter' => [1 => 'Да', 0 => 'Нет']
-            ],*/
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update}',
-                'buttons' => [
-                    'images' => function ($url, $model, $key) {
-                         return Html::a('<span class="glyphicon glyphicon glyphicon-picture" aria-label="Image"></span>', Url::to(['image/index', 'id' => $model->id]));
-                    }
-                ],
             ],
         ],
     ]); ?>

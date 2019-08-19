@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             'size',
-            /*[
+            [
                 'attribute'=>'count',
                 'format' => 'html',
                 'value' => function ($model) {
@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     } else
                         return $model->count;
                 },
-            ],*/
+            ],
             [
                 'attribute'=>'is_active',
                 'value' => function ($model) {
