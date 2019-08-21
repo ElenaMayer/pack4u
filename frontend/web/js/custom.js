@@ -643,11 +643,22 @@ $(document).ready(function() {
                         $('.courier .form-group').addClass('has-error');
                     }
                 }
-            })
+            });
         } else {
             $('.courier .help-block-error').text('Введите адрес для расчета');
             $('.courier .form-group').addClass('has-error');
         }
+    });
+
+    $(document.body).on('click', '#diversity-link' ,function() {
+        $.ajax({
+            url: $(this).data('href'),
+            type: "GET",
+            success: function (data) {
+                $('#product-data').html(data);
+                aweProductRender(true);
+            }
+        });
     });
 });
 

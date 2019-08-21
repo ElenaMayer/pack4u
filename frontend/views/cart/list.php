@@ -76,7 +76,13 @@ $positions = $cart->getPositions();
                                                     <i class="fa fa-question-circle"></i>
                                                     <span class="tooltip-text">
                                                         <?php foreach ($product->prices as $price):?>
-                                                            <?php if($price->count <= $product->count):?>
+                                                            <?php
+                                                            if($diversity){
+                                                                $count = $diversity->count;
+                                                            } else {
+                                                                $count = $product->count;
+                                                            }
+                                                            if($price->count <= $count):?>
                                                                 <p>от <?= $price->count?>шт. - <?= $price->price?><i class="fa fa-ruble"></i></p>
                                                             <?php endif;?>
                                                         <?php endforeach;?>

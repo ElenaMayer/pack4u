@@ -89,7 +89,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             [['description'], 'string'],
             [['category_id', 'is_in_stock', 'is_active', 'is_novelty', 'new_price', 'count', 'sort', 'price', 'multiprice', 'diversity'], 'integer'],
             ['weight', 'match', 'pattern' => '/^[0-9]+[0-9,.]*$/', 'message' => 'Значение должно быть числом.'],
-            [['title', 'article', 'category_id', 'count', 'price', 'weight'], 'required'],
+            [['title', 'article', 'category_id', 'weight'], 'required'],
             [['time, color, tags, subcategories'], 'safe'],
             [['slug', 'article', 'size'], 'string', 'max' => 255],
             [['title', 'instruction'], 'string', 'max' => 40],
@@ -260,7 +260,15 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             $diversity = ProductDiversity::findOne($diversityId);
             return ($diversity->count > 0);
         } else {
-            return ($product->is_in_stock && $product->count > 0);
+            if($product->diversity){
+                foreach ($product->diversities as $div){
+                    if($div->count > 0)
+                        return true;
+                }
+                return false;
+            } else {
+                return ($product->is_in_stock && $product->count > 0);
+            }
         }
     }
 

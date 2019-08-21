@@ -16513,6 +16513,10 @@ form.cart .cd-customization {
     width: max-content;
 }
 
+.diversity_inner a {
+    cursor: pointer;
+}
+
 .diversities .diversity.active .diversity_inner {
     border: 3px solid #76cca7;
 }

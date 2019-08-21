@@ -106,6 +106,19 @@ class CatalogController extends \yii\web\Controller
     public function actionProduct($categorySlug, $productId, $diversityId=null)
     {
         $product = Product::findOne($productId);
+
+        $category = Category::find()->where(['slug' => $categorySlug])->one();
+        if($product->diversity && $diversityId){
+            $diversity = ProductDiversity::findOne($diversityId);
+        }
+        if(isset($_GET['ajax']) && $_GET['ajax'] == 1){
+            return $this->renderPartial('_product_data', [
+                'category' => $category,
+                'product' => $product,
+                'diversity' => (isset($diversity) && $diversity->is_active)? $diversity : null,
+                'diversityId' => $diversityId,
+            ]);
+        }
         if(!$product || !$product->is_active){
             return $this->redirect('/catalog/list');
         } elseif(!$diversityId && $product->diversity && $product->activeDiversitiesCount() == 1){
@@ -117,12 +130,6 @@ class CatalogController extends \yii\web\Controller
             }
             $categorySlug = $product->category->slug;
             return $this->redirect("/catalog/$categorySlug/$product->id/$diversityId");
-        }
-
-        $category = Category::find()->where(['slug' => $categorySlug])->one();
-
-        if($product->diversity && $diversityId){
-            $diversity = ProductDiversity::findOne($diversityId);
         }
 
         return $this->render('product', [

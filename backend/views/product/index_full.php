@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'count',
                 'format' => 'html',
-                'value' => function($model) { return $model->getCountWithDiversity($model->diversity_id); }
+                'value' => function($model) { return $model->count; }
             ],
             [
                 'attribute'=>'is_active',
