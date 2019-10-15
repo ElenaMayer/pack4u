@@ -19,7 +19,7 @@ use common\models\ProductDiversity;
         'options' => [
             'placeholder' => Yii::t('app','Выберите товар ...'),
         ],
-        'data'=>Product::getProductArr(true),
+        'data'=>Product::getProductArr(false),
     ]) ?>
 
     <?= $form->field($orderItem, 'diversity_id')->widget(DepDrop::classname(), [

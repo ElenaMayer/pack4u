@@ -64,7 +64,7 @@ class PasswordResetRequestFormTest extends DbTestCase
             expect('message file exists', file_exists($this->getMessageFile()))->true();
 
             $message = file_get_contents($this->getMessageFile());
-            expect('message "from" is correct', $message)->contains(Yii::$app->params['supportEmail']);
+            expect('message "from" is correct', $message)->contains(Yii::$app->params['adminEmail']);
             expect('message "to" is correct', $message)->contains($model->email);
 
         });

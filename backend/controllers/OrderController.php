@@ -73,7 +73,13 @@ class OrderController extends Controller
             $orderItem = $orderItem->one();
             if($orderItem) {
                 $orderItem->quantity += $post['quantity'];
-                Yii::debug('Изменение в заказе (2) #' . $id, 'order');
+
+                if(!$orderItem->diversity_id) {
+                    Yii::debug('Заказ #' . $id . ' изменен Арт.' . $product->article . ' ' . $product->count . ' -> ' . ($product->count-$post['quantity']) . 'шт', 'order');
+                } else {
+                    Yii::debug('Заказ #' . $id . ' изменен (расц) Арт.' . $orderItem->diversity->article . ' ' . $orderItem->diversity->count . ' -> ' . ($orderItem->diversity->count-$post['quantity']) . 'шт', 'order');
+                }
+
             } else {
                 $orderItem = new OrderItem();
                 $orderItem->order_id = $id;
@@ -82,7 +88,12 @@ class OrderController extends Controller
                 $orderItem->product_id = $post['product_id'];
                 $orderItem->quantity = $post['quantity'];
                 $orderItem->diversity_id = $post['diversity_id'];
-                Yii::debug('Добавление в заказ #' . $id, 'order');
+
+                if(!$orderItem->diversity_id) {
+                    Yii::debug('Заказ #' . $id . ' добавлен Арт.' . $product->article . ' ' . $product->count . ' -> ' . ($product->count-$post['quantity']) . 'шт', 'order');
+                } else {
+                    Yii::debug('Заказ #' . $id . ' добавлен (расц) Арт.' . $orderItem->diversity->article . ' ' . $orderItem->diversity->count . ' -> ' . ($orderItem->diversity->count-$post['quantity']) . 'шт', 'order');
+                }
             }
             if ($orderItem->save()) {
                 $product->minusCount($post['quantity'], $orderItem->diversity_id);
@@ -146,7 +157,13 @@ class OrderController extends Controller
     public function actionDelete_item($id)
     {
         $model = OrderItem::findOne($id);
-        Yii::debug('Удаление из заказа #' . $model->order_id, 'order');
+
+        $product = Product::findOne($model->product_id);
+        if(!$model->diversity_id){
+            Yii::debug('Заказ #' . $model->order_id . ' удален Арт.' . $product->article . ' ' . $product->count . ' -> ' . ($product->count+$model->quantity) . 'шт', 'order');
+        } else {
+            Yii::debug('Заказ #' . $model->order_id . ' удален (расц) Арт.' . $model->diversity->article . ' ' . $model->diversity->article->count . ' -> ' . ($model->diversity->article->count+$model->quantity) . 'шт', 'order');
+        }
 
         $product = Product::findOne($model->product_id);
         if($product)
@@ -162,7 +179,15 @@ class OrderController extends Controller
         if($product && $model->$field != $value){
             if($field == 'quantity') {
                 $model->price = $product->getPrice($value, true, $model->diversity_id);
-                Yii::debug('Изменение в заказе #' . $id, 'order');
+
+                if(!$model->diversity_id){
+                    $newProductCount = ($model->quantity > $value) ? $product->count-($value-$model->quantity) : $product->count+($model->quantity - $value);
+                    Yii::debug('Заказ #' . $model->order_id . ' изменен Арт.' . $product->article . ' ' . $product->count . ' -> ' . $newProductCount . 'шт', 'order');
+                } else {
+                    $newProductCount = ($model->quantity > $value) ? $model->diversity->article->count - ($value - $model->quantity) : $model->diversity->article->count + ($model->quantity - $value);
+                    Yii::debug('Заказ #' . $model->order_id . ' изменен (расц) Арт.' . $model->diversity->article->article . ' ' . $model->diversity->article->count . ' -> ' . $newProductCount . 'шт', 'order');
+                }
+
                 if ($model->quantity > $value)
                     $product->minusCount($value - $model->quantity, $model->diversity_id);
                 else

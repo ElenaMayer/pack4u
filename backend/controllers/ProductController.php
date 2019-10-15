@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\Category;
+use common\models\ProductDiversity;
 use Yii;
 use common\models\Product;
 use backend\models\ProductSearch;
@@ -91,6 +92,16 @@ class ProductController extends Controller
         $model->sort = 0;
 
         if($this->processingProduct($model)) {
+
+            if(!$model->diversity) {
+                Yii::debug('Добавлен товар Арт.' . $model->article . ': ' . $model->count . 'шт', 'order');
+            } else {
+                Yii::debug('Добавлен товар Арт.' . $model->article . ' ->', 'order');
+                foreach ($model->diversities as $diversity){
+                    Yii::debug('Расцветка Арт.' . $diversity->article . ': ' . $diversity->count . 'шт', 'order');
+                }
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -137,8 +148,32 @@ class ProductController extends Controller
             if (is_array($post['ProductDiversity']))
             {
                 $model->productDiversities = $post['ProductDiversity'];
+
+                $isCountChange = false;
+                foreach ($post['ProductDiversity'] as $id => $div){
+                    if($id != '__id__') {
+                        if (strpos($id, 'new') === false) {
+                            $oldDiv = ProductDiversity::findOne($id);
+                            if ($oldDiv->count != $div['count']) {
+                                Yii::debug('Расцветка Арт.' . $div['article'] . ' ' . $oldDiv->count . ' -> ' . $div['count'] . 'шт', 'order');
+                                $isCountChange = true;
+                            }
+                        } else {
+                            if ($div['count'] && $div['article']) {
+                                Yii::debug('Добавлена расцветка Арт.' . $div['article'] . ': ' . $div['count'] . 'шт', 'order');
+                                $isCountChange = true;
+                            }
+                        }
+                    }
+                }
+                if($isCountChange) {
+                    Yii::debug('<- Редактирование товара Арт.' . $model->article, 'order');
+                }
             }
-            if($post['Product']['count'] != $model->count) {
+            if(!$model->diversity && $post['Product']['count'] != $model->count) {
+
+                Yii::debug('Редактирование товар Арт.' . $model->article . ' ' . $model->count . ' -> ' . $post['Product']['count']  . 'шт', 'order');
+
                 if ($post['Product']['count'] <= 0 && $model->is_in_stock == 1) {
                     $post['Product']['is_in_stock'] = 0;
                 }

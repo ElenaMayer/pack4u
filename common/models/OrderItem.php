@@ -16,7 +16,7 @@ use Yii;
  * @property double $quantity
  *
  * @property Product $product
- * @property Diversity $diversity
+ * @property ProductDiversity $diversity
  * @property Order $order
  */
 class OrderItem extends \yii\db\ActiveRecord
@@ -72,7 +72,7 @@ class OrderItem extends \yii\db\ActiveRecord
      */
     public function getDiversity()
     {
-        return $this->hasOne(Product::className(), ['id' => 'diversity_id']);
+        return $this->hasOne(ProductDiversity::className(), ['id' => 'diversity_id']);
     }
 
     /**

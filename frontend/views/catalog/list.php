@@ -9,6 +9,7 @@ CatalogAsset::register($this);
 
 /* @var $this yii\web\View */
 $title = $category === null ? 'Каталог красивой упаковки' : $category->title;
+Yii::$app->view->registerMetaTag(['name' => 'description','content' => $category === null ? Yii::$app->params['companyDesc'] : $category->description]);
 $this->title = Html::encode($title);
 if(isset($category->parent)){
     $this->params['breadcrumbs'][] = ['label' => $category->parent->title, 'url' => ['/catalog/' . $category->parent->slug]];

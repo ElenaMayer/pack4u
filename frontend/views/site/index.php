@@ -7,6 +7,7 @@ IndexAsset::register($this);
 /* @var $this yii\web\View */
 $this->title = Yii::$app->params['indexTitle'];
 $this->params['breadcrumbs'][] = $this->title;
+Yii::$app->view->registerMetaTag(['name' => 'description','content' => Yii::$app->params['companyDesc']]);
 
 ?>
 <div class="rev_slider_wrapper fullscreen-container">

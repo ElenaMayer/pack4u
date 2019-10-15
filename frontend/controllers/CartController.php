@@ -145,6 +145,7 @@ class CartController extends \yii\web\Controller
                     $order->discount = $cart->getDiscountPercent();
                 }
                 $order->save(false);
+                Yii::debug('Заказ #' . $order->id . ' создан ->', 'order');
 
                 foreach ($positions as $position) {
                     $product = $position->getProduct();
@@ -168,6 +169,13 @@ class CartController extends \yii\web\Controller
                             \Yii::$app->session->addFlash('error', 'Невозможно создать заказ. Пожалуйста свяжитесь с нами.');
                             return $this->redirect('/catalog');
                         } else {
+
+                            if(!$orderItem->diversity_id){
+                                Yii::debug( 'Арт.' . $orderItem->product->article . ' ' . $orderItem->product->count . ' -> ' . ($orderItem->product->count-$orderItem->quantity) . 'шт', 'order');
+                            } else {
+                                Yii::debug('Расцветка Арт.' . $orderItem->diversity->article . ' ' . $orderItem->diversity->count . ' -> ' . ($orderItem->diversity->count-$orderItem->quantity) . 'шт', 'order');
+                            }
+
                             $product->minusCount($orderItem->quantity, $position->diversity_id);
                         }
                     }

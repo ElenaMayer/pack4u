@@ -8,6 +8,7 @@ ProductAsset::register($this);
 
 /* @var $this yii\web\View */
 $title = $product->title;
+Yii::$app->view->registerMetaTag(['name' => 'description','content' => $product->description]);
 $diversityId = ($product->diversity && $diversity && $diversity->id) ? $diversity->id : null;
 if($diversityId) $title .= " " . $diversity->title;
 $subcategory = $product->getSubcategory();
@@ -16,7 +17,7 @@ if($subcategory){
     $this->params['breadcrumbs'][] = ['label' => $subcategory->title, 'url' => ['/catalog/' . $subcategory->slug]];
 }
 $this->params['breadcrumbs'][] = $title;
-$this->title = Html::encode($title . ' ' . ($product->size?$product->size . 'см':''));
+$this->title = Html::encode($title . ' ' . ($product->size ? $product->size . 'см':''));
 $images = $product->images;
 ?>
 <meta property="og:title" content="<?=$title?>"/>

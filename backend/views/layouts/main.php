@@ -34,7 +34,7 @@ AppAsset::register($this);
                 ],
             ]);
             $menuItems = [
-                ['label' => 'Сайт', 'url' => 'http://'.Yii::$app->params['domain']],
+                ['label' => 'Сайт', 'url' => 'https://'.Yii::$app->params['domain']],
                 ['label' => 'Категории', 'url' => ['/category/index']],
                 ['label' => 'Товары', 'url' => ['/product/index']],
                 ['label' => 'Заказы', 'url' => ['/order/index']],

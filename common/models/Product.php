@@ -388,7 +388,6 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         if($diversityId){
             $diversity = ProductDiversity::findOne($diversityId);
             if($diversity) {
-                $oldCount = $diversity->count;
                 $diversity->count -= $count;
                 $diversity->save(false);
                 if ($diversity->count <= 0) {
@@ -406,21 +405,18 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
                 }
             }
         } else {
-            $oldCount = $this->count;
             $this->count -= $count;
             if ($this->count <= 0) {
                 $this->is_in_stock = 0;
             }
             $this->save(false);
         }
-        //Yii::debug('Арт.' . $article . ': ' . $oldCount . '-' . $count . '=' . $this->count . 'шт', 'order');
     }
 
     public function plusCount($count, $diversityId = null){
         if($diversityId){
             $diversity = ProductDiversity::findOne($diversityId);
             if($diversity) {
-                $oldCount = $diversity->count;
                 $diversity->count += $count;
                 $diversity->save(false);
                 if ($diversity->count > 0 && $this->is_in_stock == 0) {
@@ -429,14 +425,12 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
                 }
             }
         } else {
-            $oldCount = $this->count;
             $this->count += $count;
             if ($this->count > 0) {
                 $this->is_in_stock = 1;
             }
             $this->save(false);
         }
-        //Yii::debug('Арт.' . $article . ': ' . $oldCount . '+' . $count . '=' . $this->count . 'шт', 'order');
     }
 
     public function getSale(){
@@ -571,15 +565,6 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
 
     public function afterSave($insert, $changedAttributes){
         parent::afterSave($insert, $changedAttributes);
-        if(!$this->diversity) {
-            if ($insert) {
-                Yii::debug('Добавление арт.' .
-                    $this->article . ': ' . $this->count . 'шт', 'order');
-            } elseif($this->count != $changedAttributes['count']) {
-                Yii::debug('Изменение арт.' .
-                    $this->article . ': ' . $changedAttributes['count'] . ' / ' . $this->count . 'шт', 'order');
-            }
-        }
         $this->savePrices();
         $this->saveDiversities();
     }

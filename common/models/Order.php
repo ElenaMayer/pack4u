@@ -108,20 +108,37 @@ class Order extends \yii\db\ActiveRecord
     {
         if (parent::beforeSave($insert)) {
             if ($insert) {
-                Yii::debug('Заказ  #' . $this->id . ' создан.', 'order');
                 $this->status = self::STATUS_NEW;
             } else {
                 $oldAttributes = $this->getOldAttributes();
                 if($this->status != $oldAttributes['status']) {
                     if($this->status != $oldAttributes['status']) {
                         if($this->status == self::STATUS_CANCELED) {
-                            Yii::debug('Отменен заказ #' . $this->id, 'order');
+
+                            Yii::debug('Отменен заказ #' . $this->id . ' ->', 'order');
+
                             foreach ($this->orderItems as $item){
+
+                                if(!$item->diversity_id){
+                                    Yii::debug( 'Арт.' . $item->product->article . ' ' . $item->product->count . ' -> ' . ($item->product->count+$item->quantity) . 'шт', 'order');
+                                } else {
+                                    Yii::debug('Расцветка Арт.' . $item->diversity->article . ' ' . $item->diversity->count . ' -> ' . ($item->diversity->count+$item->quantity) . 'шт', 'order');
+                                }
+
                                 $item->product->plusCount($item->quantity, $item->diversity_id);
                             }
                         } elseif($oldAttributes['status'] == self::STATUS_CANCELED){
-                            Yii::debug('Открыт отмененный заказ #' . $this->id, 'order');
+
+                            Yii::debug('Открыт отмененный заказ #' . $this->id . ' ->', 'order');
+
                             foreach ($this->orderItems as $item){
+
+                                if(!$item->diversity_id){
+                                    Yii::debug( 'Арт.' . $item->product->article . ' ' . $item->product->count . ' -> ' . ($item->product->count-$item->quantity) . 'шт', 'order');
+                                } else {
+                                    Yii::debug('Расцветка Арт.' . $item->diversity->article . ' ' . $item->diversity->count . ' -> ' . ($item->diversity->count-$item->quantity) . 'шт', 'order');
+                                }
+
                                 $item->product->minusCount($item->quantity, $item->diversity_id);
                             }
                         }
