@@ -7,7 +7,9 @@ use frontend\assets\AppAsset;
 class IndexAsset extends AssetBundle
 {
     public $jsOptions = [
-        'position' => \yii\web\View::POS_END
+        'position' => \yii\web\View::POS_END,
+        'async' => 'async',
+        'defer' => 'defer'
     ];
     public $css = [
         'css/owl.carousel.min.css',

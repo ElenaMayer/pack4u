@@ -18,13 +18,14 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $jsOptions = array(
-        'position' => \yii\web\View::POS_END
+        'position' => \yii\web\View::POS_END,
+        'async' => true,
+        'defer' => true
     );
     public $css = [
         'css/font-awesome.min.css',
-        '//fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic',
         'css/custom.min.css?2',
-        'css/style.css?114',
+        'css/style.css?115',
 //        'css/colors/apple-green.css?12',
     ];
     public $js = [

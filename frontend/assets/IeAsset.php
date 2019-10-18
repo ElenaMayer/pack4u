@@ -9,7 +9,9 @@ class IeAsset extends AssetBundle
 {
     public $jsOptions = [
         'condition' => 'lte IE9',
-        'position' => \yii\web\View::POS_HEAD
+        'position' => \yii\web\View::POS_HEAD,
+        'async' => 'async',
+        'defer' => 'defer'
     ];
     public $js = [
         'https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js',

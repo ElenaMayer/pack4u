@@ -7,10 +7,12 @@ use frontend\assets\AppAsset;
 class ContactAsset extends AssetBundle
 {
     public $jsOptions = [
-        'position' => \yii\web\View::POS_END
+        'position' => \yii\web\View::POS_END,
+        'async' => 'async',
+        'defer' => 'defer'
     ];
     public $js = [
-        'http://maps.googleapis.com/maps/api/js?key=AIzaSyAEJgte17bKvMyyWXo1JcWbzsl9Qy-3-uo',
+        'https://maps.googleapis.com/maps/api/js?key=AIzaSyAEJgte17bKvMyyWXo1JcWbzsl9Qy-3-uo',
         'js/google-map-custom.js',
     ];
     public $depends = [

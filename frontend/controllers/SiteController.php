@@ -43,11 +43,6 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
-            [
-                'class' => 'yii\filters\HttpCache',
-                'only' => ['index'],
-                'cacheControlHeader' => 'max-age=31557600',
-            ],
         ];
     }
 
