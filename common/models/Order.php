@@ -168,7 +168,7 @@ class Order extends \yii\db\ActiveRecord
     public static function getShippingMethods()
     {
         return [
-            'self' => 'Самовывоз ('.Yii::$app->params['address'].')',
+            'self' => 'Самовывоз (по договоренности)',
             'courier' => 'Курьер (для Новосибирска)',
             'rcr' => 'РЦР (для Новосибирска)',
             'rp' => 'Почта России',

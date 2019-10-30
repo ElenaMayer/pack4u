@@ -937,12 +937,14 @@ function updateCartQty(form) {
 }
 
 function checkProductCount(form) {
-    var count = form.find("input[name='count']").val();
-    if(parseInt($('input.product-qty').val()) > count){
-        form.find("input[name='quantity']").val(count);
-        $('.count-error').show();
-    } else {
-        $('.count-error').hide();
+    if($('#diversity').val() != 1 || $('#diversity_id').val() != 0){
+        var count = form.find("input[name='count']").val();
+        if(parseInt($('input.product-qty').val()) > count){
+            form.find("input[name='quantity']").val(count);
+            $('.count-error').show();
+        } else {
+            $('.count-error').hide();
+        }
     }
 }
 
