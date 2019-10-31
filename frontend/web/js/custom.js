@@ -1,14 +1,4 @@
 $(document).ready(function() {
-    var userFeed = new Instafeed({
-        get: 'user',
-        userId: '6706865954',
-        clientId: '5240196a48394517bde1696155cb28c1',
-        accessToken: '6706865954.5240196.56f267dc18a04dcdab58b9f7d53697b4',
-        template: '<a href="{{link}}" class="instafeed_image" target="_blank" id="{{id}}"><img src="{{image}}" /></a>',
-        sortBy: 'most-recent',
-        limit: 9,
-        links: false
-    });
 
 	/*-------------------------------------------
 	 Sticky Header
@@ -247,7 +237,6 @@ $(document).ready(function() {
         }
     });
 
-    userFeed.run();
     $(".noo-search").on("click", function() {
         $(".search-header5").fadeIn(1).addClass("search-header-eff");
         $(".search-header5").find('input[type="search"]').val("").attr("placeholder", "").select();
@@ -569,17 +558,6 @@ $(document).ready(function() {
 		var slider_item = $(this).find(".noo-simple-slider-item");
 		slider_item.css('background-image','url("' + slider_item.attr("data-bg") + '")');
 	});
-	
-	//Init RevSlider
-	if($('#rev_slider_1').length > 0) {
-		revSlider_1();
-	}
-	if($('#rev_slider_2').length > 0) {
-		revSlider_2();
-	}
-	if($('#rev_slider_3').length > 0) {
-		revSlider_3();
-	}
 
     $(document.body).on('keyup', '#order-zip' ,function(){
         if ($(this).val().length == 6) {
@@ -601,7 +579,7 @@ $(document).ready(function() {
                 success: function (data) {
                     if (data['Status'] == "OK") {
                         tariff = parseInt(data['Отправления']['ЦеннаяПосылка']['Тариф']);
-                        shipping_cost = tariff + 30;
+                        shipping_cost = tariff;
                         new_total = total + shipping_cost;
                         $('.shipping > td > p').html("<span id=\"amount_shipping\">" + shipping_cost.toFixed(0) + "</span><i class=\"fa fa-ruble\"></i>");
                         $('#amount_total').html(new_total.toFixed(0));
@@ -660,6 +638,31 @@ $(document).ready(function() {
             }
         });
     });
+
+    //Init RevSlider
+    if($('#rev_slider_1').length > 0) {
+        revSlider_1();
+    }
+    if($('#rev_slider_2').length > 0) {
+        revSlider_2();
+    }
+    if($('#rev_slider_3').length > 0) {
+        revSlider_3();
+    }
+
+    var userFeed = new Instafeed({
+        get: 'user',
+        userId: '6706865954',
+        clientId: '5240196a48394517bde1696155cb28c1',
+        accessToken: '6706865954.5240196.56f267dc18a04dcdab58b9f7d53697b4',
+        template: '<a href="{{link}}" class="instafeed_image" target="_blank" id="{{id}}"><img src="{{image}}" /></a>',
+        sortBy: 'most-recent',
+        limit: 9,
+        links: false
+    });
+
+    userFeed.run();
+
 });
 
 function add_to_cart_animation(button, count){
