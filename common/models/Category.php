@@ -58,7 +58,7 @@ class Category extends \yii\db\ActiveRecord
             'parent_id' => 'Родительский ID',
             'title' => 'Название',
             'description' => 'Описание',
-            'slug' => 'Slug',
+            'slug' => 'Url',
             'is_active' => 'Показать',
             'time' => 'Дата создания',
         ];

@@ -127,9 +127,8 @@ IeAsset::register($this);
                                         <ul class="sub-menu">
                                             <?php $categories = Category::find()->where(['is_active' => 1, 'parent_id' => null])->all(); ?>
                                             <?php foreach ($categories as $category):?>
-                                                <li><a href="/catalog/<?= $category->slug ?>"><?= $category->title ?></a></li>
+                                                <li><a href="/catalog/<?= $category->slug ?>" <?php if($category->slug == 'sale'):?>class="red"<?php endif;?>><?= $category->title ?></a></li>
                                             <?php endforeach;?>
-                                            <li><a class="red" href="/catalog/sale">Уценка</a></li>
                                         </ul>
                                     </li>
                                     <li><a class="red" href="/instruction">Инструкции</a></li>

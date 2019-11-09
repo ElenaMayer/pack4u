@@ -73,6 +73,7 @@ class CategoryController extends Controller
     {
         $categories = Category::find()->all();
         $model = new Category();
+        $model->is_active = 1;
         $model->parent_id = $id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
