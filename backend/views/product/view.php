@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <p>
         <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('История', ['/history/index', 'id' => $model->id], ['class' => 'btn btn-warning']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [

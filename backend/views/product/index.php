@@ -93,11 +93,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update} {delete}',
+                'template' => '{view} {update} {history}',
                 'buttons' => [
-                    'images' => function ($url, $model, $key) {
-                         return Html::a('<span class="glyphicon glyphicon glyphicon-picture" aria-label="Image"></span>', Url::to(['image/index', 'id' => $model->id]));
-                    }
+                    'history' => function ($url, $model, $key) {
+                        return Html::a('<span class="glyphicon glyphicon-repeat"></span>',
+                            "/history/index?id=$model->id",
+                            [
+                            'title' => 'History',
+                            'data-pjax' => '0',
+                        ]);
+                    },
                 ],
             ],
         ],

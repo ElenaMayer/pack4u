@@ -38,7 +38,7 @@ use yii\helpers\Html;
         </div><!-- /.product-slider-wrapper -->
     </div>
     <div class="summary entry-summary">
-        <h1 class="product_title entry-title">
+        <h1 class="product_title entry-title" itemprop="name">
             <?= Html::encode($product->title) ?>
         </h1>
         <div class="product-status">

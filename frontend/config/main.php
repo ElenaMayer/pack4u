@@ -43,7 +43,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'catalog' => 'catalog/list',
-                'catalog/sale' => 'catalog/sale',
+//                'catalog/sale' => 'catalog/sale',
                 'catalog/<categorySlug:\w+>' => 'catalog/list',
                 'catalog/<categorySlug:\w+>/<productId:\d+>' => 'catalog/product',
                 'catalog/<categorySlug:\w+>/<productId:\d+>/<diversityId:\d+>' => 'catalog/product',

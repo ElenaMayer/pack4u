@@ -176,6 +176,17 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function getShippingMethodsLite()
+    {
+        return [
+            'self' => 'Самовывоз',
+            'courier' => 'Курьер',
+            'rcr' => 'РЦР',
+            'rp' => 'Почта России',
+            'tk' => 'ТК',
+        ];
+    }
+
     public static function getPaymentMethods()
     {
         return [

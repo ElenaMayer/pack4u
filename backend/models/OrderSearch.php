@@ -19,7 +19,7 @@ class OrderSearch extends Order
     {
         return [
             [['id', 'created_at', 'updated_at', 'payment', 'user_id'], 'integer'],
-            [['phone', 'email', 'notes', 'status', 'fio'], 'safe'],
+            [['phone', 'email', 'notes', 'status', 'fio', 'shipping_method'], 'safe'],
         ];
     }
 
@@ -64,6 +64,7 @@ class OrderSearch extends Order
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'notes', $this->notes])
             ->andFilterWhere(['like', 'status', $this->status])
+            ->andFilterWhere(['like', 'shipping_method', $this->shipping_method])
             ->andFilterWhere(['like', 'fio', $this->fio]);
 
         return $dataProvider;

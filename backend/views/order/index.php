@@ -54,23 +54,37 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'shipping_method',
                 'value' => function ($model) {
-                    if($model->shipping_method == 'tk') return Order::getTkList()[$model->tk] . ' - ' . $model->city;
-                    elseif ($model->shipping_method == 'self') return 'Самовывоз';
-                    else return Order::getShippingMethods()[$model->shipping_method];
+                    if($model->shipping_method == 'tk') {
+                        if($model->city)
+                            return Order::getTkList()[$model->tk] . ' (' . $model->city . ')';
+                        else
+                            return Order::getTkList()[$model->tk];
+                    }
+                    elseif ($model->shipping_method == 'self') {
+                        if($model->notes)
+                            return "Самовывоз ($model->notes)";
+                        else
+                            return 'Самовывоз';
+                    } elseif($model->shipping_method == 'rcr'){
+                        if($model->rcr)
+                            return "РЦР ($model->rcr)";
+                        else
+                            return 'РЦР';
+                    } elseif($model->shipping_method == 'courier'){
+                        if($model->notes)
+                            return "Курьер ($model->notes)";
+                        else
+                            return 'Курьер';
+                    }
+                    else return Order::getShippingMethodsLite()[$model->shipping_method];
                 },
+                'filter' => Order::getShippingMethodsLite()
             ],
             [
                 'header'=>'Сумма',
                 'value' => function ($model) {
                     return $model->getCost();
                 }
-            ],
-            [
-                'attribute'=>'payment',
-                'value' => function ($model) {
-                    return $model->payment ? 'Есть' : 'Нет';
-                },
-                'filter' => [1 => 'Есть', 0 => 'Нет']
             ],
             'created_at:datetime',
             [

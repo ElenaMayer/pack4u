@@ -25,13 +25,7 @@ class Category extends \yii\db\ActiveRecord
 {
     public function behaviors()
     {
-        return [
-            [
-                'class' => SluggableBehavior::className(),
-                'attribute' => 'title',
-                'slugAttribute' => 'slug'
-            ],
-        ];
+        return [];
     }
     /**
      * @inheritdoc
