@@ -48,7 +48,7 @@ use common\models\ProductDiversity;
     <?php
     if($model->orderItems):
         foreach ($model->getSortOrderItems() as $item): ?>
-            <tr>
+            <tr <?php if($item->product->category->slug == 'sale'):?>class="sale"><?php endif;?>>
                 <td>
                     <div class="product-image">
                         <?php if($item->diversity_id):?>
@@ -67,13 +67,13 @@ use common\models\ProductDiversity;
                     <?php echo $item->title . ' ' . ($item->product_id ? $item->product->size . 'см (Арт. '. $item->product->article .')' : '');?>
                 </td>
                 <td>
-                    <input type="text" value="<?= (int)$item->price?>" class="cartitem_price_value m_input">
+                    <input type="text" value="<?= (int)$item->price?>" class="cartitem_price_value m_input"> р.
                     <?= Html::button('Ок', [
                         'class' => 'btn btn-success update_price',
                     ]) ?>
                 </td>
                 <td>
-                    <input type="text" value="<?= $item->quantity?>" class="cartitem_qty_value m_input">
+                    <input type="text" value="<?= $item->quantity?>" class="cartitem_qty_value m_input"> шт.
                     <input type="hidden" value="<?= $item->id?>" class="cartitem_id">
                     <?= Html::button('Ок', [
                         'class' => 'btn btn-success update_qty',

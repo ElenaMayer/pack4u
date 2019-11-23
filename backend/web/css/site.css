@@ -202,3 +202,16 @@ a.image_remove:hover {
 .pb-2 {
     padding-bottom: 20px !important;
 }
+
+@media (min-width: 768px) {
+    .container > .navbar-header,
+    .container-fluid > .navbar-header,
+    .container > .navbar-collapse,
+    .container-fluid > .navbar-collapse {
+        margin-right: -15px;
+    }
+}
+
+.detail-view tr.sale {
+    background-color: #ffd7a4;
+}
