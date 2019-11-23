@@ -149,6 +149,9 @@ a.image_remove:hover {
 .order-index .table-striped tr.was_collected {
     background-color: #dfe181;
 }
+.order-index .table-striped tr.was_collect {
+    background-color: #feb5ff;
+}
 .order-index .table-striped tr.done {
     background-color: #d4ecd6;
 }

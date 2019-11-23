@@ -33,6 +33,7 @@ class Order extends \yii\db\ActiveRecord
 {
     const STATUS_NEW = 'x_new';
     const STATUS_COLLECTED = 'was_collected';
+    const STATUS_PACKED = 'was_collect';
     const STATUS_SHIPPED = 'in_shipping';
     const STATUS_DONE = 'done';
     const STATUS_CANCELED = 'canceled';
@@ -158,6 +159,7 @@ class Order extends \yii\db\ActiveRecord
             self::STATUS_PAYMENT => 'Ожидает оплаты',
             self::STATUS_PAID => 'Оплачено',
             self::STATUS_COLLECTED => 'Собран',
+            self::STATUS_PACKED => 'Упакован',
             self::STATUS_SHIPPED => 'Передан в доставку',
             self::STATUS_PRE_ORDER => 'Предзаказ',
             self::STATUS_DONE => 'Выполнен',
@@ -200,6 +202,7 @@ class Order extends \yii\db\ActiveRecord
         return [
             'cdek' => 'СДЭК',
             'nrg' => 'Энергия',
+            //'dellin' => 'Деловые линии',
         ];
     }
 
