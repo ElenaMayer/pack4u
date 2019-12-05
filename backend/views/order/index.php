@@ -63,6 +63,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     elseif ($model->shipping_method == 'self') {
                         if($model->notes)
                             return "Самовывоз ($model->notes)";
+                        elseif($model->pickup_time)
+                            return "Самовывоз (" . Yii::$app->params['pickup_time'][$model->pickup_time] . ")";
                         else
                             return 'Самовывоз';
                     } elseif($model->shipping_method == 'rcr'){

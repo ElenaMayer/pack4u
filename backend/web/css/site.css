@@ -131,8 +131,9 @@ a.image_remove:hover {
     float: right;
 }
 
-.add-item-form {
-    width: 50%;
+.add-item-form .col-md-5,
+.add-item-form .col-sm-6 {
+    padding-left: 0;
 }
 
 .m_input {
@@ -212,6 +213,7 @@ a.image_remove:hover {
     }
 }
 
-.detail-view tr.sale {
+.detail-view tr.sale,
+.table-striped > tbody > tr.sale:nth-of-type(odd) {
     background-color: #ffd7a4;
 }

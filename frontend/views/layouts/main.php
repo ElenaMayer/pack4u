@@ -244,12 +244,13 @@ IeAsset::register($this);
                             </ul>
                         </div>
                         <div class="widget widget_noo_happyhours">
-                            <p class="widget-title">Время обработки </br> заказов</p>
+                            <p class="widget-title">Время выдачи <br>заказов</p>
                             <ul class="noo-happyhours">
-                                <li>
-                                    <div>9:00 - 21:00 (НСК)</div>
-                                    <div>Без выходных</div>
-                                </li>
+                                <?php foreach (Yii::$app->params['pickup_time'] as $time):?>
+                                    <li>
+                                        <div><?= $time?></div>
+                                    </li>
+                                <?php endforeach;?>
                             </ul>
                             <span></span>
                             <span></span>

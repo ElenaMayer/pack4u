@@ -162,7 +162,7 @@ class OrderController extends Controller
         if(!$model->diversity_id){
             Yii::debug('Заказ #' . $model->order_id . ' удален Арт.' . $product->article . ' ' . $product->count . ' -> ' . ($product->count+$model->quantity) . 'шт', 'order');
         } else {
-            Yii::debug('Заказ #' . $model->order_id . ' удален (расц) Арт.' . $model->diversity->article . ' ' . $model->diversity->article->count . ' -> ' . ($model->diversity->article->count+$model->quantity) . 'шт', 'order');
+            Yii::debug('Заказ #' . $model->order_id . ' удален (расц) Арт.' . $model->diversity->article . ' ' . $model->diversity->count . ' -> ' . ($model->diversity->count+$model->quantity) . 'шт', 'order');
         }
 
         $product = Product::findOne($model->product_id);
@@ -184,8 +184,8 @@ class OrderController extends Controller
                     $newProductCount = ($model->quantity > $value) ? $product->count-($value-$model->quantity) : $product->count+($model->quantity - $value);
                     Yii::debug('Заказ #' . $model->order_id . ' изменен Арт.' . $product->article . ' ' . $product->count . ' -> ' . $newProductCount . 'шт', 'order');
                 } else {
-                    $newProductCount = ($model->quantity > $value) ? $model->diversity->article->count - ($value - $model->quantity) : $model->diversity->article->count + ($model->quantity - $value);
-                    Yii::debug('Заказ #' . $model->order_id . ' изменен (расц) Арт.' . $model->diversity->article->article . ' ' . $model->diversity->article->count . ' -> ' . $newProductCount . 'шт', 'order');
+                    $newProductCount = ($model->quantity > $value) ? $model->diversity->count - ($value - $model->quantity) : $model->diversity->count + ($model->quantity - $value);
+                    Yii::debug('Заказ #' . $model->order_id . ' изменен (расц) Арт.' . $model->diversity->article . ' ' . $model->diversity->count . ' -> ' . $newProductCount . 'шт', 'order');
                 }
 
                 if ($model->quantity > $value)

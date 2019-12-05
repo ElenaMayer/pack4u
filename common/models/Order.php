@@ -25,6 +25,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $zip
  * @property string $tk
  * @property string $rcr
+ * @property string $pickup_time
  * @property integer $discount
  *
  * @property OrderItem[] $orderItems
@@ -64,7 +65,7 @@ class Order extends \yii\db\ActiveRecord
         return [
             [['created_at', 'updated_at', 'shipping_cost', 'zip', 'payment', 'discount'], 'integer'],
             [['address', 'notes'], 'string'],
-            [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method', 'tk', 'rcr'], 'string', 'max' => 255],
+            [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method', 'tk', 'rcr', 'pickup_time'], 'string', 'max' => 255],
             [['phone', 'fio'], 'required'],
             [['email'], 'email'],
         ];
@@ -93,6 +94,7 @@ class Order extends \yii\db\ActiveRecord
             'zip' => 'Индекс',
             'tk' => 'Транспортная компания',
             'rcr' => 'Пункт выдачи РЦР',
+            'pickup_time' => 'Время выдачи',
             'discount' => 'Скидка',
         ];
     }

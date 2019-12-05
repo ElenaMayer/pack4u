@@ -50,23 +50,33 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                     return $model->shipping_method == 'tk' ? Order::getTkList()[$model->tk] . ' - ' . $model->city : '';
                 },
-            ]: ($model->shipping_method == 'rcr' ?
+            ]: ($model->shipping_method == 'self' ?
                 [
-                'attribute' => 'rcr',
+                'attribute' => 'pickup_time',
                 'value' => function ($model) {
-                    return $model->shipping_method == 'rcr' ? $model->rcr : '';
-                },
-            ] : (
-            [
-                'attribute' => 'address',
-                'value' => function ($model) {
-                    if($model->shipping_method == 'rp'){
-                        return $model->zip . ', ' . $model->address;
-                    } elseif($model->shipping_method == 'courier') {
-                        return $model->address;
+                    if(isset(Yii::$app->params['pickup_time'][$model->pickup_time])){
+                        return Yii::$app->params['pickup_time'][$model->pickup_time];
+                    } else {
+                        return $model->pickup_time;
                     }
                 },
-            ])),
+            ] : ($model->shipping_method == 'rcr' ?
+                [
+                    'attribute' => 'rcr',
+                    'value' => function ($model) {
+                        return $model->shipping_method == 'rcr' ? $model->rcr : '';
+                    },
+                ] : (
+                [
+                    'attribute' => 'address',
+                    'value' => function ($model) {
+                        if($model->shipping_method == 'rp'){
+                            return $model->zip . ', ' . $model->address;
+                        } elseif($model->shipping_method == 'courier') {
+                            return $model->address;
+                        }
+                    },
+                ]))),
             [
                 'attribute' => 'payment_method',
                 'value' => function ($model) {

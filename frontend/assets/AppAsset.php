@@ -25,14 +25,14 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/font-awesome.min.css',
         'css/custom.min.css?2',
-        'css/style.css?115',
+        'css/style.css?116',
 //        'css/colors/apple-green.css?12',
     ];
     public $js = [
         'js/off-cavnass.min.js',
         "js/swiper.min.js",
         'js/owl.carousel.min.js?1',
-        'js/custom.js?62',
+        'js/custom.js?63',
         'js/instafeed.min.js',
 
     ];

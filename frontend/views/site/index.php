@@ -151,7 +151,7 @@ Yii::$app->view->registerMetaTag(['name' => 'description','content' => Yii::$app
         <?php foreach ($categories as $category) :?>
             <li>
                 <a href="/catalog/<?= $category->slug ?>">
-                    <div class="noo-simple-slider-item" data-bg="images/slider/<?= $category->slug ?>.jpg?3">
+                    <div class="noo-simple-slider-item" data-bg="images/slider/<?= $category->slug ?>.jpg?4">
                         <h3><?= $category->title ?></h3>
                     </div>
                 </a>

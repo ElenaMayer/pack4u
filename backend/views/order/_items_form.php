@@ -14,29 +14,34 @@ use common\models\ProductDiversity;
 <div class="add-item-form hide">
     <?php $form = ActiveForm::begin();
     $orderItem = new OrderItem(); ?>
+    <div class="col-md-5 col-sm-6">
+        <?= $form->field($orderItem, 'product_id')->widget(Select2::classname(), [
+            'options' => [
+                'placeholder' => Yii::t('app','Выберите товар ...'),
+            ],
+            'data'=>Product::getProductArr(false),
+        ])->label(false) ?>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <?= $form->field($orderItem, 'diversity_id')->widget(DepDrop::classname(), [
+            'data'=> [],
+            'type' => DepDrop::TYPE_SELECT2,
+            'select2Options'=>['pluginOptions'=>['allowClear'=>true]],
+            'pluginOptions'=>[
+                'depends'=>['orderitem-product_id'],
+                'url' => Url::to(['/order/get_diversity']),
+                'loadingText' => 'Загрузка ...',
+                'tokenSeparators'=>[',',' '],
+                'placeholder' => 'Выберите расцветку ...',
+            ],
+        ])->label(false) ?>
+    </div>
 
-    <?= $form->field($orderItem, 'product_id')->widget(Select2::classname(), [
-        'options' => [
-            'placeholder' => Yii::t('app','Выберите товар ...'),
-        ],
-        'data'=>Product::getProductArr(false),
-    ]) ?>
+    <div class="col-md-1 col-sm-6">
+        <?= $form->field($orderItem, 'quantity')->textInput(['step' => 1, 'min' => 1, 'value' => 1])->label(false) ?>
+    </div>
 
-    <?= $form->field($orderItem, 'diversity_id')->widget(DepDrop::classname(), [
-        'data'=> [],
-        'type' => DepDrop::TYPE_SELECT2,
-        'select2Options'=>['pluginOptions'=>['allowClear'=>true]],
-        'pluginOptions'=>[
-            'depends'=>['orderitem-product_id'],
-            'url' => Url::to(['/order/get_diversity']),
-            'loadingText' => 'Загрузка ...',
-            'tokenSeparators'=>[',',' '],
-            'placeholder' => 'Выберите расцветку ...',
-        ],
-    ]) ?>
-
-    <?= $form->field($orderItem, 'quantity')->textInput(['step' => 1, 'min' => 1, 'value' => 1]) ?>
-    <div class="form-group">
+    <div class="col-md-2 col-sm-6">
         <?= Html::submitButton('Добавить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
     <?php ActiveForm::end(); ?>
@@ -48,7 +53,7 @@ use common\models\ProductDiversity;
     <?php
     if($model->orderItems):
         foreach ($model->getSortOrderItems() as $item): ?>
-            <tr <?php if($item->product->category->slug == 'sale'):?>class="sale"><?php endif;?>>
+            <tr <?php if($item->product->category->slug == 'sale'):?>class="sale"<?php endif;?>>
                 <td>
                     <div class="product-image">
                         <?php if($item->diversity_id):?>
@@ -64,7 +69,11 @@ use common\models\ProductDiversity;
                     </div>
                 </td>
                 <td>
-                    <?php echo $item->title . ' ' . ($item->product_id ? $item->product->size . 'см (Арт. '. $item->product->article .')' : '');?>
+                    <?php if($item->diversity_id):?>
+                        <?php echo $item->title . ' ' . ($item->product_id ? $item->product->size . 'см (Арт. '. $item->diversity->article .')' : '');?>
+                    <?php else:?>
+                        <?php echo $item->title . ' ' . ($item->product_id ? $item->product->size . 'см (Арт. '. $item->product->article .')' : '');?>
+                    <?php endif;?>
                 </td>
                 <td>
                     <input type="text" value="<?= (int)$item->price?>" class="cartitem_price_value m_input"> р.

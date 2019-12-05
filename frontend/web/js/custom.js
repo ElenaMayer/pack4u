@@ -98,6 +98,7 @@ $(document).ready(function() {
                 text: 'Наличными при получении'
             }));
             $('tr.shipping > td > p').html('0<i class="fa fa-ruble"></i>');
+            $('.shipping_methods .self').show();
         } else {
             $('#order-payment_method').children("option[value='cash']").remove();
             shipping = $(this).children("option:selected").val();
@@ -562,7 +563,7 @@ $(document).ready(function() {
     $(document.body).on('keyup', '#order-zip' ,function(){
         if ($(this).val().length == 6) {
             total = parseInt($('#amount_subtotal').text());
-            postcalc_url = 'http://test.postcalc.ru/mystat.php/';
+            postcalc_url = 'http://api.postcalc.ru/mystat.php/';
             postcode_from = '630001';
             postcode_to = $(this).val();
             weight = $('#order_weight').val() * 1000 * 1.1;

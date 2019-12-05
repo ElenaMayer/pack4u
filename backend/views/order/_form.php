@@ -23,6 +23,10 @@ use \common\models\Order;
 
     <?= $form->field($model, 'shipping_method')->dropDownList(Order::getShippingMethods()) ?>
 
+    <div class="shipping_method_field method_self" <?php if($model->shipping_method != 'self'):?>style="display: none"<?php endif;?>">
+        <?= $form->field($model, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time']) ?>
+    </div>
+
     <div class="shipping_method_field method_tk" <?php if($model->shipping_method != 'tk'):?>style="display: none"<?php endif;?>">
         <?= $form->field($model, 'tk')->dropDownList(Order::getTkList()) ?>
     </div>

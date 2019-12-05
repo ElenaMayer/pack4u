@@ -19,13 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="container">
                     <div class="address-info">
                         <h3>Контакты</h3>
-                        <p>
-                            Если у Вас возикли вопросы, Вы может написать в социальных сетях, связаться с нами по телефону или электронной почте.
-                        </p>
                         <ul>
                             <li>
                                 <i class="fa fa-map-marker"></i>
-                                <span><?= Yii::$app->params['address'] ?> </br>(по предворительной договоренности)</span>
+                                <span><?= Yii::$app->params['address'] ?></span>
                             </li>
                             <li>
                                 <i class="fa fa-envelope"></i>
@@ -39,6 +36,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <i class="fa fa-phone"> </i>
                                 <span><a href="tel:<?= Yii::$app->params['phone2'] ?>"><?= Yii::$app->params['phone2'] ?></a></span>
                             </li>
+                            <li>
+                                <span>Время работы пункта выдачи:</span>
+                            </li>
+                            <?php foreach (Yii::$app->params['pickup_time'] as $time):?>
+                                <li>
+                                    <i class="fa fa-clock-o"> </i>
+                                    <span><?= $time?></span>
+                                </li>
+                            <?php endforeach;?>
                         </ul>
                     </div>
                 </div>

@@ -105,7 +105,7 @@ use yii\helpers\Html;
             <div class="tagcloud">
                 <?php foreach (Product::getTagsArray(true) as $key => $tag):?>
                     <a <?php if(Yii::$app->request->get('tag') == $key):?>class="active"<?php endif;?>
-                       href="<?= StaticFunction::addGetParamToCurrentUrl('tag',$tag)?>">
+                       href="<?= StaticFunction::addGetParamToCurrentUrl('tag', $tag)?>">
                         <?= $tag ?>
                     </a>
                 <?php endforeach;?>

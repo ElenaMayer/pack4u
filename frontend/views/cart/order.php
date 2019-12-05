@@ -41,6 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethods()); ?>
 
                 <div class="shipping_methods">
+                    <div class="self">
+                        <?= $form->field($order, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time']); ?>
+                    </div>
                     <div class="order-address" style="display: none">
                         <?= $form->field($order, 'zip')->textInput(['placeholder' => '630000', 'class' => 'form-control dark', 'maxlength' => 6]); ?>
                         <?= $form->field($order, 'address')->textInput(['placeholder' => 'Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark order-address']); ?>

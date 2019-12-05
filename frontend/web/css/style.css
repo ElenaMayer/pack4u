@@ -11974,11 +11974,11 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
     position: absolute;
     bottom: 0;
     right: 15px;
-    width: 370px;
+    width: 430px;
     background-color: #79cba8;
     color: #ffffff;
-    padding: 30px;
-    height: 440px;
+    padding: 25px;
+    height: 480px;
 }
 
 .google-map .noo-address-info-wrap .address-info h3 {
@@ -12019,7 +12019,7 @@ div.product-style2 .product-grid .noo-product-inner:hover .noo-product-title .no
 
 .google-map .noo-address-info-wrap .address-info ul li span {
     float: left;
-    width: 180px;
+    width: 285px;
     line-height: 40px;
 }
 
