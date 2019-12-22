@@ -27,7 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
             return ['class' => $model->status];
         },
         'columns' => [
-            'id',
+            [
+                'attribute'=>'id',
+                'format' => 'html',
+                'value' => function ($model) {
+                    $href = 'view?id='.$model->id;
+                    return '<a href=' . $href . '>' . $model->id . '</a>';
+                },
+            ],
             [
                 'attribute'=>'fio',
                 'format' => 'html',
@@ -55,10 +62,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'shipping_method',
                 'value' => function ($model) {
                     if($model->shipping_method == 'tk') {
+                        $res = Order::getTkList()[$model->tk];
                         if($model->city)
-                            return Order::getTkList()[$model->tk] . ' (' . $model->city . ')';
-                        else
-                            return Order::getTkList()[$model->tk];
+                            $res .= ' (' . $model->city . ')';
+                        if($model->notes)
+                            $res .= ' (' . $model->notes . ')';
+                        return $res;
                     }
                     elseif ($model->shipping_method == 'self') {
                         if($model->notes)
@@ -90,7 +99,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'created_at:datetime',
             [
-                'class' => 'yii\grid\ActionColumn'
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update}',
             ],
         ],
     ]); ?>

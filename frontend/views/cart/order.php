@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="shipping_methods">
                     <div class="self">
-                        <?= $form->field($order, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time']); ?>
+                        <?= $form->field($order, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time'], ['prompt'=>'Выберите время...']); ?>
                     </div>
                     <div class="order-address" style="display: none">
                         <?= $form->field($order, 'zip')->textInput(['placeholder' => '630000', 'class' => 'form-control dark', 'maxlength' => 6]); ?>

@@ -67,6 +67,7 @@ class Order extends \yii\db\ActiveRecord
             [['address', 'notes'], 'string'],
             [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method', 'tk', 'rcr', 'pickup_time'], 'string', 'max' => 255],
             [['phone', 'fio'], 'required'],
+            [['email'], 'trim'],
             [['email'], 'email'],
         ];
     }
@@ -94,7 +95,7 @@ class Order extends \yii\db\ActiveRecord
             'zip' => 'Индекс',
             'tk' => 'Транспортная компания',
             'rcr' => 'Пункт выдачи РЦР',
-            'pickup_time' => 'Время выдачи',
+            'pickup_time' => 'Время получения',
             'discount' => 'Скидка',
         ];
     }
@@ -172,9 +173,9 @@ class Order extends \yii\db\ActiveRecord
     public static function getShippingMethods()
     {
         return [
-            'self' => 'Самовывоз (по договоренности)',
-            'courier' => 'Курьер (для Новосибирска)',
-            'rcr' => 'РЦР (для Новосибирска)',
+            'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
+            'courier' => 'Курьер (Новосибирск)',
+            'rcr' => 'РЦР (Новосибирск)',
             'rp' => 'Почта России',
             'tk' => 'Транспортная компания',
         ];

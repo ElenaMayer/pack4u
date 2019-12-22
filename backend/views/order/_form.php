@@ -21,7 +21,7 @@ use \common\models\Order;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'shipping_method')->dropDownList(Order::getShippingMethods()) ?>
+    <?= $form->field($model, 'shipping_method')->dropDownList(Order::getShippingMethodsLite()) ?>
 
     <div class="shipping_method_field method_self" <?php if($model->shipping_method != 'self'):?>style="display: none"<?php endif;?>">
         <?= $form->field($model, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time']) ?>
