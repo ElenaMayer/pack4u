@@ -23,6 +23,9 @@ class CatalogController extends \yii\web\Controller
 
     public function actionList($categorySlug = null)
     {
+        if ($categorySlug == null) {
+            $this->redirect('catalog/boxes');
+        }
         $get = Yii::$app->request->get();
         if (!empty($get) && isset($get['urlParams'])){
             $this->redirect($get['urlParams']);
@@ -36,9 +39,8 @@ class CatalogController extends \yii\web\Controller
         $productsQuery = Product::find()->where(['is_active' => 1]);
 
         $this->prepareFilter($productsQuery);
-        if ($categorySlug !== null) {
-            $category = Category::find()->where(['slug' => $categorySlug])->one();
-        }
+
+        $category = Category::find()->where(['slug' => $categorySlug])->one();
         if ($category) {
             if(!$category->parent)
                 $productsQuery->andWhere(['category_id' => $this->getCategoryIds($categories, $category->id)]);

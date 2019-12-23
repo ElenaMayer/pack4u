@@ -683,7 +683,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             $sizes = [];
             foreach ($models as $m)
             {
-                if($type == 'full'){
+                if($type == 'full' || count($models) <= Yii::$app->params['sizeFilterMinCount']){
                     $sizes[$m->size] = $m->size;
                 } else {
                     if ($m->size && ($m->group_cnt >= Yii::$app->params['sizeFilterMinCount'] || $m->group_sum > Yii::$app->params['sizeFilterMinSum'])) {
