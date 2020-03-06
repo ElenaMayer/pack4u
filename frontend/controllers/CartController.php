@@ -10,6 +10,7 @@ use common\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
+use common\models\Payment;
 
 class CartController extends \yii\web\Controller
 {
@@ -123,104 +124,123 @@ class CartController extends \yii\web\Controller
 
     public function actionOrder()
     {
-        $get = Yii::$app->request->get();
-        $ajax = false;
-        if($get && isset($get['id'])) {
-            $ajax = true;
-            $cart = \Yii::$app->cart;
-            $cart->removeById($get['id']);
-        }
-
         $order = new Order();
         /* @var $cart ShoppingCart */
         $cart = \Yii::$app->cart;
-        $positions = $cart->getPositions();
 
+        $total = $cart->getCost();
+        if($total < Yii::$app->params['orderMinSum']){
+            $this->redirect(['cart']);
+        }
+
+        $positions = $cart->getPositions();
         if($positions) {
             if ($order->load(\Yii::$app->request->post()) && $order->validate()) {
-                $transaction = $order->getDb()->beginTransaction();
-                if (!Yii::$app->user->isGuest) {
-                    $order->user_id = Yii::$app->user->id;
-                    $order->id = date('ymdB');
-                    $order->discount = $cart->getDiscountPercent();
+                if($total < Yii::$app->params['orderMinSum']){
+                    $this->redirect(['cart']);
+                } elseif ($redirectUrl = $this->processOrder($order, $cart, $positions)){
+                    return $this->redirect($redirectUrl);
                 }
-                $order->save(false);
-                Yii::debug('Заказ #' . $order->id . ' создан ->', 'order');
-
-                foreach ($positions as $position) {
-                    $product = $position->getProduct();
-                    if ($product->getIsActive() && $product->getIsInStock()) {
-                        $qty = $position->getQuantity();
-                        $orderItem = new OrderItem();
-                        $orderItem->order_id = $order->id;
-                        $orderItem->title = $product->title;
-                        if($position->diversity_id){
-                            $diversity = ProductDiversity::findOne($position->diversity_id);
-                            $orderItem->title .= ' "' . $diversity->title . '"';
-                        }
-                        $orderItem->price = $product->getPrice($qty);
-                        $orderItem->product_id = $product->id;
-                        $orderItem->diversity_id = $position->diversity_id;
-                        if($product->getItemCount($position->diversity_id) < $qty)
-                            $qty = $product->getItemCount($position->diversity_id);
-                        $orderItem->quantity = $qty;
-                        if (!$orderItem->save(false)) {
-                            $transaction->rollBack();
-                            \Yii::$app->session->addFlash('error', 'Невозможно создать заказ. Пожалуйста свяжитесь с нами.');
-                            return $this->redirect('/catalog');
-                        } else {
-
-                            if(!$orderItem->diversity_id){
-                                Yii::debug( 'Арт.' . $orderItem->product->article . ' ' . $orderItem->product->count . ' -> ' . ($orderItem->product->count-$orderItem->quantity) . 'шт', 'order');
-                            } else {
-                                Yii::debug('Расцветка Арт.' . $orderItem->diversity->article . ' ' . $orderItem->diversity->count . ' -> ' . ($orderItem->diversity->count-$orderItem->quantity) . 'шт', 'order');
-                            }
-
-                            $product->minusCount($orderItem->quantity, $position->diversity_id);
-                        }
-                    }
-                }
-                $transaction->commit();
-                \Yii::$app->cart->removeAll();
-
-                if (!Yii::$app->user->isGuest) {
-                    $user = User::findOne(Yii::$app->user->id);
-                    if($order->fio) $user->fio = $order->fio;
-                    if($order->address) $user->address = $order->address;
-                    if($order->phone) $user->phone = $order->phone;
-                    $user->save(false);
-                }
-
-                \Yii::$app->session->addFlash('success', 'Спасибо за заказ. Мы свяжемся с Вами в ближайшее время.');
-                $order->sendEmail();
-
-                return $this->redirect('/catalog');
             }
+
+            //Autocomplete user fields
             if(!Yii::$app->user->isGuest) {
                 $order->fio = Yii::$app->user->getIdentity()->fio;
                 $order->address = Yii::$app->user->getIdentity()->address;
                 $order->phone = Yii::$app->user->getIdentity()->phone;
                 $order->email = Yii::$app->user->getIdentity()->email;
             }
-            if($ajax){
-                return $this->renderPartial('order', [
-                    'order' => $order,
-                    'positions' => $positions,
-                    'cart' => $cart,
-                ]);
-            } else {
-                return $this->render('order', [
-                    'order' => $order,
-                    'positions' => $positions,
-                    'cart' => $cart,
-                ]);
-            }
+            return $this->render('order', [
+                'order' => $order,
+                'positions' => $positions,
+                'cart' => $cart,
+            ]);
         } else {
-            if($ajax){
-                return false;
-            } else
-            $this->redirect('/cart');
+                $this->redirect('/cart');
         }
+    }
+
+    public function processOrder($order, $cart, $positions){
+        $transaction = $order->getDb()->beginTransaction();
+        if (!Yii::$app->user->isGuest) {
+            $order->user_id = Yii::$app->user->id;
+            //$order->discount = $cart->getDiscountPercent();
+
+            $user = User::findOne(Yii::$app->user->id);
+            if(!$user->fio) $user->fio = $order->fio;
+            if(!$user->address) $user->address = $order->address;
+            if(!$user->phone) $user->phone = $order->phone;
+            $user->save(false);
+        }
+
+        // Shipping counting
+        if($order->shipping_method != 'self'){
+            $total = $cart->getCost();
+            if($total < Yii::$app->params['freeShippingSum']){
+                $order->shipping_cost = Yii::$app->params['shippingCost'];
+            } else {
+                $order->shipping_cost = 0;
+            }
+        }
+        $order->save(false);
+        Yii::debug('Заказ #' . $order->id . ' создан ->', 'order');
+
+        foreach ($positions as $position) {
+            $product = $position->getProduct();
+            if ($product->getIsActive() && $product->getIsInStock()) {
+                $qty = $position->getQuantity();
+                $orderItem = new OrderItem();
+                $orderItem->order_id = $order->id;
+                $orderItem->title = $product->title;
+                if($position->diversity_id){
+                    $orderItem->diversity_id = $position->diversity_id;
+                    $diversity = ProductDiversity::findOne($position->diversity_id);
+                    $orderItem->title .= ' "' . $diversity->title . '"';
+                    if($product->getItemCount($position->diversity_id) < $qty)
+                        $qty = $product->getItemCount($position->diversity_id);
+                }
+                $orderItem->price = $product->getPrice($qty);
+                $orderItem->product_id = $product->id;
+                $orderItem->quantity = $qty;
+                $orderItem->save(false);
+                if(!$orderItem->diversity_id){
+                    Yii::debug( 'Арт.' . $orderItem->product->article . ' ' . $orderItem->product->count . ' -> ' . ($orderItem->product->count-$orderItem->quantity) . 'шт', 'order');
+                } else {
+                    Yii::debug('Расцветка Арт.' . $orderItem->diversity->article . ' ' . $orderItem->diversity->count . ' -> ' . ($orderItem->diversity->count-$orderItem->quantity) . 'шт', 'order');
+                }
+                $product->minusCount($orderItem->quantity, $position->diversity_id);
+            }
+        }
+        $transaction->commit();
+
+        Yii::$app->cart->removeAll();
+
+        $order->sendEmail();
+
+        if($order->payment_method == 'cart'){
+            $payment = new Payment();
+            return $payment->payment($order);
+        } else {
+            return "/cart/complete?id=$order->id";
+        }
+    }
+
+    public function actionComplete($id){
+        $order = Order::findOne($id);
+
+        if($order->payment_method == 'card'){
+            $payment = new Payment();
+            $payment->checkPayment($order);
+
+            if($order->payment == 'canceled'){
+                $paymentUrl = $payment->payment($order);
+            }
+        }
+
+        return $this->render('complete', [
+            'order' => $order,
+            'paymentUrl' => isset($paymentUrl) ? $paymentUrl : false,
+        ]);
     }
 
     public function actionHistory(){

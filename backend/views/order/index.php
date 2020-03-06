@@ -24,14 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'rowOptions' => function($model) {
-            return ['class' => $model->status];
+            return ['class' => [$model->status, $model->is_ul ? 'ul' : '']];
         },
         'columns' => [
             [
                 'attribute'=>'id',
                 'format' => 'html',
                 'value' => function ($model) {
-                    $href = 'view?id='.$model->id;
+                    $href = '/order/index?id='.$model->id;
                     return '<a href=' . $href . '>' . $model->id . '</a>';
                 },
             ],
@@ -40,10 +40,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
                 'value' => function ($model) {
                     if($model->user_id){
-                        $href = 'index?OrderSearch%5Buser_id%5D='.$model->user_id;
+                        $href = '/order/index?OrderSearch%5Buser_id%5D='.$model->user_id;
                         return '<a href=' . $href . '>' . $model->fio . '</a>';
                     } elseif (Order::isSameFioExist($model->fio)){
-                        $href = 'index?OrderSearch%5Bfio%5D='.$model->fio;
+                        $href = '/order/index?OrderSearch%5Bfio%5D='.$model->fio;
                         return '<a href=' . $href . '>' . $model->fio . '</a>';
                     } else {
                         return $model->fio;
@@ -62,7 +62,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'shipping_method',
                 'value' => function ($model) {
                     if($model->shipping_method == 'tk') {
-                        $res = Order::getTkList()[$model->tk];
+                        if(isset(Order::getTkList()[$model->tk]))
+                            $res = Order::getTkList()[$model->tk];
+                        else
+                            $res = $model->tk;
                         if($model->city)
                             $res .= ' (' . $model->city . ')';
                         if($model->notes)

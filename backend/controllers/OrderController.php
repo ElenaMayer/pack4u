@@ -13,6 +13,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\OrderItem;
 use yii\helpers\Json;
+use common\models\Payment;
 
 /**
  * OrderController implements the CRUD actions for Order model.
@@ -99,8 +100,15 @@ class OrderController extends Controller
                 $product->minusCount($post['quantity'], $orderItem->diversity_id);
             }
         }
+
+        $order = $this->findModel($id);
+        if($order->payment == 'pending'){
+            $payment = new Payment();
+            $payment->checkPayment($order);
+        }
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $order,
         ]);
     }
 

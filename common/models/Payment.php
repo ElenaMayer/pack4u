@@ -1,0 +1,80 @@
+<?php
+
+namespace common\models;
+
+use Yii;
+use YandexCheckout\Client;
+
+class Payment extends Client
+{
+    public function auth(){
+        $this->setAuth(Yii::$app->params['yk_shop_id'], Yii::$app->params['yk_secret_key']);
+    }
+
+    public static function getErrorDesc($error){
+        $errors = [
+            '3d_secure_failed' => 'Не пройдена аутентификация',
+            'call_issuer' => 'Причина неизвестна',
+            'card_expired' => 'Истек срок действия банковской карты',
+            'country_forbidden' => 'Нельзя заплатить банковской картой, выпущенной в этой стране',
+            'fraud_suspected' => 'Платеж заблокирован из-за подозрения в мошенничестве',
+            'general_decline' => 'Причина не детализирована',
+            'identification_required' => 'Превышены ограничения на платежи для кошелька в Яндекс.Деньгах',
+            'insufficient_funds' => 'Не хватает денег для оплаты',
+            'invalid_card_number' => 'Неправильно указан номер карты',
+            'invalid_csc' => 'Неправильно указан код CVV2 (CVC2, CID)',
+            'issuer_unavailable' => 'Организация, выпустившая платежное средство, недоступна',
+            'payment_method_limit_exceeded' => 'Исчерпан лимит платежей для данного платежного средства',
+            'payment_method_restricted' => 'Запрещены операции данным платежным средством',
+            'permission_revoked' => 'Нельзя провести безакцептное списание',
+        ];
+        return $errors[$error];
+    }
+
+    public function payment($order){
+
+        $this->auth();
+        $payment = $this->createPayment([
+            'amount' => array(
+                'value' => $order->getCost(),
+                'currency' => 'RUB',
+            ),
+            'payment_method_data' => array(
+                'type' => 'bank_card',
+            ),
+            'confirmation' => array(
+                'type' => 'redirect',
+                'return_url' => 'https://'.Yii::$app->params['domain'].'/cart/complete?id='.$order->id,
+            ),
+            'capture' => true,
+            'description' => "Заказ №$order->id",
+        ],
+            uniqid('', true)
+        );
+
+        $paymentUrl = $payment->getConfirmation()->getConfirmationUrl();
+        $order->payment = $payment->getStatus();
+        $order->payment_id = $payment->getId();
+        $order->payment_url = $paymentUrl;
+        $order->save();
+
+        return $paymentUrl;
+    }
+
+    public function checkPayment(&$order){
+
+        $this->auth();
+        $payment = $this->getPaymentInfo($order->payment_id);
+        if(!$order->payment || $order->payment != $payment->getStatus()){
+            $order->payment = $payment->getStatus();
+            if($payment->getStatus() == 'succeeded'){
+                $order->status = 'paid';
+            } elseif($payment->getStatus() == 'canceled'){
+                $order->status = 'payment';
+                if($payment->getCancellationDetails())
+                    $order->payment_error = $payment->getCancellationDetails()->getReason();
+            }
+            $order->save();
+        }
+    }
+}

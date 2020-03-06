@@ -10,7 +10,7 @@ $this->title = 'Оформление заказа';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="checkout-wrapper commerce">
+<div class="checkout-wrapper commerce commerce-order">
     <div class="container">
         <?php if (Yii::$app->user->isGuest): ?>
             <?php Yii::$app->user->setReturnUrl(Yii::$app->request->url); ?>
@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <?= $form->field($order, 'notes')->textarea(['class' => 'form-control dark', 'rows' => "3"]); ?>
 
+                <?= $form->field($order, 'is_ul')->checkbox() ?>
                 <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethods()); ?>
 
                 <div class="shipping_methods">
@@ -47,7 +48,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="order-address" style="display: none">
                         <?= $form->field($order, 'zip')->textInput(['placeholder' => '630000', 'class' => 'form-control dark', 'maxlength' => 6]); ?>
                         <?= $form->field($order, 'address')->textInput(['placeholder' => 'Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark order-address']); ?>
-                        <?= Html::button('Расчитать', ['class' => 'courier_cost_button checkout-button button', 'style' => 'display:none']) ?>
                     </div>
                     <div class="tk" style="display: none">
                         <?= $form->field($order, 'tk')->dropDownList(Order::getTkList()); ?>
@@ -96,7 +96,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'discountPercent' => $cart->getDiscountPercent(),
                             ]); ?>
                         </div>
-<!--                        <div class="cart-offer">Нажимая на кнопку "Отправить заказ",</br> вы принимаете условия --><?//= Html::a('Публичной оферты', ['site/offer'])?><!--</div>-->
+
+                        <div class="cart-offer">Нажимая кнопку "Отправить заказ" Вы соглашаетесь с <a href="/offer">Политикой конфиденциальности</a></div>
                         <div class="wc-proceed-to-checkout">
                             <?= Html::submitButton('Отправить заказ', ['class' => 'checkout-button button alt wc-forward']) ?>
                         </div>

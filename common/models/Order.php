@@ -18,7 +18,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $status
  * @property string $fio
  * @property integer $shipping_cost
- * @property integer $payment
+ * @property string $payment
  * @property string $city
  * @property string $shipping_method
  * @property string $payment_method
@@ -27,6 +27,11 @@ use yii\behaviors\TimestampBehavior;
  * @property string $rcr
  * @property string $pickup_time
  * @property integer $discount
+ * @property string $payment_id
+ * @property string $payment_url
+ * @property string $payment_error
+ * @property string $shipping_number
+ * @property integer $is_ul
  *
  * @property OrderItem[] $orderItems
  */
@@ -63,9 +68,10 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at', 'shipping_cost', 'zip', 'payment', 'discount'], 'integer'],
+            [['created_at', 'updated_at', 'shipping_cost', 'zip', 'discount', 'is_ul'], 'integer'],
             [['address', 'notes'], 'string'],
-            [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method', 'tk', 'rcr', 'pickup_time'], 'string', 'max' => 255],
+            [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method', 'tk', 'rcr', 'pickup_time',
+                'payment', 'payment_id', 'payment_url', 'payment_error', 'shipping_number'], 'string', 'max' => 255],
             [['phone', 'fio'], 'required'],
             [['email'], 'trim'],
             [['email'], 'email'],
@@ -97,6 +103,9 @@ class Order extends \yii\db\ActiveRecord
             'rcr' => 'Пункт выдачи РЦР',
             'pickup_time' => 'Время получения',
             'discount' => 'Скидка',
+            'payment_error' => 'Ошибка оплаты',
+            'shipping_number' => 'Трэк/накладная',
+            'is_ul' => 'Юридическое лицо',
         ];
     }
 
@@ -159,10 +168,10 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             self::STATUS_NEW => 'Новый',
-            self::STATUS_PAYMENT => 'Ожидает оплаты',
             self::STATUS_PAID => 'Оплачено',
             self::STATUS_COLLECTED => 'Собран',
             self::STATUS_PACKED => 'Упакован',
+            self::STATUS_PAYMENT => 'Платеж отменен',
             self::STATUS_SHIPPED => 'Передан в доставку',
             self::STATUS_PRE_ORDER => 'Предзаказ',
             self::STATUS_DONE => 'Выполнен',
@@ -175,7 +184,6 @@ class Order extends \yii\db\ActiveRecord
         return [
             'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
             'courier' => 'Курьер (Новосибирск)',
-            'rcr' => 'РЦР (Новосибирск)',
             'rp' => 'Почта России',
             'tk' => 'Транспортная компания',
         ];
@@ -186,7 +194,6 @@ class Order extends \yii\db\ActiveRecord
         return [
             'self' => 'Самовывоз',
             'courier' => 'Курьер',
-            'rcr' => 'РЦР',
             'rp' => 'Почта России',
             'tk' => 'ТК',
         ];
@@ -195,8 +202,18 @@ class Order extends \yii\db\ActiveRecord
     public static function getPaymentMethods()
     {
         return [
+            'account' => 'Оплата по счету',
             'cash' => 'Наличными при получении',
-            'card' => 'На карту',
+            'card' => 'Картой онлайн',
+        ];
+    }
+
+    public static function getPaymentTypes()
+    {
+        return [
+            'pending' => 'Платеж создан',
+            'succeeded' => 'Оплачено с сайта',
+            'canceled' => 'Платеж отменен',
         ];
     }
 

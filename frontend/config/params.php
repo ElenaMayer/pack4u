@@ -9,6 +9,5 @@ return [
 //    'indexPageProductCount' => 7,
 //    'indexPageNoveltyCount' => 10,
     'productNewCount' => 6,
-    'orderMinSum' => 500,
     'sphinxLimit' => 100,
 ];

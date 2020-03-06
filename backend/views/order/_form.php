@@ -21,6 +21,8 @@ use \common\models\Order;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?>
 
+    <?= $form->field($model, 'is_ul')->checkbox() ?>
+
     <?= $form->field($model, 'shipping_method')->dropDownList(Order::getShippingMethodsLite()) ?>
 
     <div class="shipping_method_field method_self" <?php if($model->shipping_method != 'self'):?>style="display: none"<?php endif;?>">
@@ -51,9 +53,9 @@ use \common\models\Order;
 
     <?= $form->field($model, 'payment_method')->dropDownList(Order::getPaymentMethods()) ?>
 
-    <?= $form->field($model, 'payment')->dropDownList([1 => 'Есть', 0 => 'Нет']) ?>
-
     <?= $form->field($model, 'discount')->textInput(['maxlength' => 255]) ?>
+
+    <?= $form->field($model, 'shipping_number')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'notes')->textarea(['rows' => 6]) ?>
 

@@ -330,11 +330,7 @@ textarea {
     line-height: inherit;
 }
 
-a {
-    color: #212121;
-    text-decoration: none;
-}
-
+a,
 a:hover,
 a:focus {
     color: #79cba8;
@@ -5078,7 +5074,9 @@ tr.red {
     margin-right: 8px;
 }
 
-.noo-topbar ul li a {
+.noo-topbar ul li a,
+a.scroll-main,
+a.continue {
     color: #000000;
     position: relative;
 }
@@ -14873,13 +14871,15 @@ p.demo_store a {
 /*}*/
 
 /*Tooltip text*/
-.commerce-cart .price_tooltip {
+.commerce-cart .price_tooltip,
+.commerce-order .shipping_tooltip {
     position: relative;
     display: inline-block;
     color: #79cba8;
 }
 
-.commerce-cart .price_tooltip .tooltip-text {
+.commerce-cart .price_tooltip .tooltip-text,
+.commerce-order .shipping_tooltip .tooltip-text {
     font-family: "Open Sans", sans-serif;
     font-size: 1em;
     line-height: 1.5em;
@@ -14892,7 +14892,6 @@ p.demo_store a {
     padding: 10px;
     position: absolute;
     z-index: 1;
-    bottom: -208%;
     left: 210%;
     margin-left: 0;
     opacity: 0;
@@ -14900,7 +14899,16 @@ p.demo_store a {
     width: max-content;
 }
 
-.commerce-cart .price_tooltip .tooltip-text::after {
+.commerce-cart .price_tooltip .tooltip-text {
+    bottom: -208%;
+}
+
+.commerce-order .shipping_tooltip .tooltip-text {
+    bottom: -100%;
+}
+
+.commerce-cart .price_tooltip .tooltip-text::after,
+.commerce-order .shipping_tooltip .tooltip-text::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -14911,9 +14919,27 @@ p.demo_store a {
     border-color: transparent #79cba8 transparent transparent;
 }
 
-.commerce-cart .price_tooltip:hover .tooltip-text {
+.commerce-cart .price_tooltip .tooltip-text::after
+{
+    top: 50%;
+    left: -4%;
+    margin-left: -5px;
+}
+
+.commerce-order .shipping_tooltip .tooltip-text::after {
+    top: 42%;
+    left: -2%;
+    margin-left: -6px;
+}
+
+.commerce-cart .price_tooltip:hover .tooltip-text,
+.commerce-order .shipping_tooltip:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
+}
+
+.cart-offer {
+    padding-bottom: 10px;
 }
 
 #add_payment_method #payment ul.payment_methods li:after,
@@ -18209,6 +18235,15 @@ ul.user_menu li.active > a {
     .courier .form-group.field-order-address {
         width: 74%;
     }
+    .payment-result img {
+        width: 30%;
+    }
+    .payment-result h1 {
+        font-size: 32px;
+    }
+    .payment-result h3 {
+        font-size: 20px;
+    }
 }
 
 @media
@@ -18441,6 +18476,15 @@ only screen and (min-resolution: 2dppx) and (min-width: 481px) and (max-width: 1
         margin-top: 0;
         width: 100%;
         margin-bottom: 10px;
+    }
+    .payment-result img {
+        width: 45%;
+    }
+    .payment-result h1 {
+        font-size: 28px;
+    }
+    .payment-result h3 {
+        font-size: 18px;
     }
 }
 

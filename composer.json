@@ -26,7 +26,8 @@
         "amilna/yii2-elevatezoom": "*",
         "yiisoft/yii2-sphinx": "^2.0",
         "kartik-v/yii2-widget-depdrop": "dev-master",
-        "google/apiclient": "^2.0"
+        "google/apiclient": "^2.0",
+        "yandex-money/yandex-checkout-sdk-php": "^1.5"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

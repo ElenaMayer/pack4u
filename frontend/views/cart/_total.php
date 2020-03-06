@@ -1,4 +1,6 @@
 <h2>Итого</h2>
+<input type="hidden" id="free_shipping_sum" value="<?=Yii::$app->params['freeShippingSum']?>">
+<input type="hidden" id="shipping_cost" value="<?=Yii::$app->params['shippingCost']?>">
 <table>
         <tr class="order-subtotal">
             <th>Подытог</th>
@@ -24,8 +26,10 @@
     <tr class="shipping">
         <th>Доставка</th>
         <td>
-            <?php if($this->context->action->id != 'order' && !isset($order)):?>
-                <p>Будет рассчитана в зависимости от выбранного способа доставки.</p>
+            <?php if($total >= Yii::$app->params['freeShippingSum']):?>
+                <p><span id="amount_shipping">0</span><i class="fa fa-ruble"></i></p>
+            <?php elseif($this->context->action->id != 'order' && !isset($order)):?>
+                <p>При заказе от <?= Yii::$app->params['freeShippingSum']?><i class="fa fa-ruble"></i> доставка БЕСПЛАТНО</p>
             <?php elseif(isset($order) && $order->shipping_cost):?>
                 <p><?=$order->shipping_cost?><i class="fa fa-ruble"></i></p>
             <?php else:?>

@@ -216,10 +216,11 @@ IeAsset::register($this);
                             <h4 class="widget-title">Помощь</h4>
                             <div class="textwidget">
                                 <p><a href="/contact">Контакты</a></p>
-                                <p><a href="/instruction">Инструкции</a></p>
+                                <p><a href="/instruction">Инструкции по сборке</a></p>
                                 <p><a href="/shipping">Информация о доставке</a></p>
                                 <p><a href="/payment">Способы оплаты</a></p>
                                 <p><a href="/refund">Возврат товара</a></p>
+                                <p><a href="/offer">Политика конфиденциальности</a></p>
                             </div>
                         </div>
                     </div>

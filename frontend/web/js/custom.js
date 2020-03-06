@@ -84,11 +84,15 @@ $(document).ready(function() {
 
     aweProductRender(true);
 
+    $('#order-payment_method').children("option[value='account']").remove();
+
+    // Shipping counting
     $(document.body).on('change', '#order-shipping_method' ,function(){
+        var subtotal = parseInt($('#amount_subtotal').text());
         $('.shipping_methods').children().each(function(){
         	$(this).hide();
         	$('#order-zip').val(null);
-            $('#amount_total').text($('#amount_subtotal').text());
+            $('#amount_total').text(subtotal);
 		});
         $('#order-address').val('');
         $("#order-shipping_cost").val(null);
@@ -102,23 +106,33 @@ $(document).ready(function() {
         } else {
             $('#order-payment_method').children("option[value='cash']").remove();
             shipping = $(this).children("option:selected").val();
-            if(shipping == 'rcr'){
-                $('.shipping_methods .rcr').show();
-                $('tr.shipping > td > p').html('0<i class="fa fa-ruble"></i>');
-            } else if(shipping == 'rp' || shipping == 'courier'){
+            if(shipping == 'rp' || shipping == 'courier'){
                 $('.shipping_methods .order-address').show();
-                if(shipping == 'rp'){
-                    $('.shipping_methods .order-address').removeClass('courier');
-                    $('tr.shipping > td > p').html('Для расчета стоимости введите индекс');
-                } else {
-                    $('.shipping_methods .order-address').addClass('courier');
-                    $('tr.shipping > td > p').html('Для расчета стоимости введите адрес');
-                }
             } else if(shipping == 'tk'){
                 $('.shipping_methods .tk').show();
-                $('tr.shipping > td > p').html('Уточнить стоимость можно у нашего менеджера');
+            }
+            free_shipping_sum = parseInt($('#free_shipping_sum').val());
+
+            if(subtotal >= free_shipping_sum) {
+                $('tr.shipping > td > p').html('0<i class="fa fa-ruble"></i>');
+            } else {
+                if(shipping == 'courier'){
+                    $('tr.shipping > td > p').html('Оплата доставки при получении');
+                } else {
+                    shipping_cost = parseInt($('#shipping_cost').val());
+                    $('#amount_total').text(subtotal + shipping_cost);
+                    $('tr.shipping > td > p').html(shipping_cost + '<i class="fa fa-ruble"></i> <div class="shipping_tooltip"><i class="fa fa-question-circle"></i><span class="tooltip-text"><p>Бесплатная доставка</p><p>от ' + free_shipping_sum + '<i class="fa fa-ruble"></i></p></span></div>');
+                }
             }
 		}
+    });
+
+    $(document.body).on('click', '#order-is_ul' ,function(){
+        if($(this).prop('checked')) {
+            $('#order-payment_method').append($("<option></option>").attr("value","account").text('Оплата по счету'));
+        } else {
+            $('#order-payment_method').children("option[value='account']").remove();
+        }
     });
 
     $(document.body).on('change', '#order-tk' ,function(){
@@ -560,74 +574,74 @@ $(document).ready(function() {
 		slider_item.css('background-image','url("' + slider_item.attr("data-bg") + '")');
 	});
 
-    $(document.body).on('keyup', '#order-zip' ,function(){
-        if ($(this).val().length == 6) {
-            total = parseInt($('#amount_subtotal').text());
-            postcalc_url = 'http://api.postcalc.ru/mystat.php/';
-            postcode_from = '630001';
-            postcode_to = $(this).val();
-            weight = $('#order_weight').val() * 1000 * 1.1;
-            $.ajax({
-                url: postcalc_url,
-                type: "GET",
-                data: {
-                    f: postcode_from,
-                    t: postcode_to,
-                    w: weight,
-                    o: 'json',
-                },
-                dataType: 'jsonp',
-                success: function (data) {
-                    if (data['Status'] == "OK") {
-                        tariff = parseInt(data['Отправления']['ЦеннаяПосылка']['Тариф']);
-                        shipping_cost = tariff;
-                        new_total = total + shipping_cost;
-                        $('.shipping > td > p').html("<span id=\"amount_shipping\">" + shipping_cost.toFixed(0) + "</span><i class=\"fa fa-ruble\"></i>");
-                        $('#amount_total').html(new_total.toFixed(0));
-                        $("#order-shipping_cost").val(shipping_cost.toFixed(0));
-                    } else if(data['Status'] == "BAD_TO_INDEX"){
-                        $('.shipping > td > p').html("Стоимость не определена. Проверьте индекс и попробуйте снова");
-                        $('#amount_total').html(total);
-                        $("#order-shipping_cost").val(null);
-                    }
-                }
-            })
-        }
-    });
+    // $(document.body).on('keyup', '#order-zip' ,function(){
+    //     if ($(this).val().length == 6) {
+    //         total = parseInt($('#amount_subtotal').text());
+    //         postcalc_url = 'http://api.postcalc.ru/mystat.php/';
+    //         postcode_from = '630001';
+    //         postcode_to = $(this).val();
+    //         weight = $('#order_weight').val() * 1000 * 1.1;
+    //         $.ajax({
+    //             url: postcalc_url,
+    //             type: "GET",
+    //             data: {
+    //                 f: postcode_from,
+    //                 t: postcode_to,
+    //                 w: weight,
+    //                 o: 'json',
+    //             },
+    //             dataType: 'jsonp',
+    //             success: function (data) {
+    //                 if (data['Status'] == "OK") {
+    //                     tariff = parseInt(data['Отправления']['ЦеннаяПосылка']['Тариф']);
+    //                     shipping_cost = tariff;
+    //                     new_total = total + shipping_cost;
+    //                     $('.shipping > td > p').html("<span id=\"amount_shipping\">" + shipping_cost.toFixed(0) + "</span><i class=\"fa fa-ruble\"></i>");
+    //                     $('#amount_total').html(new_total.toFixed(0));
+    //                     $("#order-shipping_cost").val(shipping_cost.toFixed(0));
+    //                 } else if(data['Status'] == "BAD_TO_INDEX"){
+    //                     $('.shipping > td > p').html("Стоимость не определена. Проверьте индекс и попробуйте снова");
+    //                     $('#amount_total').html(total);
+    //                     $("#order-shipping_cost").val(null);
+    //                 }
+    //             }
+    //         })
+    //     }
+    // });
 
-    $(document.body).on('click', '.courier_cost_button' ,function(){
-        address = $('#order-address').val();
-        if(address.length > 0) {
-            weight = $('#order_weight').val() * 1.05;
-            total = parseInt($('#amount_subtotal').text());
-            $('html').addClass("wait");
-            $.ajax({
-                url: '/cart/get_courier_cost',
-                type: "GET",
-                data: {
-                    weight: weight,
-                    address: address,
-                },
-                complete: function () {
-                    $('html').removeClass("wait");
-                },
-                success: function (data) {
-                    if(data){
-                        new_total = total + parseInt(data);
-                        $('.shipping > td > p').html("<span id=\"amount_shipping\">" + parseInt(data).toFixed(0) + "</span><i class=\"fa fa-ruble\"></i>");
-                        $('#amount_total').html(new_total.toFixed(0));
-                        $("#order-shipping_cost").val(parseInt(data));
-                    } else {
-                        $('.courier .help-block-error').text('Некорректный адрес');
-                        $('.courier .form-group').addClass('has-error');
-                    }
-                }
-            });
-        } else {
-            $('.courier .help-block-error').text('Введите адрес для расчета');
-            $('.courier .form-group').addClass('has-error');
-        }
-    });
+    // $(document.body).on('click', '.courier_cost_button' ,function(){
+    //     address = $('#order-address').val();
+    //     if(address.length > 0) {
+    //         weight = $('#order_weight').val() * 1.05;
+    //         total = parseInt($('#amount_subtotal').text());
+    //         $('html').addClass("wait");
+    //         $.ajax({
+    //             url: '/cart/get_courier_cost',
+    //             type: "GET",
+    //             data: {
+    //                 weight: weight,
+    //                 address: address,
+    //             },
+    //             complete: function () {
+    //                 $('html').removeClass("wait");
+    //             },
+    //             success: function (data) {
+    //                 if(data){
+    //                     new_total = total + parseInt(data);
+    //                     $('.shipping > td > p').html("<span id=\"amount_shipping\">" + parseInt(data).toFixed(0) + "</span><i class=\"fa fa-ruble\"></i>");
+    //                     $('#amount_total').html(new_total.toFixed(0));
+    //                     $("#order-shipping_cost").val(parseInt(data));
+    //                 } else {
+    //                     $('.courier .help-block-error').text('Некорректный адрес');
+    //                     $('.courier .form-group').addClass('has-error');
+    //                 }
+    //             }
+    //         });
+    //     } else {
+    //         $('.courier .help-block-error').text('Введите адрес для расчета');
+    //         $('.courier .form-group').addClass('has-error');
+    //     }
+    // });
 
     $(document.body).on('click', '#diversity-link' ,function() {
         $.ajax({

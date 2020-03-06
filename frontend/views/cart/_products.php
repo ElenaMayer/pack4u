@@ -44,5 +44,4 @@ if($diversity && $diversity->id) {
             <div class="count-error has-error" <?php if($quantity <= $count):?>style="display: none" <?php endif;?>>В наличии осталось <?=$count ?> шт.</div>
         </div>
     </div><!-- /.cart-item -->
-    <td class="product-remove"><a data-id="<?= $position->getId() ?>" id="remove_order_item" class="remove">×</a></td>
 </li>

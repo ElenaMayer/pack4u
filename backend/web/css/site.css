@@ -3,6 +3,10 @@ body {
     height: 100%;
 }
 
+.red {
+    color: #c80000;
+}
+
 .wrap {
     min-height: 100%;
     height: auto;
@@ -142,6 +146,9 @@ a.image_remove:hover {
     border-radius: 2px;
     border: solid 1px #dfdfdf;
     padding-left: 5px;
+}
+.order-index .table-striped tr.ul {
+    font-weight: bold;
 }
 
 .order-index .table-striped tr.x_new {

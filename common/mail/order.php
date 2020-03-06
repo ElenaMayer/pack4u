@@ -8,6 +8,9 @@ use common\models\ProductDiversity;
 <h1>Заказ #<?= $order->id ?> успешно создан.</h1>
 
 <ul style="list-style: none;">
+    <?php if($order->is_ul):?>
+        <li><b>Юридическое лицо</b></li>
+    <?php endif;?>
     <li><b>ФИО:</b> <?= Html::encode($order->fio) ?></li>
     <li><b>Телефон:</b> <?= Html::encode($order->phone) ?></li>
     <?php if($order->email):?>
