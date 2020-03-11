@@ -17,7 +17,7 @@ use common\models\ProductDiversity;
         <li><b>Email:</b> <?= Html::encode($order->email) ?></li>
     <?php endif;?>
     <?php if($order->shipping_method):?>
-        <li><b>Доставка:</b> <?= Order::getShippingMethods()[$order->shipping_method]; ?></li>
+        <li><b>Доставка:</b> <?php if($order->shipping_method != 'shipping'):?><?= Order::getShippingMethodsLite()[$order->shipping_method]; ?><?php endif;?></li>
     <?php endif;?>
     <?php if($order->shipping_method == 'tk' && $order->tk):?>
         <?php if($order->city):?>
@@ -28,7 +28,7 @@ use common\models\ProductDiversity;
     <?php if($order->shipping_method == 'rcr' && $order->rcr):?>
         <li><b>РЦР:</b> <?= $order->rcr?></li>
     <?php endif;?>
-    <?php if($order->shipping_method == 'rp' || $order->shipping_method == 'courier'):?>
+    <?php if($order->shipping_method == 'rp' || $order->shipping_method == 'courier' || $order->shipping_method == 'shipping'):?>
         <?php if($order->zip):?>
             <li><b>Индекс:</b> <?= $order->zip ?></li>
         <?php endif;?>

@@ -96,4 +96,12 @@ class StaticFunction
             return 0;
         }
     }
+
+    public static function sendEmail($model, $view, $emails, $subject){
+        return Yii::$app->mailer->compose($view, ['order' => $model])
+            ->setTo($emails)
+            ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->params['title']])
+            ->setSubject($subject)
+            ->send();
+    }
 }

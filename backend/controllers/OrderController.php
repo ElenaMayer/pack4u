@@ -103,8 +103,7 @@ class OrderController extends Controller
 
         $order = $this->findModel($id);
         if($order->payment == 'pending'){
-            $payment = new Payment();
-            $payment->checkPayment($order);
+            $order->checkPayment();
         }
 
         return $this->render('view', [

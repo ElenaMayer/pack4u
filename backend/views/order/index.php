@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'status',
                 'value' => function ($model) {
-                    return $model->getStatuses()[$model->status];
+                    return isset($model->getStatuses()[$model->status]) ? $model->getStatuses()[$model->status] : $model->status;
                 },
                 'filter' => Order::getStatuses()
             ],

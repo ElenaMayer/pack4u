@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'status',
                 'value' => function ($model) {
-                    return Order::getStatuses()[$model->status];
+                    return isset(Order::getStatuses()[$model->status]) ? Order::getStatuses()[$model->status] : $model->status;
                 },
             ],
             'fio',
@@ -73,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'value' => function ($model) {
                         if($model->shipping_method == 'rp'){
                             return $model->zip . ', ' . $model->address;
-                        } elseif($model->shipping_method == 'courier') {
+                        } elseif($model->shipping_method == 'courier' || $model->shipping_method == 'shipping') {
                             return $model->address;
                         }
                     },

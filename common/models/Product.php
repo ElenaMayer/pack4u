@@ -8,7 +8,6 @@ use yii\behaviors\SluggableBehavior;
 use yz\shoppingcart\CartPositionInterface;
 use frontend\models\MyCartPositionTrait;
 use yii\web\UploadedFile;
-use Imagine\Image\Box;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -138,15 +137,8 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
                 $image = new Image();
                 $image->product_id = $this->id;
                 if ($image->save()) {
-                    $file->saveAs($image->getPath());
-                    \yii\imagine\Image::getImagine()
-                        ->open($image->getPath())
-                        ->thumbnail(new Box(Yii::$app->params['productOriginalImageWidth'], Yii::$app->params['productOriginalImageHeight']))
-                        ->save($image->getPath('origin', ['quality' => 80]))
-                        ->thumbnail(new Box(Yii::$app->params['productMediumImageWidth'], Yii::$app->params['productMediumImageHeight']))
-                        ->save($image->getPath('medium', ['quality' => 80]))
-                        ->thumbnail(new Box(Yii::$app->params['productSmallImageWidth'], Yii::$app->params['productSmallImageHeight']))
-                        ->save($image->getPath('small', ['quality' => 80]));
+                    $file->saveAs($image->getPath('origin'));
+                    $image->prepareImage();
                 }
             }
             return true;

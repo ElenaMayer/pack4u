@@ -93,7 +93,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update} {history}',
+                'template' => '{view} {update} {history} {copy}',
                 'buttons' => [
                     'history' => function ($url, $model, $key) {
                         return Html::a('<span class="glyphicon glyphicon-repeat"></span>',
@@ -102,6 +102,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             'title' => 'History',
                             'data-pjax' => '0',
                         ]);
+                    },
+                    'copy' => function ($url, $model, $key) {
+                        return Html::a('<span class="glyphicon glyphicon-plus"></span>',
+                            "/product/copy?id=$model->id",
+                            [
+                                'title' => 'Copy',
+                                'data-pjax' => '0',
+                            ]);
                     },
                 ],
             ],

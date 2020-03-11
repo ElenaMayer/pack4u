@@ -106,8 +106,11 @@ $(document).ready(function() {
         } else {
             $('#order-payment_method').children("option[value='cash']").remove();
             shipping = $(this).children("option:selected").val();
-            if(shipping == 'rp' || shipping == 'courier'){
+            if(shipping == 'rp' || shipping == 'courier' || shipping == 'shipping'){
                 $('.shipping_methods .order-address').show();
+                if(shipping == 'rp') {
+                    $('.shipping_methods .order-zip').show();
+                }
             } else if(shipping == 'tk'){
                 $('.shipping_methods .tk').show();
             }
@@ -125,6 +128,12 @@ $(document).ready(function() {
                 }
             }
 		}
+        change_order_send_button($('#order-payment_method').children("option:selected").val());
+    });
+
+    $(document.body).on('change', '#order-payment_method' ,function(){
+        method = $(this).children("option:selected").val();
+        change_order_send_button(method);
     });
 
     $(document.body).on('click', '#order-is_ul' ,function(){
@@ -679,6 +688,16 @@ $(document).ready(function() {
     userFeed.run();
 
 });
+
+function change_order_send_button(method) {
+    if(method == 'card'){
+        $('.cart-offer > span').text('Оплатить заказ');
+        $('.checkout-button').html('Оплатить заказ');
+    } else {
+        $('.cart-offer > span').text('Отправить заказ');
+        $('.checkout-button').html('Отправить заказ');
+    }
+}
 
 function add_to_cart_animation(button, count){
     button.addClass('is-added').find('path').eq(0).animate({

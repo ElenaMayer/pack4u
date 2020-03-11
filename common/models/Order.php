@@ -189,6 +189,14 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function getShippingMethodsFree()
+    {
+        return [
+            'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
+            'shipping' => 'Доставка',
+        ];
+    }
+
     public static function getShippingMethodsLite()
     {
         return [
@@ -196,6 +204,7 @@ class Order extends \yii\db\ActiveRecord
             'courier' => 'Курьер',
             'rp' => 'Почта России',
             'tk' => 'ТК',
+            'shipping' => 'Доставка',
         ];
     }
 
@@ -226,16 +235,16 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
-    public function sendEmail()
+    public function sendOrderEmail()
     {
         $emails = [Yii::$app->params['adminEmail']];
         if($this->email)
             $emails[] = $this->email;
-        return Yii::$app->mailer->compose('order', ['order' => $this])
-            ->setTo($emails)
-            ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->params['title']])
-            ->setSubject('Заказ #' . $this->id . ' создан.')
-            ->send();
+        StaticFunction::sendEmail(
+            $this,
+            'order',
+            $emails,
+            'Заказ #' . $this->id . ' создан.');
     }
 
     public function getSubCost()
@@ -318,5 +327,49 @@ class Order extends \yii\db\ActiveRecord
             return true;
         else
             return false;
+    }
+
+    public function checkPayment(){
+        $payment = new Payment();
+        $res = $payment->checkPayment($this->payment_id);
+        if(!$this->payment || $this->payment != $res->getStatus()){
+            $this->payment = $res->getStatus();
+            if($res->getStatus() == 'succeeded'){
+
+                $this->sendPaymentEmail();
+
+                $this->status = self::STATUS_PAID;
+            } elseif($res->getStatus() == 'canceled'){
+                $this->status = self::STATUS_PAYMENT;
+                if($res->getCancellationDetails())
+                    $this->payment_error = $res->getCancellationDetails()->getReason();
+            }
+            $this->save();
+        }
+    }
+
+    public function sendPaymentEmail()
+    {
+        $emails = [Yii::$app->params['adminEmail']];
+        if($this->email)
+            $emails[] = $this->email;
+        StaticFunction::sendEmail(
+            $this,
+            'payment',
+            $emails,
+            'Заказ #' . $this->id . ' успешно оплачен.');
+    }
+
+    public function payment(){
+
+        $payment = new Payment();
+        $res = $payment->payment($this);
+        $this->payment = $res->getStatus();
+        $this->payment_id = $res->getId();
+        $paymentUrl = $res->getConfirmation()->getConfirmationUrl();
+        $this->payment_url = $paymentUrl;
+        $this->save();
+
+        return $paymentUrl;
     }
 }

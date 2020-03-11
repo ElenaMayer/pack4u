@@ -34,7 +34,7 @@ class Payment extends Client
     public function payment($order){
 
         $this->auth();
-        $payment = $this->createPayment([
+        return $this->createPayment([
             'amount' => array(
                 'value' => $order->getCost(),
                 'currency' => 'RUB',
@@ -51,30 +51,11 @@ class Payment extends Client
         ],
             uniqid('', true)
         );
-
-        $paymentUrl = $payment->getConfirmation()->getConfirmationUrl();
-        $order->payment = $payment->getStatus();
-        $order->payment_id = $payment->getId();
-        $order->payment_url = $paymentUrl;
-        $order->save();
-
-        return $paymentUrl;
     }
 
-    public function checkPayment(&$order){
+    public function checkPayment($id){
 
         $this->auth();
-        $payment = $this->getPaymentInfo($order->payment_id);
-        if(!$order->payment || $order->payment != $payment->getStatus()){
-            $order->payment = $payment->getStatus();
-            if($payment->getStatus() == 'succeeded'){
-                $order->status = 'paid';
-            } elseif($payment->getStatus() == 'canceled'){
-                $order->status = 'payment';
-                if($payment->getCancellationDetails())
-                    $order->payment_error = $payment->getCancellationDetails()->getReason();
-            }
-            $order->save();
-        }
+        return $this->getPaymentInfo($id);
     }
 }

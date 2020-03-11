@@ -39,14 +39,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($order, 'notes')->textarea(['class' => 'form-control dark', 'rows' => "3"]); ?>
 
                 <?= $form->field($order, 'is_ul')->checkbox() ?>
-                <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethods()); ?>
+                <?php if($cart->getCost(true) >= Yii::$app->params['freeShippingSum']):?>
+                    <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethodsFree()); ?>
+                <?php else:?>
+                    <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethods()); ?>
+                <?php endif;?>
 
                 <div class="shipping_methods">
                     <div class="self">
                         <?= $form->field($order, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time'], ['prompt'=>'Выберите время...']); ?>
                     </div>
-                    <div class="order-address" style="display: none">
+                    <div class="order-zip" style="display: none">
                         <?= $form->field($order, 'zip')->textInput(['placeholder' => '630000', 'class' => 'form-control dark', 'maxlength' => 6]); ?>
+                    </div>
+                    <div class="order-address" style="display: none">
                         <?= $form->field($order, 'address')->textInput(['placeholder' => 'Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark order-address']); ?>
                     </div>
                     <div class="tk" style="display: none">
@@ -97,7 +103,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ]); ?>
                         </div>
 
-                        <div class="cart-offer">Нажимая кнопку "Отправить заказ" Вы соглашаетесь с <a href="/offer">Политикой конфиденциальности</a></div>
+                        <div class="cart-offer">Нажимая кнопку "<span>Отправить заказ</span>" Вы соглашаетесь с <a href="/offer">Политикой конфиденциальности</a></div>
                         <div class="wc-proceed-to-checkout">
                             <?= Html::submitButton('Отправить заказ', ['class' => 'checkout-button button alt wc-forward']) ?>
                         </div>

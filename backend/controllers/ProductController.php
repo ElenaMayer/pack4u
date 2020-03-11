@@ -3,7 +3,10 @@
 namespace backend\controllers;
 
 use common\models\Category;
+use common\models\Image;
 use common\models\ProductDiversity;
+use common\models\ProductPrice;
+use common\models\ProductRelation;
 use Yii;
 use common\models\Product;
 use backend\models\ProductSearch;
@@ -127,6 +130,58 @@ class ProductController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionCopy($id){
+
+        $product = Product::findOne($id);
+        $productNew = new Product();
+        $productNew->attributes = $product->attributes;
+        $productNew->is_active = false;
+        $productNew->is_in_stock = false;
+        $productNew->article = $product->article . '_8';
+        $productNew->count = 0;
+        $productNew->color = $product->color;
+        $productNew->subcategories = $product->subcategories;
+        $productNew->tags = $product->tags;
+        $productNew->save(false);
+
+        foreach ($product->images as $image){
+            $imageNew = new Image();
+            $imageNew->product_id = $productNew->id;
+            $imageNew->save();
+            $image->copy($imageNew->id);
+        }
+
+        foreach ($product->diversities as $diversity){
+            $imageNew = new Image();
+            $imageNew->save();
+            $diversityNew = new ProductDiversity();
+            $diversityNew->attributes = $diversity->attributes;
+            $diversityNew->image_id = $imageNew->id;
+            $diversityNew->product_id = $productNew->id;
+            $diversityNew->article = $diversity->article . '_8';
+            $diversityNew->count = 0;
+            $diversityNew->save(false);
+
+            $diversity->image->copy($imageNew->id);
+        }
+
+        foreach ($product->relations as $relation){
+            $relationNew = new ProductRelation();
+            $relationNew->attributes = $relation->attributes;
+            $relationNew->parent_id = $productNew->id;
+            $relationNew->save();
+        }
+
+        foreach ($product->prices as $price){
+            $priceNew = new ProductPrice();
+            $priceNew->attributes = $price->attributes;
+            $priceNew->product_id = $productNew->id;
+            $priceNew->save();
+        }
+
+        return $this->redirect(['update', 'id' => $productNew->id]);
     }
 
     public function processingProduct($model){
