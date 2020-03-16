@@ -56,6 +56,22 @@ $(document).ready(function() {
     $(document.body).on('click', '#product-diversity' ,function(){
         diversityForm($(this));
     });
+
+    $(document.body).on('click', '.get_payment_url' ,function(){
+
+        $.ajax({
+            method: 'get',
+            url: '/order/get_payment_url',
+            dataType: 'json',
+            data: {
+                id: $('#order_id').data('id'),
+            },
+        }).done(function( data ) {
+            if(data) {
+                $('.get_payment_url').parents('td').html(data.url);
+            }
+        });
+    });
 });
 
 function removeImage(e) {

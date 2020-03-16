@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'id',
                 'format' => 'html',
                 'value' => function ($model) {
-                    $href = '/order/index?id='.$model->id;
+                    $href = '/order/view?id='.$model->id;
                     return '<a href=' . $href . '>' . $model->id . '</a>';
                 },
             ],

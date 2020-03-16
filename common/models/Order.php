@@ -106,6 +106,7 @@ class Order extends \yii\db\ActiveRecord
             'payment_error' => 'Ошибка оплаты',
             'shipping_number' => 'Трэк/накладная',
             'is_ul' => 'Юридическое лицо',
+            'payment_url' => 'Ссылка на оплату',
         ];
     }
 
@@ -213,7 +214,7 @@ class Order extends \yii\db\ActiveRecord
         return [
             'account' => 'Оплата по счету',
             'cash' => 'Наличными при получении',
-            'card' => 'Картой онлайн',
+            'card' => 'Банковской картой онлайн',
         ];
     }
 

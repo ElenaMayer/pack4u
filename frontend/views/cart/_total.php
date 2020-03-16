@@ -27,13 +27,13 @@
         <th>Доставка</th>
         <td>
             <?php if($total >= Yii::$app->params['freeShippingSum']):?>
-                <p><span id="amount_shipping">0</span><i class="fa fa-ruble"></i></p>
+                <p><span id="amount_shipping">БЕСПЛАТНО</span></p>
             <?php elseif($this->context->action->id != 'order' && !isset($order)):?>
                 <p>При заказе от <?= Yii::$app->params['freeShippingSum']?><i class="fa fa-ruble"></i> доставка БЕСПЛАТНО</p>
             <?php elseif(isset($order) && $order->shipping_cost):?>
                 <p><?=$order->shipping_cost?><i class="fa fa-ruble"></i></p>
             <?php else:?>
-                <p><span id="amount_shipping">0</span><i class="fa fa-ruble"></i></p>
+                <p><span id="amount_shipping">БЕСПЛАТНО</p>
             <?php endif;?>
         </td>
     </tr>

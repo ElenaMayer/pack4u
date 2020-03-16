@@ -12,25 +12,25 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <h1>Доставка по Новосибирску</h1>
                 <h3>Самовывоз</h3>
-                <p><i class="fa fa-angle-right"></i>Самовывоз осуществляется <b>БЕСПЛАТНО</b>, во время выдачи заказов по адресу <b><?= Yii::$app->params['address'] ?></b>.</p>
+                <p><i class="fa fa-angle-right"></i>Самовывоз осуществляется <b>БЕСПЛАТНО</b>, во время работы пункта выдачи по адресу <b><?= Yii::$app->params['address'] ?></b>.</p>
+                <p><i class="fa fa-angle-right"></i>Оплата при получении производится только за наличный расчет.</p>
 
                 <h3>Курьер</h3>
                 <p><i class="fa fa-angle-right"></i>Доставка осуществляется курьерской службой <b>Достависта</b>.</p>
-                <p><i class="fa fa-angle-right"></i>Доставка <b>БЕСПЛАТНО</b> при заказе от <?= Yii::$app->params['freeShippingSum'] ?>руб.</p>
-                <p><i class="fa fa-angle-right"></i>При заказе меньше <?= Yii::$app->params['freeShippingSum'] ?>руб. - доставка оплачивается курьеру при получении по тарифу курьерской службы.</b></p>
+                <p><i class="fa fa-angle-right"></i><b>БЕСПЛАТНАЯ</b> доставка осуществляется при оформлении заказа на сумму от <?= Yii::$app->params['freeShippingSum'] ?> рублей.</p>
+                <p><i class="fa fa-angle-right"></i>При заказе на сумму меньше <?= Yii::$app->params['freeShippingSum'] ?> рублей - стоимость доставки оплачивается курьеру при получении сошласно тарифу курьерской службы.</b></p>
                 <p><i class="fa fa-angle-right"></i>Расчет стоимости доставки можно произвести на <a href="<?=Yii::$app->params['dostavista_url']?>" target="_blank">сайте Достависты</a>.</p>
 
                 <h1>Доставка по России</h1>
 
-                <p><i class="fa fa-angle-right"></i>Доставка <b>БЕСПЛАТНО</b> при заказе от <?= Yii::$app->params['freeShippingSum'] ?>руб.</p>
-                <p><i class="fa fa-angle-right"></i>Доставка при заказе меньше <?= Yii::$app->params['freeShippingSum'] ?>руб. - <b><?= Yii::$app->params['shippingCost'] ?>руб.</b></p>
-                <p><i class="fa fa-angle-right"></i>Отправка заказа осуществляется после <b>100% оплаты</b> товара.</p>
-                <p><i class="fa fa-angle-right"></i>Срок отправки заказа до 3-х рабочих дней с момента оплаты заказа.</p>
+                <p><i class="fa fa-angle-right"></i><b>БЕСПЛАТНАЯ</b> доставка осуществляется при заказе на сумму от <?= Yii::$app->params['freeShippingSum'] ?> рублей.</p>
+                <p><i class="fa fa-angle-right"></i>Стоимость доставки при заказе на сумму меньше <?= Yii::$app->params['freeShippingSum'] ?> рублей оплачивается в размере <b><?= Yii::$app->params['shippingCost'] ?> рублей</b></p>
+                <p><i class="fa fa-angle-right"></i>Отправка заказа осуществляется после <b>100% оплаты</b> стоимости товара и доставки в срок до 3-х рабочих дней.</p>
 
                 <h3>Почта России</h3>
                 <p><i class="fa fa-angle-right"></i>Доставка Почтой России осуществляется обычным отправлением до указанного почтового отделения.</p>
                 <p><i class="fa fa-angle-right"></i>Отправка первым классом и курьерской службой EMS осуществляется за дополнительную плату.</p>
-                <p><i class="fa fa-angle-right"></i>После отправки мы высылаем номер для отслеживания заказа.</p>
+                <p><i class="fa fa-angle-right"></i>После отправки мы высылаем трек - номер для отслеживания заказа.</p>
 
                 <h3>Транспортная компания</h3>
                 <p><i class="fa fa-angle-right"></i>Доставка осуществляется транспортной компанией СДЭК до пункта выдачи в вашем городе.</p>

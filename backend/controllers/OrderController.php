@@ -237,4 +237,10 @@ class OrderController extends Controller
         return Json::encode(['output'=>'', 'selected'=>'']);
     }
 
+    public function actionGet_payment_url(){
+        $get = Yii::$app->request->get();
+        $order = Order::findOne($get['id']);
+        return Json::encode(['url'=>$order->payment()]);
+    }
+
 }

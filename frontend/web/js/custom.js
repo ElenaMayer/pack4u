@@ -101,7 +101,7 @@ $(document).ready(function() {
                 value: 'cash',
                 text: 'Наличными при получении'
             }));
-            $('tr.shipping > td > p').html('0<i class="fa fa-ruble"></i>');
+            $('tr.shipping > td > p').html('БЕСПЛАТНО');
             $('.shipping_methods .self').show();
         } else {
             $('#order-payment_method').children("option[value='cash']").remove();
@@ -117,7 +117,7 @@ $(document).ready(function() {
             free_shipping_sum = parseInt($('#free_shipping_sum').val());
 
             if(subtotal >= free_shipping_sum) {
-                $('tr.shipping > td > p').html('0<i class="fa fa-ruble"></i>');
+                $('tr.shipping > td > p').html('БЕСПЛАТНО');
             } else {
                 if(shipping == 'courier'){
                     $('tr.shipping > td > p').html('Оплата доставки при получении');
@@ -138,10 +138,24 @@ $(document).ready(function() {
 
     $(document.body).on('click', '#order-is_ul' ,function(){
         if($(this).prop('checked')) {
+            $('#order-payment_method').children().each(function(){
+                $(this).remove();
+            });
             $('#order-payment_method').append($("<option></option>").attr("value","account").text('Оплата по счету'));
         } else {
             $('#order-payment_method').children("option[value='account']").remove();
+            $('#order-payment_method').append($('<option>', {
+                value: 'card',
+                text: 'Банковской картой онлайн'
+            }));
+            if($('#order-shipping_method').children("option:selected").val() == 'self'){
+                $('#order-payment_method').append($('<option>', {
+                    value: 'cash',
+                    text: 'Наличными при получении'
+                }));
+            }
         }
+        change_order_send_button($('#order-payment_method').children("option:selected").val());
     });
 
     $(document.body).on('change', '#order-tk' ,function(){

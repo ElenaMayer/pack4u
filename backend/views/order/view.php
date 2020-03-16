@@ -27,6 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
+    <div id="order_id" data-id="<?=$model->id?>"></div>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -96,6 +98,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     } else {
                         return 'Нет';
                     }
+                },
+            ],
+            [
+                'attribute' => 'payment_url',
+                'format' => 'html',
+                'value' => function ($model) {
+                    if($model->payment_method == 'card' && $model->payment != 'succeeded')
+                        return '<a class="get_payment_url" href="#">Получить ссылку</a>';
+                    else
+                        return '';
                 },
             ],
             [
