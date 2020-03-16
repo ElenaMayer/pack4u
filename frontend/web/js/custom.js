@@ -106,7 +106,7 @@ $(document).ready(function() {
         } else {
             $('#order-payment_method').children("option[value='cash']").remove();
             shipping = $(this).children("option:selected").val();
-            if(shipping == 'rp' || shipping == 'courier' || shipping == 'shipping'){
+            if(shipping == 'rp' || shipping == 'courier' || shipping == 'shipping' || shipping == 'sdek_nsk'){
                 $('.shipping_methods .order-address').show();
                 if(shipping == 'rp') {
                     $('.shipping_methods .order-zip').show();
@@ -122,7 +122,11 @@ $(document).ready(function() {
                 if(shipping == 'courier'){
                     $('tr.shipping > td > p').html('Оплата доставки при получении');
                 } else {
-                    shipping_cost = parseInt($('#shipping_cost').val());
+                    if(shipping != 'sdek_nsk') {
+                        shipping_cost = parseInt($('#shipping_cost').val());
+                    } else {
+                        shipping_cost = parseInt($('#sdek_nsk_cost').val());
+                    }
                     $('#amount_total').text(subtotal + shipping_cost);
                     $('tr.shipping > td > p').html(shipping_cost + '<i class="fa fa-ruble"></i> <div class="shipping_tooltip"><i class="fa fa-question-circle"></i><span class="tooltip-text"><p>Бесплатная доставка</p><p>от ' + free_shipping_sum + '<i class="fa fa-ruble"></i></p></span></div>');
                 }

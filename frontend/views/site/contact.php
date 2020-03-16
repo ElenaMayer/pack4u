@@ -37,7 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span><a href="tel:<?= Yii::$app->params['phone2'] ?>"><?= Yii::$app->params['phone2'] ?></a></span>
                             </li>
                             <li>
-                                <span>Время работы пункта выдачи:</span>
+                                <!--Самовывозы-->
+                                <span>Время обработки заказов:</span>
                             </li>
                             <?php foreach (Yii::$app->params['pickup_time'] as $time):?>
                                 <li>

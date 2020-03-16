@@ -180,20 +180,23 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
+    //Самовывозы
     public static function getShippingMethods()
     {
         return [
-            'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
-            'courier' => 'Курьер (Новосибирск)',
+            //'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
+            'sdek_nsk' => 'СДЭК до пункта выдачи (Нск)',
+            'courier' => 'Курьер до адреса (Нск)',
             'rp' => 'Почта России',
             'tk' => 'Транспортная компания',
         ];
     }
 
+    //Самовывозы
     public static function getShippingMethodsFree()
     {
         return [
-            'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
+            //'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
             'shipping' => 'Доставка',
         ];
     }
@@ -202,6 +205,7 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'self' => 'Самовывоз',
+            'sdek_nsk' => 'СДЭК Нск',
             'courier' => 'Курьер',
             'rp' => 'Почта России',
             'tk' => 'ТК',
@@ -209,11 +213,12 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
+    //Самовывозы
     public static function getPaymentMethods()
     {
         return [
             'account' => 'Оплата по счету',
-            'cash' => 'Наличными при получении',
+            //'cash' => 'Наличными при получении',
             'card' => 'Банковской картой онлайн',
         ];
     }

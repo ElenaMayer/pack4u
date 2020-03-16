@@ -46,13 +46,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endif;?>
 
                 <div class="shipping_methods">
+                    <!--Самовывозы
                     <div class="self">
-                        <?= $form->field($order, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time'], ['prompt'=>'Выберите время...']); ?>
-                    </div>
+                        <!--?= $form->field($order, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time'], ['prompt'=>'Выберите время...']); ?>
+                    </div-->
                     <div class="order-zip" style="display: none">
                         <?= $form->field($order, 'zip')->textInput(['placeholder' => '630000', 'class' => 'form-control dark', 'maxlength' => 6]); ?>
                     </div>
-                    <div class="order-address" style="display: none">
+                    <!--Самовывозы-->
+                    <div class="order-address">
                         <?= $form->field($order, 'address')->textInput(['placeholder' => 'Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark order-address']); ?>
                     </div>
                     <div class="tk" style="display: none">

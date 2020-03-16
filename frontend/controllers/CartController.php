@@ -177,7 +177,11 @@ class CartController extends \yii\web\Controller
         if($order->shipping_method != 'self'){
             $total = $cart->getCost();
             if($total < Yii::$app->params['freeShippingSum']){
-                $order->shipping_cost = Yii::$app->params['shippingCost'];
+                if($order->shipping_method == 'sdek_nsk'){
+                    $order->shipping_cost = Yii::$app->params['sdekNskCost'];
+                } else{
+                    $order->shipping_cost = Yii::$app->params['shippingCost'];
+                }
             } else {
                 $order->shipping_cost = 0;
             }

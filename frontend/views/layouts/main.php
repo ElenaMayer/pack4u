@@ -245,7 +245,8 @@ IeAsset::register($this);
                             </ul>
                         </div>
                         <div class="widget widget_noo_happyhours">
-                            <p class="widget-title">Время выдачи <br>заказов</p>
+                            <!--Самовывозы-->
+                            <p class="widget-title">Время обработки <br>заказов</p>
                             <ul class="noo-happyhours">
                                 <?php foreach (Yii::$app->params['pickup_time'] as $time):?>
                                     <li>
