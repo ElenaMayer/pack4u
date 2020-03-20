@@ -28,7 +28,7 @@ use common\models\ProductDiversity;
     <?php if($order->shipping_method == 'rcr' && $order->rcr):?>
         <li><b>РЦР:</b> <?= $order->rcr?></li>
     <?php endif;?>
-    <?php if($order->shipping_method == 'rp' || $order->shipping_method == 'courier' || $order->shipping_method == 'shipping'):?>
+    <?php if($order->shipping_method == 'rp' || $order->shipping_method == 'courier' || $order->shipping_method == 'shipping' || $order->shipping_method == 'sdek_nsk'):?>
         <?php if($order->zip):?>
             <li><b>Индекс:</b> <?= $order->zip ?></li>
         <?php endif;?>

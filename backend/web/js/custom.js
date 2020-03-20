@@ -41,7 +41,7 @@ $(document).ready(function() {
         } else if(shipping == 'rp'){
             $('.method_rp').show();
             $('.method_rp_address').show();
-        } else if(shipping == 'courier' || shipping == 'shipping'){
+        } else if(shipping == 'courier' || shipping == 'shipping' || shipping == 'sdek_nsk'){
             $('.method_courier').show();
         } else if(shipping == 'tk'){
             $('.method_tk').show();

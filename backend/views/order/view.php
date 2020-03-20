@@ -75,7 +75,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'value' => function ($model) {
                         if($model->shipping_method == 'rp'){
                             return $model->zip . ', ' . $model->address;
-                        } elseif($model->shipping_method == 'courier' || $model->shipping_method == 'shipping') {
+                        } elseif($model->shipping_method == 'courier' || $model->shipping_method == 'shipping' || $model->shipping_method == 'sdek_nsk') {
                             return $model->address;
                         }
                     },

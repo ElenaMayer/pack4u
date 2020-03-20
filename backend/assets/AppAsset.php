@@ -21,7 +21,7 @@ class AppAsset extends AssetBundle
         'css/site.css?23',
     ];
     public $js = [
-        'js/custom.js?9',
+        'js/custom.js?10',
     ];
     public $depends = [
         'yii\web\YiiAsset',

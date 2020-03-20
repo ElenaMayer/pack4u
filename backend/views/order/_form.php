@@ -41,7 +41,7 @@ use \common\models\Order;
         <?= $form->field($model, 'zip')->textInput(['maxlength' => 6]) ?>
     </div>
 
-    <div class="shipping_method_field method_rp_address method_courier method_shipping" <?php if($model->shipping_method != 'rp' && $model->shipping_method != 'courier' && $model->shipping_method != 'shipping'):?>style="display: none"<?php endif;?>">
+    <div class="shipping_method_field method_rp_address method_courier method_shipping" <?php if($model->shipping_method != 'rp' && $model->shipping_method != 'courier' && $model->shipping_method != 'shipping' && $model->shipping_method != 'sdek_nsk'):?>style="display: none"<?php endif;?>">
         <?= $form->field($model, 'address')->textInput(['maxlength' => 255]) ?>
     </div>
 
