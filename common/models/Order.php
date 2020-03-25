@@ -95,7 +95,7 @@ class Order extends \yii\db\ActiveRecord
             'fio' => 'ФИО',
             'shipping_cost' => 'Стоимость доставки',
             'payment' => 'Оплата',
-            'city' => 'Город, Пункт выдачи',
+            'city' => 'Город',
             'shipping_method' => 'Способ доставки',
             'payment_method' => 'Способ оплаты',
             'zip' => 'Индекс',
@@ -180,15 +180,11 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
-    //Самовывозы
     public static function getShippingMethods()
     {
         return [
-            //'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
-            'sdek_nsk' => 'СДЭК до пункта выдачи (Нск)',
-            'courier' => 'Курьер до адреса (Нск)',
+            'tk' => 'ТК СДЭК',
             'rp' => 'Почта России',
-            'tk' => 'Транспортная компания',
         ];
     }
 
@@ -201,15 +197,25 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
+    //Самовывозы
+    public static function getShippingMethodsNsk()
+    {
+        return [
+            //'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
+            'tk' => 'ТК СДЭК',
+//            'courier' => 'Курьер до адреса',
+        ];
+    }
+
     public static function getShippingMethodsLite()
     {
         return [
-            'self' => 'Самовывоз',
-            'sdek_nsk' => 'СДЭК Нск',
-            'courier' => 'Курьер',
-            'rp' => 'Почта России',
-            'tk' => 'ТК',
+            'tk' => 'СДЭК',
+            'rp' => 'Почта',
             'shipping' => 'Доставка',
+//            'courier' => 'Курьер',
+            'nrg' => 'Энегрия',
+//            'self' => 'Самовывоз',
         ];
     }
 
@@ -219,7 +225,8 @@ class Order extends \yii\db\ActiveRecord
         return [
             'account' => 'Оплата по счету',
             //'cash' => 'Наличными при получении',
-            'card' => 'Банковской картой онлайн',
+            'online' => 'Банковской картой онлайн (комиссия 0%)',
+            'card' => 'Переводом на карту',
         ];
     }
 
@@ -377,5 +384,26 @@ class Order extends \yii\db\ActiveRecord
         $this->save();
 
         return $paymentUrl;
+    }
+
+    public static function getShippingCost($shippingMethod){
+
+        $cart = \Yii::$app->cart;
+        $total = $cart->getCost();
+        if($total >= Yii::$app->params['freeShippingSum']){
+            return 0;
+        } else {
+            if($shippingMethod == 'tk'){
+                $cache = Yii::$app->cache;
+                $location = $cache->get('location');
+                if($location == 'Новосибирск' || $location == 'Бердск'){
+                    return Yii::$app->params['shippingCostNsk'];
+                } else {
+                    return Yii::$app->params['shippingCost'];
+                }
+            } else {
+                return Yii::$app->params['shippingCost'];
+            }
+        }
     }
 }

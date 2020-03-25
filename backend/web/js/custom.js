@@ -36,16 +36,12 @@ $(document).ready(function() {
         $('.shipping_method_field').each(function(){
             $(this).hide();
         });
-        if(shipping == 'rcr'){
-            $('.method_rcr').show();
-        } else if(shipping == 'rp'){
-            $('.method_rp').show();
-            $('.method_rp_address').show();
-        } else if(shipping == 'courier' || shipping == 'shipping' || shipping == 'sdek_nsk'){
-            $('.method_courier').show();
-        } else if(shipping == 'tk'){
-            $('.method_tk').show();
+        if(shipping == 'tk'){
             $('.city_field').show();
+        } else if(shipping == 'self'){
+            $('.method_self').show();
+        } else {
+            $('.address_field').show();
         }
     });
 

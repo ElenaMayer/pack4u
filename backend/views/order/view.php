@@ -48,12 +48,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Order::getShippingMethodsLite()[$model->shipping_method];
                 },
             ],
-            $model->shipping_method == 'tk' ? [
-                'attribute' => 'tk',
-                'value' => function ($model) {
-                    return $model->shipping_method == 'tk' ? Order::getTkList()[$model->tk] . ' - ' . $model->city : '';
-                },
-            ]: ($model->shipping_method == 'self' ?
+            'city',
+            $model->shipping_method == 'self' ?
                 [
                 'attribute' => 'pickup_time',
                 'value' => function ($model) {
@@ -63,23 +59,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         return $model->pickup_time;
                     }
                 },
-            ] : ($model->shipping_method == 'rcr' ?
-                [
-                    'attribute' => 'rcr',
-                    'value' => function ($model) {
-                        return $model->shipping_method == 'rcr' ? $model->rcr : '';
-                    },
-                ] : (
+            ] : (
                 [
                     'attribute' => 'address',
                     'value' => function ($model) {
-                        if($model->shipping_method == 'rp'){
-                            return $model->zip . ', ' . $model->address;
-                        } elseif($model->shipping_method == 'courier' || $model->shipping_method == 'shipping' || $model->shipping_method == 'sdek_nsk') {
-                            return $model->address;
-                        }
+                        return $model->address;
                     },
-                ]))),
+                ]),
             [
                 'attribute' => 'payment_method',
                 'value' => function ($model) {

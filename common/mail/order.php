@@ -19,19 +19,12 @@ use common\models\ProductDiversity;
     <?php if($order->shipping_method):?>
         <li><b>Доставка:</b> <?php if($order->shipping_method != 'shipping'):?><?= Order::getShippingMethodsLite()[$order->shipping_method]; ?><?php endif;?></li>
     <?php endif;?>
-    <?php if($order->shipping_method == 'tk' && $order->tk):?>
+    <?php if($order->shipping_method == 'tk'):?>
         <?php if($order->city):?>
             <li><b>Город:</b> <?= $order->city ?></li>
         <?php endif;?>
-        <li><b>ТК:</b> <?= Order::getTkList()[$order->tk]; ?></li>
     <?php endif;?>
-    <?php if($order->shipping_method == 'rcr' && $order->rcr):?>
-        <li><b>РЦР:</b> <?= $order->rcr?></li>
-    <?php endif;?>
-    <?php if($order->shipping_method == 'rp' || $order->shipping_method == 'courier' || $order->shipping_method == 'shipping' || $order->shipping_method == 'sdek_nsk'):?>
-        <?php if($order->zip):?>
-            <li><b>Индекс:</b> <?= $order->zip ?></li>
-        <?php endif;?>
+    <?php if($order->shipping_method == 'rp' || $order->shipping_method == 'shipping'):?>
         <?php if($order->address):?>
             <li><b>Адрес:</b> <?= $order->address ?></li>
         <?php endif;?>

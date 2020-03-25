@@ -1,7 +1,4 @@
 <h2>Итого</h2>
-<input type="hidden" id="free_shipping_sum" value="<?=Yii::$app->params['freeShippingSum']?>">
-<input type="hidden" id="shipping_cost" value="<?=Yii::$app->params['shippingCost']?>">
-<input type="hidden" id="sdek_nsk_cost" value="<?=Yii::$app->params['sdekNskCost']?>">
 <table>
         <tr class="order-subtotal">
             <th>Подытог</th>
@@ -27,22 +24,27 @@
     <tr class="shipping">
         <th>Доставка</th>
         <td>
-            <?php if($total >= Yii::$app->params['freeShippingSum']):?>
-                <p><span id="amount_shipping">БЕСПЛАТНО</span></p>
-            <?php elseif($this->context->action->id != 'order' && !isset($order)):?>
-                <p>При заказе от <?= Yii::$app->params['freeShippingSum']?><i class="fa fa-ruble"></i> доставка БЕСПЛАТНО</p>
-            <?php elseif(isset($order) && $order->shipping_cost):?>
-                <p><?=$order->shipping_cost?><i class="fa fa-ruble"></i></p>
+            <?php if(isset($shippingCost)):?>
+                <?php if($shippingCost == 0):?>
+                    <p><span id="amount_shipping">БЕСПЛАТНО</span></p>
+                <?php else:?>
+                    <div>
+                        <?= $shippingCost ?><i class="fa fa-ruble"></i>
+                        <div class="shipping_tooltip">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="tooltip-text">Бесплатная доставка от <?=Yii::$app->params['freeShippingSum']?><i class="fa fa-ruble"></i></span>
+                        </div>
+                    </div>
+                <?php endif;?>
             <?php else:?>
-                <!--Самовывозы-->
-                <p><span id="amount_shipping"><?=Yii::$app->params['sdekNskCost']?><i class="fa fa-ruble"></i></p>
+                <p>При заказе от <?= Yii::$app->params['freeShippingSum']?><i class="fa fa-ruble"></i> доставка БЕСПЛАТНО</p>
             <?php endif;?>
         </td>
     </tr>
     <tr class="order-total">
         <th>Итого</th>
         <!--Самовывозы-->
-        <td><strong><span class="amount"><span id="amount_total"><?= $total + Yii::$app->params['sdekNskCost'] ?></span><i class="fa fa-ruble"></i></span></strong> </td>
+        <td><strong><span class="amount"><span id="amount_total"><?= $total + (isset($shippingCost)?intval($shippingCost):0)  ?></span><i class="fa fa-ruble"></i></span></strong> </td>
     </tr>
     <?php if(!isset($order)):?>
         <tr class="min_order_sum" <?php if($total >= Yii::$app->params['orderMinSum']):?>style="display: none"<?php endif;?>>

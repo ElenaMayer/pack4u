@@ -10,7 +10,7 @@ use common\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
-use common\models\Payment;
+use frontend\components\GeoBehavior;
 
 class CartController extends \yii\web\Controller
 {
@@ -24,6 +24,7 @@ class CartController extends \yii\web\Controller
                     ['allow' => true, 'actions' => ['history', 'historyItem'], 'roles' => ['@']],
                 ],
             ],
+            'geoBehavior' => GeoBehavior::className(),
         ];
     }
 
@@ -142,14 +143,19 @@ class CartController extends \yii\web\Controller
                     return $this->redirect($redirectUrl);
                 }
             }
-
-            //Autocomplete user fields
-            if(!Yii::$app->user->isGuest) {
+            $get = Yii::$app->request->get();
+            if($get) {
+                $order->fio = isset($get['fio'])?$get['fio']:'';
+                $order->address = isset($get['address'])?$get['address']:'';
+                $order->phone = isset($get['phone'])?$get['phone']:'';
+                $order->email = isset($get['email'])?$get['email']:'';
+            } elseif(!Yii::$app->user->isGuest) {
                 $order->fio = Yii::$app->user->getIdentity()->fio;
                 $order->address = Yii::$app->user->getIdentity()->address;
                 $order->phone = Yii::$app->user->getIdentity()->phone;
                 $order->email = Yii::$app->user->getIdentity()->email;
             }
+            $order->payment_method = 'online';
             return $this->render('order', [
                 'order' => $order,
                 'positions' => $positions,
@@ -173,19 +179,14 @@ class CartController extends \yii\web\Controller
             $user->save(false);
         }
 
-        // Shipping counting
-        if($order->shipping_method != 'self'){
-            $total = $cart->getCost();
-            if($total < Yii::$app->params['freeShippingSum']){
-                if($order->shipping_method == 'sdek_nsk'){
-                    $order->shipping_cost = Yii::$app->params['sdekNskCost'];
-                } else{
-                    $order->shipping_cost = Yii::$app->params['shippingCost'];
-                }
-            } else {
-                $order->shipping_cost = 0;
-            }
+        $order->shipping_cost = Order::getShippingCost($order->shipping_method);
+        if($location = Yii::$app->cache->get('location')) {
+            if($order->city)
+                $order->city = $location . ', ' . $order->city;
+            else
+                $order->city = $location;
         }
+
         $order->save(false);
         Yii::debug('Заказ #' . $order->id . ' создан ->', 'order');
 
@@ -287,6 +288,20 @@ class CartController extends \yii\web\Controller
         }
 
         return Json::decode($result)['order']['payment_amount'];
+    }
+
+    public function actionGet_shipping($shipping_method)
+    {
+        $cart = \Yii::$app->cart;
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return $this->renderPartial('_total', [
+            'subtotal' => $cart->getCost(),
+            'total' => $cart->getCost(true),
+            'discount' => $cart->getDiscount(),
+            'discountPercent' => $cart->getDiscountPercent(),
+            'shippingMethod' => $shipping_method,
+            'shippingCost' => Order::getShippingCost($shipping_method),
+        ]);
     }
 
 }

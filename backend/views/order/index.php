@@ -61,36 +61,22 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'shipping_method',
                 'value' => function ($model) {
-                    if($model->shipping_method == 'tk') {
-                        if(isset(Order::getTkList()[$model->tk]))
-                            $res = Order::getTkList()[$model->tk];
-                        else
-                            $res = $model->tk;
-                        if($model->city)
-                            $res .= ' (' . $model->city . ')';
-                        if($model->notes)
-                            $res .= ' (' . $model->notes . ')';
-                        return $res;
-                    }
-                    elseif ($model->shipping_method == 'self') {
+                    if ($model->shipping_method == 'self') {
                         if($model->notes)
                             return "Самовывоз ($model->notes)";
                         elseif($model->pickup_time)
                             return "Самовывоз (" . Yii::$app->params['pickup_time'][$model->pickup_time] . ")";
                         else
                             return 'Самовывоз';
-                    } elseif($model->shipping_method == 'rcr'){
-                        if($model->rcr)
-                            return "РЦР ($model->rcr)";
-                        else
-                            return 'РЦР';
-                    } elseif($model->shipping_method == 'courier'){
+                    } else {
+                        $result = isset(Order::getShippingMethodsLite()[$model->shipping_method])? Order::getShippingMethodsLite()[$model->shipping_method] : $model->shipping_method;
+                        if($model->city) {
+                            $result .= ' (' . $model->city . ')';
+                        }
                         if($model->notes)
-                            return "Курьер ($model->notes)";
-                        else
-                            return 'Курьер';
-                    }
-                    else return Order::getShippingMethodsLite()[$model->shipping_method];
+                            $result .= ' (' . $model->notes . ')';
+                        return $result;
+                    };
                 },
                 'filter' => Order::getShippingMethodsLite()
             ],

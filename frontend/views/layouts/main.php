@@ -5,6 +5,7 @@ use frontend\assets\AppAsset;
 use frontend\assets\IeAsset;
 use frontend\widgets\Alert;
 use common\models\Category;
+use yii\bootstrap\Modal;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -40,6 +41,9 @@ IeAsset::register($this);
             <div class="noo-topbar">
                 <div class="container">
                     <ul>
+                        <li class = 'geo_modal'>
+                            <a href="#" onclick="$('#w1').modal()"><i class="fa fa-map-marker"></i> <span><?=Yii::$app->cache->get('location')?></span></a>
+                        </li>
                         <li>
                             <a href="tel:<?= Yii::$app->params['phone1'] ?>"><i class="fa fa-phone"></i><?= Yii::$app->params['phone1'] ?></a>
                         </li>
@@ -265,6 +269,21 @@ IeAsset::register($this);
         </footer>
     </div>
     <a href="#" class="go-to-top hidden-print"><i class="fa fa-angle-up"></i></a>
+
+    <?php Modal::begin([
+        'header' => '<h2>Выберете город</h2>',
+    ]);
+    echo '<section class="container">
+          <input id="geo_city" name="city" type="text" placeholder="Ваш город ..." class="form-control dark"/>
+          <div class="geo_cities_list">
+              <div><a class="geo_city_const" href="#">Новосибирск</a></div>
+              <div><a class="geo_city_const" href="#">Москва</a></div>
+              <div><a class="geo_city_const" href="#">Санкт-Питербург</a></div>
+          </div>
+          <br/><br/>
+    </section>';
+    Modal::end();?>
+
     <?= $this->render('_metrika'); ?>
     <?php $this->endBody() ?>
 </body>

@@ -8,9 +8,18 @@ use common\models\ProductDiversity;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 use Yii;
+use frontend\components\GeoBehavior;
 
 class CatalogController extends \yii\web\Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'geoBehavior' => GeoBehavior::className(),
+        ];
+    }
+
     public function beforeAction($action)
     {
         if (parent::beforeAction($action)) {

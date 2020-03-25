@@ -4030,7 +4030,7 @@ ul.post_list_widget li a .post-date {
 
 
 /* --------------------------------------------------------------------- */
-/* 1. GLOBAL STYLING
+/* 3. HEADER
 /* --------------------------------------------------------------------- */
 
 .res-bar {
@@ -6116,6 +6116,60 @@ body.fixed_top .noo-header.header-5.eff .navbar-wrapper {
     display: block;
     top: 26px;
     right: -5px;
+}
+
+.geo_modal button {
+    border: none;
+    color: #000000;
+    padding: 0;
+}
+
+.modal-open header {
+    z-index: 1;
+    padding-right: 15px;
+}
+
+.geo_modal button:focus {
+    outline: none;
+}
+
+.modal-header {
+    border: none;
+    padding-bottom: 0;
+}
+
+.modal-header h2 {
+    padding-left: 15px;
+}
+
+.modal-content .container {
+    width: auto;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.modal-content input {
+    border: 1px solid #f4eede;
+    box-shadow: none;
+    border-radius: 0;
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border: 1px solid #f4eede;
+    box-shadow: none;
+}
+
+.modal-content .suggestions-wrapper a {
+    display: none;
+}
+
+.select_location {
+    padding-bottom: 10px;
+    font-weight: bold;
 }
 
 /* --------------------------------------------------------------------- */

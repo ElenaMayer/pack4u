@@ -9,6 +9,7 @@ use common\models\Product;
 use common\models\Category;
 use Google_Client;
 use Google_Service_YouTube;
+use frontend\components\GeoBehavior;
 
 /**
  * Site controller
@@ -43,6 +44,7 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+            'geoBehavior' => GeoBehavior::className(),
         ];
     }
 
@@ -177,5 +179,11 @@ class SiteController extends Controller
         return $response->getItems();
     }
 
+    public function actionChange_location($city)
+    {
+        $cache = Yii::$app->cache;
+        $cache->set('location', $city);
+
+    }
 
 }

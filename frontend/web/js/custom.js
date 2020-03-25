@@ -84,82 +84,63 @@ $(document).ready(function() {
 
     aweProductRender(true);
 
-    $('#order-payment_method').children("option[value='account']").remove();
-
+    $('#order-payment_method').find("input[value='account']").parents('div.radio').remove();
     // Shipping counting
     $(document.body).on('change', '#order-shipping_method' ,function(){
-        var subtotal = parseInt($('#amount_subtotal').text());
+
         $('.shipping_methods').children().each(function(){
-        	$(this).hide();
-        	$('#order-zip').val(null);
-            $('#amount_total').text(subtotal);
-		});
+            $(this).hide();
+        });
         $('#order-address').val('');
-        $("#order-shipping_cost").val(null);
-        if($(this).children("option:selected").val() == 'self'){
+        $('#order-city').val('');
+
+        shipping_method = $(this).children("option:selected").val();
+
+        if(shipping_method == 'self') {
             $('#order-payment_method').append($('<option>', {
                 value: 'cash',
                 text: 'Наличными при получении'
             }));
-            $('tr.shipping > td > p').html('БЕСПЛАТНО');
             $('.shipping_methods .self').show();
         } else {
-            $('#order-payment_method').children("option[value='cash']").remove();
-            shipping = $(this).children("option:selected").val();
-            if(shipping == 'rp' || shipping == 'courier' || shipping == 'shipping' || shipping == 'sdek_nsk'){
-                $('.shipping_methods .order-address').show();
-                if(shipping == 'rp') {
-                    $('.shipping_methods .order-zip').show();
-                }
-            } else if(shipping == 'tk'){
+            // $('#order-payment_method').children("option[value='cash']").remove();
+            if (shipping_method == 'tk') {
                 $('.shipping_methods .tk').show();
-            }
-            free_shipping_sum = parseInt($('#free_shipping_sum').val());
-
-            if(subtotal >= free_shipping_sum) {
-                $('tr.shipping > td > p').html('БЕСПЛАТНО');
             } else {
-                if(shipping == 'courier'){
-                    $('tr.shipping > td > p').html('Оплата доставки при получении');
-                } else {
-                    if(shipping != 'sdek_nsk') {
-                        shipping_cost = parseInt($('#shipping_cost').val());
-                    } else {
-                        shipping_cost = parseInt($('#sdek_nsk_cost').val());
-                    }
-                    $('#amount_total').text(subtotal + shipping_cost);
-                    $('tr.shipping > td > p').html(shipping_cost + '<i class="fa fa-ruble"></i> <div class="shipping_tooltip"><i class="fa fa-question-circle"></i><span class="tooltip-text"><p>Бесплатная доставка</p><p>от ' + free_shipping_sum + '<i class="fa fa-ruble"></i></p></span></div>');
-                }
+                $('.shipping_methods .order-address').show();
             }
-		}
-        change_order_send_button($('#order-payment_method').children("option:selected").val());
+        }
+        $.ajax({
+            method: 'get',
+            url: '/cart/get_shipping',
+            dataType: 'json',
+            data: {
+                shipping_method: shipping_method,
+            },
+        }).done(function (data) {
+            $("#data_total").html(data);
+        });
+        change_order_send_button($('#order-payment_method').find("input:checked").val());
     });
 
     $(document.body).on('change', '#order-payment_method' ,function(){
-        method = $(this).children("option:selected").val();
+        method = $(this).find("input:checked").val();
         change_order_send_button(method);
     });
 
     $(document.body).on('click', '#order-is_ul' ,function(){
         if($(this).prop('checked')) {
-            $('#order-payment_method').children().each(function(){
-                $(this).remove();
+            $('#order-payment_method').find("input").each(function(){
+                $(this).parents('div.radio').remove();
             });
-            $('#order-payment_method').append($("<option></option>").attr("value","account").text('Оплата по счету'));
+            $('#order-payment_method').append($('<div class="radio"><label><input type="radio" name="Order[payment_method]" value="account" checked> Оплата по счету</label></div>'));
         } else {
-            $('#order-payment_method').children("option[value='account']").remove();
-            $('#order-payment_method').append($('<option>', {
-                value: 'card',
-                text: 'Банковской картой онлайн'
-            }));
-            if($('#order-shipping_method').children("option:selected").val() == 'self'){
-                $('#order-payment_method').append($('<option>', {
-                    value: 'cash',
-                    text: 'Наличными при получении'
-                }));
-            }
+            $('#order-payment_method').find("input[value='account']").parents('div.radio').remove();
+
+            $('#order-payment_method').append($('<div class="radio"><label><input type="radio" name="Order[payment_method]" value="online" checked> Банковской картой онлайн (комиссия 0%)</label></div>'));
+            $('#order-payment_method').append($('<div class="radio"><label><input type="radio" name="Order[payment_method]" value="card"> Переводом на карту</label></div>'));
         }
-        change_order_send_button($('#order-payment_method').children("option:selected").val());
+        change_order_send_button($('#order-payment_method').find("input:checked").val());
     });
 
     $(document.body).on('change', '#order-tk' ,function(){
@@ -681,6 +662,39 @@ $(document).ready(function() {
         });
     });
 
+    var token = "deb0c38cece10d8db0cec35cbf026c62766d1a63";
+
+    $("#geo_city").on("keyup", function() {
+        if($(this).val().length > 0) {
+            $('.geo_cities_list').hide();
+        } else {
+            $('.geo_cities_list').show();
+        }
+    });
+
+    $(document.body).on('click', '.geo_city_const' ,function() {
+        city = $(this).text();
+        change_location(city);
+    });
+
+    // Ограничиваем область поиска от города до населенного пункта
+    $("#geo_city").suggestions({
+        token: token,
+        type: "ADDRESS",
+        hint: false,
+        geoLocation: false,
+        bounds: "city-settlement",
+        onSuggestionsFetch: removeNonCity,
+        onSelect: function(suggestion) {
+            if(suggestion.data.city) {
+                city = suggestion.data.city;
+            } else {
+                city = suggestion.value;
+            }
+            change_location(city);
+        }
+    });
+
     //Init RevSlider
     if($('#rev_slider_1').length > 0) {
         revSlider_1();
@@ -707,8 +721,36 @@ $(document).ready(function() {
 
 });
 
+function change_location(city) {
+    $.ajax({
+        url: '/site/change_location',
+        type: "GET",
+        data: {
+            city: city,
+        },
+        success: function (data) {
+            if($('#order-form')) {
+                fio = $('#order-fio').val();
+                email = $('#order-email').val();
+                phone = $('#order-phone').val();
+                notes = $('#order-notes').text();
+                url = document.location.href + "?fio=" + fio + "&email=" + email + "&phone=" + phone + "&notes=" + notes;
+                document.location = url;
+            }
+            location.reload();
+        }
+    });
+}
+
+// удаляет районы города и всё с 65 уровня
+function removeNonCity(suggestions) {
+    return suggestions.filter(function(suggestion) {
+        return suggestion.data.fias_level !== "5" && suggestion.data.fias_level !== "65";
+    });
+}
+
 function change_order_send_button(method) {
-    if(method == 'card'){
+    if(method == 'online'){
         $('.cart-offer > span').text('Оплатить заказ');
         $('.checkout-button').html('Оплатить заказ');
     } else {

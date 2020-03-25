@@ -8,6 +8,17 @@ use \common\models\Order;
 
 $this->title = 'Оформление заказа';
 $this->params['breadcrumbs'][] = $this->title;
+
+$cache = Yii::$app->cache;
+$location = $cache->get('location');
+
+if($cart->getCost(true) >= Yii::$app->params['freeShippingSum'])
+    $shippingMethods = Order::getShippingMethodsFree();
+elseif($location == 'Новосибирск' || $location == 'Бердск')
+    $shippingMethods = Order::getShippingMethodsNsk();
+else
+    $shippingMethods = Order::getShippingMethods();
+
 ?>
 
 <div class="checkout-wrapper commerce commerce-order">
@@ -39,36 +50,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($order, 'notes')->textarea(['class' => 'form-control dark', 'rows' => "3"]); ?>
 
                 <?= $form->field($order, 'is_ul')->checkbox() ?>
-                <?php if($cart->getCost(true) >= Yii::$app->params['freeShippingSum']):?>
-                    <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethodsFree()); ?>
-                <?php else:?>
-                    <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethods()); ?>
-                <?php endif;?>
+
+                <div class="select_location">Доставка в <a href="#" onclick="$('#w1').modal()"><span><?=Yii::$app->cache->get('location')?></span> <i class="fa fa-angle-down"></i></a></div>
+
+                <?php echo $form->field($order, 'shipping_method')->dropDownList($shippingMethods)->label(false); ?>
 
                 <div class="shipping_methods">
-                    <!--Самовывозы
-                    <div class="self">
-                        <!--?= $form->field($order, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time'], ['prompt'=>'Выберите время...']); ?>
-                    </div-->
-                    <div class="order-zip" style="display: none">
-                        <?= $form->field($order, 'zip')->textInput(['placeholder' => '630000', 'class' => 'form-control dark', 'maxlength' => 6]); ?>
+                    <div class="self" style="display: none">
+                        <?= $form->field($order, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time'], ['prompt'=>'Выберите время...']); ?>
                     </div>
-                    <!--Самовывозы-->
-                    <div class="order-address">
+                    <div class="order-address"  style="display: none">
                         <?= $form->field($order, 'address')->textInput(['placeholder' => 'Новосибирск, ул.Ленина д.1 кв.1', 'class' => 'form-control dark order-address']); ?>
                     </div>
-                    <div class="tk" style="display: none">
-                        <?= $form->field($order, 'tk')->dropDownList(Order::getTkList()); ?>
-                        <?= $form->field($order, 'city')->textInput(['class' => 'form-control dark']); ?>
-                    </div>
-                    <div class="rcr" style="display: none">
-                        <?= $form->field($order, 'rcr')->textInput(['placeholder' => 'РЦР Маркса', 'class' => 'form-control dark']); ?>
+                    <div class="tk">
+                        <?= $form->field($order, 'city')->textInput(['class' => 'form-control dark'])->label('Пункт выдачи'); ?>
                     </div>
                     <input type="hidden" id="order_weight" value="<?= $order->getWeight() ?>">
-                    <?= $form->field($order, 'shipping_cost')->hiddenInput()->label(false); ?>
                 </div>
 
-                <?php echo $form->field($order, 'payment_method')->dropDownList(Order::getPaymentMethods()); ?>
+                <?php echo $form->field($order, 'payment_method')->radioList(Order::getPaymentMethods()); ?>
 
                 <?php if (Yii::$app->user->isGuest): ?>
                     <!--            <div class="checkbox">-->
@@ -102,12 +102,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'total' => $cart->getCost(true),
                                 'discount' => $cart->getDiscount(),
                                 'discountPercent' => $cart->getDiscountPercent(),
+                                'shippingCost' => Order::getShippingCost('tk'),
                             ]); ?>
                         </div>
 
-                        <div class="cart-offer">Нажимая кнопку "<span>Отправить заказ</span>" Вы соглашаетесь с <a href="/offer">Политикой конфиденциальности</a></div>
+                        <div class="cart-offer">Нажимая кнопку "<span>Оплатить заказ</span>" Вы соглашаетесь с <a href="/offer">Политикой конфиденциальности</a></div>
                         <div class="wc-proceed-to-checkout">
-                            <?= Html::submitButton('Отправить заказ', ['class' => 'checkout-button button alt wc-forward']) ?>
+                            <?= Html::submitButton('Оплатить заказ', ['class' => 'checkout-button button alt wc-forward']) ?>
                         </div>
                     </div>
                     <?php ActiveForm::end() ?>
