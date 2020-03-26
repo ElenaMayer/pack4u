@@ -14547,6 +14547,10 @@ p.demo_store a {
     border-radius: 0;
 }
 
+.form-group .radio-list input {
+    width: auto;
+}
+
 .form-group input.form-control:focus,
 .form-group textarea.form-control:focus {
     border-color: #f4eede;

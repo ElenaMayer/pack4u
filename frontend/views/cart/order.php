@@ -68,7 +68,7 @@ else
                     <input type="hidden" id="order_weight" value="<?= $order->getWeight() ?>">
                 </div>
 
-                <?php echo $form->field($order, 'payment_method')->radioList(Order::getPaymentMethods()); ?>
+                <?php echo $form->field($order, 'payment_method')->radioList(Order::getPaymentMethods(), ['class' => 'radio-list']); ?>
 
                 <?php if (Yii::$app->user->isGuest): ?>
                     <!--            <div class="checkbox">-->
