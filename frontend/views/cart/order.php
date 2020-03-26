@@ -51,7 +51,7 @@ else
 
                 <?= $form->field($order, 'is_ul')->checkbox() ?>
 
-                <div class="select_location">Доставка в <a href="#" onclick="$('#w1').modal()"><span><?=Yii::$app->cache->get('location')?></span> <i class="fa fa-angle-down"></i></a></div>
+                <div class="select_location">Доставка в <a class="link" onclick="$('#w1').modal()"><span><?=Yii::$app->cache->get('location')?></span> <i class="fa fa-angle-down"></i></a></div>
 
                 <?php echo $form->field($order, 'shipping_method')->dropDownList($shippingMethods)->label(false); ?>
 

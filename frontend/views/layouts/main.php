@@ -42,7 +42,7 @@ IeAsset::register($this);
                 <div class="container">
                     <ul>
                         <li class = 'geo_modal'>
-                            <a href="#" onclick="$('#w1').modal()"><i class="fa fa-map-marker"></i> <span><?=Yii::$app->cache->get('location')?></span></a>
+                            <a class="link" onclick="$('#w1').modal()"><i class="fa fa-map-marker"></i> <span><?=Yii::$app->cache->get('location')?></span></a>
                         </li>
                         <li>
                             <a href="tel:<?= Yii::$app->params['phone1'] ?>"><i class="fa fa-phone"></i><?= Yii::$app->params['phone1'] ?></a>
@@ -276,9 +276,9 @@ IeAsset::register($this);
     echo '<section class="container">
           <input id="geo_city" name="city" type="text" placeholder="Ваш город ..." class="form-control dark"/>
           <div class="geo_cities_list">
-              <div><a class="geo_city_const" href="#">Новосибирск</a></div>
-              <div><a class="geo_city_const" href="#">Москва</a></div>
-              <div><a class="geo_city_const" href="#">Санкт-Питербург</a></div>
+              <div><a class="geo_city_const link">Новосибирск</a></div>
+              <div><a class="geo_city_const link">Москва</a></div>
+              <div><a class="geo_city_const link">Санкт-Питербург</a></div>
           </div>
           <br/><br/>
     </section>';

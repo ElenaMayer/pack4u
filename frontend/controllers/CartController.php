@@ -221,7 +221,7 @@ class CartController extends \yii\web\Controller
         Yii::$app->cart->removeAll();
 
         $order->sendOrderEmail();
-        if($order->payment_method == 'card'){
+        if($order->payment_method == 'online'){
             return $order->payment();
         } else {
             return "/cart/complete?id=$order->id";
@@ -231,7 +231,7 @@ class CartController extends \yii\web\Controller
     public function actionComplete($id){
         $order = Order::findOne($id);
 
-        if($order->payment_method == 'card'){
+        if($order->payment_method == 'online'){
             $order->checkPayment();
 
             if($order->payment == 'canceled'){

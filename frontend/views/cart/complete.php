@@ -1,6 +1,6 @@
 <?php
 
-if($order->payment_method != 'card') {
+if($order->payment_method != 'online') {
     $this->title = 'Заказ успешно создан!';
 } else {
     if($order->payment == 'succeeded') {
@@ -15,7 +15,7 @@ if($order->payment_method != 'card') {
     <div class="container payment-result">
         <div class="row about">
             <div class="col-sm-12 text-center">
-                <?php if($order->payment_method != 'card'):?>
+                <?php if($order->payment_method != 'online'):?>
                     <div class="row">
                         <h1>Заказ #<?=$order->id?> успешно создан!</h1>
                     </div>

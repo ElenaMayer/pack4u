@@ -734,10 +734,11 @@ function change_location(city) {
                 email = $('#order-email').val();
                 phone = $('#order-phone').val();
                 notes = $('#order-notes').text();
-                url = document.location.href + "?fio=" + fio + "&email=" + email + "&phone=" + phone + "&notes=" + notes;
+                url = document.location.href.replace(/^|\#+$/g, '');
+
+                url = url + "?fio=" + fio + "&email=" + email + "&phone=" + phone + "&notes=" + notes;
                 document.location = url;
             }
-            location.reload();
         }
     });
 }

@@ -90,7 +90,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'payment_url',
                 'format' => 'html',
                 'value' => function ($model) {
-                    if($model->payment_method == 'card' && $model->payment != 'succeeded')
+                    if($model->payment_method == 'online' && $model->payment != 'succeeded')
                         return '<a class="get_payment_url" href="#">Получить ссылку</a>';
                     else
                         return '';

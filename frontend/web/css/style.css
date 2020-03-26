@@ -123,6 +123,10 @@ a {
     background-color: transparent;
 }
 
+a.link {
+    cursor: pointer;
+}
+
 a:active,
 a:hover {
     outline: 0;
@@ -6126,6 +6130,10 @@ body.fixed_top .noo-header.header-5.eff .navbar-wrapper {
 
 .modal-open header {
     z-index: 1;
+    padding-right: 15px;
+}
+
+.modal-open .sticky__header {
     padding-right: 15px;
 }
 
