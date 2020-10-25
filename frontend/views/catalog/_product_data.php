@@ -39,7 +39,7 @@ use yii\helpers\Html;
     </div>
     <div class="summary entry-summary">
         <h1 class="product_title entry-title" itemprop="name">
-            <?= Html::encode($product->title) ?>
+            <?= Html::encode($product->title) ?><?php if($diversityId):?> "<?=$diversity->title?>"<?php endif;?>
         </h1>
         <div class="product-status">
             <?php if($diversityId):?>

@@ -9,12 +9,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
         <div class="row about">
             <div class="col-sm-12">
+                <h3>Стоимость доставки</h3>
+                <p><b>БЕСПЛАТНАЯ</b> доставка осуществляется при заказе на сумму от <?= Yii::$app->params['freeShippingSum'] ?> рублей.</p>
+                <p>Стоимость доставки при заказе на сумму меньше <?= Yii::$app->params['freeShippingSum'] ?> рублей оплачивается в зависимости от зоны доставки:</b></p>
+                <p><i class="fa fa-angle-right"></i>Новосибирск - <?= Yii::$app->params['shippingCostNsk'] ?> руб.</p>
+                <?php foreach (Yii::$app->params['shippingZones'] as $zone):?>
+                    <p><i class="fa fa-angle-right"></i><?=implode($zone['cities'], ', ')?> - <?=$zone['cost']?> руб.</p>
+                <?php endforeach;?>
+                <p><i class="fa fa-angle-right"></i>Москва, Санкт-Петерург и другие горда, не вошедшие в список - <?= Yii::$app->params['shippingCostDefault'] ?> руб.</p>
 
                 <h1>Доставка по Новосибирску</h1>
-
-                <p><i class="fa fa-angle-right"></i>Доставка по Новосибирску осуществляется транспортной компанией СДЭК.</p>
-                <p><i class="fa fa-angle-right"></i><b>БЕСПЛАТНАЯ</b> доставка при заказе на сумму от <?= Yii::$app->params['freeShippingSum'] ?> рублей.</p>
-                <p><i class="fa fa-angle-right"></i>Стоимость доставки при заказе на сумму меньше <?= Yii::$app->params['shippingCostNsk'] ?> рублей оплачивается в размере <b><?= Yii::$app->params['shippingCost'] ?> рублей</b></p>
+                <p><i class="fa fa-angle-right"></i>Доставка по Новосибирску осуществляется транспортной компанией СДЭК до пункта выдачи.</p>
                 <p><i class="fa fa-angle-right"></i>Отправка заказа осуществляется после <b>100% оплаты</b> стоимости товара и доставки в срок до 3-х рабочих дней.</p>
                 <p><i class="fa fa-angle-right"></i>Доставка курьером до Вашего адреса осуществляется за дополнительную плату.</p>
                 <p><i class="fa fa-angle-right"></i>После отправки мы высылаем накладную с номером для отслеживания заказа.</p>
@@ -30,9 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <p><i class="fa fa-angle-right"></i>Расчет стоимости доставки можно произвести на <a href="<!--?=Yii::$app->params['dostavista_url']?>" target="_blank">сайте Достависты</a>.</p-->
 
                 <h1>Доставка по России</h1>
-
-                <p><i class="fa fa-angle-right"></i><b>БЕСПЛАТНАЯ</b> доставка осуществляется при заказе на сумму от <?= Yii::$app->params['freeShippingSum'] ?> рублей.</p>
-                <p><i class="fa fa-angle-right"></i>Стоимость доставки при заказе на сумму меньше <?= Yii::$app->params['freeShippingSum'] ?> рублей оплачивается в размере <b><?= Yii::$app->params['shippingCost'] ?> рублей</b></p>
                 <p><i class="fa fa-angle-right"></i>Отправка заказа осуществляется после <b>100% оплаты</b> стоимости товара и доставки в срок до 3-х рабочих дней.</p>
 
                 <h3>Почта России</h3>

@@ -59,7 +59,9 @@ use common\models\ProductDiversity;
                         <?php if($item->diversity_id):?>
                             <a href="/product/view?id=<?= $item->product->id?>">
                                 <?php $div = ProductDiversity::findOne($item->diversity_id);?>
-                                <?= Html::img($div->image->getUrl('small'));?>
+                                <?php if($div->image):?>
+                                    <?= Html::img($div->image->getUrl('small'));?>
+                                <?php endif;?>
                             </a>
                         <?php elseif($item->product->images):?>
                             <a href="/product/view?id=<?= $item->product->id?>">

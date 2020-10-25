@@ -9,16 +9,8 @@ use \common\models\Order;
 $this->title = 'Оформление заказа';
 $this->params['breadcrumbs'][] = $this->title;
 
-$cache = Yii::$app->cache;
-$location = $cache->get('location');
-
-if($cart->getCost(true) >= Yii::$app->params['freeShippingSum'])
-    $shippingMethods = Order::getShippingMethodsFree();
-elseif($location == 'Новосибирск' || $location == 'Бердск')
-    $shippingMethods = Order::getShippingMethodsNsk();
-else
-    $shippingMethods = Order::getShippingMethods();
-
+$cookies = Yii::$app->request->cookies;
+$location = $cookies->getValue('location');
 ?>
 
 <div class="checkout-wrapper commerce commerce-order">
@@ -51,9 +43,9 @@ else
 
                 <?= $form->field($order, 'is_ul')->checkbox() ?>
 
-                <div class="select_location">Доставка в <a class="link" onclick="$('#w1').modal()"><span><?=Yii::$app->cache->get('location')?></span> <i class="fa fa-angle-down"></i></a></div>
+                <div class="select_location">Доставка в <a class="link" onclick="$('#w1').modal()"><span><?=$location?></span> <i class="fa fa-angle-down"></i></a></div>
 
-                <?php echo $form->field($order, 'shipping_method')->dropDownList($shippingMethods)->label(false); ?>
+                <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethod())->label(false); ?>
 
                 <div class="shipping_methods">
                     <div class="self" style="display: none">

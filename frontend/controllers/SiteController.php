@@ -10,6 +10,7 @@ use common\models\Category;
 use Google_Client;
 use Google_Service_YouTube;
 use frontend\components\GeoBehavior;
+use yii\web\Cookie;
 
 /**
  * Site controller
@@ -181,9 +182,10 @@ class SiteController extends Controller
 
     public function actionChange_location($city)
     {
-        $cache = Yii::$app->cache;
-        $cache->set('location', $city);
-
+        Yii::$app->response->cookies->add(new Cookie([
+            'name' => 'location',
+            'value' => $city,
+        ]));
     }
 
 }

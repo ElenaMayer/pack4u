@@ -6,6 +6,7 @@ use yii\base\Behavior;
 use yii\web\Controller;
 use frontend\models\Dadata;
 use Yii;
+use yii\web\Cookie;
 
 class GeoBehavior extends Behavior
 {
@@ -18,10 +19,7 @@ class GeoBehavior extends Behavior
     }
 
     public function geoLocation(){
-
-        $cache = Yii::$app->cache;
-
-        $location = $cache->get('location');
+        $location = Yii::$app->request->cookies->get('location');
         if(!$location) {
             $dadata = new Dadata(Yii::$app->params['dadata_key']);
             $dadata->init();
@@ -35,7 +33,11 @@ class GeoBehavior extends Behavior
                 $location = 'Новосибирск';
             }
             $dadata->close();
-            $cache->set('location', $location);
+
+            Yii::$app->response->cookies->add(new Cookie([
+                'name' => 'location',
+                'value' => $location,
+            ]));
         }
     }
 }

@@ -180,7 +180,9 @@ class CartController extends \yii\web\Controller
         }
 
         $order->shipping_cost = Order::getShippingCost($order->shipping_method);
-        if($location = Yii::$app->cache->get('location')) {
+        $cookies = Yii::$app->request->cookies;
+        $location = $cookies->getValue('location');
+        if($location) {
             if($order->city)
                 $order->city = $location . ', ' . $order->city;
             else

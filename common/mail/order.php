@@ -16,15 +16,18 @@ use common\models\ProductDiversity;
     <?php if($order->email):?>
         <li><b>Email:</b> <?= Html::encode($order->email) ?></li>
     <?php endif;?>
-    <?php if($order->shipping_method):?>
-        <li><b>Доставка:</b> <?php if($order->shipping_method != 'shipping'):?><?= Order::getShippingMethodsLite()[$order->shipping_method]; ?><?php endif;?></li>
+    <?php if($order->shipping_method && $order->shipping_method != 'shipping'):?>
+        <li><b>Доставка:</b> <?= Order::getShippingMethodsLite()[$order->shipping_method]; ?></li>
     <?php endif;?>
     <?php if($order->shipping_method == 'tk'):?>
         <?php if($order->city):?>
             <li><b>Город:</b> <?= $order->city ?></li>
         <?php endif;?>
-    <?php endif;?>
-    <?php if($order->shipping_method == 'rp' || $order->shipping_method == 'shipping'):?>
+    <?php elseif($order->shipping_method == 'shipping'):?>
+        <?php if($order->address):?>
+            <li><b>Доставка:</b> <?= $order->address ?></li>
+        <?php endif;?>
+    <?php elseif($order->shipping_method == 'rp'):?>
         <?php if($order->address):?>
             <li><b>Адрес:</b> <?= $order->address ?></li>
         <?php endif;?>

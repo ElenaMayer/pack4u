@@ -12,6 +12,9 @@ use yii\bootstrap\Modal;
 
 AppAsset::register($this);
 IeAsset::register($this);
+
+$cookies = Yii::$app->request->cookies;
+$location = $cookies->getValue('location');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -42,7 +45,7 @@ IeAsset::register($this);
                 <div class="container">
                     <ul>
                         <li class = 'geo_modal'>
-                            <a class="link" onclick="$('#w1').modal()"><i class="fa fa-map-marker"></i> <span><?=Yii::$app->cache->get('location')?></span></a>
+                            <a class="link" onclick="$('#w1').modal()"><i class="fa fa-map-marker"></i> <span><?=$location?></span></a>
                         </li>
                         <li>
                             <a href="tel:<?= Yii::$app->params['phone1'] ?>"><i class="fa fa-phone"></i><?= Yii::$app->params['phone1'] ?></a>
@@ -131,7 +134,7 @@ IeAsset::register($this);
                                         <ul class="sub-menu">
                                             <?php $categories = Category::find()->where(['is_active' => 1, 'parent_id' => null])->all(); ?>
                                             <?php foreach ($categories as $category):?>
-                                                <li><a href="/catalog/<?= $category->slug ?>" <?php if($category->slug == 'sale'):?>class="red"<?php endif;?>><?= $category->title ?></a></li>
+                                                <li><a href="/catalog/<?= $category->slug ?>" <?php if($category->slug == 'sale'):?>class="red"<?php elseif($category->slug == 'newyear'):?>class="newyear"<?php endif;?>><?= $category->title ?><?php if($category->slug == 'newyear'):?> <i class="fa fa-tree"></i><?php endif;?></a></li>
                                             <?php endforeach;?>
                                         </ul>
                                     </li>
@@ -278,7 +281,7 @@ IeAsset::register($this);
           <div class="geo_cities_list">
               <div><a class="geo_city_const link">Новосибирск</a></div>
               <div><a class="geo_city_const link">Москва</a></div>
-              <div><a class="geo_city_const link">Санкт-Питербург</a></div>
+              <div><a class="geo_city_const link">Санкт-Петербург</a></div>
           </div>
           <br/><br/>
     </section>';

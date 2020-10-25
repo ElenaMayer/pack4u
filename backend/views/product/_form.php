@@ -58,7 +58,7 @@ use common\models\Category;
     <?= $form->field($model, 'color')->widget(Select2::classname(), [
         'options' => [
             'multiple' => true,
-            'placeholder' => Yii::t('app','Выберите цвет ...'),
+            'placeholder' => 'Выберите цвет ...',
         ],
         'data'=>$model->getAllColorsArray(),
         'pluginOptions' => [
@@ -86,7 +86,7 @@ use common\models\Category;
     <?= $form->field($model, 'relationsArr')->widget(Select2::classname(), [
         'options' => [
             'multiple' => true,
-            'placeholder' => Yii::t('app','Выберите связаные товары ...'),
+            'placeholder' => 'Выберите связаные товары ...',
         ],
         'data'=>Product::getProductArr(),
         'pluginOptions' => [

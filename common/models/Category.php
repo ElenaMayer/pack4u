@@ -102,7 +102,7 @@ class Category extends \yii\db\ActiveRecord
      */
     public static function getMenuItems($activeId = null, $parent = null)
     {
-        $categories = Category::find()->indexBy('id')->orderBy('id')->all();
+        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
 
         if($activeId) {
             $activeCategory = Category::findOne($activeId);
@@ -127,6 +127,11 @@ class Category extends \yii\db\ActiveRecord
                     'label' => $category->title,
                     'url' => ['/catalog/'.$category->slug],
                 ];
+                if($category->slug == 'sale'){
+                    $menuItems[$category->id]['options'] = ['class'=>'red'];
+                } elseif ($category->slug == 'newyear'){
+                    $menuItems[$category->id]['options'] = ['class'=>'newyear fa fa-tree'];
+                }
                 if($activeId === $category->id || (isset($activeParentId) && $activeParentId === $category->id))
                     $menuItems[$category->id]['items'] = Category::getMenuItems($activeId, $category->id);
             }

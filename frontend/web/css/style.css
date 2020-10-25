@@ -4120,12 +4120,30 @@ ul.post_list_widget li a .post-date {
 }
 
 .noo-main-menu .navbar-nav li > .sub-menu li a.red,
-tr.red {
+tr.red,
+.product-categories li.red a {
     color: #ff6868;
 }
 
-.noo-main-menu .navbar-nav li > .sub-menu li a.red:hover {
+.noo-main-menu .navbar-nav li > .sub-menu li a.red:hover,
+.product-categories li.red a:hover {
     color: #d22a2a;
+}
+
+.noo-main-menu .navbar-nav li > .sub-menu li a.newyear,
+.product-categories li.newyear a {
+    color: #00aa00;
+    font-family: 'Lato', sans-serif;
+}
+
+.noo-main-menu .navbar-nav li > .sub-menu li a.newyear:hover,
+.product-categories li.newyear a:hover {
+    color: #008d00;
+}
+
+.product-categories li.newyear.fa-tree:before {
+    padding-right: 5px;
+    color: #00aa00;
 }
 
 .prices-popup {
