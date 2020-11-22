@@ -53,18 +53,18 @@ use common\models\ProductDiversity;
     <?php
     if($model->orderItems):
         foreach ($model->getSortOrderItems() as $item): ?>
-            <tr <?php if($item->product->category->slug == 'sale'):?>class="sale"<?php endif;?>>
+            <tr <?php if($item->product->category->slug == 'sale'):?>class="sale"<?php elseif(!$item->product->getIsActive() || !$item->product->getIsInStock()):?>class="out-of-stock"<?php endif;?>>
                 <td>
                     <div class="product-image">
                         <?php if($item->diversity_id):?>
-                            <a href="/product/view?id=<?= $item->product->id?>">
+                            <a href="/product/update?id=<?= $item->product->id?>">
                                 <?php $div = ProductDiversity::findOne($item->diversity_id);?>
                                 <?php if($div->image):?>
                                     <?= Html::img($div->image->getUrl('small'));?>
                                 <?php endif;?>
                             </a>
                         <?php elseif($item->product->images):?>
-                            <a href="/product/view?id=<?= $item->product->id?>">
+                            <a href="/product/update?id=<?= $item->product->id?>">
                                 <?= Html::img($item->product->images[0]->getUrl('small'));?>
                             </a>
                         <?php endif;?>

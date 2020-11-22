@@ -6,6 +6,7 @@ use common\models\Order;
 use common\models\OrderItem;
 use common\models\Product;
 use common\models\ProductDiversity;
+use common\models\ProductNotification;
 use common\models\User;
 use Yii;
 use yii\filters\AccessControl;
@@ -304,6 +305,34 @@ class CartController extends \yii\web\Controller
             'shippingMethod' => $shipping_method,
             'shippingCost' => Order::getShippingCost($shipping_method),
         ]);
+    }
+
+    public function actionAdd_notification(){
+        $phone = Yii::$app->user->isGuest ? Yii::$app->request->post('phone') : Yii::$app->user->getIdentity()->phone;
+        $userId = Yii::$app->user->isGuest ? 0 : Yii::$app->user->id;
+
+        if(!$userId){
+            $user = User::findOne(['phone' => $phone]);
+            if($user){
+                $userId = $user->id;
+            }
+        }
+        $productId = Yii::$app->request->post('id');
+        $diversityId = Yii::$app->request->post('diversity_id');
+
+        if($phone && $productId){
+            $notification = new ProductNotification();
+            $notification->user_id = $userId;
+            $notification->phone = $phone;
+            $notification->product_id = $productId;
+            $notification->diversity_id = $diversityId;
+            $notification->is_active = 1;
+            if($notification->save()){
+                ProductNotification::addNotificationToCookie($productId, $diversityId);
+                return true;
+            }
+        }
+        return false;
     }
 
 }

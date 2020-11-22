@@ -32,6 +32,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $payment_error
  * @property string $shipping_number
  * @property integer $is_ul
+ * @property string $ul_requisites
  *
  * @property OrderItem[] $orderItems
  */
@@ -71,7 +72,7 @@ class Order extends \yii\db\ActiveRecord
             [['created_at', 'updated_at', 'shipping_cost', 'zip', 'discount', 'is_ul'], 'integer'],
             [['address', 'notes'], 'string'],
             [['phone', 'email', 'status', 'fio', 'city', 'shipping_method', 'payment_method', 'tk', 'rcr', 'pickup_time',
-                'payment', 'payment_id', 'payment_url', 'payment_error', 'shipping_number'], 'string', 'max' => 255],
+                'payment', 'payment_id', 'payment_url', 'payment_error', 'shipping_number', 'ul_requisites'], 'string', 'max' => 255],
             [['phone', 'fio'], 'required'],
             [['email'], 'trim'],
             [['email'], 'email'],
@@ -107,6 +108,7 @@ class Order extends \yii\db\ActiveRecord
             'shipping_number' => 'Трэк/накладная',
             'is_ul' => 'Юридическое лицо',
             'payment_url' => 'Ссылка на оплату',
+            'ul_requisites' => 'Наименование организации и ИНН'
         ];
     }
 

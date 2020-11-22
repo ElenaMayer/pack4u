@@ -1,13 +1,15 @@
 <?php
 
+use common\models\ProductNotification;
 use yii\helpers\Html;
+use yii\bootstrap\Modal;
 ?>
 <div itemscope itemtype="http://schema.org/Product">
     <div class="col-md-6">
         <div class="product-slider-wrapper thumbs-bottom">
             <div class="swiper-container product-slider-main">
                 <div class="swiper-wrapper">
-                    <?php if($diversityId):?>
+                    <?php if($diversityId && $diversity->image):?>
                         <div class="swiper-slide">
                             <?= Html::img($diversity->image->getUrl(), ['width' => '100%', 'alt'=>$diversity->title, 'itemprop' => "image"]);?>
                         </div>
@@ -23,7 +25,7 @@ use yii\helpers\Html;
             </div><!-- /.swiper-container -->
             <div class="swiper-container product-slider-thumbs">
                 <div class="swiper-wrapper">
-                    <?php if($diversityId):?>
+                    <?php if($diversityId && $diversity->image):?>
                         <div class="swiper-slide">
                             <?= Html::img($diversity->image->getUrl('small'), ['width' => '100%', 'alt'=>$diversity->title]);?>
                         </div>
@@ -86,16 +88,12 @@ use yii\helpers\Html;
         <?php if($product->diversity && $product->diversities):?>
             <div class="diversities">
                 <?php foreach ($product->diversities as $div):?>
-                    <?php if($div->is_active):?>
+                    <?php if($div->is_active && $div->image):?>
                         <div class="diversity <?php if($diversityId && $div->id == $diversityId):?>active<?php endif;?><?php if($div->count <= 0):?> out_of_stock<?php endif;?>">
                             <div class="diversity_inner">
-                                <?php if($div->count <= 0):?>
+                                <a id="diversity-link" data-href="/catalog/<?= $product->category->slug?>/<?= $product->id?>/<?= $div->id?>?ajax=1" title="<?= $div->title?>">
                                     <?= Html::img($div->image->getUrl('small'), ['alt'=>$div->title]);?>
-                                <?php else:?>
-                                    <a id="diversity-link" data-href="/catalog/<?= $product->category->slug?>/<?= $product->id?>/<?= $div->id?>?ajax=1" title="<?= $div->title?>">
-                                        <?= Html::img($div->image->getUrl('small'), ['alt'=>$div->title]);?>
-                                    </a>
-                                <?php endif;?>
+                                </a>
                                 <?php if($div->count <= 0):?><span class="sold-out valign">Отсутствует</span><?php endif;?>
                             </div>
                         </div>
@@ -159,7 +157,27 @@ use yii\helpers\Html;
                 <div class="wishlist-login hide">Для использования "Избранного" необходимо <a href="/user/login">Войти</a></div>
             <?php endif;?>
             <div class="count-error has-error" style="display: none">В наличии осталось <?= $diversityId ? $diversity->count : $product->count ?> шт.</div>
+        <?php else:?>
+            <?php if(ProductNotification::isNotificationExists($product->id, $diversityId)):?>
+                <button type="button" class="add-notification single_add_to_cart_button button added">Сообщим о поступлении</button>
+            <?php else:?>
+                <button type="button" class="add-notification single_add_to_cart_button button" onclick="$('#product_notification_modal').modal()">Уведомить о поступлении</button>
+            <?php endif;?>
         <?php endif;?>
         <div class="clear"></div>
     </div>
 </div>
+
+<?php Modal::begin([
+    'id' => 'product_notification_modal',
+    'header' => '<h2>Узнайте о поступлении</h2>',
+]);
+echo '<section class="container">
+        <form class="notification-form" data-id="'.$product->id.'" data-diversity_id="'.$diversityId.'">
+            <div>Оставьте телефон и мы сообщим, когда товар появится в наличии</div>
+            <input class="form-control phone" type="text" name="phone" required placeholder="Ваш номер телефона"/>
+            <button type="submit" class="single_add_to_cart_button button">Готово</button>
+        </form>
+        <br/>
+      </section>';
+Modal::end();?>

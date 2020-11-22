@@ -43,7 +43,7 @@ $location = $cookies->getValue('location');
 
                 <?= $form->field($order, 'is_ul')->checkbox() ?>
 
-                <div class="select_location">Доставка в <a class="link" onclick="$('#w1').modal()"><span><?=$location?></span> <i class="fa fa-angle-down"></i></a></div>
+                <div class="select_location">Город доставки <a class="link" onclick="$('#geo_city_modal').modal()"><span><?=$location?></span> <i class="fa fa-angle-down"></i></a></div>
 
                 <?php echo $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethod())->label(false); ?>
 
@@ -59,17 +59,11 @@ $location = $cookies->getValue('location');
                     </div>
                     <input type="hidden" id="order_weight" value="<?= $order->getWeight() ?>">
                 </div>
+                <div class="ul_requisites"  style="display: none">
+                    <?= $form->field($order, 'ul_requisites')->textInput(['class' => 'form-control dark order-address']); ?>
+                </div>
 
                 <?php echo $form->field($order, 'payment_method')->radioList(Order::getPaymentMethods(), ['class' => 'radio-list']); ?>
-
-                <?php if (Yii::$app->user->isGuest): ?>
-                    <!--            <div class="checkbox">-->
-                    <!--                <label>-->
-                    <!--                    <input type="checkbox" value="">-->
-                    <!--                    <span>Создать аккаунт?</span>-->
-                    <!--                </label>-->
-                    <!--            </div><!-- /.checkbox -->
-                <?php endif;?>
             </div>
             <div class="col-md-6">
                 <div class="payment-right">

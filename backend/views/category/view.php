@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter' => [1 => 'Да', 0 => 'Нет']
             ],
+            'sort',
             'parent_id',
             'title',
             'slug',

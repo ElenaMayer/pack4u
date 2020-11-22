@@ -16,6 +16,7 @@ use yii\helpers\ArrayHelper;
  * @property string $slug
  * @property integer $is_active
  * @property string $time
+ * @property integer $sort
  *
  * @property Category $parent
  * @property Category[] $categories
@@ -41,7 +42,7 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parent_id', 'is_active'], 'integer'],
+            [['parent_id', 'is_active', 'sort'], 'integer'],
             [['time'], 'safe'],
             [['title', 'slug', 'description'], 'string', 'max' => 255],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['parent_id' => 'id']],
@@ -61,6 +62,7 @@ class Category extends \yii\db\ActiveRecord
             'slug' => 'Url',
             'is_active' => 'Показать',
             'time' => 'Дата создания',
+            'sort' => 'Сортировка',
         ];
     }
 
@@ -102,7 +104,7 @@ class Category extends \yii\db\ActiveRecord
      */
     public static function getMenuItems($activeId = null, $parent = null)
     {
-        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('id')->all();
+        $categories = Category::find()->where(['is_active' => 1])->indexBy('id')->orderBy('sort DESC, id')->all();
 
         if($activeId) {
             $activeCategory = Category::findOne($activeId);

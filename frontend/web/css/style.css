@@ -6183,6 +6183,11 @@ body.fixed_top .noo-header.header-5.eff .navbar-wrapper {
     margin-bottom: 10px;
 }
 
+.modal-content input.phone {
+    margin: 15px 0 20px;
+    width: 300px;
+}
+
 .modal-content input:focus {
     outline: none;
     border: 1px solid #f4eede;
@@ -7542,6 +7547,13 @@ div.products-sh-title h4 {
     content: "\e017";
     margin-left: .53em;
     vertical-align: bottom;
+}
+
+.commerce .add-notification.added {
+    cursor: default;
+}
+.commerce .add-notification.added:hover {
+    background: #79cba8;
 }
 
 .noo-countdown-product .noo-product-action .noo-action .yith-wcwl-add-to-wishlist,

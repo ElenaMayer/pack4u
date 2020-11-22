@@ -224,3 +224,8 @@ a.image_remove:hover {
 .table-striped > tbody > tr.sale:nth-of-type(odd) {
     background-color: #ffd7a4;
 }
+
+.detail-view tr.out-of-stock,
+.table-striped > tbody > tr.out-of-stock:nth-of-type(odd) {
+    background-color: #cacaca;
+}

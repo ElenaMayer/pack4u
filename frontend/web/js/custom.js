@@ -37,7 +37,25 @@ $(document).ready(function() {
                 add_to_cart_animation(button, data.count);
             });
         }
+    });
 
+    $(document.body).on('submit', '.notification-form', function (e) {
+        e.preventDefault();
+        form = $(this);
+        $.ajax({
+            method: 'post',
+            url: '/cart/add_notification',
+            dataType: 'json',
+            data: {
+                id: form.data('id'),
+                diversity_id: form.data('diversity_id'),
+                phone: form.find('input.phone').val(),
+            },
+        }).done(function (data) {
+            $('#product_notification_modal').modal('hide');
+            $('.add-notification').html('Сообщим о поступлении');
+            $('.add-notification').addClass('added');
+        });
     });
 
     $(document.body).on('click', '.product_wishlist', function () {
@@ -130,11 +148,13 @@ $(document).ready(function() {
 
     $(document.body).on('click', '#order-is_ul' ,function(){
         if($(this).prop('checked')) {
+            $('.ul_requisites').show();
             $('#order-payment_method').find("input").each(function(){
                 $(this).parents('div.radio').remove();
             });
             $('#order-payment_method').append($('<div class="radio"><label><input type="radio" name="Order[payment_method]" value="account" checked> Оплата по счету</label></div>'));
         } else {
+            $('.ul_requisites').hide();
             $('#order-payment_method').find("input[value='account']").parents('div.radio').remove();
 
             $('#order-payment_method').append($('<div class="radio"><label><input type="radio" name="Order[payment_method]" value="online" checked> Банковской картой онлайн (комиссия 0%)</label></div>'));

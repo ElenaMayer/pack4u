@@ -19,6 +19,18 @@ use common\models\Category;
 
     <?= $form->field($model, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
+    <?= $form->field($model, 'article')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>
+
+    <?= $form->field($model, 'count')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'is_in_stock')->checkbox() ?>
+
+    <?= $form->field($model, 'is_active')->checkbox() ?>
+
+    <?= $form->field($model, 'is_novelty')->checkbox() ?>
+
     <?= $form->field($model, 'category_id')->dropDownList(Category::getCategoryArray(), ['prompt' => 'Выберите категорию ...']) ?>
 
     <?= $form->field($model, 'subcategories')->widget(DepDrop::classname(), [
@@ -37,19 +49,7 @@ use common\models\Category;
         ],
     ]) ?>
 
-    <?= $form->field($model, 'is_in_stock')->checkbox() ?>
-
-    <?= $form->field($model, 'is_active')->checkbox() ?>
-
-    <?= $form->field($model, 'is_novelty')->checkbox() ?>
-
-    <?= $form->field($model, 'article')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>
-
     <?= $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'count')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'weight')->textInput() ?>
 
@@ -81,7 +81,7 @@ use common\models\Category;
 
     <?= $form->field($model, 'instruction')->textInput() ?>
 
-    <?= $form->field($model, 'sort')->textInput() ?>
+<!--    --><?//= $form->field($model, 'sort')->textInput() ?>
 
     <?= $form->field($model, 'relationsArr')->widget(Select2::classname(), [
         'options' => [

@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use Imagine\Image\Box;
+use Imagine\Image\Point;
 use Imagine\Image\ManipulatorInterface;
 
 /**

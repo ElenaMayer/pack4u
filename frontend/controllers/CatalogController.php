@@ -130,9 +130,7 @@ class CatalogController extends \yii\web\Controller
                 'diversityId' => $diversityId,
             ]);
         }
-        if(!$product || !$product->is_active){
-            return $this->redirect('/catalog/list');
-        } elseif(!$diversityId && $product->diversity && $product->activeDiversitiesCount() == 1){
+        if(!$diversityId && $product->diversity && $product->activeDiversitiesCount() == 1){
             foreach ($product->diversities as $diversity){
                 if($diversity->is_active && $diversity->count > 0) {
                     $diversityId = $diversity->id;

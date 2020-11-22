@@ -29,8 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             [
-                'format' => 'image',
-                'value'=>function($model) { return isset($model->images[0])?$model->images[0]->getUrl('small'):''; }
+                'format' => 'html',
+                'value'=>function($model) {
+                    if(isset($model->images[0])) {
+                        $href = '/product/view?id=' . $model->id;
+                        return '<a href="' . $href . '"><img src="' . $model->images[0]->getUrl('small') . '"></a>';
+                    } else
+                    return '';
+                }
             ],
             'id',
             'article',

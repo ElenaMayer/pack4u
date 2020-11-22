@@ -2,6 +2,7 @@ $(document).ready(function() {
 
     priceForm($('#product-multiprice'));
     diversityForm($('#product-diversity'));
+    isUl($('#order-is_ul'));
 
     $(document.body).on('click', '.image_remove', function () {
         removeImage($(this));
@@ -68,6 +69,21 @@ $(document).ready(function() {
             }
         });
     });
+
+    $(document.body).on('click', '#order-is_ul' ,function(){
+        isUl($(this));
+    });
+
+    $(document.body).on('click', '#productnotification-is_active', function(){
+        $.ajax({
+            method: 'get',
+            url: '/notification/set_is_active',
+            data: {
+                id: $(this).data('id'),
+                active: $(this).prop('checked'),
+            },
+        });
+    });
 });
 
 function removeImage(e) {
@@ -97,5 +113,13 @@ function diversityForm(e) {
         $('.diversity').show();
     } else {
         $('.diversity').hide();
+    }
+}
+
+function isUl(e) {
+    if(e.is(':checked')){
+        $('.field-order-ul_requisites').show();
+    } else {
+        $('.field-order-ul_requisites').hide();
     }
 }

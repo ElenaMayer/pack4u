@@ -22,7 +22,9 @@ $images = $product->images;
 ?>
 <meta property="og:title" content="<?=$title?>"/>
 <meta property="og:description" content="<?=$product->description?>"/>
-<meta property="og:image" content="<?=$images[0]->getUrl()?>"/>
+<?php if($images[0]):?>
+    <meta property="og:image" content="<?=$images[0]->getUrl()?>"/>
+<?php endif;?>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content= "https://<?=Yii::$app->params['domain']?>/catalog/<?=$category->slug?>/<?=$product->id?>" />
 <div class="commerce single-product noo-shop-main">

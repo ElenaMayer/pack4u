@@ -132,7 +132,7 @@ $location = $cookies->getValue('location');
                                     <li class="menu-item-has-children current-menu-item">
                                         <a href="/catalog">Каталог</a>
                                         <ul class="sub-menu">
-                                            <?php $categories = Category::find()->where(['is_active' => 1, 'parent_id' => null])->all(); ?>
+                                            <?php $categories = Category::find()->where(['is_active' => 1, 'parent_id' => null])->orderBy('sort DESC, id')->all(); ?>
                                             <?php foreach ($categories as $category):?>
                                                 <li><a href="/catalog/<?= $category->slug ?>" <?php if($category->slug == 'sale'):?>class="red"<?php elseif($category->slug == 'newyear'):?>class="newyear"<?php endif;?>><?= $category->title ?><?php if($category->slug == 'newyear'):?> <i class="fa fa-tree"></i><?php endif;?></a></li>
                                             <?php endforeach;?>
@@ -274,6 +274,7 @@ $location = $cookies->getValue('location');
     <a href="#" class="go-to-top hidden-print"><i class="fa fa-angle-up"></i></a>
 
     <?php Modal::begin([
+        'id' => 'geo_city_modal',
         'header' => '<h2>Выберете город</h2>',
     ]);
     echo '<section class="container">

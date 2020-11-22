@@ -40,11 +40,10 @@ class CategorySearch extends Category
      */
     public function search($params)
     {
-        $query = Category::find()->orderBy('parent_id ASC, id ASC');
+        $query = Category::find()->orderBy('parent_id ASC, sort DESC, id ASC');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort'=> ['defaultOrder' => ['id' => SORT_DESC]]
         ]);
 
         if (!($this->load($params) && $this->validate())) {

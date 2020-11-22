@@ -76,4 +76,13 @@ class User extends BaseUser
             'phone' => 'Телефон',
         ];
     }
+
+    public function getOrders(){
+        $orders = Order::find()->where(['user_id' => $this->id])->all();
+        return $orders;
+    }
+
+    public function getOrdersCount(){
+        return count($this->getOrders());
+    }
 }
