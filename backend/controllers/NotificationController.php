@@ -36,7 +36,7 @@ class NotificationController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => ProductNotification::find()->orderBy(['id' => SORT_DESC]),
+            'query' => ProductNotification::find()->orderBy(['is_active' => SORT_DESC, 'id' => SORT_DESC]),
         ]);
 
         return $this->render('index', [

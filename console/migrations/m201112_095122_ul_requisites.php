@@ -22,7 +22,7 @@ class m201112_095122_ul_requisites extends Migration
             'product_id' => Schema::TYPE_INTEGER,
             'diversity_id' => Schema::TYPE_INTEGER,
             'user_id' => Schema::TYPE_INTEGER,
-            'fio' => Schema::TYPE_STRING,
+            'name' => Schema::TYPE_STRING,
             'phone' => Schema::TYPE_STRING,
             'is_active' => Schema::TYPE_BOOLEAN,
             'comment' => Schema::TYPE_TEXT,

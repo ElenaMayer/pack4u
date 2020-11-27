@@ -53,7 +53,8 @@ use common\models\ProductDiversity;
     <?php
     if($model->orderItems):
         foreach ($model->getSortOrderItems() as $item): ?>
-            <tr <?php if($item->product->category->slug == 'sale'):?>class="sale"<?php elseif(!$item->product->getIsActive() || !$item->product->getIsInStock()):?>class="out-of-stock"<?php endif;?>>
+            <?php $isSale = ($item->product->category->slug == 'sale' || $item->product->subcategories == 50);?>
+            <tr <?php if($isSale):?>class="sale"<?php elseif(!$item->product || !$item->product->getIsActive() || !$item->product->getIsInStock()):?>class="out-of-stock"<?php endif;?>>
                 <td>
                     <div class="product-image">
                         <?php if($item->diversity_id):?>

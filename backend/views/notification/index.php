@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\models\ProductDiversity;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -24,10 +25,16 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'format' => 'html',
                 'value'=>function($model) {
-                        if(isset($model->product->images[0])) {
-                            $href = '/product/view?id=' . $model->product_id;
-                            return '<a href="' . $href . '"><img src="' . $model->product->images[0]->getUrl('small') . '"></a>';
-                        } else
+                    if($model->diversity_id) {
+                        $div = ProductDiversity::findOne($model->diversity_id);
+                    }
+                    if($div && $div->image){
+                        $href = '/product/view?id=' . $model->product_id;
+                        return '<a href="' . $href . '"><img src="' . $div->image->getUrl('small') . '"></a>';
+                    } elseif(isset($model->product->images[0])) {
+                        $href = '/product/view?id=' . $model->product_id;
+                        return '<a href="' . $href . '"><img src="' . $model->product->images[0]->getUrl('small') . '"></a>';
+                    } else
                         return '';
                 }
             ],
@@ -55,6 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             'phone',
+            'comment',
             'created_at',
             [
                 'class' => 'yii\grid\ActionColumn',

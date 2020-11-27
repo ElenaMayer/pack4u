@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $model->product->title;
         ],
     ]) ?>
     <?php $form = ActiveForm::begin(); ?>
-        <?= $form->field($model, 'is_active')->checkbox(['checked' => 'checked']) ?>
+        <?= $form->field($model, 'is_active')->checkbox() ?>
 
         <?= $form->field($model, 'name')->textInput() ?>
 

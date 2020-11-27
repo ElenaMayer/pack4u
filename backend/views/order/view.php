@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
             },
         ];
     $attr[] = 'city';
-    if($model->shipping_method == 'self'){
+//    if($model->shipping_method == 'self'){
 //        $attr[] = [
 //            'attribute' => 'pickup_time',
 //            'value' => function ($model) {
@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //                }
 //            },
 //        ];
-    }
+//    }
     if($model->address) {
         $attr[] = [
             'attribute' => 'address',
@@ -78,16 +78,32 @@ $this->params['breadcrumbs'][] = $this->title;
             return Order::getPaymentMethods()[$model->payment_method];
         },
     ];
-//    $attr[] = [
-//        'attribute' => 'payment_url',
-//        'format' => 'html',
-//        'value' => function ($model) {
-//            if($model->payment_method == 'online' && $model->payment != 'succeeded')
-//                return '<a class="get_payment_url" href="#">Получить ссылку</a>';
-//            else
-//                return '';
-//        },
-//    ];
+    $attr[] = [
+        'attribute'=>'payment',
+        'value' => function ($model) {
+            if($model->payment) {
+                $payment = Order::getPaymentTypes()[$model->payment];
+                if ($model->payment == 'canceled' && $model->payment_error) {
+                    $payment .= ' (' . Payment::getErrorDesc($model->payment_error) . ')';
+                }
+                return $payment;
+            } else {
+                return 'Нет';
+            }
+        },
+    ];
+    if($model->payment_method == 'online' && $model->payment != 'succeeded') {
+        $attr[] = [
+            'attribute' => 'payment_url',
+            'format' => 'html',
+            'value' => function ($model) {
+                if ($model->payment_method == 'online' && $model->payment != 'succeeded')
+                    return '<a class="get_payment_url" href="#">Получить ссылку</a>';
+                else
+                    return '';
+            },
+        ];
+    }
     if($model->shipping_number) {
         $attr[] = [
             'attribute' => 'shipping_number',

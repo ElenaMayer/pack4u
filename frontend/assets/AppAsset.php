@@ -19,13 +19,12 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $jsOptions = array(
         'position' => \yii\web\View::POS_END,
-        'async' => true,
         'defer' => true
     );
     public $css = [
         'css/font-awesome.min.css',
         'css/custom.min.css?2',
-        'css/style.css?131',
+        'css/style.css?132',
 //        'css/colors/apple-green.css?12',
     ];
     public $js = [

@@ -17616,6 +17616,17 @@ ul.user_menu li.active > a {
         transition: all 0.4s ease 0s;
         border: 1px solid #ffffff;
     }
+    .off-canvas #off-canvas-nav .noo-main-canvas .nav-collapse li.menu-item-has-children a i {
+        width: auto;
+        right: 0;
+    }
+    .off-canvas #off-canvas-nav .noo-main-canvas .nav-collapse li.menu-item-has-children a.newyear,
+    .off-canvas #off-canvas-nav .noo-main-canvas .nav-collapse li.menu-item-has-children a.newyear i {
+        color: #00aa00;
+    }
+    .off-canvas #off-canvas-nav .noo-main-canvas .nav-collapse li a.red {
+        color: #ff6868;
+    }
     .off-canvas #off-canvas-nav .noo-main-canvas .nav-collapse li.menu-item-has-children i:hover {
         border-color: #212121;
     }
@@ -18366,6 +18377,9 @@ only screen and (min-resolution: 2dppx) and (min-width: 481px) and (max-width: 1
 */
 
 @media (max-width: 480px) {
+    .modal-content input.phone {
+        width: 100%;
+    }
     .commerce-cart table.cart th.product-img {
         width: 10%;
         padding-left: 0;

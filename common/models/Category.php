@@ -146,7 +146,7 @@ class Category extends \yii\db\ActiveRecord
         $categories = Category::find()
             ->where(['parent_id' => null, 'is_active' => 1])
             ->indexBy('id')
-            ->orderBy('id')
+            ->orderBy('sort DESC, id')
             ->all();
         return $categories;
     }
