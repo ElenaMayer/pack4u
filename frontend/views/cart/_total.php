@@ -53,4 +53,11 @@
             </td>
         </tr>
     <?php endif;?>
+    <?php if(Yii::$app->params['importantInfo']):?>
+        <tr>
+            <td colspan="2" class="important-info">
+                <p><?= Yii::$app->params['importantInfo']?></p>
+            </td>
+        </tr>
+    <?php endif;?>
 </table>
