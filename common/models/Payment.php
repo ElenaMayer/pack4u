@@ -33,19 +33,39 @@ class Payment extends Client
 
     public function payment($order){
 
+        $items = [];
+        foreach ($order->orderItems as $item){
+            $items[] = [
+                "description" => $item->title,
+                "quantity" => $item->quantity,
+                "amount" => [
+                    "value" => $item->price,
+                    "currency" => 'RUB'
+                ],
+                "vat_code" => '1',
+                "payment_mode" => 'full_prepayment',
+                "payment_subject" => 'commodity',
+            ];
+        }
+
         $this->auth();
         return $this->createPayment([
-            'amount' => array(
+            'amount' => [
                 'value' => $order->getCost(),
                 'currency' => 'RUB',
-            ),
-            'payment_method_data' => array(
+            ],
+            'payment_method_data' => [
                 'type' => 'bank_card',
-            ),
-            'confirmation' => array(
+            ],
+            'confirmation' => [
                 'type' => 'redirect',
                 'return_url' => 'https://'.Yii::$app->params['domain'].'/cart/complete?id='.$order->id,
-            ),
+            ],
+            'receipt' => [
+                [
+                    'items' => $items,
+                ]
+            ],
             'capture' => true,
             'description' => "Заказ №$order->id",
         ],
