@@ -47,6 +47,19 @@ class Payment extends Client
                 "payment_subject" => 'commodity',
             ];
         }
+        if($order->shipping_cost > 0){
+            $items[] = [
+                "description" => 'Доставка',
+                "quantity" => 1,
+                "amount" => [
+                    "value" => $order->shipping_cost,
+                    "currency" => 'RUB'
+                ],
+                "vat_code" => '1',
+                "payment_mode" => 'full_prepayment',
+                "payment_subject" => 'commodity',
+            ];
+        }
 
         $this->auth();
         return $this->createPayment([
@@ -62,9 +75,10 @@ class Payment extends Client
                 'return_url' => 'https://'.Yii::$app->params['domain'].'/cart/complete?id='.$order->id,
             ],
             'receipt' => [
-                [
-                    'items' => $items,
-                ]
+                'items' => $items,
+                'customer' => [
+                    'phone' => $order->getNormalPhone(),
+                ],
             ],
             'capture' => true,
             'description' => "Заказ №$order->id",

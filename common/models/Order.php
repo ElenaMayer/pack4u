@@ -435,4 +435,8 @@ class Order extends \yii\db\ActiveRecord
         }
         return $shippingMethods;
     }
+
+    public function getNormalPhone(){
+        return '7' . substr($this->phone, -10);
+    }
 }
