@@ -27,6 +27,13 @@ $images = $product->images;
 <?php endif;?>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content= "https://<?=Yii::$app->params['domain']?>/catalog/<?=$category->slug?>/<?=$product->id?>" />
+<meta property="product:availability" content="<?php if($product->getIsInStock()):?>in stock<?else:?>out of stock<?php endif;?>">
+<meta property="product:condition" content="new">
+<meta property="product:retailer_item_id" content="facebook_<?= $category->slug ?>_<?= $product->article?>">
+<meta property="product:price:amount" content="<?=$product->getPrice()?>">
+<meta property="product:price:currency" content="RUB">
+<meta property="product:item_group_id" content="fb_<?= $category->slug ?>">
+<meta property="product:retailer_item_id" content="facebook_<?= $category->slug ?>_<?= $product->article?>">
 <div class="commerce single-product noo-shop-main">
     <div class="container">
         <div class="row">

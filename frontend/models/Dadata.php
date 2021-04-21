@@ -81,11 +81,8 @@ class Dadata {
     private function exec() {
         $result = curl_exec($this->handle);
         $info = curl_getinfo($this->handle);
-        if ($info['http_code'] == 429) {
-            throw new TooManyRequests();
-        } elseif ($info['http_code'] != 200) {
-            throw new Exception('Request failed with http code ' . $info['http_code'] . ': ' . $result);
-        }
-        return $result;
+        if($result)
+            return $result;
+        else return [];
     }
 }

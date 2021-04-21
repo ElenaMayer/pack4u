@@ -29,10 +29,12 @@ $location = $cookies->getValue('location');
     <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/images/favicon-16x16.png?1', 'sizes' => '16x16']); ?>
     <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/images/favicon-32x32.png', 'sizes' => '32x32']); ?>
     <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/png', 'href' => '/images/favicon-96x96.png', 'sizes' => '96x96']); ?>
+    <?= $this->render('_metrika_head'); ?>
     <?php $this->head() ?>
 </head>
 <body>
     <?php $this->beginBody() ?>
+    <?= $this->render('_metrika_body'); ?>
     <div class="noo-spinner">
         <div class="spinner">
             <div class="cube1"></div>
