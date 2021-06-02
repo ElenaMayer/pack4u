@@ -13905,6 +13905,10 @@ p.demo_store a {
     -webkit-font-smoothing: antialiased
 }
 
+.commerce .geo_cities_list {
+    margin-bottom: 10px;
+}
+
 .commerce #respond input#submit.alt:hover,
 .commerce a.button.alt:hover,
 .commerce button.button.alt:hover,

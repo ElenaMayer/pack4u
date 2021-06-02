@@ -122,10 +122,27 @@ $(document).ready(function() {
             $('.shipping_methods .self').show();
         } else {
             // $('#order-payment_method').children("option[value='cash']").remove();
+            subtotal = parseInt($('#amount_subtotal').html());
             if (shipping_method == 'tk') {
                 $('.shipping_methods .tk').show();
+                if($('#order-shipping').val().length > 0){
+                    shipping = parseInt($('#order-shipping').val());
+                    $('tr.shipping span.amount').html(shipping);
+                    $('#amount_total').html(subtotal+shipping);
+                } else {
+                    $('.amount_sum').hide();
+                    $('.amount_hint').show();
+                }
             } else {
+                shipping = parseInt($('#shipping-default').val());
+                console.log( $('tr.shipping span.amount'));
+                console.log($('#amount_total'));
+                console.log($('.amount_sum'));
+                $('tr.shipping span.amount').html(shipping);
+                $('#amount_total').html(subtotal+shipping);
                 $('.shipping_methods .order-address').show();
+                $('.amount_sum').show();
+                $('.amount_hint').hide();
             }
         }
         $.ajax({
@@ -140,6 +157,10 @@ $(document).ready(function() {
         });
         change_order_send_button($('#order-payment_method').find("input:checked").val());
     });
+
+    // $(document.body).on('change', '.CDEK-widget__search-box input' ,function(){
+    //     console.log(123);
+    // });
 
     $(document.body).on('change', '#order-payment_method' ,function(){
         method = $(this).find("input:checked").val();
@@ -682,7 +703,7 @@ $(document).ready(function() {
         });
     });
 
-    var token = "deb0c38cece10d8db0cec35cbf026c62766d1a63";
+    var token = "1c57b65d747773a848f9de3433c16e10f9eb7d08";
 
     $("#geo_city").on("keyup", function() {
         if($(this).val().length > 0) {
@@ -694,6 +715,11 @@ $(document).ready(function() {
 
     $(document.body).on('click', '.geo_city_const' ,function() {
         city = $(this).text();
+        change_location(city);
+    });
+
+    $(document.body).on('click', '#geo_city_button' ,function() {
+        city = $('#geo_city').val();
         change_location(city);
     });
 

@@ -279,13 +279,14 @@ $location = $cookies->getValue('location');
         'id' => 'geo_city_modal',
         'header' => '<h2>Выберете город</h2>',
     ]);
-    echo '<section class="container">
+    echo '<section class="container commerce">
           <input id="geo_city" name="city" type="text" placeholder="Ваш город ..." class="form-control dark"/>
           <div class="geo_cities_list">
               <div><a class="geo_city_const link">Новосибирск</a></div>
               <div><a class="geo_city_const link">Москва</a></div>
               <div><a class="geo_city_const link">Санкт-Петербург</a></div>
           </div>
+          <button id="geo_city_button" class="geo-button button">Выбрать</button>
           <br/><br/>
     </section>';
     Modal::end();?>
