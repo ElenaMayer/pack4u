@@ -280,7 +280,7 @@ $location = $cookies->getValue('location');
         'header' => '<h2>Выберете город</h2>',
     ]);
     echo '<section class="container commerce">
-          <input id="geo_city" name="city" type="text" placeholder="Ваш город ..." class="form-control dark"/>
+          <input id="geo_city" name="city" type="text" placeholder="Введите город ..." class="form-control dark"/>
           <div class="geo_cities_list">
               <div><a class="geo_city_const link">Новосибирск</a></div>
               <div><a class="geo_city_const link">Москва</a></div>

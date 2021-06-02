@@ -90,6 +90,11 @@ $(document).ready(function() {
                 tracker.send("event", "button", "add_to_cart");
         }
         yaCounter48289898.reachGoal('ADD_TO_CART');
+        gtag('event', 'conversion', {
+            'send_to': 'AW-788505492/mHdGCPHB2YcCEJTH_vcC',
+            'transaction_id': '',
+            'event_callback': callback
+        });
     });
 
     $(document.body).on('mouseover', '.order-discount .fa-question-circle', function (e) {
@@ -122,27 +127,27 @@ $(document).ready(function() {
             $('.shipping_methods .self').show();
         } else {
             // $('#order-payment_method').children("option[value='cash']").remove();
-            subtotal = parseInt($('#amount_subtotal').html());
+            // subtotal = parseInt($('#amount_subtotal').html());
             if (shipping_method == 'tk') {
                 $('.shipping_methods .tk').show();
-                if($('#order-shipping').val().length > 0){
-                    shipping = parseInt($('#order-shipping').val());
-                    $('tr.shipping span.amount').html(shipping);
-                    $('#amount_total').html(subtotal+shipping);
-                } else {
-                    $('.amount_sum').hide();
-                    $('.amount_hint').show();
-                }
+                // if($('#order-shipping').val().length > 0){
+                //     shipping = parseInt($('#order-shipping').val());
+                //     $('tr.shipping span.amount').html(shipping);
+                //     $('#amount_total').html(subtotal+shipping);
+                // } else {
+                //     $('.amount_sum').hide();
+                //     $('.amount_hint').show();
+                // }
             } else {
-                shipping = parseInt($('#shipping-default').val());
-                console.log( $('tr.shipping span.amount'));
-                console.log($('#amount_total'));
-                console.log($('.amount_sum'));
-                $('tr.shipping span.amount').html(shipping);
-                $('#amount_total').html(subtotal+shipping);
+                // shipping = parseInt($('#shipping-default').val());
+                // console.log( $('tr.shipping span.amount'));
+                // console.log($('#amount_total'));
+                // console.log($('.amount_sum'));
+                // $('tr.shipping span.amount').html(shipping);
+                // $('#amount_total').html(subtotal+shipping);
                 $('.shipping_methods .order-address').show();
-                $('.amount_sum').show();
-                $('.amount_hint').hide();
+                // $('.amount_sum').show();
+                // $('.amount_hint').hide();
             }
         }
         $.ajax({
