@@ -1487,8 +1487,8 @@ header .navbar,
   -o-transform: scale(1.1);
   transform: scale(1.1);
 }
-#googleMap {
-  height: 440px;
+.google-map #googleMap {
+  height: 480px;
 }
 .noo-images-grid .grid-1 {
   background-image: url('../images/banner/banner_480x420.jpg');

@@ -13948,7 +13948,7 @@ p.demo_store a {
 .checkout-wrapper .cart_totals button.alt:disabled:hover,
 .checkout-wrapper .cart_totals button.alt:disabled[disabled],
 .checkout-wrapper .cart_totals button.alt:disabled[disabled]:hover  {
-    background-color: #a46497;
+    background-color: #64a489;
     color: #fff
 }
 
@@ -14941,6 +14941,10 @@ p.demo_store a {
     padding: 1em
 }
 
+.checkout-wrapper .cart_totals .amount_hint {
+    color: red;
+}
+
 .commerce-cart .cart-collaterals .shipping_calculator .button {
     width: 100%;
     float: none;
@@ -15000,7 +15004,7 @@ p.demo_store a {
 }
 
 .commerce-order .shipping_tooltip .tooltip-text {
-    bottom: -100%;
+    bottom: -45%;
 }
 
 .commerce-cart .price_tooltip .tooltip-text::after,

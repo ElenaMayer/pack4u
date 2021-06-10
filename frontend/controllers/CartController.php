@@ -129,8 +129,9 @@ class CartController extends \yii\web\Controller
         $order = new Order();
         /* @var $cart ShoppingCart */
         $cart = \Yii::$app->cart;
-
         $total = $cart->getCost();
+        $shippingMethod = 'tk';
+
         if($total < Yii::$app->params['orderMinSum']){
             $this->redirect(['cart']);
         }
@@ -150,6 +151,12 @@ class CartController extends \yii\web\Controller
                 $order->address = isset($get['address'])?$get['address']:'';
                 $order->phone = isset($get['phone'])?$get['phone']:'';
                 $order->email = isset($get['email'])?$get['email']:'';
+                if($get['sm']){
+                    $shippingMethod = $get['sm'];
+                    if($shippingMethod == 'rp'){
+                        $order->shipping_cost = Yii::$app->params['shippingCostDefault'];
+                    }
+                }
             } elseif(!Yii::$app->user->isGuest) {
                 $order->fio = Yii::$app->user->getIdentity()->fio;
                 $order->address = Yii::$app->user->getIdentity()->address;
@@ -161,13 +168,14 @@ class CartController extends \yii\web\Controller
                 'order' => $order,
                 'positions' => $positions,
                 'cart' => $cart,
+                'shippingMethod' => $shippingMethod,
             ]);
         } else {
                 $this->redirect('/cart');
         }
     }
 
-    public function processOrder($order, $cart, $positions){
+    public function processOrder(Order $order, $cart, $positions){
         $transaction = $order->getDb()->beginTransaction();
         if (!Yii::$app->user->isGuest) {
             $order->user_id = Yii::$app->user->id;
@@ -180,7 +188,7 @@ class CartController extends \yii\web\Controller
             $user->save(false);
         }
 
-        $order->shipping_cost = Order::getShippingCost($order->shipping_method);
+        if(!$order->shipping_cost) $order->shipping_cost = Order::getShippingCost($order->shipping_method);
         $cookies = Yii::$app->request->cookies;
         $location = $cookies->getValue('location');
         if($location) {

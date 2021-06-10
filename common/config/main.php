@@ -10,6 +10,9 @@ return [
             'class' => 'yii\i18n\Formatter',
             'timeZone' => 'Asia/Novosibirsk',
         ],
+        'logger' => [
+            'class' => 'common\components\Logger',
+        ],
     ],
     'modules' => [
         'user' => [

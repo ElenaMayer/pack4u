@@ -75,6 +75,10 @@ $(document).ready(function() {
     });
 
     $(document.body).on('submit', '#order-form', function (e) {
+        if (!document.activeElement.className.match(/(?:^|\s)checkout-button(?:\s|$)/)
+            || document.activeElement.className.match(/(?:^|\s)disabled(?:\s|$)/)) {
+            return false;
+        }
         if ("ga" in window) {
             tracker = ga.getAll()[0];
             if (tracker)
@@ -109,8 +113,8 @@ $(document).ready(function() {
 
     $('#order-payment_method').find("input[value='account']").parents('div.radio').remove();
     // Shipping counting
-    $(document.body).on('change', '#order-shipping_method' ,function(){
-
+    $(document.body).on('change', '#order-shipping_method' ,function()
+    {
         $('.shipping_methods').children().each(function(){
             $(this).hide();
         });
@@ -127,45 +131,24 @@ $(document).ready(function() {
             $('.shipping_methods .self').show();
         } else {
             // $('#order-payment_method').children("option[value='cash']").remove();
-            // subtotal = parseInt($('#amount_subtotal').html());
+            subtotal = parseInt($('#amount_subtotal').html());
             if (shipping_method == 'tk') {
                 $('.shipping_methods .tk').show();
-                // if($('#order-shipping').val().length > 0){
-                //     shipping = parseInt($('#order-shipping').val());
-                //     $('tr.shipping span.amount').html(shipping);
-                //     $('#amount_total').html(subtotal+shipping);
-                // } else {
-                //     $('.amount_sum').hide();
-                //     $('.amount_hint').show();
-                // }
+                $('#order-shipping_cost').val('');
+                $('.amount_sum').hide();
+                $('.amount_hint').show();
+                $('.checkout-button').addClass('disabled');
             } else {
-                // shipping = parseInt($('#shipping-default').val());
-                // console.log( $('tr.shipping span.amount'));
-                // console.log($('#amount_total'));
-                // console.log($('.amount_sum'));
-                // $('tr.shipping span.amount').html(shipping);
-                // $('#amount_total').html(subtotal+shipping);
+                shipping = parseInt($('#shipping-default').val());
+                $('tr.shipping span.amount').html(shipping);
+                $('#amount_total').html(subtotal+shipping);
                 $('.shipping_methods .order-address').show();
-                // $('.amount_sum').show();
-                // $('.amount_hint').hide();
+                $('.amount_sum').show();
+                $('.amount_hint').hide();
+                $('.checkout-button').removeClass('disabled');
             }
         }
-        $.ajax({
-            method: 'get',
-            url: '/cart/get_shipping',
-            dataType: 'json',
-            data: {
-                shipping_method: shipping_method,
-            },
-        }).done(function (data) {
-            $("#data_total").html(data);
-        });
-        change_order_send_button($('#order-payment_method').find("input:checked").val());
     });
-
-    // $(document.body).on('change', '.CDEK-widget__search-box input' ,function(){
-    //     console.log(123);
-    // });
 
     $(document.body).on('change', '#order-payment_method' ,function(){
         method = $(this).find("input:checked").val();
@@ -409,7 +392,7 @@ $(document).ready(function() {
 		$('.noo_custom_countdown').countdown({until: austDay});
 		$('#year').text(austDay.getFullYear());
 	}
-	
+
 	//Owl Carousel
 	$('.noo-product-sliders').owlCarousel({
 		items : 4,
@@ -431,13 +414,13 @@ $(document).ready(function() {
         ],
         dots: true,
 	});
-	
+
 	//Owl Carousel
 	$('.blog-slider').owlCarousel({
 		items : 1,
 		singleItem: true,
 	});
-	
+
 	$('.noo-slider-image').owlCarousel({
 		items : 3,
 		itemsDesktop : [1199,3],
@@ -452,7 +435,7 @@ $(document).ready(function() {
 		loop:true,
 		pagination: false
 	});
-	
+
     $('.noo-simple-product-slider').owlCarousel({
 		items : 5,
 		itemsDesktop : [1199,5],
@@ -474,7 +457,7 @@ $(document).ready(function() {
         dots: true,
 
     });
-	
+
 	//Testimonial Carousel
 	var sync1 = $(".noo-testimonial-sync2");
 	var sync2 = $(".noo-testimonial-sync1");
@@ -544,7 +527,7 @@ $(document).ready(function() {
 			sync2.trigger("owl.goTo", num-1)
 		}
 	}
-	
+
 	$('.noo_testimonial').each(function(){
 		$(this).owlCarousel({
 			items : 1,
@@ -564,14 +547,14 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
+
 	//Ajax popup
 	if($(".noo-qucik-view").length > 0) {
 		$('.noo-qucik-view').magnificPopup({
 			type: 'ajax'
 		});
 	}
-	
+
 	//Boxes hover
 	$('.box-inner').each(function(){
 		var first_color = $(this).find('.product-box-header li:first-child span').data('color');
@@ -589,7 +572,7 @@ $(document).ready(function() {
 		$parent.find('.box-content-tab').hide();
 		$parent.find(id).show();
 	});
-	
+
 	//Boxes Detail Slider
 	$(".sync1").owlCarousel({
 		singleItem : true,
@@ -615,13 +598,13 @@ $(document).ready(function() {
 		var number = $(this).data("owlItem");
 		$(".sync1").trigger("owl.goTo",number);
 	});
-	
+
 	//Recent Post Background
 	$('.widget_recent_entries .post_list_widget li').each(function(){
 		var post_thumb = $(this).find(".post-thumb");
 		post_thumb.css('background-image','url("' + post_thumb.attr("data-bg") + '")');
 	});
-	
+
 	//Noo Simple Product Slider
 	$('.noo-simple-product-slider li').each(function(){
 		var slider_item = $(this).find(".noo-simple-slider-item");
@@ -787,7 +770,7 @@ function change_location(city) {
                 notes = $('#order-notes').text();
                 url = document.location.href.replace(/^|\#+$/g, '');
 
-                url = url + "?fio=" + fio + "&email=" + email + "&phone=" + phone + "&notes=" + notes;
+                url = url + "?fio=" + fio + "&email=" + email + "&phone=" + phone + "&notes=" + notes + "&sm=rp";
                 document.location = url;
             }
         }

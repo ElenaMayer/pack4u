@@ -128,6 +128,7 @@ $positions = $cart->getPositions();
                     <div class="cart_totals">
                         <div id="data_total">
                             <?= $this->render('_total', [
+                                'type' => 'cart',
                                 'subtotal' => $cart->getCost(),
                                 'total' => $cart->getCost(true),
                                 'discount' => $cart->getDiscount(),

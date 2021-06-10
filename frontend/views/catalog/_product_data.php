@@ -68,7 +68,7 @@ use yii\bootstrap\Modal;
                     }
                     if($price->count <= $count):?>
                         <p class="multiprice">
-                            <span class="amount" ><span <?php if($key == 0):?>itemprop="price"<?php endif;?>><?= $price->price ?></span><i class="fa fa-ruble"></i></span>
+                            <span class="amount <?php if($key == 0):?>amount-main<?php endif;?>"><span <?php if($key == 0):?>itemprop="price"<?php endif;?>><?= $price->price ?></span><i class="fa fa-ruble"></i></span>
                             <span class="count"> от <?= $price->count ?> шт.</span>
                         </p>
                     <?php endif;?>
@@ -76,11 +76,11 @@ use yii\bootstrap\Modal;
             <?php elseif($product->getIsInStock($diversityId) && $product->new_price): ?>
                 <p class="price">
                     <span class="amount old"><?= (int)$product->price ?><i class="fa fa-ruble"></i></span>
-                    <span class="amount new"><span itemprop="price"><?= (int)$product->new_price ?></span><i class="fa fa-ruble"></i></span>
+                    <span class="amount new amount-main"><span itemprop="price"><?= (int)$product->new_price ?></span><i class="fa fa-ruble"></i></span>
                 </p>
             <?php else:?>
                 <p class="price">
-                    <span class="amount"><span itemprop="price"><?= (int)$product->price ?></span><i class="fa fa-ruble"></i></span>
+                    <span class="amount amount-main"><span itemprop="price"><?= (int)$product->price ?></span><i class="fa fa-ruble"></i></span>
                 </p>
             <?php endif;?>
             <span style="display: none" itemprop="priceCurrency">RUB</span>
@@ -117,7 +117,7 @@ use yii\bootstrap\Modal;
                     <?php endforeach;?>
                                         </span>
             <?php endif;?>
-            <span class="posted_in">Категория: <a href="/catalog/<?= $category->slug?>" title="<?= $category->title?>"><?= $category->title?></a></span>
+            <span class="posted_in category">Категория: <a href="/catalog/<?= $category->slug?>" title="<?= $category->title?>"><?= $category->title?></a></span>
             <?php if($product->tags):?>
                 <span class="tagged_as">Теги:
                     <?php foreach ($product->getCurrentTagsArray() as $key => $tag):?>

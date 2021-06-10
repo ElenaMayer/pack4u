@@ -203,13 +203,8 @@ class Order extends \yii\db\ActiveRecord
         return [
             //'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
             'tk' => 'ТК СДЭК',
+            'rp' => 'Почта',
             //'courier' => 'Курьер до адреса',
-        ];
-    }
-
-    public static function getShippingMethodsZone1(){
-        return [
-            'tk' => 'ТК СДЭК',
         ];
     }
 
@@ -392,29 +387,11 @@ class Order extends \yii\db\ActiveRecord
         return $paymentUrl;
     }
 
-    public static function getShippingCost($shippingMethod){
+    public static function isFreeShipping(){
 
         $cart = \Yii::$app->cart;
         $total = $cart->getCost();
-        if($total >= Yii::$app->params['freeShippingSum']){
-            return 0;
-        } else {
-            if($shippingMethod == 'tk' || $shippingMethod == 'rp'){
-                $cookies = Yii::$app->request->cookies;
-                $location = $cookies->getValue('location');
-                if($location == 'Новосибирск'){
-                    return Yii::$app->params['shippingCostNsk'];
-                } else {
-                    $zones = Yii::$app->params['shippingZones'];
-                    foreach ($zones as $zone){
-                        if(in_array($location, $zone['cities'])){
-                            return $zone['cost'];
-                        }
-                    }
-                }
-            }
-            return Yii::$app->params['shippingCostDefault'];
-        }
+        return $total >= Yii::$app->params['freeShippingSum'];
     }
 
     public static function getShippingMethod(){
@@ -427,8 +404,6 @@ class Order extends \yii\db\ActiveRecord
             $location = $cookies->getValue('location');
             if ($location == 'Новосибирск') {
                 $shippingMethods = Order::getShippingMethodsNsk();
-            } elseif(in_array($location, Yii::$app->params['shippingZones'][1]['cities']) || in_array($location, Yii::$app->params['shippingZones'][2]['cities'])) {
-                $shippingMethods = Order::getShippingMethodsZone1();
             } else {
                 $shippingMethods = Order::getShippingMethods();
             }
