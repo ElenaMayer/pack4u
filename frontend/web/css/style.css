@@ -13909,6 +13909,11 @@ p.demo_store a {
     margin-bottom: 10px;
 }
 
+.commerce .geo_city_button {
+    clear: both;
+    padding: 15px 0 0 5px;
+}
+
 .commerce #respond input#submit.alt:hover,
 .commerce a.button.alt:hover,
 .commerce button.button.alt:hover,

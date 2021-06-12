@@ -236,7 +236,8 @@ $location = $cookies->getValue('location');
                     <div class="col-md-3 col-sm-6 item-footer-four">
                         <div class="widget widget_flickr">
                             <h4 class="widget-title">Мы в Instagram</h4>
-                            <div id='instafeed'></div>
+<!--                            <div id='instafeed'></div>-->
+                            <div><a href="<?= Yii::$app->params['linkInstagram'] ?>">pach4u.ru</a></div>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 item-footer-four">
@@ -282,11 +283,24 @@ $location = $cookies->getValue('location');
     echo '<section class="container commerce">
           <input id="geo_city" name="city" type="text" placeholder="Введите город ..." class="form-control dark"/>
           <div class="geo_cities_list">
-              <div><a class="geo_city_const link">Новосибирск</a></div>
-              <div><a class="geo_city_const link">Москва</a></div>
-              <div><a class="geo_city_const link">Санкт-Петербург</a></div>
+              <div class="col-md-6 col-sm-6">
+                  <div><a class="geo_city_const link">Новосибирск</a></div>
+                  <div><a class="geo_city_const link">Москва</a></div>
+                  <div><a class="geo_city_const link">Санкт-Петербург</a></div>
+                  <div><a class="geo_city_const link">Кемерово</a></div>
+                  <div><a class="geo_city_const link">Краснодар</a></div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                  <div><a class="geo_city_const link">Красноярск</a></div>
+                  <div><a class="geo_city_const link">Омск</a></div>
+                  <div><a class="geo_city_const link">Ростов-на-Дону</a></div>
+                  <div><a class="geo_city_const link">Тюмень</a></div>
+                  <div><a class="geo_city_const link">Челябинск</a></div>
+              </div>
           </div>
-          <button id="geo_city_button" class="geo-button button">Выбрать</button>
+          <div class="geo_city_button">
+            <button id="geo_city_button" class="geo-button button">Выбрать</button>
+          </div>
           <br/><br/>
     </section>';
     Modal::end();?>

@@ -32,15 +32,14 @@
                 <p>При заказе от <?= Yii::$app->params['freeShippingSum']?><i class="fa fa-ruble"></i> доставка БЕСПЛАТНО</p>
             <?php else:?>
                 <div>
-                    <div class="amount_sum" <?php if($shippingMethod == 'tk'):?>style="display: none"<?php endif;?>>
-                        <span class="amount"><?= Yii::$app->params['shippingCostDefault'] ?></span><i class="fa fa-ruble"></i>
+                    <div class="amount_sum">
+                        <span class="amount"><?= $shippingCost ?></span><i class="fa fa-ruble"></i>
                         <input type="hidden" id="shipping-default" value="<?= Yii::$app->params['shippingCostDefault'] ?>">
                         <div class="shipping_tooltip">
                             <i class="fa fa-question-circle"></i>
                             <span class="tooltip-text">Бесплатная доставка от <?=Yii::$app->params['freeShippingSum']?><i class="fa fa-ruble"></i></span>
                         </div>
                     </div>
-                    <span class="amount_hint" <?php if($shippingMethod != 'tk'):?>style="display: none"<?php endif;?>>Выбирете пункт выдачи</span>
                 </div>
             <?php endif;?>
         </td>
@@ -48,7 +47,7 @@
     <tr class="order-total">
         <th>Итого</th>
         <!--Самовывозы-->
-        <td><strong><span class="amount"><span id="amount_total"><?= $total ?></span><i class="fa fa-ruble"></i></span></strong> </td>
+        <td><strong><span class="amount"><span id="amount_total"><?= $total + (isset($shippingCost)?intval($shippingCost):0)  ?></span><i class="fa fa-ruble"></i></span></strong> </td>
         <input type="hidden" class="sub-total" value="<?= $total?>">
     </tr>
     <?php if(!isset($order)):?>

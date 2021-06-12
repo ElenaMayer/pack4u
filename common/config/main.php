@@ -13,6 +13,9 @@ return [
         'logger' => [
             'class' => 'common\components\Logger',
         ],
+        'cdek' => [
+            'class' => 'common\components\Cdek',
+        ],
     ],
     'modules' => [
         'user' => [

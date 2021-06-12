@@ -75,10 +75,6 @@ $(document).ready(function() {
     });
 
     $(document.body).on('submit', '#order-form', function (e) {
-        if (!document.activeElement.className.match(/(?:^|\s)checkout-button(?:\s|$)/)
-            || document.activeElement.className.match(/(?:^|\s)disabled(?:\s|$)/)) {
-            return false;
-        }
         if ("ga" in window) {
             tracker = ga.getAll()[0];
             if (tracker)
@@ -134,20 +130,29 @@ $(document).ready(function() {
             subtotal = parseInt($('#amount_subtotal').html());
             if (shipping_method == 'tk') {
                 $('.shipping_methods .tk').show();
-                $('#order-shipping_cost').val('');
-                $('.amount_sum').hide();
-                $('.amount_hint').show();
-                $('.checkout-button').addClass('disabled');
+                // $('#order-shipping_cost').val('');
+                // $('.amount_sum').hide();
+                // $('.amount_hint').show();
             } else {
-                shipping = parseInt($('#shipping-default').val());
-                $('tr.shipping span.amount').html(shipping);
-                $('#amount_total').html(subtotal+shipping);
+                // shipping = parseInt($('#shipping-default').val());
+                // $('tr.shipping span.amount').html(shipping);
+                // $('#amount_total').html(subtotal+shipping);
                 $('.shipping_methods .order-address').show();
-                $('.amount_sum').show();
-                $('.amount_hint').hide();
-                $('.checkout-button').removeClass('disabled');
+                // $('.amount_sum').show();
+                // $('.amount_hint').hide();
             }
         }
+        $.ajax({
+            method: 'get',
+            url: '/cart/get_shipping',
+            dataType: 'json',
+            data: {
+                shipping_method: shipping_method,
+            },
+        }).done(function (data) {
+            $("#data_total").html(data);
+        });
+        change_order_send_button($('#order-payment_method').find("input:checked").val());
     });
 
     $(document.body).on('change', '#order-payment_method' ,function(){
@@ -725,7 +730,8 @@ $(document).ready(function() {
             } else {
                 city = suggestion.value;
             }
-            change_location(city);
+            zip = suggestion.data.postal_code;
+            change_location(city, zip);
         }
     });
 
@@ -770,7 +776,7 @@ function change_location(city) {
                 notes = $('#order-notes').text();
                 url = document.location.href.replace(/^|\#+$/g, '');
 
-                url = url + "?fio=" + fio + "&email=" + email + "&phone=" + phone + "&notes=" + notes + "&sm=rp";
+                url = url + "?fio=" + fio + "&email=" + email + "&phone=" + phone + "&notes=" + notes;
                 document.location = url;
             }
         }
@@ -1048,7 +1054,6 @@ function updateCartQty(form) {
 		} else {
             e.parents('.product-quantity').find('.count-error').hide();
 		}
-        //e.addClass('disable').prop('readonly', true);
         $.ajax({
            method: 'get',
            url: '/cart/update_cart_qty',
@@ -1060,7 +1065,6 @@ function updateCartQty(form) {
             e.val(data.count);
             orderAvailableCheck(data);
             $("#data_total").html(data.data);
-            // e.removeClass('disable').prop('readonly', false);
         }).fail(function( data ) {
             e.removeClass('disable').prop('readonly', false);
         });

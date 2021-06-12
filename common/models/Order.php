@@ -198,12 +198,17 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function getShippingMethodsZone1(){
+        return [
+            'tk' => 'ТК СДЭК',
+        ];
+    }
+
     public static function getShippingMethodsNsk()
     {
         return [
             //'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
             'tk' => 'ТК СДЭК',
-            'rp' => 'Почта',
             //'courier' => 'Курьер до адреса',
         ];
     }
@@ -392,6 +397,33 @@ class Order extends \yii\db\ActiveRecord
         $cart = \Yii::$app->cart;
         $total = $cart->getCost();
         return $total >= Yii::$app->params['freeShippingSum'];
+    }
+
+    public static function getShippingCost($shippingMethod)
+    {
+        $cart = \Yii::$app->cart;
+        $total = $cart->getCost();
+        if ($total >= Yii::$app->params['freeShippingSum']) {
+            return 0;
+        } else {
+            if ($shippingMethod == 'tk' || $shippingMethod == 'rp') {
+                $cookies = Yii::$app->request->cookies;
+                $location = $cookies->getValue('location');
+                if ($location == 'Новосибирск') {
+                    return Yii::$app->params['shippingCostNsk'];
+                } elseif(in_array($location, Yii::$app->params['shippingZones'][1]['cities']) || in_array($location, Yii::$app->params['shippingZones'][2]['cities'])) {
+                    $shippingMethods = Order::getShippingMethodsZone1();
+                } else {
+                    $zones = Yii::$app->params['shippingZones'];
+                    foreach ($zones as $zone) {
+                        if (in_array($location, $zone['cities'])) {
+                            return $zone['cost'];
+                        }
+                    }
+                }
+            }
+            return Yii::$app->params['shippingCostDefault'];
+        }
     }
 
     public static function getShippingMethod(){

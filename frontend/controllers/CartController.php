@@ -73,6 +73,7 @@ class CartController extends \yii\web\Controller
                 'productPrice' => $product->getPrice($count),
                 'orderAvailable' => ($total >= Yii::$app->params['orderMinSum']),
                 'data' => $this->renderPartial('_total', [
+                    'type' => 'cart',
                     'subtotal' => $cart->getCost(),
                     'total' => $cart->getCost(true),
                     'discount' => $cart->getDiscount(),
@@ -141,7 +142,7 @@ class CartController extends \yii\web\Controller
             if ($order->load(\Yii::$app->request->post()) && $order->validate()) {
                 if($total < Yii::$app->params['orderMinSum']){
                     $this->redirect(['cart']);
-                } elseif ($redirectUrl = $this->processOrder($order, $cart, $positions)){
+                } elseif ($redirectUrl = $this->processOrder($order, $positions)){
                     return $this->redirect($redirectUrl);
                 }
             }
@@ -175,7 +176,7 @@ class CartController extends \yii\web\Controller
         }
     }
 
-    public function processOrder(Order $order, $cart, $positions){
+    public function processOrder(Order $order, $positions){
         $transaction = $order->getDb()->beginTransaction();
         if (!Yii::$app->user->isGuest) {
             $order->user_id = Yii::$app->user->id;

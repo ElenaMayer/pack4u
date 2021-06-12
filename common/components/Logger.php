@@ -97,8 +97,6 @@ class Logger extends Component
         if($this->handle){
             $wrapper = (mb_detect_encoding($wrapper) != 'UTF-8') ? utf8_encode($wrapper) : $wrapper;
             fwrite($this->handle, $wrapper);
-
-            print_r($message);die();
             $return = true;
         } else {
             $return = false;
