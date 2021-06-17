@@ -115,7 +115,6 @@ $(document).ready(function() {
             $(this).hide();
         });
         $('#order-address').val('');
-        $('#order-city').val('');
 
         shipping_method = $(this).children("option:selected").val();
 
@@ -761,12 +760,13 @@ $(document).ready(function() {
 
 });
 
-function change_location(city) {
+function change_location(city, zip = 0) {
     $.ajax({
         url: '/site/change_location',
         type: "GET",
         data: {
             city: city,
+            zip: zip,
         },
         success: function (data) {
             if($('#order-form')) {
@@ -775,7 +775,6 @@ function change_location(city) {
                 phone = $('#order-phone').val();
                 notes = $('#order-notes').text();
                 url = document.location.href.replace(/^|\#+$/g, '');
-
                 url = url + "?fio=" + fio + "&email=" + email + "&phone=" + phone + "&notes=" + notes;
                 document.location = url;
             }

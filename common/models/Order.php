@@ -383,6 +383,7 @@ class Order extends \yii\db\ActiveRecord
 
         $payment = new Payment();
         $res = $payment->payment($this);
+        Yii::$app->logger->log('/payment/', json_encode($res));
         $this->payment = $res->getStatus();
         $this->payment_id = $res->getId();
         $paymentUrl = $res->getConfirmation()->getConfirmationUrl();

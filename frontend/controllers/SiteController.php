@@ -180,16 +180,14 @@ class SiteController extends Controller
         return $response->getItems();
     }
 
-    public function actionChange_location($city, $zip = null)
+    public function actionChange_location($city, $zip = 0)
     {
         Yii::$app->response->cookies->add(new Cookie([
             'name' => 'location',
             'value' => $city,
         ]));
-        if(!$zip && isset(Yii::$app->params['cities'][$city])){
+        if($zip == 0 && isset(Yii::$app->params['cities'][$city])){
             $zip = Yii::$app->params['cities'][$city]['zip'];
-        } else {
-            $zip = 0;
         }
         Yii::$app->response->cookies->add(new Cookie([
             'name' => 'zipcode',
