@@ -3,6 +3,7 @@
 namespace common\components;
 
 use yii\httpclient\Client;
+use Yii;
 
 class Cdek
 {
@@ -16,8 +17,8 @@ class Cdek
             ->setUrl($this->url . 'oauth/token?parameters')
             ->setData([
                 'grant_type' => 'client_credentials',
-                'client_id' => 'EMscd6r9JnFiQ3bLoyjJY6eM78JrJceI',
-                'client_secret' => 'PjLZkKBHEiLK3YsjtNrt3TGNG0ahs3kG',
+                'client_id' => Yii::$app->params['cdek_client_id'],
+                'client_secret' => Yii::$app->params['cdek_client_secret'],
             ])
             ->send();
         return $response->data;
