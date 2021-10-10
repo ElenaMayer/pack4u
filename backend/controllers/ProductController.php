@@ -5,6 +5,7 @@ namespace backend\controllers;
 use common\models\Category;
 use common\models\Image;
 use common\models\ProductDiversity;
+use common\models\ProductHistory;
 use common\models\ProductPrice;
 use common\models\ProductRelation;
 use Yii;
@@ -95,16 +96,6 @@ class ProductController extends Controller
         $model->sort = 0;
 
         if($this->processingProduct($model)) {
-
-            if(!$model->diversity) {
-                Yii::debug('Добавлен товар Арт.' . $model->article . ': ' . $model->count . 'шт', 'order');
-            } else {
-                Yii::debug('Добавлен товар Арт.' . $model->article . ' ->', 'order');
-                foreach ($model->diversities as $diversity){
-                    Yii::debug('Расцветка Арт.' . $diversity->article . ': ' . $diversity->count . 'шт', 'order');
-                }
-            }
-
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -122,7 +113,6 @@ class ProductController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         if($this->processingProduct($model)) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -186,6 +176,7 @@ class ProductController extends Controller
 
     public function processingProduct($model){
         if($post = Yii::$app->request->post()) {
+            $isNewRecord = $model->isNewRecord;
             if (is_array($post['Product']['color'])) {
                 $model->color = implode(",", $post['Product']['color']);
             }
@@ -200,42 +191,42 @@ class ProductController extends Controller
             {
                 $model->productPrices = $post['ProductPrice'];
             }
+            $oldDiv = $newDiv = [];
             if (is_array($post['ProductDiversity']))
             {
+                $newDiv = $post['ProductDiversity'];
+                if(!$isNewRecord){
+                    $oldDiv = $model->productDiversities;
+                }
                 $model->productDiversities = $post['ProductDiversity'];
-
-                $isCountChange = false;
-                foreach ($post['ProductDiversity'] as $id => $div){
-                    if($id != '__id__') {
-                        if (strpos($id, 'new') === false) {
-                            $oldDiv = ProductDiversity::findOne($id);
-                            if ($oldDiv->count != $div['count']) {
-                                Yii::debug('Расцветка Арт.' . $div['article'] . ' ' . $oldDiv->count . ' -> ' . $div['count'] . 'шт', 'order');
-                                $isCountChange = true;
-                            }
-                        } else {
-                            if ($div['count'] && $div['article']) {
-                                Yii::debug('Добавлена расцветка Арт.' . $div['article'] . ': ' . $div['count'] . 'шт', 'order');
-                                $isCountChange = true;
-                            }
-                        }
-                    }
-                }
-                if($isCountChange) {
-                    Yii::debug('<- Редактирование товара Арт.' . $model->article, 'order');
-                }
             }
             if(!$model->diversity && $post['Product']['count'] != $model->count) {
-
-                Yii::debug('Редактирование товар Арт.' . $model->article . ' ' . $model->count . ' -> ' . $post['Product']['count']  . 'шт', 'order');
-
                 if ($post['Product']['count'] <= 0 && $model->is_in_stock == 1) {
                     $post['Product']['is_in_stock'] = 0;
                 }
             }
+            $oldModel = $model;
             if ($model->load($post) && $model->save()) {
-                if (is_array($post['Product']['relationsArr']))
-                {
+                if(!$model->diversities) {
+                    if($isNewRecord){
+                        $this->saveHistory('add', $model, 0, $model->count);
+                    } elseif($model->count != $oldModel->count){
+                        $this->saveHistory('edit', $model, $oldModel->count, $model->count);
+                    }
+                } else {
+                    $oldDivIds = [];
+                    foreach ($oldDiv as $div){
+                        $oldDivIds[$div->id] = ['count' => $div->count];
+                    }
+                    foreach ($newDiv as $id => $div){
+                        if(!$oldDiv){
+                            $this->saveHistory('add', $model, 0, $div['count'], $id);
+                        } elseif(isset($oldDivIds[$id]) && $oldDivIds[$id]['count'] != $div['count']) {
+                            $this->saveHistory('edit', $model, $oldDivIds[$id]['count'], $div['count'], $id);
+                        }
+                    }
+                }
+                if (is_array($post['Product']['relationsArr'])){
                     $model->saveRelations($post['Product']['relationsArr']);
                 }
                 $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
@@ -251,6 +242,19 @@ class ProductController extends Controller
             $model->subcategories = !empty($model->subcategories)?explode(",",$model->subcategories):[];
             return false;
         }
+    }
+
+    private function saveHistory($title, $model, $countOld, $countNew, $diversityId = null){
+        $history = new ProductHistory();
+        $history->title = $title;
+        $history->product_id = $model->id;
+        $history->count_old = $countOld;
+        $history->count_new = $countNew;
+        $history->user_id = Yii::$app->user->id;
+        if(!$model->diversity) {
+            $history->diversity_id = $diversityId;
+        }
+        $history->save();
     }
 
     /**

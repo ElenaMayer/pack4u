@@ -376,12 +376,15 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         $this->relationsArr = ArrayHelper::map($this->relations, 'id', 'child_id');
     }
 
-    public function minusCount($count, $diversityId = null){
+    public function minusCount($count, $orderId, $diversityId = null){
         if($diversityId){
             $diversity = ProductDiversity::findOne($diversityId);
             if($diversity) {
+                $countOld = $diversity->count;
                 $diversity->count -= $count;
-                $diversity->save(false);
+                if($diversity->save(false)){
+                    $this->saveHistory($orderId, $countOld, $diversity->count, $diversityId);
+                };
                 if ($diversity->count <= 0) {
                     $activeDiv = 0;
                     foreach ($this->diversities as $div){
@@ -397,32 +400,54 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
                 }
             }
         } else {
+            $countOld = $this->count;
             $this->count -= $count;
             if ($this->count <= 0) {
                 $this->is_in_stock = 0;
             }
-            $this->save(false);
+            if($this->save(false)){
+                $this->saveHistory($orderId, $countOld, $this->count);
+            };
+
         }
     }
 
-    public function plusCount($count, $diversityId = null){
+    public function plusCount($count, $orderId, $diversityId = null){
         if($diversityId){
             $diversity = ProductDiversity::findOne($diversityId);
             if($diversity) {
+                $countOld = $diversity->count;
                 $diversity->count += $count;
-                $diversity->save(false);
+                if($diversity->save(false)){
+                    $this->saveHistory($orderId, $countOld, $diversity->count, $diversityId);
+                };
                 if ($diversity->count > 0 && $this->is_in_stock == 0) {
                     $this->is_in_stock = 1;
                     $this->save(false);
                 }
             }
         } else {
+            $countOld = $this->count;
             $this->count += $count;
             if ($this->count > 0) {
                 $this->is_in_stock = 1;
             }
-            $this->save(false);
+            if($this->save(false)){
+                $this->saveHistory($orderId, $countOld, $this->count);
+            };
         }
+    }
+
+    private function saveHistory($orderId, $countOld, $countNew, $diversityId = null){
+        $history = new ProductHistory();
+        $history->title = 'order';
+        $history->product_id = $this->id;
+        $history->order_id = $orderId;
+        $history->count_old = $countOld;
+        $history->count_new = $countNew;
+        $history->user_id = Yii::$app->user->id;
+        $history->diversity_id = $diversityId;
+        $history->save();
     }
 
     public function getSale(){

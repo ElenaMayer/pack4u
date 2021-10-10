@@ -53,7 +53,7 @@ use common\models\ProductDiversity;
     <?php
     if($model->orderItems):
         foreach ($model->getSortOrderItems() as $item): ?>
-            <?php $isSale = ($item->product->category->slug == 'sale' || $item->product->subcategories == 50);?>
+            <?php $isSale = ($item->product->category->slug == 'sale' || $item->product->subcategories == 54);?>
             <tr <?php if($isSale):?>class="sale"<?php elseif(!$item->product || !$item->product->getIsActive() || !$item->product->getIsInStock()):?>class="out-of-stock"<?php endif;?>>
                 <td>
                     <div class="product-image">

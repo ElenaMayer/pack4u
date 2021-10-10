@@ -200,7 +200,6 @@ class CartController extends \yii\web\Controller
         }
 
         $order->save(false);
-        Yii::debug('Заказ #' . $order->id . ' создан ->', 'order');
 
         foreach ($positions as $position) {
             $product = $position->getProduct();
@@ -220,12 +219,7 @@ class CartController extends \yii\web\Controller
                 $orderItem->product_id = $product->id;
                 $orderItem->quantity = $qty;
                 $orderItem->save(false);
-                if(!$orderItem->diversity_id){
-                    Yii::debug( 'Арт.' . $orderItem->product->article . ' ' . $orderItem->product->count . ' -> ' . ($orderItem->product->count-$orderItem->quantity) . 'шт', 'order');
-                } else {
-                    Yii::debug('Расцветка Арт.' . $orderItem->diversity->article . ' ' . $orderItem->diversity->count . ' -> ' . ($orderItem->diversity->count-$orderItem->quantity) . 'шт', 'order');
-                }
-                $product->minusCount($orderItem->quantity, $position->diversity_id);
+                $product->minusCount($orderItem->quantity, $order->id, $position->diversity_id);
             }
         }
         $transaction->commit();

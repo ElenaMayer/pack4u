@@ -89,15 +89,9 @@ class OrderController extends Controller
                 $orderItem->product_id = $post['product_id'];
                 $orderItem->quantity = $post['quantity'];
                 $orderItem->diversity_id = $post['diversity_id'];
-
-                if(!$orderItem->diversity_id) {
-                    Yii::debug('Заказ #' . $id . ' добавлен Арт.' . $product->article . ' ' . $product->count . ' -> ' . ($product->count-$post['quantity']) . 'шт', 'order');
-                } else {
-                    Yii::debug('Заказ #' . $id . ' добавлен (расц) Арт.' . $orderItem->diversity->article . ' ' . $orderItem->diversity->count . ' -> ' . ($orderItem->diversity->count-$post['quantity']) . 'шт', 'order');
-                }
             }
             if ($orderItem->save()) {
-                $product->minusCount($post['quantity'], $orderItem->diversity_id);
+                $product->minusCount($post['quantity'], $id, $orderItem->diversity_id);
             }
         }
 
@@ -164,17 +158,9 @@ class OrderController extends Controller
     public function actionDelete_item($id)
     {
         $model = OrderItem::findOne($id);
-
-        $product = Product::findOne($model->product_id);
-        if(!$model->diversity_id){
-            Yii::debug('Заказ #' . $model->order_id . ' удален Арт.' . $product->article . ' ' . $product->count . ' -> ' . ($product->count+$model->quantity) . 'шт', 'order');
-        } else {
-            Yii::debug('Заказ #' . $model->order_id . ' удален (расц) Арт.' . $model->diversity->article . ' ' . $model->diversity->count . ' -> ' . ($model->diversity->count+$model->quantity) . 'шт', 'order');
-        }
-
         $product = Product::findOne($model->product_id);
         if($product)
-            $product->plusCount($model->quantity, $model->diversity_id);
+            $product->plusCount($model->quantity, $model->order_id, $model->diversity_id);
         $model->delete();
         return $this->redirect(['view', 'id' => $model->order_id]);
     }
@@ -186,19 +172,10 @@ class OrderController extends Controller
         if($product && $model->$field != $value){
             if($field == 'quantity') {
                 $model->price = $product->getPrice($value, true, $model->diversity_id);
-
-                if(!$model->diversity_id){
-                    $newProductCount = ($model->quantity > $value) ? $product->count-($value-$model->quantity) : $product->count+($model->quantity - $value);
-                    Yii::debug('Заказ #' . $model->order_id . ' изменен Арт.' . $product->article . ' ' . $product->count . ' -> ' . $newProductCount . 'шт', 'order');
-                } else {
-                    $newProductCount = ($model->quantity > $value) ? $model->diversity->count - ($value - $model->quantity) : $model->diversity->count + ($model->quantity - $value);
-                    Yii::debug('Заказ #' . $model->order_id . ' изменен (расц) Арт.' . $model->diversity->article . ' ' . $model->diversity->count . ' -> ' . $newProductCount . 'шт', 'order');
-                }
-
                 if ($model->quantity > $value)
-                    $product->minusCount($value - $model->quantity, $model->diversity_id);
+                    $product->minusCount($value - $model->quantity, $model->order_id, $model->diversity_id);
                 else
-                    $product->plusCount($model->quantity - $value, $model->diversity_id);
+                    $product->plusCount($model->quantity - $value, $model->order_id, $model->diversity_id);
             }
         }
         $model->$field = $value;

@@ -7,14 +7,13 @@ use Yii;
 
 class Cdek
 {
-    private $url = 'https://api.edu.cdek.ru/v2/';
 
     private function auth()
     {
         $client = new Client();
         $response = $client->createRequest()
             ->setMethod('post')
-            ->setUrl($this->url . 'oauth/token?parameters')
+            ->setUrl(Yii::$app->params['cdek_url'] . 'oauth/token?parameters')
             ->setData([
                 'grant_type' => 'client_credentials',
                 'client_id' => Yii::$app->params['cdek_client_id'],
@@ -32,7 +31,7 @@ class Cdek
         $client = new Client();
         $response = $client->createRequest()
             ->setMethod('get')
-            ->setUrl($this->url . $method)
+            ->setUrl(Yii::$app->params['cdek_url'] . $method)
             ->setData($data)
             ->setHeaders(['Authorization' => 'Bearer '.$auth['access_token']])
             ->send();

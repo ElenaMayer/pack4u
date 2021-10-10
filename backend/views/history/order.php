@@ -28,50 +28,45 @@ $this->params['breadcrumbs'][] = 'История товаров';
         'dataProvider' => $dataProvider,
         'columns' => [
             [
-                'attribute'=>'title',
-                'value' => function ($model) {
-                    return $model->getTitleStr();
-                },
-            ],
-            [
-                'attribute'=>'Название',
-                'value' => function ($model) {
-                if($model->diversity_id)
-                    return $model->diversity->title;
-                else
-                    return $model->product->title;
-                },
-            ],
-            [
-                'attribute'=>'Автор',
-                'value' => function ($model) {
-                    if($model->user_id)
-                        return $model->user->fio;
-                    else
-                        return '-';
-                },
-            ],
-            [
                 'format' => 'html',
-                'attribute'=>'Заказ',
+                'attribute'=>'order_id',
                 'value' => function ($model) {
-                    if($model->order_id)
-                        return Html::a($model->order_id, Url::to(['/order/view', 'id' => $model->order_id]));
-                    else
-                        return '-';
+                    return Html::a($model->order_id, Url::to(['/order/view', 'id' => $model->order_id]));
                 },
             ],
-            'count_old',
-            'count_new',
             [
-                'attribute'=>'Изменение',
+                'attribute'=>'Статус',
                 'value' => function ($model) {
-                    $difference = $model->count_new - $model->count_old;
-                    $sign = $difference > 0 ? '+' : '';
-                    return $sign . $difference;
+                    return $model->order->getStatuses()[$model->order->status];
                 },
             ],
-            'created_at',
+            [
+                'attribute'=>'Заказчик',
+                'value' => function ($model) {
+                    return $model->order->fio;
+                },
+            ],
+            'title',
+            'quantity',
+            [
+                'attribute'=> 'price',
+                'value' => function ($model) {
+                    return (int)$model->price;
+                },
+            ],
+            [
+                'attribute'=>'Сумма',
+                'value' => function ($model) {
+                    return $model->price * $model->quantity;
+                },
+            ],
+            [
+                'attribute'=>'Дата',
+                'format' => 'datetime',
+                'value' => function ($model) {
+                    return $model->order->created_at;
+                },
+            ],
         ],
     ]); ?>
 

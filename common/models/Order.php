@@ -130,32 +130,12 @@ class Order extends \yii\db\ActiveRecord
                 if($this->status != $oldAttributes['status']) {
                     if($this->status != $oldAttributes['status']) {
                         if($this->status == self::STATUS_CANCELED) {
-
-                            Yii::debug('Отменен заказ #' . $this->id . ' ->', 'order');
-
                             foreach ($this->orderItems as $item){
-
-                                if(!$item->diversity_id){
-                                    Yii::debug( 'Арт.' . $item->product->article . ' ' . $item->product->count . ' -> ' . ($item->product->count+$item->quantity) . 'шт', 'order');
-                                } else {
-                                    Yii::debug('Расцветка Арт.' . $item->diversity->article . ' ' . $item->diversity->count . ' -> ' . ($item->diversity->count+$item->quantity) . 'шт', 'order');
-                                }
-
-                                $item->product->plusCount($item->quantity, $item->diversity_id);
+                                $item->product->plusCount($item->quantity, $this->id, $item->diversity_id);
                             }
                         } elseif($oldAttributes['status'] == self::STATUS_CANCELED){
-
-                            Yii::debug('Открыт отмененный заказ #' . $this->id . ' ->', 'order');
-
                             foreach ($this->orderItems as $item){
-
-                                if(!$item->diversity_id){
-                                    Yii::debug( 'Арт.' . $item->product->article . ' ' . $item->product->count . ' -> ' . ($item->product->count-$item->quantity) . 'шт', 'order');
-                                } else {
-                                    Yii::debug('Расцветка Арт.' . $item->diversity->article . ' ' . $item->diversity->count . ' -> ' . ($item->diversity->count-$item->quantity) . 'шт', 'order');
-                                }
-
-                                $item->product->minusCount($item->quantity, $item->diversity_id);
+                                $item->product->minusCount($item->quantity, $this->id, $item->diversity_id);
                             }
                         }
                     }
@@ -307,7 +287,7 @@ class Order extends \yii\db\ActiveRecord
 
         foreach ($this->orderItems as $item) {
             $product = Product::findOne($item->product_id);
-            $product->plusCount($item->quantity, $item->diversity_id);
+            $product->plusCount($item->quantity, $this->id, $item->diversity_id);
         }
 
         return true;
@@ -412,8 +392,6 @@ class Order extends \yii\db\ActiveRecord
                 $location = $cookies->getValue('location');
                 if ($location == 'Новосибирск') {
                     return Yii::$app->params['shippingCostNsk'];
-                } elseif(in_array($location, Yii::$app->params['shippingZones'][1]['cities']) || in_array($location, Yii::$app->params['shippingZones'][2]['cities'])) {
-                    $shippingMethods = Order::getShippingMethodsZone1();
                 } else {
                     $zones = Yii::$app->params['shippingZones'];
                     foreach ($zones as $zone) {
@@ -445,6 +423,6 @@ class Order extends \yii\db\ActiveRecord
     }
 
     public function getNormalPhone(){
-        return '7' . substr($this->phone, -10);
+        return '7' . substr(trim($this->phone), -10);
     }
 }
