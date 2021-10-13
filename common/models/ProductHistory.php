@@ -25,9 +25,13 @@ namespace common\models;
 class ProductHistory extends \yii\db\ActiveRecord
 {
     public $titles = [
-      'add' => 'Добавление',
-      'edit' => 'Редактирование',
-      'order' => 'Заказ',
+        'add' => 'Добавление',
+        'edit' => 'Редактирование',
+        'order' => 'Заказ',
+        'cancel_order' => 'Отмена заказа',
+        'delete_order' => 'Удаление заказа',
+        'add_to_order' => 'Добавление в заказ',
+        'delete_from_order' => 'Удаление из заказа',
     ];
 
     /**

@@ -91,7 +91,7 @@ class OrderController extends Controller
                 $orderItem->diversity_id = $post['diversity_id'];
             }
             if ($orderItem->save()) {
-                $product->minusCount($post['quantity'], $id, $orderItem->diversity_id);
+                $product->minusCount($post['quantity'], $id, 'add_to_order', $orderItem->diversity_id);
             }
         }
 
@@ -160,7 +160,7 @@ class OrderController extends Controller
         $model = OrderItem::findOne($id);
         $product = Product::findOne($model->product_id);
         if($product)
-            $product->plusCount($model->quantity, $model->order_id, $model->diversity_id);
+            $product->plusCount($model->quantity, $model->order_id, 'delete_from_order', $model->diversity_id);
         $model->delete();
         return $this->redirect(['view', 'id' => $model->order_id]);
     }
@@ -173,9 +173,9 @@ class OrderController extends Controller
             if($field == 'quantity') {
                 $model->price = $product->getPrice($value, true, $model->diversity_id);
                 if ($model->quantity > $value)
-                    $product->minusCount($value - $model->quantity, $model->order_id, $model->diversity_id);
+                    $product->minusCount($value - $model->quantity, $model->order_id, 'edit_order', $model->diversity_id);
                 else
-                    $product->plusCount($model->quantity - $value, $model->order_id, $model->diversity_id);
+                    $product->plusCount($model->quantity - $value, $model->order_id, 'edit_order', $model->diversity_id);
             }
         }
         $model->$field = $value;

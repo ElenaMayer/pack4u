@@ -376,14 +376,14 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
         $this->relationsArr = ArrayHelper::map($this->relations, 'id', 'child_id');
     }
 
-    public function minusCount($count, $orderId, $diversityId = null){
+    public function minusCount($count, $orderId, $type, $diversityId = null){
         if($diversityId){
             $diversity = ProductDiversity::findOne($diversityId);
             if($diversity) {
                 $countOld = $diversity->count;
                 $diversity->count -= $count;
                 if($diversity->save(false)){
-                    $this->saveHistory($orderId, $countOld, $diversity->count, $diversityId);
+                    $this->saveHistory($type, $orderId, $countOld, $diversity->count, $diversityId);
                 };
                 if ($diversity->count <= 0) {
                     $activeDiv = 0;
@@ -406,20 +406,20 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
                 $this->is_in_stock = 0;
             }
             if($this->save(false)){
-                $this->saveHistory($orderId, $countOld, $this->count);
+                $this->saveHistory($type, $orderId, $countOld, $this->count);
             };
 
         }
     }
 
-    public function plusCount($count, $orderId, $diversityId = null){
+    public function plusCount($count, $orderId, $type, $diversityId = null){
         if($diversityId){
             $diversity = ProductDiversity::findOne($diversityId);
             if($diversity) {
                 $countOld = $diversity->count;
                 $diversity->count += $count;
                 if($diversity->save(false)){
-                    $this->saveHistory($orderId, $countOld, $diversity->count, $diversityId);
+                    $this->saveHistory($type, $orderId, $countOld, $diversity->count, $diversityId);
                 };
                 if ($diversity->count > 0 && $this->is_in_stock == 0) {
                     $this->is_in_stock = 1;
@@ -433,14 +433,14 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
                 $this->is_in_stock = 1;
             }
             if($this->save(false)){
-                $this->saveHistory($orderId, $countOld, $this->count);
+                $this->saveHistory($type, $orderId, $countOld, $this->count);
             };
         }
     }
 
-    private function saveHistory($orderId, $countOld, $countNew, $diversityId = null){
+    private function saveHistory($type, $orderId, $countOld, $countNew, $diversityId = null){
         $history = new ProductHistory();
-        $history->title = 'order';
+        $history->title = $type;
         $history->product_id = $this->id;
         $history->order_id = $orderId;
         $history->count_old = $countOld;

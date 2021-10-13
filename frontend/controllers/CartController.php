@@ -219,7 +219,7 @@ class CartController extends \yii\web\Controller
                 $orderItem->product_id = $product->id;
                 $orderItem->quantity = $qty;
                 $orderItem->save(false);
-                $product->minusCount($orderItem->quantity, $order->id, $position->diversity_id);
+                $product->minusCount($orderItem->quantity, $order->id, 'order', $position->diversity_id);
             }
         }
         $transaction->commit();

@@ -131,11 +131,11 @@ class Order extends \yii\db\ActiveRecord
                     if($this->status != $oldAttributes['status']) {
                         if($this->status == self::STATUS_CANCELED) {
                             foreach ($this->orderItems as $item){
-                                $item->product->plusCount($item->quantity, $this->id, $item->diversity_id);
+                                $item->product->plusCount($item->quantity, $this->id, 'cancel_order', $item->diversity_id);
                             }
                         } elseif($oldAttributes['status'] == self::STATUS_CANCELED){
                             foreach ($this->orderItems as $item){
-                                $item->product->minusCount($item->quantity, $this->id, $item->diversity_id);
+                                $item->product->minusCount($item->quantity, $this->id, 'order', $item->diversity_id);
                             }
                         }
                     }
@@ -287,7 +287,7 @@ class Order extends \yii\db\ActiveRecord
 
         foreach ($this->orderItems as $item) {
             $product = Product::findOne($item->product_id);
-            $product->plusCount($item->quantity, $this->id, $item->diversity_id);
+            $product->plusCount($item->quantity, $this->id, 'delete_order', $item->diversity_id);
         }
 
         return true;
