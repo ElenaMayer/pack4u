@@ -251,7 +251,7 @@ class ProductController extends Controller
         $history->count_old = $countOld;
         $history->count_new = $countNew;
         $history->user_id = Yii::$app->user->id;
-        if(!$model->diversity) {
+        if($model->diversity) {
             $history->diversity_id = $diversityId;
         }
         $history->save();

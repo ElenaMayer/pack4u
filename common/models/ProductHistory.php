@@ -28,6 +28,7 @@ class ProductHistory extends \yii\db\ActiveRecord
         'add' => 'Добавление',
         'edit' => 'Редактирование',
         'order' => 'Заказ',
+        'edit_order' => 'Редактирование заказа',
         'cancel_order' => 'Отмена заказа',
         'delete_order' => 'Удаление заказа',
         'add_to_order' => 'Добавление в заказ',

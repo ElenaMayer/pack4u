@@ -707,7 +707,8 @@ $(document).ready(function() {
 
     $(document.body).on('click', '.geo_city_const' ,function() {
         city = $(this).text();
-        change_location(city);
+        zip = $(this).data('zip');
+        change_location(city, zip);
     });
 
     $(document.body).on('click', '#geo_city_button' ,function() {
