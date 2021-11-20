@@ -187,7 +187,7 @@ class Order extends \yii\db\ActiveRecord
     public static function getShippingMethodsNsk()
     {
         return [
-            //'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
+            'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
             'tk' => 'ТК СДЭК',
             //'courier' => 'Курьер до адреса',
         ];
@@ -387,7 +387,9 @@ class Order extends \yii\db\ActiveRecord
         if ($total >= Yii::$app->params['freeShippingSum']) {
             return 0;
         } else {
-            if ($shippingMethod == 'tk' || $shippingMethod == 'rp') {
+            if ($shippingMethod == 'self') {
+                return 0;
+            } elseif ($shippingMethod == 'tk' || $shippingMethod == 'rp') {
                 $cookies = Yii::$app->request->cookies;
                 $location = $cookies->getValue('location');
                 if ($location == 'Новосибирск') {
@@ -423,6 +425,6 @@ class Order extends \yii\db\ActiveRecord
     }
 
     public function getNormalPhone(){
-        return '7' . substr(trim($this->phone), -10);
+        return '7' . substr(str_replace([' ', '(', ')', '-'], '', $this->phone), -10);
     }
 }

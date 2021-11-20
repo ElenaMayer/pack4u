@@ -258,7 +258,7 @@ $location = $cookies->getValue('location');
                             <!--Самовывозы-->
                             <p class="widget-title">Время обработки <br>заказов</p>
                             <ul class="noo-happyhours">
-                                <?php foreach (Yii::$app->params['pickup_time'] as $time):?>
+                                <?php foreach (Yii::$app->params['work_time'] as $time):?>
                                     <li>
                                         <div><?= $time?></div>
                                     </li>
@@ -286,12 +286,12 @@ $location = $cookies->getValue('location');
         <input id="geo_city" name="city" type="text" placeholder="Введите город ..." class="form-control dark"/>
         <div class="geo_cities_list">
             <div class="col-md-6 col-sm-6">
-                <?php for($i = 0; $i <= $citiesCount/2; $i++){
+                <?php for($i = 0; $i < $citiesCount/2; $i++){
                     echo "<div><a class='geo_city_const link' data-zip='".$cities[$i]['zip']."'>".$cities[$i]['title']."</a></div>";
                 }?>
             </div>
             <div class="col-md-6 col-sm-6">
-                <?php for($i = $citiesCount/2+1; $i < $citiesCount; $i++){
+                <?php for($i = $citiesCount/2; $i < $citiesCount; $i++){
                     echo "<div><a class='geo_city_const link' data-zip='".$cities[$i]['zip']."'>".$cities[$i]['title']."</a></div>";
                 }?>
             </div>

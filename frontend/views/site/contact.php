@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <!--Самовывозы-->
                                 <span>Время обработки заказов:</span>
                             </li>
-                            <?php foreach (Yii::$app->params['pickup_time'] as $time):?>
+                            <?php foreach (Yii::$app->params['work_time'] as $time):?>
                                 <li>
                                     <i class="fa fa-clock-o"> </i>
                                     <span><?= $time?></span>

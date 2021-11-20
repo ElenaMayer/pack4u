@@ -119,10 +119,10 @@ $(document).ready(function() {
         shipping_method = $(this).children("option:selected").val();
 
         if(shipping_method == 'self') {
-            $('#order-payment_method').append($('<option>', {
-                value: 'cash',
-                text: 'Наличными при получении'
-            }));
+            // $('#order-payment_method').append($('<option>', {
+            //     value: 'cash',
+            //     text: 'Наличными при получении'
+            // }));
             $('.shipping_methods .self').show();
         } else {
             // $('#order-payment_method').children("option[value='cash']").remove();
