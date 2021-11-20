@@ -237,7 +237,7 @@ $location = $cookies->getValue('location');
                         <div class="widget widget_flickr">
                             <h4 class="widget-title">Мы в Instagram</h4>
 <!--                            <div id='instafeed'></div>-->
-                            <div><a href="<?= Yii::$app->params['linkInstagram'] ?>">pach4u.ru</a></div>
+                            <div><a href="<?= Yii::$app->params['linkInstagram'] ?>">pack4u.ru</a></div>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 item-footer-four">
