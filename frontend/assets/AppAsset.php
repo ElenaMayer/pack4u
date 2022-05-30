@@ -32,7 +32,7 @@ class AppAsset extends AssetBundle
         "js/swiper.min.js",
         'js/owl.carousel.min.js?1',
         'js/custom.js?84',
-        'js/instafeed.min.js',
+        //'js/instafeed.min.js',
         'js/jquery.suggestions.min.js',
 
     ];

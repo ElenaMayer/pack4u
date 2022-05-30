@@ -3,7 +3,7 @@
 namespace common\models;
 
 use Yii;
-use YandexCheckout\Client;
+use YooKassa\Client;
 
 class Payment extends Client
 {

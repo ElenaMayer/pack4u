@@ -47,7 +47,7 @@ $location = $cookies->getValue('location');
                 <div class="container">
                     <ul>
                         <li class = 'geo_modal'>
-                            <a class="link" onclick="$('#w1').modal()"><i class="fa fa-map-marker"></i> <span><?=$location?></span></a>
+                            <a class="link" onclick="$('#geo_city_modal').modal()"><i class="fa fa-map-marker"></i> <span><?=$location?></span></a>
                         </li>
                         <li>
                             <a href="tel:<?= Yii::$app->params['phone1'] ?>"><i class="fa fa-phone"></i><?= Yii::$app->params['phone1'] ?></a>

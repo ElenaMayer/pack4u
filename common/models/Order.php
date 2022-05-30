@@ -187,7 +187,7 @@ class Order extends \yii\db\ActiveRecord
     public static function getShippingMethodsNsk()
     {
         return [
-            'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
+            //'self' => "Самовывоз (" . Yii::$app->params['address'] . ")",
             'tk' => 'ТК СДЭК',
             //'courier' => 'Курьер до адреса',
         ];
@@ -212,7 +212,7 @@ class Order extends \yii\db\ActiveRecord
             'account' => 'Оплата по счету',
             //'cash' => 'Наличными при получении',
             'online' => 'Банковской картой онлайн (комиссия 0%)',
-            'card' => 'Переводом на карту',
+            //'card' => 'Переводом на карту',
         ];
     }
 

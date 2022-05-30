@@ -25,8 +25,8 @@ class GeoBehavior extends Behavior
             $zipcode = 0;
             $dadata = new Dadata(Yii::$app->params['dadata_key']);
             $dadata->init();
-//            $result = $dadata->iplocate('37.192.125.53');
-            $result = $dadata->iplocate($_SERVER['REMOTE_ADDR']);
+            $result = $dadata->iplocate('37.192.125.53');
+//            $result = $dadata->iplocate($_SERVER['REMOTE_ADDR']);
             if (!empty($result['location'])){
                 if(isset($result['location']['data']['city'])) {
                     $location = $result['location']['data']['city'];

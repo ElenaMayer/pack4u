@@ -746,7 +746,7 @@ $(document).ready(function() {
         revSlider_3();
     }
 
-    var userFeed = new Instafeed({
+    /*var userFeed = new Instafeed({
         get: 'user',
         userId: '6706865954',
         clientId: '5240196a48394517bde1696155cb28c1',
@@ -757,7 +757,7 @@ $(document).ready(function() {
         links: false
     });
 
-    userFeed.run();
+    userFeed.run();*/
 
 });
 
