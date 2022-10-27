@@ -338,5 +338,13 @@ class CartController extends \yii\web\Controller
         return false;
     }
 
+    public function actionPayment($orderId){
+        $order = Order::findOne($orderId);
+        if(!$order){
+            return $this->redirect(['site/error']);
+        }
+        return $this->redirect($order->payment());
+    }
+
 }
 

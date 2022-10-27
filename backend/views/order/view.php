@@ -98,7 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'format' => 'html',
             'value' => function ($model) {
                 if ($model->payment_method == 'online' && $model->payment != 'succeeded')
-                    return '<a class="get_payment_url" href="#">Получить ссылку</a>';
+                    return '<a class="js-copy-text">' . Yii::$app->params['frontendUrl'] . "/payment/$model->id</a>";
                 else
                     return '';
             },

@@ -59,6 +59,7 @@ return [
                 'search' => 'site/search',
                 'instruction' => 'site/instruction',
                 'instruction/<id>' => 'site/instruction_item',
+                'payment/<orderId:\d+>' => 'cart/payment',
             ],
         ],
         'view' => [

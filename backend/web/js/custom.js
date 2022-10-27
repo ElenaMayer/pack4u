@@ -84,6 +84,15 @@ $(document).ready(function() {
             },
         });
     });
+
+    $(document.body).on('click', '.js-copy-text', function(){
+        var temp = $("<textarea>");
+        $("body").append(temp);
+        temp.val($(this).text());
+        temp.select();
+        document.execCommand("copy");
+        temp.remove();
+    });
 });
 
 function removeImage(e) {
