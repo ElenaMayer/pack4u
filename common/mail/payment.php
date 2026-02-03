@@ -22,5 +22,5 @@ $timePV = trim(trim($timePV));
                 номер для отслеживания.
             <?php endif;?></li>
     <?php endif;?>
-    <li>Если у Вас возникли вопросы, Вы можете их задать по телефону и Whatsapp <a href="tel:<?= Yii::$app->params['phone2'] ?>"><?= Yii::$app->params['phone2'] ?></a></li>
+    <li>Если у Вас возникли вопросы, Вы можете их задать по телефону и Whatsapp <a href="tel:<?= Yii::$app->params['phone1'] ?>"><?= Yii::$app->params['phone1'] ?></a></li>
 </ul>

@@ -18692,3 +18692,19 @@ only screen and (min-resolution: 2dppx) and (max-width: 480px) {
     }
 
 }
+
+.requisites {
+    margin-top: 30px;
+    border-collapse: collapse;
+    width: 100%;
+}
+.requisites td {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+}
+.requisites td:first-child {
+    font-weight: bold;
+    width: 40%;
+    background-color: #f5f5f5;
+}

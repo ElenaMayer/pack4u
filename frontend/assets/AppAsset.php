@@ -25,15 +25,14 @@ class AppAsset extends AssetBundle
         'css/font-awesome.min.css',
         'css/custom.min.css?3',
         'css/style.css?135',
-//        'css/colors/apple-green.css?12',
     ];
     public $js = [
         'js/off-cavnass.min.js',
         "js/swiper.min.js",
         'js/owl.carousel.min.js?1',
         'js/custom.js?84',
-        //'js/instafeed.min.js',
         'js/jquery.suggestions.min.js',
+        'js/offer.js',
 
     ];
     public $depends = [

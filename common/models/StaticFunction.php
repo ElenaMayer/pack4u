@@ -98,10 +98,16 @@ class StaticFunction
     }
 
     public static function sendEmail($model, $view, $emails, $subject){
-        return Yii::$app->mailer->compose($view, ['order' => $model])
-            ->setTo($emails)
-            ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->params['title']])
-            ->setSubject($subject)
-            ->send();
+        try {
+            $mailer = Yii::$app->mailer->compose($view, ['order' => $model])
+                ->setTo($emails)
+                ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->params['title']])
+                ->setSubject($subject)
+                ->send();
+        } catch (\Exception $e) {
+            Yii::$app->logger->log('/email/', 'Errors: ' . json_encode($e->getMessage()));
+        }
+        return $mailer;
+
     }
 }

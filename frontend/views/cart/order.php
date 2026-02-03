@@ -109,10 +109,29 @@ $zipcode = $cookies->getValue('zipcode');
                             ]); ?>
                         </div>
 
-                        <div class="cart-offer">Нажимая кнопку "<span>Оплатить заказ</span>" Вы соглашаетесь с <a href="/offer">Политикой конфиденциальности</a></div>
+                        <div class="form-group field-offer required">
+                            <input type="checkbox" id="offer-checkbox" name="offer" value="1"
+                                   class="offer-checkbox-input" aria-required="true">
+                            <span class="offer-checkbox-text">
+                                Я принимаю условия
+                                <?= Html::a('публичной оферты', ['/site/offer'], [
+                                        'target' => '_blank',
+                                        'rel' => 'noopener noreferrer',
+                                        'class' => 'offer-link'
+                                ]) ?>
+                                <span class="required-mark" aria-hidden="true">*</span>
+                            </span>
+                            <div id="offer-error" class="help-block help-block-error offer-error"
+                                 role="alert" aria-live="assertive"></div>
+                        </div>
+
                         <div class="wc-proceed-to-checkout">
                             <?= Html::submitButton('Оплатить заказ', [
-                                'class' => 'checkout-button button alt wc-forward']) ?>
+                                'class' => 'checkout-button button alt wc-forward registration-submit-btn',
+                                    'id' => 'register-button',
+                                    'disabled' => true,
+                                    'aria-disabled' => 'true'
+                            ]) ?>
                         </div>
                     </div>
                     <?php ActiveForm::end() ?>

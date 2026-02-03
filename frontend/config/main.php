@@ -87,5 +87,19 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+    'on beforeAction' => function ($event) {
+        if ($event->action->controller->id === 'registration' &&
+            $event->action->id === 'register' &&
+            Yii::$app->request->isPost) {
+
+            $offer = Yii::$app->request->post('offer');
+            if (!$offer || $offer != 1) {
+                Yii::$app->session->setFlash('error',
+                    'Необходимо принять условия оферты');
+                Yii::$app->response->redirect(['/user/registration/register'])->send();
+                exit;
+            }
+        }
+    },
     'params' => $params,
 ];

@@ -38,11 +38,11 @@ $positions = $cart->getPositions();
                             ?>
                             <tr class="cart_item <?php if(!$product->getIsInStock($position->diversity_id)):?>out_of_stock<?php endif;?>">
                                 <td class="product-img">
-                                    <?php if($diversity):?>
+                                    <?php if($diversity && $diversity->image):?>
                                         <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>/<?=$diversity->id?>">
                                             <?= Html::img($diversity->image->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$diversity->title]);?>
                                         </a>
-                                    <?php else:?>
+                                    <?php elseif($product->images[0]):?>
                                         <a href="/catalog/<?= $product->category->slug ?>/<?= $product->id ?>">
                                             <?= Html::img($product->images[0]->getUrl('small'), ['width' => '100', 'height' => '100', 'alt'=>$product->title]);?>
                                         </a>

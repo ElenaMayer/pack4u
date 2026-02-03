@@ -1550,3 +1550,151 @@ header .navbar,
     	clear: left;
 	}
 }
+/* ОФФЕРТА */
+/* Изначально поле оферты без ошибки */
+.field-offer {
+  margin-bottom: 1.5rem;
+  padding: 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Стили только когда есть ошибка */
+.field-offer.has-error {
+  border-color: #dc3545;
+  background-color: #f8f7da; /* более мягкий цвет фона */
+}
+
+.field-offer.has-error .offer-error {
+  display: block;
+}
+
+/* Сообщение об ошибке - скрыто по умолчанию */
+.offer-error {
+  display: none;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: #dc3545;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.offer-error.is-visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Контейнер чекбокса */
+.offer-checkbox-container {
+  margin-bottom: 0;
+}
+
+.offer-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+}
+
+.offer-checkbox-input {
+  margin-right: 10px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.offer-checkbox-text {
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* Ссылка на оферту */
+.offer-link {
+  color: #007bff;
+  text-decoration: none;
+  border-bottom: 1px dotted #007bff;
+  transition: all 0.2s ease;
+}
+
+.offer-link:hover,
+.offer-link:focus {
+  color: #0056b3;
+  border-bottom-style: solid;
+  text-decoration: none;
+}
+
+/* Обязательная отметка */
+.required-mark {
+  color: #dc3545;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+/* Подсказка (всегда видима) */
+.offer-hint {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+/* Кнопка отправки */
+.registration-submit-btn {
+  transition: all 0.3s ease;
+}
+
+.registration-submit-btn:disabled,
+.registration-submit-btn[disabled] {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.registration-submit-btn:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Класс для отключенной кнопки */
+.btn-disabled {
+  opacity: 0.65 !important;
+  cursor: not-allowed !important;
+}
+
+/* Анимация появления ошибки */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Анимация тряски только при явной ошибке валидации */
+.field-offer.has-error.shake-animation {
+  animation: shakeError 0.5s ease;
+}
+
+/* Адаптивность */
+@media (max-width: 576px) {
+  .field-offer {
+    padding: 12px;
+  }
+
+  .offer-checkbox-label {
+    font-size: 0.95rem;
+  }
+}

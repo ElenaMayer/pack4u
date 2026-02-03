@@ -33,10 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span><a href="tel:<?= Yii::$app->params['phone1'] ?>"><?= Yii::$app->params['phone1'] ?></a></span>
                             </li>
                             <li>
-                                <i class="fa fa-phone"> </i>
-                                <span><a href="tel:<?= Yii::$app->params['phone2'] ?>"><?= Yii::$app->params['phone2'] ?></a></span>
-                            </li>
-                            <li>
                                 <!--Самовывозы-->
                                 <span>Время обработки заказов:</span>
                             </li>

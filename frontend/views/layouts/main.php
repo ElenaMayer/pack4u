@@ -55,7 +55,6 @@ $location = $cookies->getValue('location');
                         <li>
                             <div class="noo_social">
                                 <div class="social-all">
-                                    <a href="<?= Yii::$app->params['linkInstagram'] ?>" class="fa fa-instagram"></a>
                                     <a href="<?= Yii::$app->params['linkVk'] ?>" class="fa fa-vk"></a>
                                     <a href="<?= Yii::$app->params['linkFacebook'] ?>" class="fa fa-facebook"></a>
                                 </div>
@@ -193,7 +192,7 @@ $location = $cookies->getValue('location');
         <footer class="wrap-footer footer-2 colophon wigetized">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6 item-footer-four">
+                    <div class="col-md-5 col-sm-6 item-footer-four">
                         <div class="widget widget_about">
                             <div class="noo_about_widget">
                                 <a href="/">
@@ -205,7 +204,6 @@ $location = $cookies->getValue('location');
                         <div class="widget widget_noo_social">
                             <div class="noo_social">
                                 <div class="social-all">
-                                    <a href="<?= Yii::$app->params['linkInstagram'] ?>" class="fa fa-instagram"></a>
                                     <a href="<?= Yii::$app->params['linkVk'] ?>" class="fa fa-vk"></a>
                                     <a href="<?= Yii::$app->params['linkFacebook'] ?>" class="fa fa-facebook"></a>
                                 </div>
@@ -220,7 +218,7 @@ $location = $cookies->getValue('location');
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6 item-footer-four">
+                    <div class="col-md-3 col-sm-6 item-footer-four">
                         <div class="widget widget_text">
                             <h4 class="widget-title">Помощь</h4>
                             <div class="textwidget">
@@ -233,14 +231,7 @@ $location = $cookies->getValue('location');
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 item-footer-four">
-                        <div class="widget widget_flickr">
-                            <h4 class="widget-title">Мы в Instagram</h4>
-<!--                            <div id='instafeed'></div>-->
-                            <div><a href="<?= Yii::$app->params['linkInstagram'] ?>">pack4u.ru</a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 item-footer-four">
+                    <div class="col-md-4 col-sm-6 item-footer-four">
                         <div class="widget widget_noo_openhours">
                             <h4 class="widget-title">Контакты</h4>
                             <ul class="noo-openhours">
