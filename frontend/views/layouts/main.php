@@ -56,7 +56,6 @@ $location = $cookies->getValue('location');
                             <div class="noo_social">
                                 <div class="social-all">
                                     <a href="<?= Yii::$app->params['linkVk'] ?>" class="fa fa-vk"></a>
-                                    <a href="<?= Yii::$app->params['linkFacebook'] ?>" class="fa fa-facebook"></a>
                                 </div>
                             </div>
                         </li>
@@ -205,7 +204,6 @@ $location = $cookies->getValue('location');
                             <div class="noo_social">
                                 <div class="social-all">
                                     <a href="<?= Yii::$app->params['linkVk'] ?>" class="fa fa-vk"></a>
-                                    <a href="<?= Yii::$app->params['linkFacebook'] ?>" class="fa fa-facebook"></a>
                                 </div>
                             </div>
                         </div>

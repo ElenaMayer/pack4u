@@ -256,7 +256,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td>540726120339</td>
                     </tr>
                     <tr>
-                        <td>ОГРН</td>
+                        <td>ОГРНИП</td>
                         <td>320547600116684</td>
                     </tr>
                     <tr>

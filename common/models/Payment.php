@@ -61,8 +61,7 @@ class Payment extends Client
             ];
         }
 
-        $this->auth();
-        return $this->createPayment([
+        $params = [
             'amount' => [
                 'value' => $order->getCost(),
                 'currency' => 'RUB',
@@ -82,9 +81,15 @@ class Payment extends Client
             ],
             'capture' => true,
             'description' => "Заказ №$order->id",
-        ],
-            uniqid('', true)
-        );
+        ];
+        try {
+            $this->auth();
+            $result = $this->createPayment($params, uniqid('', true));
+        } catch (\Exception $e) {
+            Yii::$app->logger->log('/payment/', json_encode([$e->getMessage()]));
+        }
+
+        return $result;
     }
 
     public function checkPayment($id){

@@ -49,34 +49,34 @@ $zipcode = $cookies->getValue('zipcode');
                     <?= $form->field($order, 'ul_requisites')->textInput(['class' => 'form-control dark order-address']); ?>
                 </div>
 
-                <div class="select_location">Город доставки <a class="link" onclick="$('#geo_city_modal').modal()"><span><?=$location?></span> <i class="fa fa-angle-down"></i></a></div>
-
-                <?= $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethod(), ['options' => [$shippingMethod => ['selected' => true]]])->label(false); ?>
-
-                <?= $form->field($order, 'shipping_cost')->hiddenInput(['class' => 'form-control dark'])->label(false); ?>
-
-                <div class="shipping_methods">
-                    <div class="self" style="display: none">
-                        <?= $form->field($order, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time'], ['prompt'=>'Выберите время...']); ?>
-                    </div>
-                    <div class="order-address" style="display: none">
-                        <?= $form->field($order, 'address')->textInput(['placeholder' => 'ул.Ленина д.1 кв.1', 'class' => 'form-control dark order-address']); ?>
-                    </div>
-                    <div class="tk">
-                        <?php if($zipcode == 0):?>
-                            <?= $form->field($order, 'city')->textInput(['class' => 'form-control dark'])->label('Пункт выдачи'); ?>
-                        <?php else:?>
-                            <?= $form->field($order, 'city')->label('Пункт выдачи')->widget(Select2::classname(), [
-                                'options' => [
-                                    'multiple' => false,
-                                    'placeholder' => 'Выберите пункт выдачи ...',
-                                ],
-                                'data' => Yii::$app->cdek->getPvz($zipcode),
-                            ]) ?>
-                        <?php endif;?>
-                    </div>
-                    <input type="hidden" id="order_weight" value="<?= $order->getWeight() ?>">
-                </div>
+<!--                <div class="select_location">Город доставки <a class="link" onclick="$('#geo_city_modal').modal()"><span>--><?php //=$location?><!--</span> <i class="fa fa-angle-down"></i></a></div>-->
+<!---->
+<!--                --><?php //= $form->field($order, 'shipping_method')->dropDownList(Order::getShippingMethod(), ['options' => [$shippingMethod => ['selected' => true]]])->label(false); ?>
+<!---->
+<!--                --><?php //= $form->field($order, 'shipping_cost')->hiddenInput(['class' => 'form-control dark'])->label(false); ?>
+<!---->
+<!--                <div class="shipping_methods">-->
+<!--                    <div class="self" style="display: none">-->
+<!--                        --><?php //= $form->field($order, 'pickup_time')->dropDownList(Yii::$app->params['pickup_time'], ['prompt'=>'Выберите время...']); ?>
+<!--                    </div>-->
+<!--                    <div class="order-address" style="display: none">-->
+<!--                        --><?php //= $form->field($order, 'address')->textInput(['placeholder' => 'ул.Ленина д.1 кв.1', 'class' => 'form-control dark order-address']); ?>
+<!--                    </div>-->
+<!--                    <div class="tk">-->
+<!--                        --><?php //if($zipcode == 0):?>
+<!--                            --><?php //= $form->field($order, 'city')->textInput(['class' => 'form-control dark'])->label('Пункт выдачи'); ?>
+<!--                        --><?php //else:?>
+<!--                            --><?php //= $form->field($order, 'city')->label('Пункт выдачи')->widget(Select2::classname(), [
+//                                'options' => [
+//                                    'multiple' => false,
+//                                    'placeholder' => 'Выберите пункт выдачи ...',
+//                                ],
+//                                'data' => Yii::$app->cdek->getPvz($zipcode),
+//                            ]) ?>
+<!--                        --><?php //endif;?>
+<!--                    </div>-->
+<!--                    <input type="hidden" id="order_weight" value="--><?php //= $order->getWeight() ?><!--">-->
+<!--                </div>-->
 
                 <?= $form->field($order, 'payment_method')->radioList(Order::getPaymentMethods(), ['class' => 'radio-list']); ?>
             </div>

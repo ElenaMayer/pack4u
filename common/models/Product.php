@@ -124,7 +124,7 @@ class Product extends \yii\db\ActiveRecord implements CartPositionInterface
             'imageFiles' => 'Фото',
             'relationsArr' => 'Связанные товары',
             'sort' => 'Сортировка',
-            'instruction' => 'Youtube инструкция',
+            'instruction' => 'Инструкция',
             'multiprice' => 'Цена от количества',
             'diversity' => 'Расцветки'
         ];
